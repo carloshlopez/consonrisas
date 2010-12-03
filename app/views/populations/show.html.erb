@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%= @population.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @population.description %>
+</p>
+
+<p>
+  <b>Age min:</b>
+  <%= @population.age_min %>
+</p>
+
+<p>
+  <b>Age max:</b>
+  <%= @population.age_max %>
+</p>
+
+
+<%= link_to 'Edit', edit_population_path(@population) %> |
+<%= link_to 'Back', populations_path %>

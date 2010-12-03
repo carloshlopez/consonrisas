@@ -1,0 +1,29 @@
+<h1>Bienvenido</h1>
+<p>
+Únete
+</p>
+<p>
+En este momento hay:
+</p>
+<p>
+<%=@facilitators%> Facilitadores ... <%= link_to 'Verlos', facilitators_path %>
+</p>
+<p>
+<%=@fundations%> Fundaciones ... <%= link_to 'Verlas', fundations_path %>
+</p>
+<p>
+<%=@providers%> Proveedores de Entretenimiento ... <%= link_to 'Verlos', providers_path %>
+</p>
+<% unless member_signed_in?  %>
+  <p>
+    Haz parte de la comunidad ... <%= link_to "Únete", new_member_registration_path %>
+  </p>
+  <p>
+    Si ya haces parte ... <%= link_to "Ingresa", new_member_session_path %>
+  </p>
+<% end %>
+
+
+<p>
+Puedes ver los <%= link_to 'eventos', events_path %> generados por la comunidad
+</p>

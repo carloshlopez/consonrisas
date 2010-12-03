@@ -1,0 +1,25 @@
+<%= form_for([@member, @member.contact_informations.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :cellphone %><br />
+    <%= f.text_field :cellphone %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

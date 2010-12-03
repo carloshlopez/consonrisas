@@ -1,0 +1,23 @@
+<h1>Listing facilitators</h1>
+
+<table>
+  <tr>
+    <th>Contribution</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @facilitators.each do |facilitator| %>
+  <tr>
+    <td><%= facilitator.contribution %></td>
+    <td><%= link_to 'Show', facilitator %></td>
+    <td><%= link_to 'Edit', edit_facilitator_path(facilitator) %></td>
+    <td><%= link_to 'Destroy', facilitator, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Facilitator', new_facilitator_path %>

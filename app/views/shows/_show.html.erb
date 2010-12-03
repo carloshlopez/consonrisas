@@ -1,0 +1,14 @@
+  <p>
+    <b>Name:</b>
+    <%= show.name %>
+  </p>
+
+  <p>
+    <b>Population:</b>
+    <%= population_name(show.population_id) %>
+  </p>
+  <p>
+  <%= link_to 'Destroy Show', [show.provider, show],
+               :confirm => 'Are you sure?, sure?',
+               :method => :delete %>
+  </p>

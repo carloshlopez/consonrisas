@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%= @provider.name %>
+</p>
+
+<h2>Contact information:</h2>
+<% @member =  @provider.member %>
+<%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
+
+<h2>Add contact info:</h2>
+<%= render :partial => "contact_informations/form" %>
+
+<h2>Shows</h2>
+<%= render :partial => "shows/show", :collection=> @provider.shows %>
+
+<h2>Add a show:</h2>
+<%= render :partial => "shows/form" %>
+
+<% if is_current_member_provider? %>
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<% end %>
+<%= link_to 'Back', providers_path %>

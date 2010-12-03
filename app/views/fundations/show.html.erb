@@ -1,0 +1,56 @@
+<p>
+  <b>Name:</b>
+  <%= @fundation.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @fundation.address %>
+</p>
+
+<p>
+  <b>Cellphone:</b>
+  <%= @fundation.cellphone %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @fundation.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @fundation.country %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @fundation.description %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @fundation.phone %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @fundation.website %>
+</p>
+
+  <p>
+    <b>Population:</b>
+    <%= population_name(@fundation.population_id) %>
+  </p>
+
+<h2>Contact information:</h2>
+<% @member =  @fundation.member %>
+<%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
+
+<h2>Add contact info:</h2>
+<%= render :partial => "contact_informations/form" %>
+
+<% if is_current_member_fundation? %>
+  <%= link_to 'Edit', edit_fundation_path(@fundation) %> |
+<% end %>
+<%= link_to 'Back', fundations_path %>

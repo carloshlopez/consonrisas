@@ -1,0 +1,24 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <% if current_member.is_provider? and !current_member.has_provider_info? %>
+      <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

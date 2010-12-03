@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%= @facilitator.name %>
+</p>
+
+<p>
+  <b>Contribution:</b>
+  <%= @facilitator.contribution %>
+</p>
+
+<p>
+  <b>Population interested in:</b>
+    <%= population_name(@facilitator.population_id) %>
+</p>
+
+<% if is_current_member_facilitator? %>
+<%= link_to 'Edit', edit_facilitator_path(@facilitator) %> |
+<% end %>
+<%= link_to 'Back', facilitators_path %>

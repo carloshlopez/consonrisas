@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  costs: MyString
+  description: MyString
+  infrastructure: MyString
+  offering: MyString
+  requirements: MyString
+  provider: 
+
+two:
+  costs: MyString
+  description: MyString
+  infrastructure: MyString
+  offering: MyString
+  requirements: MyString
+  provider: 

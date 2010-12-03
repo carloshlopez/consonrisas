@@ -1,0 +1,35 @@
+<%= form_for(@facilitator) do |f| %>
+  <% if @facilitator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facilitator.errors.count, "error") %> prohibited this facilitator from being saved:</h2>
+
+      <ul>
+      <% @facilitator.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contribution %><br />
+    <%= f.text_area :contribution %>
+    <% if current_member.is_facilitator? and !current_member.has_facilitator_info? %>
+      <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
+    <% end %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :population_id %><br />
+    <%=   select_tag "facilitator[population_id]", options_from_collection_for_select(Population.all, "id", "name") %>
+  </div> 
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

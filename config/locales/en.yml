@@ -1,0 +1,33 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  set_locale: "Set Language"
+  provider: "Provider"
+  fundation: "Fundation"  
+  facilitator: "Facilitator"  
+  show: "Show"
+  account:
+    logout: "Log out"
+    login: "Log in"
+    register: "Register"
+    edit: "Edit my account"
+  messages:
+    delete_confirmation: "Are you sure?"
+  labels:
+    delete_comment: "Delete Comment"
+    comment_by: "Comment made by "
+    comment_on: "on "
+  application:
+    menu_home: "Home"    
+    menu_facilitators: "Facilitators"        
+    menu_providers: "Providers"            
+    menu_fundations: "Fundations"            
+    menu_events: "Events"
+  events:
+    add_me_facilitator: "Add me as facilitator"
+    add_me_fundation: "Add me as fundation"
+    add_me_provider: "Add me as provider"
+    add_facilitator: "Ask a facilitator to join"
+    add_fundation: "Ask a fundation to join"
+    add_provider: "Ask a provider to join"    

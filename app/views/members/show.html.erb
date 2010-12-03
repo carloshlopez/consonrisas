@@ -1,0 +1,19 @@
+<p>
+  <b>Email:</b>
+  <%= @member.email %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= role_name(@member.role_id) %>
+</p>
+
+<h2>Contact information:</h2>
+<%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
+
+<h2>Add contact info:</h2>
+<%= render :partial => "contact_informations/form" %>
+
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%= contact_information.name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%=contact_information.email %>
+</p>
+
+<p>
+  <b>Cellphone:</b>
+  <%= contact_information.cellphone %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= contact_information.phone %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= contact_information.position %>
+</p>
+<p>
+  <%= link_to 'Destroy Contact Info', [contact_information.member, contact_information],
+               :confirm => 'Are you sure?, sure?',
+               :method => :delete %>
+</p>
