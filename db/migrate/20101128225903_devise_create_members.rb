@@ -1,6 +1,8 @@
 class DeviseCreateMembers < ActiveRecord::Migration
   def self.up
-    alter_table(:members) do |t|
+    create_table(:members) do |t|
+      t.string :email
+      t.references :role
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable
