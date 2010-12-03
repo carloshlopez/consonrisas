@@ -3,11 +3,13 @@ class AddMemberRelations < ActiveRecord::Migration
     add_column :providers, :member_id, :integer
     add_column :fundations, :member_id, :integer    
     add_column :facilitators, :member_id, :integer    
+    add_column :members, :role_id, :integer    
   end
 
   def self.down
     remove_column :providers, :member_id
     remove_column :fundations, :member_id    
     remove_column :facilitators, :member_id
+    remove_column :members, :role_id
   end
 end
