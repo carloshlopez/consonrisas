@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_locale
+  before_filter :set_locale, :authenticate_http
   
   private
   
   def authenticate_http
     authenticate_or_request_with_http_basic do |user_name, password|
-      user_name == 'admin' && password == 'admin'
+      user_name == 'usuario123' && password == 'usuario123'
     end
+    warden.custom_failure! if performed?
   end
   
   def set_locale
