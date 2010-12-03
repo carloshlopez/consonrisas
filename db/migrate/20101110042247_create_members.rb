@@ -6,7 +6,7 @@ class CreateMembers < ActiveRecord::Migration
 #      t.references :contact_information
 
 #      t.timestamps
-    end
+#    end
   end
 
   def self.down
