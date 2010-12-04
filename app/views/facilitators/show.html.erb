@@ -13,7 +13,7 @@
     <%= population_name(@facilitator.population_id) %>
 </p>
 
-<% if is_current_member_facilitator? %>
+<% if is_current_member_this_facilitator(@facilitator.id) %>
 <%= link_to 'Edit', edit_facilitator_path(@facilitator) %> |
 <% end %>
 <%= link_to 'Back', facilitators_path %>

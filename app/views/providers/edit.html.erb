@@ -1,6 +1,8 @@
 <h1>Editing provider</h1>
 
+<% if is_current_member_this_provider(@provider.id) %>
 <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Show', @provider %> |
 <%= link_to 'Back', providers_path %>

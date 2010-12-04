@@ -9,6 +9,9 @@
 <body>
 <div id="menu" class="home_menu">
   <a href="/"><%=I18n.t('application.menu_home')%></a>
+  <% if member_signed_in?  %>
+    <%= link_to I18n.t('application.menu_profile'), current_member_profile %>
+  <% end %>
   <a href="/facilitators"><%=I18n.t('application.menu_facilitators')%></a>  
   <a href="/providers"><%=I18n.t('application.menu_providers')%></a>  
   <a href="/fundations"><%=I18n.t('application.menu_fundations')%></a>  

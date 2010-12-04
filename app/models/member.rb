@@ -14,6 +14,8 @@ class Member < ActiveRecord::Base
   has_one :provider
   has_many :comments
   
+  validates_presence_of :role_id
+  
   def is_fundation?
     is_it = false
     is_it = true if role_id == ApplicationHelper::ROLES[:fundation]
@@ -55,5 +57,11 @@ class Member < ActiveRecord::Base
     end
     is_it
   end  
+  
+  def is_current(current_id)
+    is_it = false
+    is_it = true if id == current_id
+    is_it
+  end
   
 end

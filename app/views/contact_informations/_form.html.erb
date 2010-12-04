@@ -19,6 +19,7 @@
     <%= f.label :position %><br />
     <%= f.text_field :position %>
   </div>
+  <input type="hidden" name="current_member_id" value="<%= current_member.id %>"/>
   <div class="actions">
     <%= f.submit %>
   </div>

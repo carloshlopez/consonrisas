@@ -7,8 +7,10 @@
     <b>Population:</b>
     <%= population_name(show.population_id) %>
   </p>
+<% if is_current_member_this_provider(show.provider.id) %>
   <p>
   <%= link_to 'Destroy Show', [show.provider, show],
                :confirm => 'Are you sure?, sure?',
                :method => :delete %>
   </p>
+<% end %>

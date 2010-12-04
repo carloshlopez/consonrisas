@@ -21,6 +21,7 @@ es:
     menu_providers: "Proveedores"            
     menu_fundations: "Fundaciones"            
     menu_events: "Eventos"   
+    menu_profile: "Mi Perfil"    
   events:
     add_me_facilitator: "Agregarme como facilitador"
     add_me_fundation: "Agregarme como fundación"

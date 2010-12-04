@@ -1,6 +1,7 @@
 <h1>Editing facilitator</h1>
-
+<% if is_current_member_this_facilitator(@facilitator.id) %>
 <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Show', @facilitator %> |
 <%= link_to 'Back', facilitators_path %>

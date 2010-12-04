@@ -1,6 +1,7 @@
 <h1>Editing fundation</h1>
-
+<% if is_current_member_this_fundation(@fundation.id) %>
 <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Show', @fundation %> |
 <%= link_to 'Back', fundations_path %>
