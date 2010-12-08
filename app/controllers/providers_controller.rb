@@ -46,7 +46,9 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        format.html { redirect_to(@provider, :notice => 'Provider was successfully created.') }
+#        format.html { redirect_to(@provider, :notice => 'Provider was successfully created.') }
+        format.html { redirect_to(@provider.member, :notice => 'Provider was successfully created.') }
+
         format.xml  { render :xml => @provider, :status => :created, :location => @provider }
       else
         format.html { render :action => "new" }
@@ -75,11 +77,28 @@ class ProvidersController < ApplicationController
   # DELETE /providers/1.xml
   def destroy
     @provider = Provider.find(params[:id])
+    member_id = @provider.member_id
     @provider.destroy
 
     respond_to do |format|
-      format.html { redirect_to(providers_url) }
+      format.html { redirect_to member_url(member_id) }
       format.xml  { head :ok }
     end
   end
+  
+  
+  def add_follower
+    provider = Provider.find(params[:provider_id])
+    facilitator = Facilitator.find(params[:facilitator_id])
+    provider.facilitators.push(facilitator)
+    redirect_to providers_path
+  end
+  
+  def remove_follower
+    provider = Provider.find(params[:provider_id])
+    facilitator = Facilitator.find(params[:facilitator_id])
+    provider.facilitators.delete(facilitator)
+    redirect_to providers_path
+  end  
+  
 end

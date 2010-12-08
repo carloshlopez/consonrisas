@@ -61,7 +61,8 @@ class FacilitatorsController < ApplicationController
 
     respond_to do |format|
       if @facilitator.update_attributes(params[:facilitator])
-        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
+#        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
+        format.html { redirect_to member_path(@facilitator.member) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

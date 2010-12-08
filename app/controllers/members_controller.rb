@@ -43,7 +43,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(params[:member])
     respond_to do |format|
-      if @member.save
+      if @member.save 
         format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
         format.xml  { render :xml => @member, :status => :created, :location => @member }
       else

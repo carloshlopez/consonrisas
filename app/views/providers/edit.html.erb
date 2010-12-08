@@ -1,6 +1,6 @@
-<h1>Editing provider</h1>
+<h1><%= I18n.t('provider.edit_title') %></h1>
 
-<% if is_current_member_this_provider(@provider.id) %>
+<% if can_current_member_edit_provider(@provider.id) %>
 <%= render 'form' %>
 <% end %>
 

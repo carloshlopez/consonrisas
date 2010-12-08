@@ -42,13 +42,17 @@
     <b>Population:</b>
     <%= population_name(@fundation.population_id) %>
   </p>
-<% @member =  @fundation.member %>
+<% 
+  @member =  @fundation 
+  @member_type = ApplicationHelper::ROLES[:fundation]
+
+%>
 <% unless @member.contact_informations.empty? %>
 <h2>Contact information:</h2>
   <%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
 <% end %>
 
-<% if is_current_member_this_fundation(@fundation.id) %>
+<% if member_signed_in? and can_current_member_edit_fundation(@fundation.id) %>
   <h2>Add contact info:</h2>
   <%= render :partial => "contact_informations/form" %>
 

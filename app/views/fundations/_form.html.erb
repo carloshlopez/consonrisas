@@ -12,48 +12,50 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label I18n.t('address') %><br />
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :cellphone %><br />
+    <%= f.label I18n.t('cellphone') %><br />
     <%= f.text_field :cellphone %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label I18n.t('city') %><br />
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :country %><br />
+    <%= f.label I18n.t('country') %><br />
     <%= f.text_field :country %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label I18n.t('description') %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label I18n.t('phone') %><br />
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :website %><br />
+    <%= f.label I18n.t('website') %><br />
     <%= f.text_field :website %>
   </div>
   
   <div class="field">
-    <%= f.label :population %><br />
-    <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name") %>
-    <% if current_member.is_fundation? and !current_member.has_fundation_info? %>
+    <%= f.label I18n.t('population') %><br />
+    <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
+
+  </div>
+  <div class="hiddens">
       <input type="hidden" name="fundation[member_id]" value="<%= current_member.id %>"/>
-    <% end %>    
   </div>
   
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit I18n.t('fundation.create') %>
   </div>
 <% end %>

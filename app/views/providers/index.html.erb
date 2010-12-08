@@ -1,8 +1,8 @@
-<h1>Listing providers</h1>
+<h1><%= I18n.t('provider.list') %></h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th><%= I18n.t('name') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,13 +11,16 @@
 <% @providers.each do |provider| %>
   <tr>
     <td><%= provider.name %></td>
-    <td><%= link_to 'Show', provider %></td>
-    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-    <td><%= link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('go_to_profile'), provider %></td>
+    <td>
+      <% if member_signed_in? %>
+        <% if provider.facilitators.select{|f| f.id == current_member.facilitator.id}.empty? %>
+          <%= link_to I18n.t('follow'), providers_add_follower_path(:facilitator_id=>current_member.facilitator.id, :provider_id=>provider.id) %>
+        <% else %>
+          <%= link_to I18n.t('unfollow'), providers_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :provider_id=>provider.id) %>
+        <% end %>    
+      <% end %>    
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Provider', new_provider_path %>

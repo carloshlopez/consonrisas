@@ -12,24 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t("name") %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :contribution %><br />
+    <%= f.label I18n.t("contribution") %><br />
     <%= f.text_area :contribution %>
-    <% if current_member.is_facilitator? and !current_member.has_facilitator_info? %>
-      <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
-    <% end %>
+    <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
   </div>
   
     <div class="field">
-    <%= f.label :population_id %><br />
-    <%=   select_tag "facilitator[population_id]", options_from_collection_for_select(Population.all, "id", "name") %>
+    <%= f.label I18n.t("profile.population_of_interest") %><br />
+    <%=   select_tag "facilitator[population_id]", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
   </div> 
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit I18n.t("facilitator.submit_edit") %>
   </div>
 <% end %>

@@ -5,65 +5,41 @@ module ApplicationHelper
   'English' => 'en' ,
   "Espa\xc3\xb1ol" => 'es'
   }
-  
-  def is_current_member_fundation?
-    is_it = false
-    is_it = current_member.role_id == ROLES[:fundation] if current_member
-    is_it
-  end
-  def is_current_member_facilitator?
-    is_it = false
-    is_it = current_member.role_id == ROLES[:facilitator] if current_member
-    is_it
-  end
-  def is_current_member_provider?
-    is_it = false
-    is_it = current_member.role_id == ROLES[:provider] if current_member
-    is_it    
+    
+  def can_current_member_edit_fundation(fundation_id)
+    can_he = true
+    can_he = false if current_member.fundations.select{|f| f.id == fundation_id}.empty?
+    can_he
   end
   
-  def is_current_member_this_facilitator(facilitator_id)
-    is_it = false
-    if is_current_member_facilitator?
-      is_it = true if current_member.facilitator.id == facilitator_id
-    end
-    is_it
+  def can_current_member_edit_provider(provider_id)
+    can_he = true
+    can_he = false if current_member.providers.select{|p| p.id == provider_id}.empty?
+    can_he
   end
   
-  def is_current_member_this_fundation(fundation_id)
-    is_it = false
-    if is_current_member_fundation?
-      is_it = true if current_member.fundation.id == fundation_id
-    end
-    is_it
-  end
-  
-  def is_current_member_this_provider(provider_id)
-    is_it = false
-    if is_current_member_provider?
-      is_it = true if current_member.provider.id == provider_id
-    end
-    is_it
-  end
+  def can_current_member_edit_facilitator(facilitator_id)
+    can_he = true
+    can_he = false unless current_member.facilitator and current_member.facilitator.id == facilitator_id
+    can_he
+  end  
   
   def is_current_member_this_member(member_id)
-    is_it = false
-    is_it = true if current_member.id == member_id
-    is_it
+    member_signed_in? and current_member.id == member_id
   end  
-    
-  def current_member_profile
-    if is_current_member_facilitator? and current_member.has_facilitator_info?
-      facilitator_url current_member.facilitator.id 
-    elsif  is_current_member_fundation? and current_member.has_fundation_info?
-      fundation_url current_member.fundation.id
-    elsif is_current_member_provider? and current_member.has_provider_info?
-      provider_url current_member.provider.id
+  
+  def destroy_contact_information(member, contact_information_id, member_type)
+    path = ""
+    if(member_type.to_i == ROLES[:fundation])
+      path = fundation_contact_information_path(member, contact_information_id)
+      path = "#{path}?member_type=#{ROLES[:fundation]}"
+    elsif(member_type.to_i == ROLES[:provider])
+      path = provider_contact_information_path(member, contact_information_id)
+      path = "#{path}?member_type=#{ROLES[:provider]}"
     else
-      root_url
+      path = member_contact_information_path(member, contact_information_id)
+      path = "#{path}?member_type=#{ROLES[:facilitator]}"
     end
-  end
-  
-  
-    
+    path
+  end    
 end

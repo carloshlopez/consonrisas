@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label I18n.t('date_name') %><br />
     <%= f.datetime_select :date %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
   </div>
   <div class="actions">

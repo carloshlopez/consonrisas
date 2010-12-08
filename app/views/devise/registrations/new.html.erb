@@ -12,11 +12,6 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%=   select_tag "member[role_id]", options_from_collection_for_select(Role.all, "id", "name") %>
-  </div>
-
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

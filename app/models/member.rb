@@ -5,17 +5,20 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :contact_informations, :dependent => :destroy 
-  belongs_to :role
   has_one :facilitator
-  has_one :fundation
-  has_one :provider
+  has_many :fundations
+  has_many :providers
   has_many :comments
   
-  validates_presence_of :role_id
+  after_create :create_facilitator
   
+  def create_facilitator
+    @facilitator = Facilitator.create(:member_id => id)
+  end
+    
   def is_fundation?
     is_it = false
     is_it = true if role_id == ApplicationHelper::ROLES[:fundation]

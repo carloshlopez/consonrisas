@@ -6,6 +6,12 @@ Prueba::Application.routes.draw do
   post "events/add_fundation"
   post "events/add_provider"
   post "events/add_show"  
+  
+  get "fundations/add_follower"
+  get "fundations/remove_follower"
+  
+  get "providers/add_follower"
+  get "providers/remove_follower"  
 
   root :to => "home#index"
   
@@ -18,16 +24,19 @@ Prueba::Application.routes.draw do
   resources :roles
 
   resources :members do
-    resources :contact_informations
+#    resources :contact_informations
   end
 
   resources :populations
 
   resources :providers do
     resources :shows
+    resources :contact_informations
   end
 
-  resources :fundations
+  resources :fundations do
+    resources :contact_informations
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

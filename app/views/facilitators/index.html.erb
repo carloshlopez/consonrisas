@@ -1,23 +1,17 @@
-<h1>Listing facilitators</h1>
+<h1><%= I18n.t('facilitator.list') %></h1>
 
 <table>
   <tr>
-    <th>Contribution</th>
-    <th></th>
-    <th></th>
+    <th><%=I18n.t('name')%></th>
     <th></th>
   </tr>
 
 <% @facilitators.each do |facilitator| %>
   <tr>
-    <td><%= facilitator.contribution %></td>
-    <td><%= link_to 'Show', facilitator %></td>
-    <td><%= link_to 'Edit', edit_facilitator_path(facilitator) %></td>
-    <td><%= link_to 'Destroy', facilitator, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= facilitator.name %></td>
+    <td><%= link_to I18n.t('go_to_profile'), member_path(facilitator.member) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Facilitator', new_facilitator_path %>

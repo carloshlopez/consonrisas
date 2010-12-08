@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
-    <% if current_member.is_provider? and !current_member.has_provider_info? %>
-      <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
-    <% end %>
+    <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit I18n.t('provider.create') %>
   </div>
 <% end %>

@@ -6,30 +6,30 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-<div id="menu" class="home_menu">
-  <a href="/"><%=I18n.t('application.menu_home')%></a>
+<body class="application_body">
+<div id="home_menu">
+  <a href="/" class="home"><%=I18n.t('application.menu_home')%></a>
   <% if member_signed_in?  %>
-    <%= link_to I18n.t('application.menu_profile'), current_member_profile %>
+    <%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"home"} %>
   <% end %>
-  <a href="/facilitators"><%=I18n.t('application.menu_facilitators')%></a>  
-  <a href="/providers"><%=I18n.t('application.menu_providers')%></a>  
-  <a href="/fundations"><%=I18n.t('application.menu_fundations')%></a>  
-  <a href="/events"><%=I18n.t('application.menu_events')%></a>    
+  <a href="/facilitators" class="home" ><%=I18n.t('application.menu_facilitators')%></a>  
+  <a href="/providers" class="home"><%=I18n.t('application.menu_providers')%></a>  
+  <a href="/fundations" class="home"><%=I18n.t('application.menu_fundations')%></a>  
+  <a href="/events" class="home"><%=I18n.t('application.menu_events')%></a>    
 </div>
-<div id="members_nav">
+<div class="members_nav">
   <% if member_signed_in?  %>
-    Ingresaste como <%= current_member.email %>. 
+    <%= I18n.t('account.logged_in_as')%>: <%= current_member.email %>
+    <br/>
     <%= link_to I18n.t('account.logout'), destroy_member_session_path %> |
     <%= link_to I18n.t('account.edit'), edit_member_registration_path %>
   <% else %>
-    <%= link_to I18n.t('account.register'), new_member_registration_path %> o 
+    <%= link_to I18n.t('account.register'), new_member_registration_path %> |
     <%= link_to I18n.t('account.login'), new_member_session_path %>
   <% end %>
 </div>
-<div id="locale_menu">
+<div class="locale_menu">
   <form action="" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <%= I18n.t('set_locale') %>:
     <select name="locale">
       <option value="en">English</option>
@@ -39,15 +39,18 @@
         <option value="es">Español</option>
       <% end %>
     </select>
-    <input type="submit" value="Set" name="new_locale"/>
+    <input type="submit" value="Ok" name="new_locale"/>
   </form>
 </div>
-<div id="application_messages">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div class="application_messages">
+  <p id="notice" class="notice"><%= notice %></p>
+  <p id="alert" class="alert"><%= alert %></p>
 </div>
-
+<div class="application_content">
 <%= yield %>
-
+</div>
+<div class="application_footer">
+... BETA ...
+</div>
 </body>
 </html>

@@ -1,9 +1,9 @@
-<h1>Listing events</h1>
+<h1><%= I18n.t('events.list') %></h1>
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Name</th>
+    <th><%= I18n.t('date_name')%></th>
+    <th><%= I18n.t('name') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= event.date %></td>
     <td><%= event.name %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to I18n.t('events.show'), event %></td>
+    <td><%= link_to I18n.t('edit'), edit_event_path(event) %></td>
+    <td><%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to I18n.t('events.new'), new_event_path %>

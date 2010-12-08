@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201035421) do
+ActiveRecord::Schema.define(:version => 20101207053137) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20101201035421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
+    t.integer  "fundation_id"
+    t.integer  "provider_id"
   end
 
   create_table "events", :force => true do |t|
@@ -83,6 +85,11 @@ ActiveRecord::Schema.define(:version => 20101201035421) do
     t.integer  "member_id"
   end
 
+  create_table "fundations_facilitators", :id => false, :force => true do |t|
+    t.integer "fundation_id"
+    t.integer "facilitator_id"
+  end
+
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.integer  "role_id"
@@ -112,12 +119,14 @@ ActiveRecord::Schema.define(:version => 20101201035421) do
   end
 
   create_table "populations", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "name_es"
+    t.text     "description_es"
     t.integer  "age_min"
     t.integer  "age_max"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name_en"
+    t.string   "description_en"
   end
 
   create_table "providers", :force => true do |t|
@@ -125,6 +134,11 @@ ActiveRecord::Schema.define(:version => 20101201035421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
+  end
+
+  create_table "providers_facilitators", :id => false, :force => true do |t|
+    t.integer "provider_id"
+    t.integer "facilitator_id"
   end
 
   create_table "roles", :force => true do |t|

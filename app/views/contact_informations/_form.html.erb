@@ -1,6 +1,6 @@
 <%= form_for([@member, @member.contact_informations.build]) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -8,19 +8,24 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :cellphone %><br />
+    <%= f.label I18n.t('contact_information.cellphone') %><br />
     <%= f.text_field :cellphone %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label I18n.t('contact_information.phone') %><br />
     <%= f.text_field :phone %>
   </div>
+<% if @member_type == ApplicationHelper::ROLES[:fundation] or @member_type == ApplicationHelper::ROLES[:provider] %>  
   <div class="field">
-    <%= f.label :position %><br />
+    <%= f.label I18n.t('contact_information.position') %><br />
     <%= f.text_field :position %>
   </div>
-  <input type="hidden" name="current_member_id" value="<%= current_member.id %>"/>
+<% end %>
+  <div class ="hiddens">
+    <input type="hidden" name="member_id" value="<%= @member.id %>"/>
+    <input type="hidden" name="member_type" value="<%= @member_type %>"/>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit I18n.t('contact_information.add') %>
   </div>
 <% end %>

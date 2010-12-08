@@ -1,16 +1,16 @@
   <p>
-    <b>Name:</b>
+    <b><%= I18n.t('name')%>:</b>
     <%= show.name %>
   </p>
 
   <p>
-    <b>Population:</b>
+    <b><%= I18n.t('show.population') %>:</b>
     <%= population_name(show.population_id) %>
   </p>
-<% if is_current_member_this_provider(show.provider.id) %>
+<% if member_signed_in? and can_current_member_edit_provider(show.provider.id) %>
   <p>
-  <%= link_to 'Destroy Show', [show.provider, show],
-               :confirm => 'Are you sure?, sure?',
+  <%= link_to I18n.t('destroy'), [show.provider, show],
+               :confirm => I18n.t('messages.delete_confirmation'),
                :method => :delete %>
   </p>
 <% end %>

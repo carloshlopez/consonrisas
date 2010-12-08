@@ -1,28 +1,32 @@
 <p>
-  <b>Name:</b>
+  <b><%= I18n.t('name')%>:</b>
   <%= @provider.name %>
 </p>
 
-<% @member = @provider.member %>
+<% 
+  @member = @provider 
+  @member_type = ApplicationHelper::ROLES[:provider]
+%>
 <% unless @member.contact_informations.empty? %>
-  <h2>Contact information:</h2>
+  <h2><%= I18n.t('contact_informations')%>:</h2>
 
   <%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
 <% end %>
 
-<% if is_current_member_this_provider(@provider.id) %>
-  <h2>Add contact info:</h2>
+<% if member_signed_in? and can_current_member_edit_provider(@provider.id) %>
+  <h2><%= I18n.t('contact_information.add')%>:</h2>
   <%= render :partial => "contact_informations/form" %>
 <% end %>
 
-<h2>Shows</h2>
-<%= render :partial => "shows/show", :collection=> @provider.shows %>
+<% unless @provider.shows.empty? %>
+  <h2><%= I18n.t('show.list') %></h2>
+  <%= render :partial => "shows/show", :collection=> @provider.shows %>
+<% end %>
 
-
-<% if is_current_member_this_provider(@provider.id) %>
-  <h2>Add a show:</h2>
+<% if member_signed_in? and can_current_member_edit_provider(@provider.id) %>
+  <h2><%= I18n.t('show.add')%>:</h2>
   <%= render :partial => "shows/form" %>
 
-  <%= link_to 'Edit', edit_provider_path(@provider) %> |
+  <%= link_to I18n.t('edit'), edit_provider_path(@provider) %> |
 <% end %>
-<%= link_to 'Back', providers_path %>
+<%= link_to I18n.t('back'), providers_path %>

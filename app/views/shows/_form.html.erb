@@ -1,38 +1,35 @@
 <%= form_for([@provider, @provider.shows.build]) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label I18n.t('description') %><br />
     <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :costs %><br />
-    <%= f.text_field :costs %>
-  </div>  
-  <div class="field">
-    <%= f.label :infrastructure %><br />
-    <%= f.text_area :infrastructure %>
   </div>
   
   <div class="field">
-    <%= f.label :offering %><br />
+    <%= f.label I18n.t('show.offering') %><br />
     <%= f.text_field :offering %>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t('show.costs') %><br />
+    <%= f.text_field :costs %>
   </div>    
   
   <div class="field">
-    <%= f.label :requirements %><br />
+    <%= f.label I18n.t('show.requirements') %><br />
     <%= f.text_area :requirements %>
   </div>  
   <div class="field">
-    <%= f.label :population_id %><br />
-    <%=   select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name") %>
+    <%= f.label I18n.t('show.population') %><br />
+    <%=   select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
   </div>    
   
 
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit I18n.t('show.create') %>
   </div>
 <% end %>

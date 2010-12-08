@@ -3,17 +3,59 @@
   <%= @member.email %>
 </p>
 
-<p>
-  <b>Role:</b>
-  <%= role_name(@member.role_id) %>
-</p>
+<div class="member_facilitator_info">
+  <% @facilitator = @member.facilitator %>
+  <% if @facilitator.has_complete_info %>
+    <%= render 'facilitators/show'%>    
+  <% else %>
+    <%= render 'facilitators/form'%>
+  <% end %>
+</div>
 
-<h2>Contact information:</h2>
-<%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
+<% unless @member.fundations.empty? %>
+  <p> 
+    <% if is_current_member_this_member(@member.id) %>
+    <%= I18n.t('profile.manage_fundations') %>
+    <% else %>
+    <%= I18n.t('profile.managed_fundations') %>
+    <% end %>    
 
-<h2>Add contact info:</h2>
-<%= render :partial => "contact_informations/form" %>
+  </p>
+  <p>
+    <% @member.fundations.each do |f| %>
+      <%= link_to f.name, fundation_url(f) %> 
+      <% if is_current_member_this_member(@member.id) %>
+        <%= link_to I18n.t('destroy'), f, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
+<% if is_current_member_this_member(@member.id) %>
+  <p>
+    <%= link_to I18n.t('profile.create_fundation'), new_fundation_path %>
+  </p>
+<% end %>
 
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<% unless @member.providers.empty? %>
+  <p> 
+    <% if is_current_member_this_member(@member.id) %>
+      <%= I18n.t('profile.manage_providers') %>
+    <% else %>
+      <%= I18n.t('profile.managed_providers') %>
+    <% end %>
+  </p>
+  <p>
+    <% @member.providers.each do |p|  %>
+      <%= link_to p.name, provider_url(p) %> 
+      <% if is_current_member_this_member(@member.id) %>
+        <%= link_to I18n.t('destroy'), p, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+      <% end %>
+      <br/>
+    <% end %>
+  </p>
+<% end %>
+<% if is_current_member_this_member @member.id %>
+  <p>
+    <%= link_to I18n.t('profile.create_provider'), new_provider_path %>
+  </p>
+<% end %>

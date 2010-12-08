@@ -1,25 +1,49 @@
+<h2> <%= I18n.t("events.title") %></h2>
+
 <p>
-  <b>Date:</b>
+  <b><%= I18n.t("name") %>:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b><%= I18n.t("date_name") %>:</b>
   <%= @event.date %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= @event.name %>
+  <b> <%= I18n.t("events.attending_facilitators")%>: <%= @event.facilitators.count %></b>
 </p>
-<p>
-  <b>Facilitators attending: <%= @event.facilitators.count %></b>
-</p>
-<% if member_signed_in? and is_current_member_facilitator? and current_member.has_facilitator_info? %>
-<div id="new_facilitator">
-  <form action="/events/add_facilitator" method="post">
+<% if member_signed_in? %>
+<% if current_member.facilitator %>
+  <div id="new_facilitator">
+    <form action="/events/add_facilitator" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input name="facilitator_id" type="hidden" value="<%= current_member.facilitator.id %>"/>
+      <input name="event_id" type="hidden" value="<%= @event.id %>"/>
+      <input type="submit" value="<%= I18n.t('events.add_me_facilitator') %>" name="new_facilitator"/>
+    </form>
+  </div>
+
+<% end %>
+
+<div id="new_fundation">
+  <form action="/events/add_fundation" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input name="facilitator_id" type="hidden" value="<%= current_member.facilitador.id %>"/>
+    <%= select_tag "fundation_id", options_from_collection_for_select(current_member.fundations, "id", "name") %>    
     <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-    <input type="submit" value="<%= I18n.t('events.add_me_facilitator') %>" name="new_facilitator"/>
+    <input type="submit" value="<%= I18n.t('events.add_me_fundation') %>" name="new_fundation"/>
   </form>
 </div>
-<% else %>
+
+<div id="new_provider">
+  <form action="/events/add_provider" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= select_tag "provider_id", options_from_collection_for_select(current_member.providers, "name", "id") %>    
+    <input name="event_id" type="hidden" value="<%= @event.id %>"/>
+    <input type="submit" value="<%= I18n.t('events.add_me_provider') %>" name="new_provider"/>
+  </form>
+</div>
+
 <div id="ask_facilitator">
   <form action="/events/add_facilitator" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -30,18 +54,9 @@
 </div>
 <% end %>
 <p>
-  <b>Fundations attending: <%= @event.fundations.count %></b>
+  <b><%= I18n.t("events.attending_fundations")%>: <%= @event.fundations.count %></b>
 </p>
-<% if member_signed_in? and is_current_member_fundation? and current_member.has_fundation_info? %>
-<div id="new_fundation">
-  <form action="/events/add_fundation" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input name="fundation_id" type="hidden" value="<%= current_member.fundation.id %>"/>
-    <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-    <input type="submit" value="<%= I18n.t('events.add_me_fundation') %>" name="new_fundation"/>
-  </form>
-</div>
-<% else %>
+<% if member_signed_in? %>
 <div id="ask_fundation">
   <form action="/events/add_fundation" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -52,18 +67,9 @@
 </div>
 <% end %>
 <p>
-  <b>Providers attending: <%= @event.providers.count %></b>
+  <b><%= I18n.t("events.attending_providers")%>: <%= @event.providers.count %></b>
 </p>
-<% if member_signed_in? and is_current_member_provider? and current_member.has_provider_info? %>
-<div id="new_provider">
-  <form action="/events/add_provider" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input name="provider_id" type="hidden" value="<%= current_member.provider.id %>"/>
-    <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-    <input type="submit" value="<%= I18n.t('events.add_me_provider') %>" name="new_provider"/>
-  </form>
-</div>
-<% else %>
+<% if member_signed_in? %>
 <div id="ask_provider">
   <form action="/events/add_provider" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -73,29 +79,13 @@
   </form>
 </div>
 <% end %>
-<p>
-  <b>Shows to be shown: <%= @event.shows.count %></b>
-</p>
-<div id="new_show">
-  <form action="/events/add_show" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <b>Add this show</b>
-    <p>
-      Show:
-      <input name="show_id" type="input"/>
-    </p>
-    <p>
-      Event:
-      <input name="event_id" type="input"/>
-    </p>    
-    <input type="submit" value="Add Show" name="new_show"/>
-  </form>
-</div>
 
-<h2>Comments:</h2>
-<%= render :partial => "comments/comment", :collection=> @event.comments %>
-<h2>Add a Comment:</h2>
+<% unless @event.comments.empty? %>
+  <h2><%= I18n.t("events.comments")%>:</h2>
+  <%= render :partial => "comments/comment", :collection=> @event.comments %>
+<% end %>
+<h2><%= I18n.t("events.add_comment") %> :</h2>
 <%= render :partial => "comments/form" %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to I18n.t('edit'), edit_event_path(@event) %> |
+<%= link_to I18n.t('back'), events_path %>

@@ -84,4 +84,19 @@ class FundationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def add_follower
+    fundation = Fundation.find(params[:fundation_id])
+    facilitator = Facilitator.find(params[:facilitator_id])
+    fundation.facilitators.push(facilitator)
+    redirect_to fundations_path
+  end
+  
+  def remove_follower
+    fundation = Fundation.find(params[:fundation_id])
+    facilitator = Facilitator.find(params[:facilitator_id])
+    fundation.facilitators.delete(facilitator)
+    redirect_to fundations_path
+  end
+  
 end

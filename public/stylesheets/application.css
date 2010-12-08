@@ -1,0 +1,53 @@
+#home_menu
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+}
+
+a.home{ color: #011; background-color:#ddff66; padding:2px; text-decoration:none; border:2px solid gray; margin: -3px; }
+a.home:visited { color: #666; }
+a.home:hover { color: #fff; background-color:#000; }    
+
+
+.application_footer
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+}
+
+.application_messages
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+}
+
+.locale_menu
+{
+    float: left;
+}
+
+.members_nav
+{
+    text-align: center;
+    float: right;
+}
+
+body.application_body
+{
+    background-color:#aacc55;
+}
+
+.application_content
+{
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#FFFFFF;
+    width: 60%;
+    padding: 5px;
+}

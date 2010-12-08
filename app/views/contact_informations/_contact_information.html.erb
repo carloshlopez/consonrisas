@@ -1,5 +1,5 @@
 <p>
-  <b>Name:</b>
+  <b><%= I18n.t('name') %>:</b>
   <%= contact_information.name %>
 </p>
 <p>
@@ -8,21 +8,23 @@
 </p>
 
 <p>
-  <b>Cellphone:</b>
+  <b><%= I18n.t('contact_information.cellphone') %>:</b>
   <%= contact_information.cellphone %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b><%= I18n.t('contact_information.phone') %>:</b>
   <%= contact_information.phone %>
 </p>
+<% if @member_type == ApplicationHelper::ROLES[:fundation] or @member_type == ApplicationHelper::ROLES[:provider] %>
+  <p>
+    <b><%= I18n.t('contact_information.position') %>:</b>
+    <%= contact_information.position %>
+  </p>
+<% end %>
 
 <p>
-  <b>Position:</b>
-  <%= contact_information.position %>
-</p>
-<p>
-  <%= link_to 'Destroy Contact Info', [contact_information.member, contact_information],
-               :confirm => 'Are you sure?, sure?',
-               :method => :delete %>
+  <%= link_to I18n.t('destroy'), destroy_contact_information(@member, contact_information.id, @member_type),
+    :confirm => I18n.t('messages.delete_confirmation'),
+     :method => :delete %>
 </p>
