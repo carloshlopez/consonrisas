@@ -10,6 +10,6 @@ class CreateMembers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :members
+#    drop_table :members
   end
 end
