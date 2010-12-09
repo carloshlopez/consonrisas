@@ -4,6 +4,6 @@ class DeleteContactInformationFromMember < ActiveRecord::Migration
   end
 
   def self.down
-    add_column :members, :contact_information_id, :integer
+   # add_column :members, :contact_information_id, :integer
   end
 end
