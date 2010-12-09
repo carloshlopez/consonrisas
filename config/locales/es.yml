@@ -55,6 +55,7 @@ es:
     new_title: "Crear nueva Fundación"
     create: "Send information"
     details: "Detalle de la Fundación"
+    edit_title: "Editar información de la fundación"
   account:
     logout: "Salir"  
     login: "Ingresar"

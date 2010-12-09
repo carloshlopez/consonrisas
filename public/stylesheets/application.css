@@ -2,20 +2,35 @@
 {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 700px;
     text-align: center;
 }
 
-a.home{ color: #011; background-color:#ddff66; padding:2px; text-decoration:none; border:2px solid gray; margin: -3px; }
-a.home:visited { color: #666; }
+a.home
+{ 
+    color: #011; 
+    background-color:#ddff66; 
+    padding:2px; 
+    text-decoration:none; 
+    border:2px solid gray; 
+    margin: -3px; 
+    font-size: 20px;
+}
+a.home:visited { color: #011; }
 a.home:hover { color: #fff; background-color:#000; }    
+a.logo
+{ 
+  color: black; 
+}
+a.logo:visited { color: black;}
+a.logo:hover {  }    
 
 
 .application_footer
 {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 700px;
     text-align: center;
 }
 
@@ -23,20 +38,50 @@ a.home:hover { color: #fff; background-color:#000; }
 {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 700px;
     text-align: center;
 }
 
 .locale_menu
 {
-    float: left;
+    text-align: center;
+    position:fixed;
+    top: 100px;
+    left: 0px;
+    padding: 5px;
 }
 
-.members_nav
+.account
 {
     text-align: center;
-    float: right;
+    position:fixed;
+    top: 100px;
+    right: 0px;
+    padding: 5px;
 }
+
+.ads_left
+{
+    position:fixed;
+    top: 150px;
+    left: 10px;
+    padding: 5px;
+    width: 200px;    
+    height: 70%;
+    border: solid gray;
+}
+
+.ads_right
+{
+    position:fixed;
+    top: 150px;
+    right: 10px;
+    padding: 5px;
+    width: 200px;
+    height: 70%;
+    border: solid gray;
+}
+
 
 body.application_body
 {
@@ -58,5 +103,27 @@ body.application_body
     margin: 5px;
     border:2px dashed gray;
     padding: 5px;
+}
+
+.application_header
+{
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+.home_logo
+{
+  font-family: 'Covered By Your Grace', serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1em;
+  text-shadow: 2px 2px 2px #aaa;
 }
 

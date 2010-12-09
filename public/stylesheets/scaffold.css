@@ -1,9 +1,19 @@
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+/*  font-family: verdana, arial, helvetica, sans-serif;*/
+/*  font-size:   13px;*/
+/*  line-height: 18px;*/
+  font-family: 'Droid Sans', serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1em;
 }
 
 pre {

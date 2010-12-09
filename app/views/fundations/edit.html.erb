@@ -1,7 +1,7 @@
-<h1>Editing fundation</h1>
+<h1><%= I18n.t('fundation.edit_title') %></h1>
 <% if can_current_member_edit_fundation(@fundation.id) %>
 <%= render 'form' %>
 <% end %>
 
-<%= link_to 'Show', @fundation %> |
-<%= link_to 'Back', fundations_path %>
+<%= link_to I18n.t('show_name'), @fundation %> |
+<%= link_to I18n.('back'), fundations_path %>

@@ -3,12 +3,20 @@
 <head>
   <title>..::Entretenimiento Para Todos::..  ::Beta::</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <link  href="//fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css" >
+<link  href="//fonts.googleapis.com/css?family=Covered+By+Your+Grace:regular" rel="stylesheet" type="text/css" >  
   <%= csrf_meta_tag %>
 </head>
 <body class="application_body">
+<a href="/" class="logo home_logo" title="<%= I18n.t('application.menu_home') %>">
+<div class="application_header">
+  <p class="home_logo">
+    El nombre de la Fundación
+  </p>
+</div>
+</a>
 <div id="home_menu">
-  <a href="/" class="home"><%=I18n.t('application.menu_home')%></a>
+  <a href="/" class="home" ><%=I18n.t('application.menu_home')%></a>  
   <% if member_signed_in?  %>
     <%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"home"} %>
   <% end %>
@@ -17,7 +25,7 @@
   <a href="/fundations" class="home"><%=I18n.t('application.menu_fundations')%></a>  
   <a href="/events" class="home"><%=I18n.t('application.menu_events')%></a>    
 </div>
-<div class="members_nav">
+<div class="account">
   <% if member_signed_in?  %>
     <%= I18n.t('account.logged_in_as')%>: <%= current_member.email %>
     <br/>
@@ -49,8 +57,15 @@
 <div class="application_content">
 <%= yield %>
 </div>
+<div class="ads_right">
+adds right
+</div>
+<div class="ads_left">
+adds left
+</div>
 <div class="application_footer">
-... BETA ...
+...:: BETA ::...
 </div>
 </body>
+  <%= javascript_include_tag :defaults %>
 </html>
