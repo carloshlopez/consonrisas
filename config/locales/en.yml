@@ -3,6 +3,11 @@
 
 en:
   name: "Name"
+  address: "Dirección"
+  cellphone: "Celular"
+  city: "Ciudad"
+  country: "País"
+  phone: "Teléfono"
   description: "Description"
   contribution: "Contribution"
   date_name: "Date"
@@ -49,6 +54,9 @@ en:
     list: "Listing fundations"
     show: "Show"
     population: "Population"        
+    new_title: "Create a Fundation"
+    create: "Enviar información"
+    details: "Fundation Details"
   account:
     logout: "Log out"
     login: "Log in"

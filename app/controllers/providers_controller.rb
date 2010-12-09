@@ -46,8 +46,8 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-#        format.html { redirect_to(@provider, :notice => 'Provider was successfully created.') }
-        format.html { redirect_to(@provider.member, :notice => 'Provider was successfully created.') }
+        format.html { redirect_to(@provider, :notice => 'Provider was successfully created.') }
+#        format.html { redirect_to(@provider.member, :notice => 'Provider was successfully created.') }
 
         format.xml  { render :xml => @provider, :status => :created, :location => @provider }
       else

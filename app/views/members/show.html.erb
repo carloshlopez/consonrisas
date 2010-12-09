@@ -3,7 +3,7 @@
   <%= @member.email %>
 </p>
 
-<div class="member_facilitator_info">
+<div class="member_facilitator_info bordered_box">
   <% @facilitator = @member.facilitator %>
   <% if @facilitator.has_complete_info %>
     <%= render 'facilitators/show'%>    
@@ -11,8 +11,8 @@
     <%= render 'facilitators/form'%>
   <% end %>
 </div>
-
 <% unless @member.fundations.empty? %>
+<div class="member_fundations bordered_box">
   <p> 
     <% if is_current_member_this_member(@member.id) %>
     <%= I18n.t('profile.manage_fundations') %>
@@ -29,6 +29,7 @@
       <% end %>
     <% end %>
   </p>
+</div>
 <% end %>
 <% if is_current_member_this_member(@member.id) %>
   <p>
@@ -37,6 +38,7 @@
 <% end %>
 
 <% unless @member.providers.empty? %>
+<div class="member_providers bordered_box">
   <p> 
     <% if is_current_member_this_member(@member.id) %>
       <%= I18n.t('profile.manage_providers') %>
@@ -53,6 +55,7 @@
       <br/>
     <% end %>
   </p>
+</div>
 <% end %>
 <% if is_current_member_this_member @member.id %>
   <p>

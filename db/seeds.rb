@@ -18,10 +18,10 @@ puts "-----------"
   
 
 
-Population.create(:name_es=>"Niños", :description_es=>"Menores de edad", :name_en=>"Kids", :description_en=>"Minors", :age_min=>0, :age_max=>18)
-Population.create(:name_es=>"Adolecentes", :description_es=>"Niños más grandes", :name_en=>"Teenagers", :description_en=>"Older Kids", :age_min=>13, :age_max=>18)
-Population.create(:name_es=>"Adultos", :description_es=>"Todos los mayores de edad", :name_en=>"Adults", :description_en=>"Adults", :age_min=>18, :age_max=>60)
-Population.create(:name_es=>"Tercera Edad", :description_es=>"Los abuelitos", :name_en=>"Grandpas", :description_en=>"Old adults", :age_min=>61, :age_max=>100)
+Population.create(:name_es=>"Niños", :description_es=>"Menores de edad", :name_en=>"Kids", :description_en=>"Minors", :age_min=>0, :age_max=>18) unless Population.find_by_name_en("Kids")
+Population.create(:name_es=>"Adolecentes", :description_es=>"Niños más grandes", :name_en=>"Teenagers", :description_en=>"Older Kids", :age_min=>13, :age_max=>18) unless Population.find_by_name_en("Teenagers")
+Population.create(:name_es=>"Adultos", :description_es=>"Todos los mayores de edad", :name_en=>"Adults", :description_en=>"Adults", :age_min=>18, :age_max=>60) unless Population.find_by_name_en("Adults")
+Population.create(:name_es=>"Tercera Edad", :description_es=>"Los abuelitos", :name_en=>"Grandpas", :description_en=>"Old adults", :age_min=>61, :age_max=>100) unless Population.find_by_name_en("Grandpas")
 
 puts "-----------"
 puts "Added Populations"

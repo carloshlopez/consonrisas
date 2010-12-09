@@ -46,7 +46,7 @@
   </div>
   
   <div class="field">
-    <%= f.label I18n.t('population') %><br />
+    <%= f.label I18n.t('fundation.population') %><br />
     <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
 
   </div>

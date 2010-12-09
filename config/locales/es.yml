@@ -1,6 +1,11 @@
 # coding: utf-8
 es:
   name: "Nombre"
+  address: "Dirección"
+  cellphone: "Celular"
+  city: "Ciudad"
+  country: "País"
+  phone: "Teléfono"  
   description: "Descripción"  
   contribution: "Forma de contribuir"
   date_name: "Fecha"
@@ -47,6 +52,9 @@ es:
     list: "Todas las Fundaciones"
     show: "Ver su perfil"
     population: "Población que manejan"    
+    new_title: "Crear nueva Fundación"
+    create: "Send information"
+    details: "Detalle de la Fundación"
   account:
     logout: "Salir"  
     login: "Ingresar"

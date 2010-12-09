@@ -1,45 +1,46 @@
+<h2> <%= I18n.t('fundation.details') %>  </h2>
 <p>
-  <b>Name:</b>
+  <b><%= I18n.t('name') %>:</b>
   <%= @fundation.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b><%= I18n.t('address') %>:</b>
   <%= @fundation.address %>
 </p>
 
 <p>
-  <b>Cellphone:</b>
+  <b><%= I18n.t('cellphone') %>:</b>
   <%= @fundation.cellphone %>
 </p>
 
 <p>
-  <b>City:</b>
+  <b><%= I18n.t('city') %>:</b>
   <%= @fundation.city %>
 </p>
 
 <p>
-  <b>Country:</b>
+  <b><%= I18n.t('country') %>:</b>
   <%= @fundation.country %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b><%= I18n.t('description') %>:</b>
   <%= @fundation.description %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b><%= I18n.t('phone') %>:</b>
   <%= @fundation.phone %>
 </p>
 
 <p>
-  <b>Website:</b>
+  <b><%= I18n.t('website') %>:</b>
   <%= @fundation.website %>
 </p>
 
   <p>
-    <b>Population:</b>
+    <b><%= I18n.t('fundation.population') %>:</b>
     <%= population_name(@fundation.population_id) %>
   </p>
 <% 
@@ -48,14 +49,14 @@
 
 %>
 <% unless @member.contact_informations.empty? %>
-<h2>Contact information:</h2>
+<h2><%= I18n.t('contact_informations') %>:</h2>
   <%= render :partial => "contact_informations/contact_information", :collection=> @member.contact_informations %>
 <% end %>
 
 <% if member_signed_in? and can_current_member_edit_fundation(@fundation.id) %>
-  <h2>Add contact info:</h2>
+  <h2><%= I18n.t('contact_information.add') %>:</h2>
   <%= render :partial => "contact_informations/form" %>
 
-  <%= link_to 'Edit', edit_fundation_path(@fundation) %> |
+  <%= link_to I18n.t('edit'), edit_fundation_path(@fundation) %> |
 <% end %>
-<%= link_to 'Back', fundations_path %>
+<%= link_to I18n.t('back'), fundations_path %>
