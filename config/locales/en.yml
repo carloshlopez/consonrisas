@@ -24,6 +24,8 @@ en:
   follow: "Follow"  
   unwfollow: "Unfollow"    
   website: "Website"
+  fundations: "Fundations"
+  providers: "Providers"  
   
   contact_informations: "Contact Informations"
   contact_information:

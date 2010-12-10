@@ -1,0 +1,25 @@
+<% unless @member.fundations.empty? %>
+<div class="member_fundations bordered_box">
+  <p> 
+    <% if is_current_member_this_member(@member.id) %>
+    <%= I18n.t('profile.manage_fundations') %>
+    <% else %>
+    <%= I18n.t('profile.managed_fundations') %>
+    <% end %>    
+
+  </p>
+  <p>
+    <% @member.fundations.each do |f| %>
+      <%= link_to f.name, fundation_url(f) %> 
+      <% if is_current_member_this_member(@member.id) %>
+        <%= link_to I18n.t('destroy'), f, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
+      <% end %>
+    <% end %>
+  </p>
+</div>
+<% end %>
+<% if is_current_member_this_member(@member.id) %>
+  <p>
+    <%= link_to I18n.t('profile.create_fundation'), new_fundation_path %>
+  </p>
+<% end %>

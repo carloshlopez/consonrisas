@@ -1,0 +1,25 @@
+<% unless @member.providers.empty? %>
+<div class="member_providers bordered_box">
+  <p> 
+    <% if is_current_member_this_member(@member.id) %>
+      <%= I18n.t('profile.manage_providers') %>
+    <% else %>
+      <%= I18n.t('profile.managed_providers') %>
+    <% end %>
+  </p>
+  <p>
+    <% @member.providers.each do |p|  %>
+      <%= link_to p.name, provider_url(p) %> 
+      <% if is_current_member_this_member(@member.id) %>
+        <%= link_to I18n.t('destroy'), p, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+      <% end %>
+      <br/>
+    <% end %>
+  </p>
+</div>
+<% end %>
+<% if is_current_member_this_member @member.id %>
+  <p>
+    <%= link_to I18n.t('profile.create_provider'), new_provider_path %>
+  </p>
+<% end %>
