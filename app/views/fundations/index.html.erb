@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th><%= I18n.t('name') %></th>
     <th><%= I18n.t('website') %></th>
     <th><%= I18n.t('fundation.population') %> </th>    
@@ -11,6 +12,7 @@
 
 <% @fundations.each do |fundation| %>
   <tr>
+    <td> <%= image_tag fundation.pic.url(:thumb) %></td>      
     <td><%= fundation.name %></td>
     <td><%= fundation.website %></td>
     <td><%= population_name(fundation.population_id) %></td>

@@ -1,3 +1,8 @@
+<div class="profile_pic">
+  <%= image_tag @provider.pic.url(:profile) %>
+</div>
+
+
 <p>
   <b><%= I18n.t('name')%>:</b>
   <%= @provider.name %>

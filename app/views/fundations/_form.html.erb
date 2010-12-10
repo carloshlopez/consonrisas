@@ -1,4 +1,4 @@
-<%= form_for(@fundation) do |f| %>
+<%= form_for(@fundation, :html => {:multipart=> true}) do |f| %>
   <% if @fundation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fundation.errors.count, "error") %> prohibited this fundation from being saved:</h2>
@@ -48,8 +48,12 @@
   <div class="field">
     <%= f.label I18n.t('fundation.population') %><br />
     <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
-
   </div>
+  
+  <div class="field">
+    <%= f.file_field :pic %>
+  </div>  
+  
   <div class="hiddens">
       <input type="hidden" name="fundation[member_id]" value="<%= current_member.id %>"/>
   </div>

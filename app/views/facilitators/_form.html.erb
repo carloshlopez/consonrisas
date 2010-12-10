@@ -1,4 +1,4 @@
-<%= form_for(@facilitator) do |f| %>
+<%= form_for(@facilitator, :html => {:multipart=> true}) do |f| %>
   <% if @facilitator.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@facilitator.errors.count, "error") %> prohibited this facilitator from being saved:</h2>
@@ -26,6 +26,10 @@
     <%= f.label I18n.t("profile.population_of_interest") %><br />
     <%=   select_tag "facilitator[population_id]", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
   </div> 
+  
+  <div class="field">
+    <%= f.file_field :pic %>
+  </div>
   
   <div class="actions">
     <%= f.submit I18n.t("facilitator.submit_edit") %>

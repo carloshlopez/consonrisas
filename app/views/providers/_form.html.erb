@@ -1,4 +1,4 @@
-<%= form_for(@provider) do |f| %>
+<%= form_for(@provider, :html => {:multipart=> true}) do |f| %>
   <% if @provider.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
@@ -16,6 +16,11 @@
     <%= f.text_field :name %>
     <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
   </div>
+  
+  <div class="field">
+    <%= f.file_field :pic %>
+  </div>  
+  
   <div class="actions">
     <%= f.submit I18n.t('provider.create') %>
   </div>

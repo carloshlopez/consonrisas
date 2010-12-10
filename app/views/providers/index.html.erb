@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th><%= I18n.t('name') %></th>
     <th></th>
     <th></th>
@@ -10,6 +11,7 @@
 
 <% @providers.each do |provider| %>
   <tr>
+    <td> <%= image_tag provider.pic.url(:thumb) %></td>      
     <td><%= provider.name %></td>
     <td><%= link_to I18n.t('go_to_profile'), provider %></td>
     <td>
