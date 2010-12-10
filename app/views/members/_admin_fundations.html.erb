@@ -14,6 +14,7 @@
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('destroy'), f, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
       <% end %>
+      <br/>
     <% end %>
   </p>
 </div>

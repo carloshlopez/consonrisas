@@ -13,7 +13,7 @@
 <% @fundations.each do |fundation| %>
   <tr>
     <td> 
-      <% #image_tag fundation.pic.url(:thumb) %>
+      <%= image_tag fundation.pic.url(:thumb) %>
     </td>      
     <td><%= fundation.name %></td>
     <td><%= fundation.website %></td>
