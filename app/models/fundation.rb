@@ -11,5 +11,5 @@ class Fundation < ActiveRecord::Base
                     :path => "fundations/:attachment/:id/:style/:filename"
   
   validates_attachment_size :pic, :less_than => 5.megabytes
-  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif']  
+  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']  
 end
