@@ -64,6 +64,17 @@ en:
     register: "Register"
     edit: "Edit my account"
     logged_in_as: "Logged in as"    
+    sign_up: "Sign up"
+    password: "Password"
+    password_new_explain: "(leave blank if you don't want to change it)"    
+    password_confirmation: "Password confirmation"
+    password_current: "Current password"
+    password_current_explain: "(we need your current password to confirm your changes)"        
+    forgot_password: "Forgot your password?"    
+    update: "Update"
+    cancel: "Cancel my account"
+    remember_me: "Remember me"
+    send_reset: "Send me reset password instructions"
   messages:
     delete_confirmation: "Are you sure?"
   labels:

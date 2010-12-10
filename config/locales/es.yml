@@ -62,6 +62,17 @@ es:
     register: "Registrarse"    
     edit: "Editar mi cuenta"    
     logged_in_as: "Ingresaste como"
+    sign_up: "Registrarse"
+    password: "Contraseña"
+    password_new_explain: "(dejar en blanco si NO la quieres cambiar)"        
+    password_confirmation: "Confirmar contraseña"
+    password_current: "Contraseña actual"
+    password_current_explain: "(necesitamos la contraseña actual para confirmar los cambios)"    
+    forgot_password: "Olvidó su contraseña?" 
+    update: "Actualizar"  
+    cancel: "Cerrar mi cuenta"
+    remember_me: "Recordarme"
+    send_reset: "Enviarme las instrucciones para reiniciar mi contraseña"    
   messages:
     delete_confirmation: "Seguro?"    
   labels:
