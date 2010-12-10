@@ -9,7 +9,9 @@
 
 <% @facilitators.each do |facilitator| %>
   <tr>
-    <td> <% #image_tag facilitator.pic.url(:thumb) %></td>    
+    <td> 
+      <% #image_tag facilitator.pic.url(:thumb) %>
+    </td>    
     <td><%= facilitator.name %></td>
     <td><%= link_to I18n.t('go_to_profile'), member_path(facilitator.member) %></td>
   </tr>
