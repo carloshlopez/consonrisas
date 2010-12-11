@@ -1,16 +1,20 @@
 <h1><%= I18n.t('events.list') %></h1>
 
 <table>
-    <tr></th>
+    <th></th>
     <th><%= I18n.t('date_name')%></th>
     <th><%= I18n.t('name') %></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+<% num = 0 %>
 <% @events.each do |event| %>
+  <% if num % 2 == 0 %>
   <tr>
+  <% else %>
+  <tr class="alt">
+  <% end %>
     <td> <%= image_tag event.pic.url(:thumb) %> </td>
     <td><%= event.date %></td>
     <td><%= event.name %></td>
@@ -18,7 +22,10 @@
     <td><%= link_to I18n.t('edit'), edit_event_path(event) %></td>
     <td><%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %></td>
   </tr>
-<% end %>
+<% 
+  num = num + 1
+  end 
+%>
 </table>
 
 <br />

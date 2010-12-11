@@ -110,6 +110,11 @@ es:
     create_comment: "Comentar"
     edit_title: "Editar el Evento"
     attending_as_facilitator: "Vas a ir como Facilitador"    
+    one_fundation_error: "Debes crear el evento por lo menos para una Fundación"
+    for_fundation: "Este evento será destinado para la Fundación:"
+    pic: "Imágen del Evento"
+    provider_alert: "Evento creado para una fundación con audiencia de tu interés"    
+    facilitator_alert: "Evento creado para una fundación de tu interés"
   profile:
     managed_providers: "Proveedores que administra"
     managed_fundations: "Fundaciónes que administra"  
@@ -119,6 +124,8 @@ es:
     create_fundation: "Crea una nueva Fundación"    
     population_of_interest: "Población de interés"    
     events_calendar: "Calendario de Eventos"
+    alerts: "Aquí están algunas noticias de tu interés"
+    alerts_see_event: "Ver evento"
   home:
     welcome: "Bienvenido"
     now: "Actualmente hay:"

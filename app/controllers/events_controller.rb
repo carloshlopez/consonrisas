@@ -42,7 +42,10 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-
+    if params[:fundation_id]
+      fundation = Fundation.find(params[:fundation_id]) 
+      @event.fundations.push(fundation)
+    end
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }

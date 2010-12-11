@@ -112,6 +112,11 @@ en:
     create_comment: "Create comment"
     edit_title: "Editing Event"
     attending_as_facilitator: "As a Facilitator you are Attending"
+    one_fundation_error: "Add a Fundation for this Event"
+    for_fundation: "This event is intende for this Fundation"
+    pic: "Image"
+    provider_alert: "Event created for a fundation of your interest"
+    facilitator_alert: "Event created for a fundation of your interest"
   profile:
     managed_providers: "Providers managed"
     managed_fundations: "Fundations managed"    
@@ -121,6 +126,8 @@ en:
     create_fundation: "Create a Fundation"    
     population_of_interest: "Population interested in"
     events_calendar: "Events Calendar"
+    alerts: "Here are some news"
+    alerts_see_event: "See the Event"    
   home:  
     welcome: "Welcome"
     now: "As of now there are:"  

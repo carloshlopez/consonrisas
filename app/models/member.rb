@@ -14,6 +14,8 @@ class Member < ActiveRecord::Base
   has_many :comments
   
   after_create :create_facilitator
+  
+  has_many :alerts
 
   def create_facilitator
     @facilitator = Facilitator.create(:member_id => id)
