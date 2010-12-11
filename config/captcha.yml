@@ -1,0 +1,5 @@
+public_key:  6Lffhb8SAAAAAAWnj46yrhZMNgEJHZnZgDrteEDz
+#Use this in the JavaScript code that is served to your users
+
+private_key:  6Lffhb8SAAAAAMaB8i5qOCWmjgbipF0rKKTh6Fl1
+#Use this when communicating between your server and our server. Be sure to keep it a secret.

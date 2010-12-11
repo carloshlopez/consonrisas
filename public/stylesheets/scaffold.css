@@ -35,7 +35,7 @@ div.field, div.actions {
 }
 
 #alert {
-  color: green;
+  color: red;
 }
 
 .field_with_errors {
