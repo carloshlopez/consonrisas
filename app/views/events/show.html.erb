@@ -1,4 +1,5 @@
 <h2> <%= I18n.t("events.title") %></h2>
+<%= image_tag @event.pic.url(:profile) %>
 <p>
   <b><%= I18n.t("name") %>:</b>
   <%= @event.name %>
