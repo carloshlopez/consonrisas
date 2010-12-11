@@ -1,7 +1,7 @@
 <h1><%= I18n.t('events.list') %></h1>
 
 <table>
-  <tr>
+    <tr></th>
     <th><%= I18n.t('date_name')%></th>
     <th><%= I18n.t('name') %></th>
     <th></th>
@@ -11,6 +11,7 @@
 
 <% @events.each do |event| %>
   <tr>
+    <td> <%= image_tag event.pic.url(:thumb) %> </td>
     <td><%= event.date %></td>
     <td><%= event.name %></td>
     <td><%= link_to I18n.t('events.show'), event %></td>
