@@ -80,4 +80,11 @@ class MembersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def destroy_alert
+    @alert = Alert.find(params[:id])
+    @alert.destroy
+    redirect_to member_url current_member.id
+  end
+  
 end
