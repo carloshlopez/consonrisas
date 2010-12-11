@@ -26,6 +26,7 @@ en:
   website: "Website"
   fundations: "Fundations"
   providers: "Providers"  
+  facilitators: "Facilitators"
   
   contact_informations: "Contact Informations"
   contact_information:
@@ -110,6 +111,7 @@ en:
     add_comment: "Add a comment"    
     create_comment: "Create comment"
     edit_title: "Editing Event"
+    attending_as_facilitator: "As a Facilitator you are Attending"
   profile:
     managed_providers: "Providers managed"
     managed_fundations: "Fundations managed"    
@@ -118,7 +120,7 @@ en:
     create_provider: "Create a Provider"
     create_fundation: "Create a Fundation"    
     population_of_interest: "Population interested in"
-
+    events_calendar: "Events Calendar"
   home:  
     welcome: "Welcome"
     now: "As of now there are:"  

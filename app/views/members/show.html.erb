@@ -16,6 +16,19 @@
   <% end %>
 </div>
 
+<% if is_current_member_this_member @member.id and !@member.facilitator.events.empty? %>
+
+  <div class="my_events bordered_box">
+    <p>
+    <%= I18n.t('profile.events_calendar') %>
+    </p>
+    <% @member.facilitator.events.each do |event| %>  
+      <%= event.name%> | <%= event.date %> 
+      <br/>
+    <% end %>
+  </div>
+<% end %>
+
 <%= render :partial => "admin_fundations" %>
 
 <%= render :partial => "admin_providers" %>

@@ -82,4 +82,20 @@ class FacilitatorsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  def add_follower
+    facilitator = Facilitator.find(params[:facilitator_id])
+    followed = Facilitator.find(params[:followed_id])
+    facilitator.facilitators.push(followed)
+    redirect_to facilitators_path
+  end
+  
+  def remove_follower
+    facilitator = Facilitator.find(params[:facilitator_id])
+    followed = Facilitator.find(params[:followed_id])
+    facilitator.facilitators.delete(followed)
+    redirect_to facilitators_path
+  end  
+  
 end

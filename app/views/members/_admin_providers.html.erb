@@ -14,6 +14,9 @@
         <%= link_to I18n.t('destroy'), p, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
       <% end %>
       <br/>
+      Eventos de este proveedor:
+      <% @provider = p %>
+      <%= render "providers/events" %>
     <% end %>
   </p>
 </div>
