@@ -1,0 +1,9 @@
+<div class="my_events bordered_box">
+  <p>
+  <%= I18n.t('profile.events_calendar') %>
+  </p>
+  <% @facilitator.events.each do |event| %>  
+    <%= event.name%> | <%= event.date %> 
+    <br/>
+  <% end %>
+</div>

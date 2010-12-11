@@ -7,11 +7,15 @@ Prueba::Application.routes.draw do
   post "events/add_provider"
   post "events/add_show"  
   
+  #add post!!
   get "fundations/add_follower"
   get "fundations/remove_follower"
   
   get "providers/add_follower"
   get "providers/remove_follower"  
+  
+  get "facilitators/add_follower"
+  get "facilitators/remove_follower"    
 
   root :to => "home#index"
   

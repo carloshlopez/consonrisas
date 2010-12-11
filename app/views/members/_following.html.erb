@@ -1,7 +1,7 @@
 <% unless @member.facilitator.fundations.empty? %>
 <div class="following bordered_box">
     <% @member.facilitator.fundations.each do |f|  %>
-      <%= link_to f.name, fundation_url(f) %> 
+      <%= link_to f.name, fundation_path(f) %> 
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('unfollow'), fundations_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>f.id) %>
       <% end %>
@@ -18,7 +18,7 @@
 <% unless @member.facilitator.providers.empty? %>
   <div class="following bordered_box">
     <% @member.facilitator.providers.each do |p|  %>
-      <%= link_to p.name, provider_url(p) %> 
+      <%= link_to p.name, provider_path(p) %> 
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('unfollow'), providers_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :provider_id=>p.id) %>
       <% end %>
@@ -29,5 +29,22 @@
 <% if is_current_member_this_member @member.id %>
   <p>
     <%= link_to I18n.t('providers'), providers_path %>
+  </p>
+<% end %>
+
+<% unless @member.facilitator.facilitators.empty? %>
+  <div class="following bordered_box">
+    <% @member.facilitator.facilitators.each do |fac|  %>
+      <%= link_to fac.name, facilitator_path(fac) %> 
+      <% if is_current_member_this_member(@member.id) %>
+        <%= link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>fac.id) %>
+      <% end %>
+      <br/>
+    <% end %>
+  </div>
+<% end %>
+<% if is_current_member_this_member @member.id %>
+  <p>
+    <%= link_to I18n.t('facilitators'), facilitators_path %>
   </p>
 <% end %>

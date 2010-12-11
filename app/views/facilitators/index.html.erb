@@ -5,6 +5,7 @@
     <th></th>
     <th><%=I18n.t('name')%></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @facilitators.each do |facilitator| %>
@@ -14,6 +15,15 @@
     </td>    
     <td><%= facilitator.name %></td>
     <td><%= link_to I18n.t('go_to_profile'), member_path(facilitator.member) %></td>
+    <td>
+      <% if member_signed_in? %>
+        <% if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty? %>
+          <%= link_to I18n.t('follow'), facilitators_add_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id) %>
+        <% else %>
+          <%= link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id) %>
+        <% end %>
+      <% end %>    
+    </td>
   </tr>
 <% end %>
 </table>

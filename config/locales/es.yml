@@ -24,6 +24,7 @@ es:
   website: "Sitio web"
   fundations: "Fundaciones"
   providers: "Proveedores"
+  facilitators: "Facilitadores"
   
   contact_informations: "Información de contacto"
   contact_information:
@@ -108,6 +109,7 @@ es:
     add_comment: "Agregar un comentario"
     create_comment: "Comentar"
     edit_title: "Editar el Evento"
+    attending_as_facilitator: "Vas a ir como Facilitador"    
   profile:
     managed_providers: "Proveedores que administra"
     managed_fundations: "Fundaciónes que administra"  
@@ -116,7 +118,7 @@ es:
     create_provider: "Crea un nuevo Proveedor"
     create_fundation: "Crea una nueva Fundación"    
     population_of_interest: "Población de interés"    
-    
+    events_calendar: "Calendario de Eventos"
   home:
     welcome: "Bienvenido"
     now: "Actualmente hay:"

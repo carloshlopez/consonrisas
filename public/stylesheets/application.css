@@ -46,8 +46,8 @@ a.logo:hover {  }
 {
     text-align: center;
     position:fixed;
-    top: 100px;
-    left: 0px;
+    top: 5px;
+    left: 5px;
     padding: 5px;
 }
 
@@ -55,8 +55,8 @@ a.logo:hover {  }
 {
     text-align: center;
     position:fixed;
-    top: 100px;
-    right: 0px;
+    top: 5px;
+    right: 5px;
     padding: 5px;
 }
 
