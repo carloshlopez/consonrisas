@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
     member_path resource.id
   end
   
+  def self.default_url_options(options={})
+    options.merge({ :locale => I18n.locale })
+  end  
+  
 end
