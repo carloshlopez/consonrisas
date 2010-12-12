@@ -33,5 +33,6 @@
 </table>
 
 <br />
-
+<% if member_signed_in? %>
 <%= link_to I18n.t('events.new'), new_event_path %>
+<% end %>
