@@ -4,9 +4,9 @@
     <th></th>
     <th><%= I18n.t('date_name')%></th>
     <th><%= I18n.t('name') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if member_signed_in? %>
+      <th> <%= I18n.t('actions') %> </th>
+    <% end %>
   </tr>
 <% num = 0 %>
 <% @events.each do |event| %>
@@ -18,9 +18,13 @@
     <td> <%= image_tag event.pic.url(:thumb) %> </td>
     <td><%= event.date %></td>
     <td><%= event.name %></td>
-    <td><%= link_to I18n.t('events.show'), event %></td>
-    <td><%= link_to I18n.t('edit'), edit_event_path(event) %></td>
-    <td><%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %></td>
+    <% if member_signed_in? %>
+      <td>
+        <%= link_to I18n.t('events.show'), event %>
+        | <%= link_to I18n.t('edit'), edit_event_path(event) %>
+        | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+      </td>
+    <% end %>
   </tr>
 <% 
   num = num + 1
