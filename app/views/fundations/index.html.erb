@@ -32,4 +32,7 @@
   </tr>
 <% end %>
 </table>
-
+<br/>
+<% if member_signed_in? %>
+  <%= link_to I18n.t('fundation.new'), new_fundation_path %>
+<% end %>

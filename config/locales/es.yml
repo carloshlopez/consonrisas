@@ -60,6 +60,7 @@ es:
     create: "Send information"
     details: "Detalle de la Fundación"
     edit_title: "Editar información de la fundación"
+    new: "Registrar nueva Fundación"
   account:
     logout: "Salir"  
     login: "Ingresar"

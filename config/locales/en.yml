@@ -62,6 +62,7 @@ en:
     create: "Enviar información"
     details: "Fundation Details"
     edit_title: "Edit Fundation Details"
+    new: "Register a new Fundation"
   account:
     logout: "Log out"
     login: "Log in"
