@@ -69,9 +69,9 @@ a.logo:hover { color: black; background-color:#aacc55; }
     top: 150px;
     left: 10px;
     padding: 5px;
-    width: 200px;    
+    width: 15%;    
     height: 70%;
-    border: solid gray;
+    border: 1px solid gray;
 }
 
 .ads_right
@@ -80,9 +80,9 @@ a.logo:hover { color: black; background-color:#aacc55; }
     top: 150px;
     right: 10px;
     padding: 5px;
-    width: 200px;
+    width: 15%;
     height: 70%;
-    border: solid gray;
+    border: 1px solid gray;
 }
 
 
