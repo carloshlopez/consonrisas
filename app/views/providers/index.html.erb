@@ -8,9 +8,13 @@
       <th><%= I18n.t('actions') %></th>
     <% end %>
   </tr>
-
+<% num = 0 %>
 <% @providers.each do |provider| %>
+  <% if num % 2 == 0 %>
   <tr>
+  <% else %>
+  <tr class="alt">
+  <% end %>
     <td> 
       <%= image_tag provider.pic.url(:thumb) %>
     </td>      
@@ -26,7 +30,10 @@
       </td>  
     <% end %>    
   </tr>
-<% end %>
+<% 
+  num = num + 1
+  end 
+%>
 </table>
 <br/>
 <% if member_signed_in? %>

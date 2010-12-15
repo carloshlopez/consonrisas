@@ -8,9 +8,13 @@
       <th><%=I18n.t('actions')%></th>
     <% end %>
   </tr>
-
+<% num = 0 %>
 <% @facilitators.each do |facilitator| %>
+  <% if num % 2 == 0 %>
   <tr>
+  <% else %>
+  <tr class="alt">
+  <% end %>
     <td> 
       <%= image_tag facilitator.pic.url(:thumb) %>
     </td>    
@@ -27,5 +31,8 @@
       </td>
     <% end %>    
   </tr>
-<% end %>
+<% 
+  num = num + 1
+  end 
+%>
 </table>
