@@ -9,15 +9,17 @@
 
   </p>
   <p>
-    <% @member.fundations.each do |f| %>
-      <%= link_to f.name, fundation_url(f) %> 
-      <% if is_current_member_this_member(@member.id) %>
-        <%= link_to I18n.t('destroy'), f, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
+    <% @member.fundation_admins.each do |f| %>
+      <% if f.active %>
+        <%= link_to f.fundation.name, fundation_url(f.fundation) %> 
+        <% if is_current_member_this_member(@member.id) %>
+          <%= link_to I18n.t('destroy'), f.fundation, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
+        <% end %>
+        <br/>
+        Eventos de esta fundaci&oacute;n:
+        <% @fundation = f.fundation %>
+        <%= render "fundations/events" %>      
       <% end %>
-      <br/>
-      Eventos de esta fundaci&oacute;n:
-      <% @fundation = f %>
-      <%= render "fundations/events" %>      
     <% end %>
   </p>
 </div>
