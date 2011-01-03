@@ -43,11 +43,13 @@ class FundationsController < ApplicationController
   def create
     @fundation = Fundation.new(params[:fundation])
     @population = Population.find(params[:population_id])
+    member = Member.find(params[:member_id])
 
 
     respond_to do |format|
       if @fundation.save
         @population.fundations.push(@fundation)
+        member.fundations.push(@fundation)
         format.html { redirect_to(@fundation, :notice => 'Fundation was successfully created.') }
         format.xml  { render :xml => @fundation, :status => :created, :location => @fundation }
       else

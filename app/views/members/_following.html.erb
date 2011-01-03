@@ -1,5 +1,8 @@
 <% unless @member.facilitator.fundations.empty? %>
 <div class="following bordered_box">
+  <p>
+    <%= I18n.t('profile.followed_fundations') %>
+  </p>
     <% @member.facilitator.fundations.each do |f|  %>
       <%= link_to f.name, fundation_path(f) %> 
       <% if is_current_member_this_member(@member.id) %>
@@ -9,14 +12,12 @@
     <% end %>
 </div>
 <% end %>
-<% if is_current_member_this_member @member.id %>
-  <p>
-    <%= link_to I18n.t('fundations'), fundations_path %>
-  </p>
-<% end %>
 
 <% unless @member.facilitator.providers.empty? %>
   <div class="following bordered_box">
+    <p>
+      <%= I18n.t('profile.followed_providers') %>  
+    </p>
     <% @member.facilitator.providers.each do |p|  %>
       <%= link_to p.name, provider_path(p) %> 
       <% if is_current_member_this_member(@member.id) %>
@@ -26,14 +27,12 @@
     <% end %>
   </div>
 <% end %>
-<% if is_current_member_this_member @member.id %>
-  <p>
-    <%= link_to I18n.t('providers'), providers_path %>
-  </p>
-<% end %>
 
 <% unless @member.facilitator.facilitators.empty? %>
   <div class="following bordered_box">
+    <p>
+      <%= I18n.t('profile.followed_facilitators') %>
+    </p>
     <% @member.facilitator.facilitators.each do |fac|  %>
       <%= link_to fac.name, facilitator_path(fac) %> 
       <% if is_current_member_this_member(@member.id) %>
@@ -42,9 +41,4 @@
       <br/>
     <% end %>
   </div>
-<% end %>
-<% if is_current_member_this_member @member.id %>
-  <p>
-    <%= link_to I18n.t('facilitators'), facilitators_path %>
-  </p>
 <% end %>

@@ -130,6 +130,9 @@ en:
     events_calendar: "Events Calendar"
     alerts: "Here are some news"
     alerts_see_event: "See the Event"    
+    followed_fundations: "Fundaciones a las que sigues"
+    followed_providers: "Proveedores a las que sigues"    
+    followed_facilitators: "Facilitadores a las que sigues"        
   home:  
     welcome: "Welcome"
     now: "As of now there are:"  

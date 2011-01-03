@@ -9,13 +9,17 @@ class Member < ActiveRecord::Base
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator
-  has_many :fundations
+#  has_many :fundations
   has_many :providers
   has_many :comments
   
   after_create :create_facilitator
   
   has_many :alerts
+  
+  
+  has_many :fundation_admins
+  has_many :fundations, :through => :fundation_admins
 
   def create_facilitator
     @facilitator = Facilitator.create(:member_id => id)
