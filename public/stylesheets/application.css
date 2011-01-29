@@ -8,25 +8,16 @@
 
 a.home
 { 
-    color: #011; 
-    background-color:#ddff88; 
+    color: white;
+    background-color:#5DB72C; 
     padding:2px; 
     text-decoration:none; 
-    border:2px solid gray; 
+    border:2px solid #98bf21; 
     margin: -3px; 
     font-size: 20px;
 }
-a.home:visited { color: #011; }
-a.home:hover { color: #fff; background-color:#000; }    
-
-a.logo
-{ 
-  color: black; 
-  text-decoration:none; 
-}
-a.logo:visited { color: black;}
-a.logo:hover { color: black; background-color:#aacc55; }    
-
+a.home:visited { color: white; }
+a.home:hover { color: #fff; background-color:#98bf21; }    
 
 .application_footer
 {
@@ -71,7 +62,7 @@ a.logo:hover { color: black; background-color:#aacc55; }
     padding: 5px;
     width: 15%;    
     height: 70%;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 
 .ads_right
@@ -82,13 +73,13 @@ a.logo:hover { color: black; background-color:#aacc55; }
     padding: 5px;
     width: 15%;
     height: 70%;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 
 
 body.application_body
 {
-    background-color:#aacc55;
+    background-color:white;
 }
 
 .application_content
@@ -130,6 +121,7 @@ body.application_body
   word-spacing: 0em;
   line-height: 1em;
   text-shadow: 2px 2px 2px #aaa;
+  margin-top: -15px;
 }
 
 
@@ -150,7 +142,7 @@ th
     text-align:left;
     padding-top:5px;
     padding-bottom:4px;
-    background-color:#A7C942;
+    background-color:#5DB72C;
     color:#ffffff;
 }
 tr.alt td 
