@@ -43,11 +43,10 @@ class FundationsController < ApplicationController
   def create
     @fundation = Fundation.new(params[:fundation])
     @population = Population.find(params[:population_id])
-#    member = Member.find(params[:member_id])
+
     respond_to do |format|
       if @fundation.save
         @population.fundations.push(@fundation)
-#        member.fundations.push(@fundation)
         FundationAdmin.create(:member_id =>params[:member_id], :fundation_id => @fundation.id, :active=>true)
         format.html { redirect_to(@fundation, :notice => 'Fundation was successfully created.') }
         format.xml  { render :xml => @fundation, :status => :created, :location => @fundation }
@@ -98,6 +97,12 @@ class FundationsController < ApplicationController
     facilitator = Facilitator.find(params[:facilitator_id])
     fundation.facilitators.delete(facilitator)
     redirect_to fundations_path
+  end
+  
+  def ask_admin
+    fundation = Fundation.find(params[:fundation_id])
+    fundation.ask_admin params[:member_id]
+    redirect_to fundation_path fundation
   end
   
 end

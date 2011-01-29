@@ -4,6 +4,17 @@
   <%= image_tag @fundation.pic.url(:profile) %>
 </div>
 
+  <p>
+  <form action="/fundations/#{@fundation.id}/ask_admin" method="post">
+Agregar administrador de fundación:
+
+<%= select_tag "member_id", options_from_collection_for_select(current_member.facilitator.facilitators, "member_id", "name") %>   
+<br/>
+ó preguntarle por email
+<input type="text" value="mail"/>
+<input type="submit" value="Ask Admin" name="ask_admin"/>
+</form>
+</p>
 <p>
   <b><%= I18n.t('name') %>:</b>
   <%= @fundation.name %>

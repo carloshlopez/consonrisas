@@ -5,17 +5,17 @@
   <%= stylesheet_link_tag :all %>
   <link  href="//fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css" >
   <link  href="//fonts.googleapis.com/css?family=Covered+By+Your+Grace:regular" rel="stylesheet" type="text/css" >  
+  <link rel="shortcut icon" href="/images/favicon.ico" />
   <%= csrf_meta_tag %>
 </head>
 <body class="application_body">
-
 <div class="application_header">
-
     <p class="home_logo">
-        <a href="/" class="logo" title="<%= I18n.t('application.menu_home') %>">Conectando Sonrisas</a>
+          <img src="/images/conectando_sonrisas.png" height="92px" width="460px" title="<%= I18n.t('application.menu_home') %>"/>
     </p>
 </div>
 <div id="home_menu">
+  <p>
   <a href="/" class="home" ><%=I18n.t('application.menu_home')%></a>  
   <% if member_signed_in?  %>
     <%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"home"} %>
@@ -24,6 +24,7 @@
   <a href="/providers" class="home"><%=I18n.t('application.menu_providers')%></a>  
   <a href="/fundations" class="home"><%=I18n.t('application.menu_fundations')%></a>  
   <a href="/events" class="home"><%=I18n.t('application.menu_events')%></a>    
+  </p>
 </div>
 <div class="account">
   <% if member_signed_in?  %>

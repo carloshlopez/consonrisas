@@ -15,7 +15,8 @@ class Fundation < ActiveRecord::Base
   validates_attachment_size :pic, :less_than => 5.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']  
   
-  def add_admin member_id
-    
+  def ask_admin member_id
+    FundationAdmin.create(:member_id =>member_id, :fundation_id => this.id, :active=>false)
   end
+  
 end
