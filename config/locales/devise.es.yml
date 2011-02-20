@@ -25,7 +25,7 @@ es:
       send_instructions: 'Recibirás un email con las instrucciones para confirmar tu cuenta en unos minutos.'
       confirmed: 'Tu cuenta ha sido confirmada exitosamente. Ingreso exitoso!'
     registrations:
-      signed_up: 'Registro exitoso!'
+      signed_up: 'Registro exitoso! - Ingresa la infomración de tu perfil.'
       updated: 'Cuenta modificada con exito.'
       destroyed: 'Chao :( Tu cuenta ha sido cancelada. Esperamos que regreses.'
     unlocks:

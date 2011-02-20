@@ -61,6 +61,9 @@ class FacilitatorsController < ApplicationController
 
     respond_to do |format|
       if @facilitator.update_attributes(params[:facilitator])
+        @facilitator.populations.clear
+        @facilitator.populations << Population.find(params[:population_ids]) if params[:population_ids]
+        @facilitator.member.update_attributes(:use_facebook_pic=>true) if params[:use_facebook_pic] == "1"
 #        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
         format.html { redirect_to member_path(@facilitator.member) }
         format.xml  { head :ok }

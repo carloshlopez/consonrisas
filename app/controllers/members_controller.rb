@@ -87,4 +87,14 @@ class MembersController < ApplicationController
     redirect_to member_url current_member.id
   end
   
+  def update_facebook_id
+    @member = Member.find(params[:member_id])
+    resp = "ok"
+    resp = "error" unless  @member.update_attributes(:facebook_id => params[:facebook_id])
+    
+    respond_to do |format|
+        format.text {render :text => resp }
+    end
+  end
+  
 end

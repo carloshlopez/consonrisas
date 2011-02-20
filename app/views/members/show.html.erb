@@ -1,7 +1,12 @@
-<div class="profile_pic">
-  <%= image_tag @member.facilitator.pic.url(:profile) %>
-</div>
-
+<% if @member.use_facebook_pic and @member.facebook_id %>
+  <div class="profile_pic">
+    <%= image_tag "http://graph.facebook.com/#{@member.facebook_id}/picture?type=large" %>
+  </div>
+<% else %>
+  <div class="profile_pic">
+    <%= image_tag @member.facilitator.pic.url(:profile) %>
+  </div>
+<% end %>
 <p>
   <b>Email:</b>
   <%= @member.email %>

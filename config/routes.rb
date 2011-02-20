@@ -29,6 +29,7 @@ Prueba::Application.routes.draw do
 
   resources :members do
 #    resources :contact_informations
+    post "update_facebook_id"
   end
 
   resources :populations

@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator

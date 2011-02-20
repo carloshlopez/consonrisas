@@ -10,7 +10,13 @@
 
 <p>
   <b><%= I18n.t("profile.population_of_interest") %>:</b>
-    <%= population_name(@facilitator.population_id) %>
+    <% for population in @facilitator.populations do %>
+      <% if I18n.locale.to_s == "en" %>
+        <br/><%= population.name_en %>
+      <% else %>
+        <br/><%= population.name_es %>
+      <% end %>
+    <% end %>
 </p>
 
 <% if can_current_member_edit_facilitator(@facilitator.id) %>
