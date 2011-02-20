@@ -1,5 +1,5 @@
 class Population < ActiveRecord::Base
   has_many :shows
   has_many :fundations
-  belongs_to :facilitator
+  has_and_belongs_to_many :facilitators, :join_table => :facilitator_populations, :uniq => true
 end

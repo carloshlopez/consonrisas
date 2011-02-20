@@ -1,5 +1,6 @@
 # coding: utf-8
 es:
+  use_facebook_pic: "Utilizar la misma foto de perfil que Facebook?"
   mailto: "Escríbenos a info@conectandosonrisas.org"
   name: "Nombre"
   address: "Dirección"
@@ -8,7 +9,7 @@ es:
   country: "País"
   phone: "Teléfono"  
   description: "Descripción"  
-  contribution: "Forma de contribuir"
+  contribution: "Escribe acerca de ti y cómo te gustaría contribuir?"
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"
@@ -27,6 +28,7 @@ es:
   providers: "Proveedores"
   facilitators: "Facilitadores"
   actions: "Acciones"
+  picture: "Agrega una foto"
   
   contact_informations: "Información de contacto"
   contact_information:

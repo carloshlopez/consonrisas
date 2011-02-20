@@ -2,6 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  use_facebook_pic: "Use same Facebook profile pic?"
   mailto: "Contact us: info@conectandosonrisas.org"
   name: "Name"
   address: "Dirección"
@@ -10,7 +11,7 @@ en:
   country: "País"
   phone: "Teléfono"
   description: "Description"
-  contribution: "Contribution"
+  contribution: "About you, and hoy would you like to contribute?"
   date_name: "Date"
   set_locale: "Set Language"
   provider: "Provider"
@@ -29,6 +30,7 @@ en:
   providers: "Providers"  
   facilitators: "Facilitators"
   actions: "Actions"
+  picture: "Add a picture"
   
   contact_informations: "Contact Informations"
   contact_information:

@@ -1,7 +1,7 @@
 class Facilitator < ActiveRecord::Base
   has_and_belongs_to_many :events, :join_table => :events_facilitators, :uniq => true
   belongs_to :member
-  has_one :population
+  has_and_belongs_to_many :populations, :join_table => :facilitator_populations, :uniq => true
   has_and_belongs_to_many :fundations, :join_table => :fundations_facilitators, :uniq => true
   has_and_belongs_to_many :providers, :join_table => :providers_facilitators, :uniq => true
   has_and_belongs_to_many :facilitators, :join_table => :facilitators_facilitators, :association_foreign_key=> "followed_id", :uniq => true
