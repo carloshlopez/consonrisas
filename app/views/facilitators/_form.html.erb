@@ -36,7 +36,11 @@
   
   <div class="field">
     <%= f.label I18n.t("use_facebook_pic") %> &nbsp;
-    <%= check_box_tag 'use_facebook_pic', 1, false, :class => 'use_facebook_pic' %>
+    <% if @facilitator.member.use_facebook_pic %>
+      <%= check_box_tag 'use_facebook_pic', 1, true, :class => 'use_facebook_pic' %>
+    <% else %>
+      <%= check_box_tag 'use_facebook_pic', 1, false, :class => 'use_facebook_pic' %>
+    <% end %>
   </div>  
   <div class="field custom_pic">
     <%= f.label I18n.t("picture") %><br />
