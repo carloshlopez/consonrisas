@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
 
 #  validates_attachment_presence :pic
   validates_attachment_size :pic, :less_than => 5.megabytes
-  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']  
+  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
 
   validate :at_least_one_fundation  
@@ -22,9 +22,11 @@ class Event < ActiveRecord::Base
   def generate_alerts
     self.fundations.each do |fundation|
       Show.find_all_by_population_id(fundation.population.id).each do |show|
+        #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
         Alert.create(:member_id=> show.provider.member.id, :news=> I18n.t('events.provider_alert'))
       end
-      Facilitator.find_all_by_population_id(fundation.population.id).each do |facilitator|
+      Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
+        #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
         Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_alert'), :link=>self.id)
       end      
     end

@@ -101,8 +101,11 @@ class FundationsController < ApplicationController
   
   def ask_admin
     fundation = Fundation.find(params[:fundation_id])
-    fundation.ask_admin params[:member_id]
-    redirect_to fundation_path fundation
+    fundation.ask_admin params[:member_id] if params[:member_id].to_s != "-1" and params[:member_id].to_s != ""
+    fundation.ask_admin_by_mail params[:mail] if params[:mail].to_s != "mail" and params[:mail].to_s != ""
+    respond_to do |format|
+      format.js {head :ok}
+    end
   end
   
 end

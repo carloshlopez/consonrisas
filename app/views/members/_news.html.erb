@@ -2,7 +2,7 @@
   <h2><%= I18n.t('profile.alerts') %></h2>
   <div class="news bordered_box">
     <% current_member.alerts.each do |alert| %>
-      <%= alert.news %> | <%= link_to "See Event", event_path(alert.link) %> <br/>
+      <%= alert.news %> | <%= link_to I18n.t('events.show'), event_path(alert.link) %> <br/>
     <% end %> 
   </div>
 <% end %>

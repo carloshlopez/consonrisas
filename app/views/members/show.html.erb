@@ -1,3 +1,5 @@
+<%= javascript_include_tag "ui.member" %>
+<div id="member">
 <% if @member.use_facebook_pic and @member.facebook_id %>
   <div class="profile_pic">
     <%= image_tag "http://graph.facebook.com/#{@member.facebook_id}/picture?type=large" %>
@@ -47,3 +49,4 @@
   <%= render "news" %>
   
 <% end %>
+</div>

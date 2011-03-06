@@ -16,6 +16,10 @@ Prueba::Application.routes.draw do
   
   get "facilitators/add_follower"
   get "facilitators/remove_follower"    
+  
+  post "fundations/ask_admin"
+  
+  post "members/respond_admin"
 
   root :to => "home#index"
   

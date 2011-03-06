@@ -97,4 +97,13 @@ class MembersController < ApplicationController
     end
   end
   
+  def respond_admin
+    adm = FundationAdmin.find(:first, :conditions => {:member_id =>params[:member_id], :fundation_id => params[:fundation_id]})
+    adm.update_attributes(:active=>params[:active]) if adm and params[:active].to_s == "true"
+    adm.destroy if adm and params[:active].to_s == "false"
+    respond_to do |format|
+      format.js {head :ok}
+    end
+  end
+  
 end
