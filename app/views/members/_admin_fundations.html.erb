@@ -19,6 +19,10 @@
         Eventos de esta fundaci&oacute;n:
         <% @fundation = f.fundation %>
         <%= render "fundations/events" %>      
+      <% else %>
+        <div fundation_id="<%= f.fundation.id %>" member_id="<%= @member.id %>" class="asked_admin">
+        Te han solicitado ser adminitrador de esta fundación: <%=f.fundation.name%>: <a class="admin_accept">Aceptar</a> | <a class="admin_reject">Rechazar</a>
+        </div>
       <% end %>
     <% end %>
   </p>

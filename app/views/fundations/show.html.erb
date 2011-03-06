@@ -1,20 +1,9 @@
+<%= javascript_include_tag "ui.fundations" %>
 <h2> <%= I18n.t('fundation.details') %>  </h2>
 
 <div class="profile_pic">
   <%= image_tag @fundation.pic.url(:profile) %>
 </div>
-
-  <p>
-  <form action="/fundations/#{@fundation.id}/ask_admin" method="post">
-Agregar administrador de fundación:
-
-<%= select_tag "member_id", options_from_collection_for_select(current_member.facilitator.facilitators, "member_id", "name") %>   
-<br/>
-ó preguntarle por email
-<input type="text" value="mail"/>
-<input type="submit" value="Ask Admin" name="ask_admin"/>
-</form>
-</p>
 <p>
   <b><%= I18n.t('name') %>:</b>
   <%= @fundation.name %>
@@ -70,9 +59,37 @@ Agregar administrador de fundación:
 <% end %>
 
 <% if member_signed_in? and can_current_member_edit_fundation(@fundation.id) %>
+
   <h2><%= I18n.t('contact_information.add') %>:</h2>
   <%= render :partial => "contact_informations/form" %>
-
+<div id="fundations" fundation_id="<%= @fundation.id %>">
+  <p>
+  <!--QUITAR LOS QEU YA SON ADMINS-->
+    Agregar administrador de fundación:
+    <select id="member_id">
+    <option value="-1" selected> -- </option>
+    <%
+      current_member.facilitator.facilitators.each do |fac|
+        unless FundationAdmin.find(:first, :conditions=>{:fundation_id=>@fundation.id, :member_id=>fac.member.id})
+          %>
+          <option value="<%= fac.id %>">
+            <%=fac.name%>
+          </option>
+          <%
+        end
+      end
+      
+    %>
+    </select>
+    <br/>
+    ó preguntarle por email
+    <input id="ask_admin_mail" type="text" value="mail"/>
+    <br/>
+    <div id="ask_admin_message">Se envió la solicitud!</div>
+    <a name="ask_admin" class="ask_admin">Ask To Admin</a>
+  </p>
+</div>
+    <br/>
   <%= link_to I18n.t('edit'), edit_fundation_path(@fundation) %> |
 <% end %>
 <%= link_to I18n.t('back'), fundations_path %>

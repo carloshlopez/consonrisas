@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220202953) do
+ActiveRecord::Schema.define(:version => 20110306011333) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20110220202953) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "e_mail"
   end
 
   create_table "fundations", :force => true do |t|

@@ -13,10 +13,14 @@ class Fundation < ActiveRecord::Base
                     :path => "fundations/:attachment/:id/:style/:filename"
   
   validates_attachment_size :pic, :less_than => 5.megabytes
-  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']  
+  validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
   def ask_admin member_id
-    FundationAdmin.create(:member_id =>member_id, :fundation_id => this.id, :active=>false)
+    FundationAdmin.create(:member_id =>member_id, :fundation_id => self.id, :active=>false)
+  end
+  
+  def ask_admin_by_mail mail
+    FundationAdmin.create(:e_mail =>mail, :fundation_id => self.id, :active=>false)
   end
   
 end
