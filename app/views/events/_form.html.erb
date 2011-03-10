@@ -1,3 +1,5 @@
+<%= javascript_include_tag "ui.cities" %>
+<%= javascript_include_tag "ui.calendar" %>
 <%= form_for(@event, :html =>{:multipart=>true}) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +15,7 @@
 
   <div class="field">
     <%= f.label I18n.t('date_name') %><br />
-    <%= f.datetime_select :date %>
+    <%= f.text_field :date , :class=>"calendar"%>
   </div>
   <div class="field">
     <%= f.label I18n.t('name') %><br />
@@ -24,6 +26,16 @@
     <%= I18n.t('events.for_fundation') %> <br/>
     <%=  select_tag "fundation_id", options_from_collection_for_select(current_member.fundations.all, "id", "name") %>
   </div>      
+  
+  <div class="field">
+    <%= f.label I18n.t("city") %><br />
+    <%= f.text_field :city, :class=>"cities" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t("place") %><br />
+    <%= f.text_field :place %>
+  </div>
   
   <div class="field">
     <%= I18n.t('events.pic') %><br/>

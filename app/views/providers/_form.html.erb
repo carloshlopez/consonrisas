@@ -1,3 +1,4 @@
+<%= javascript_include_tag "ui.cities" %>
 <%= form_for(@provider, :html => {:multipart=> true}) do |f| %>
   <% if @provider.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +16,11 @@
     <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
     <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t("city") %><br />
+    <%= f.text_field :city, :class=>"cities" %>
   </div>
   
   <div class="field">
