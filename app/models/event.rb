@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
 
-  validate :at_least_one_fundation  
+  #validate :at_least_one_fundation  
   
   after_create :generate_alerts
   

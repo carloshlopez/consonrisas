@@ -7,4 +7,22 @@ jQuery(document).ready(function($) {
             $('.custom_pic').show();
         }
     });
+    
+    var cities = [
+			"Bogotá",
+			"Medellín",
+			"Cali",
+			"Cartagena",
+			"Chia",
+			"Cota",
+			"Barranquilla",
+			"Santa Marta",
+			"Envigado",
+			"Guasca",
+			"Bucaramanga"
+		];
+		$( "#facilitator_city" ).autocomplete({
+			source: cities
+		});
+    
 });

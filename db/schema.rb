@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306011333) do
+ActiveRecord::Schema.define(:version => 20110310000011) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20110306011333) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "city"
+    t.string   "place"
   end
 
   create_table "events_facilitators", :id => false, :force => true do |t|
@@ -88,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20110306011333) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "city"
   end
 
   create_table "facilitators_facilitators", :id => false, :force => true do |t|
@@ -175,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20110306011333) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "city"
   end
 
   create_table "providers_facilitators", :id => false, :force => true do |t|

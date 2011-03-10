@@ -3,11 +3,12 @@
 <head>
   <title>..::Conectando Sonrisas::..  ::Beta::</title>
   <%= stylesheet_link_tag :all %>
-  <link  href="//fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css" >
-  <link  href="//fonts.googleapis.com/css?family=Covered+By+Your+Grace:regular" rel="stylesheet" type="text/css" >  
   <link rel="shortcut icon" href="/images/favicon.ico" />
-  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" %>
-  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" %>    
+
+  <%= javascript_include_tag "jquery-1.4.4.min" %>
+  <%= javascript_include_tag "jquery-ui-1.8.10.custom.min" %>  
+  <%= javascript_include_tag "jquery-ui-timepicker-addon" %>    
+  
   <%= csrf_meta_tag %>
 </head>
 <body class="application_body">
@@ -42,7 +43,7 @@
 <div class="locale_menu">
   <form action="" method="get">
     <%= I18n.t('set_locale') %>:<br/>
-    <select name="locale">
+    <select id="el_locale" name="locale">
       <option value="en">English</option>
       <% if I18n.locale == :es%>
         <option value="es" selected>Español</option>

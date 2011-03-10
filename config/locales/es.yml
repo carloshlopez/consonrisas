@@ -6,6 +6,7 @@ es:
   address: "Dirección"
   cellphone: "Celular"
   city: "Ciudad"
+  place: "Lugar"
   country: "País"
   phone: "Teléfono"  
   description: "Descripción"  
@@ -134,15 +135,17 @@ es:
     followed_fundations: "Fundaciones a las que sigues"
     followed_providers: "Proveedores a las que sigues"    
     followed_facilitators: "Facilitadores a las que sigues"    
-  home:
+  home: 
     welcome: "Bienvenido"
-    now: "Actualmente hay:"
+    now: "Actualmente se encuentran conectados:"
     facilitators: "Facilitadores"
     fundations: "Fundaciones"    
     providers: "Proveedores de Entretenimiento"    
     join: "Haz parte de la comunidad ... "
     login: "Si ya haces parte ... "
-    
+    message: "Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales clombianos.
+    Conectando personas interesadas en ayudar a estos proyectos por medio de eventos. Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos. Al ingresar inmediatamente serás un facilitador de estos proyectos. También puedes registrar tu proyecto social, y aprovechar este sitio para encontrar recursos para tus eventos. Si sabes entretener, te puedes registrar como proveedor de entretenimiento para prestar tus servicios a los diferentes proyectos sociales. 
+Conéctate para sacarle sonrisas al país."
     
 #defaults needed
   first: "Primero"
