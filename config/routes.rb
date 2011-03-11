@@ -11,17 +11,20 @@ Prueba::Application.routes.draw do
   get "fundations/add_follower"
   get "fundations/remove_follower"
   
-  get "providers/add_follower"
-  get "providers/remove_follower"  
+  post "providers/add_follower"
+  post "providers/remove_follower"
   
   get "facilitators/add_follower"
-  get "facilitators/remove_follower"    
+  get "facilitators/remove_follower"
   
   post "fundations/ask_admin"
   
   post "members/respond_admin"
 
   root :to => "home#index"
+  
+  get "home/info"
+  post "home/feedback"
   
   resources :events do
     resources :comments
