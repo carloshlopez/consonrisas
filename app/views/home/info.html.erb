@@ -1,19 +1,7 @@
 <h1><%= I18n.t("home.welcome") %></h1>
 
 <p class="home_message">
-<%= I18n.t("home.message").html_safe %>
-</p>
-<p>
-<%= I18n.t("home.now") %>
-</p>
-<p>
-<%=@facilitators%> <%= link_to I18n.t('home.facilitators'), facilitators_path %>
-</p>
-<p>
-<%=@fundations%> <%= link_to I18n.t('home.fundations'), fundations_path %>
-</p>
-<p>
-<%=@providers%> <%= link_to I18n.t('home.providers'), providers_path %>
+<%= I18n.t("home.info_message").html_safe %>
 </p>
 <% unless member_signed_in?  %>
   <p>

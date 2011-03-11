@@ -91,14 +91,18 @@ class ProvidersController < ApplicationController
     provider = Provider.find(params[:provider_id])
     facilitator = Facilitator.find(params[:facilitator_id])
     provider.facilitators.push(facilitator)
-    redirect_to providers_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end
   
   def remove_follower
     provider = Provider.find(params[:provider_id])
     facilitator = Facilitator.find(params[:facilitator_id])
     provider.facilitators.delete(facilitator)
-    redirect_to providers_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end  
   
 end

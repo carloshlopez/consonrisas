@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   private
   
   def authenticate_http
-    authenticate_or_request_with_http_basic do |user_name, password|
-      user_name == 'usuario123' && password == 'usuario123'
-    end
-    warden.custom_failure! if performed?
+#    authenticate_or_request_with_http_basic do |user_name, password|
+#      user_name == 'usuario123' && password == 'usuario123'
+#    end
+#    warden.custom_failure! if performed?
   end
   
   def set_locale

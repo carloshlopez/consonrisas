@@ -4,11 +4,11 @@
   <title>..::Conectando Sonrisas::..  ::Beta::</title>
   <%= stylesheet_link_tag :all %>
   <link rel="shortcut icon" href="/images/favicon.ico" />
-
+  <link  href="http://fonts.googleapis.com/css?family=Radley:regular" rel="stylesheet" type="text/css" >
   <%= javascript_include_tag "jquery-1.4.4.min" %>
   <%= javascript_include_tag "jquery-ui-1.8.10.custom.min" %>  
   <%= javascript_include_tag "jquery-ui-timepicker-addon" %>    
-  
+  <%= javascript_include_tag "ui.feedback" %>
   <%= csrf_meta_tag %>
 </head>
 <body class="application_body">
@@ -17,16 +17,21 @@
           <img src="/images/conectando_sonrisas.png" height="92px" width="460px" title="<%= I18n.t('application.menu_home') %>"/>
     </p>
 </div>
+<% if member_signed_in?  %>
+  <%= render 'home/feedback' %>
+<% end %>
 <div id="home_menu">
   <p>
-  <a href="/" class="home" ><%=I18n.t('application.menu_home')%></a>  
   <% if member_signed_in?  %>
     <%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"home"} %>
+  <% else %>
+    <a href="/" class="home" ><%=I18n.t('application.menu_home')%></a>  
   <% end %>
   <a href="/facilitators" class="home" ><%=I18n.t('application.menu_facilitators')%></a>  
   <a href="/providers" class="home"><%=I18n.t('application.menu_providers')%></a>  
   <a href="/fundations" class="home"><%=I18n.t('application.menu_fundations')%></a>  
   <a href="/events" class="home"><%=I18n.t('application.menu_events')%></a>    
+  <a href="/home/info" class="home" ><%=I18n.t('application.menu_info')%></a>  
   </p>
 </div>
 <div class="account">
@@ -42,7 +47,7 @@
 </div>
 <div class="locale_menu">
   <form action="" method="get">
-    <%= I18n.t('set_locale') %>:<br/>
+    <%= I18n.t('set_locale') %>:
     <select id="el_locale" name="locale">
       <option value="en">English</option>
       <% if I18n.locale == :es%>

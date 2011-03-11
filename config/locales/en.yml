@@ -97,6 +97,7 @@ en:
     menu_fundations: "Fundations"            
     menu_events: "Events"
     menu_profile: "My Profile"
+    menu_info: "¿What is this?"  
   events:
     add_me_facilitator: "Add me as facilitator"
     add_me_fundation: "Add me as fundation"
@@ -146,3 +147,4 @@ en:
     join: "Join the community ... "
     login: "If you are already a member  ... "   
     message: "Here you can get connected with people interesten in social work, yo can browse social proyects and get involved in them through events. Get connected to get a smile out of your country"           
+    info_message: "Here you can get connected with people interesten in social work, yo can browse social proyects and get involved in them through events. Get connected to get a smile out of your country"               

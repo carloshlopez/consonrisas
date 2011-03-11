@@ -14,7 +14,7 @@ es:
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"
-  fundation: "Fundación"    
+  fundation: "Proyecto"    
   facilitator: "Facilitador"  
   show: "Espectáculo"  
   show_name: "Mostrar"    
@@ -25,7 +25,7 @@ es:
   follow: "Seguir"  
   unfollow: "Dejar de Seguir"
   website: "Sitio web"
-  fundations: "Fundaciones"
+  fundations: "Proyectos Sociales"
   providers: "Proveedores"
   facilitators: "Facilitadores"
   actions: "Acciones"
@@ -57,21 +57,21 @@ es:
     submit_edit: "Actualizar tu información"    
     list: "Todos los Facilitadores"    
   fundation:
-    list: "Todas las Fundaciones"
+    list: "Proyectos Registrados"
     show: "Ver su perfil"
     population: "Población que manejan"    
-    new_title: "Crear nueva Fundación"
+    new_title: "Crear nuevo Proyecto"
     create: "Send information"
-    details: "Detalle de la Fundación"
-    edit_title: "Editar información de la fundación"
-    new: "Registrar nueva Fundación"
+    details: "Detalle del Proyecto"
+    edit_title: "Editar información del proyecto"
+    new: "Registrar nuevo Proyecto"
   account:
     logout: "Salir"  
     login: "Ingresar"
-    register: "Registrarse"    
+    register: "Registrate"    
     edit: "Editar mi cuenta"    
     logged_in_as: "Ingresaste como"
-    sign_up: "Registrarse"
+    sign_up: "Registrate"
     password: "Contraseña"
     password_new_explain: "(dejar en blanco si NO la quieres cambiar)"        
     password_confirmation: "Confirmar contraseña"
@@ -92,18 +92,19 @@ es:
     menu_home: "Inicio"        
     menu_facilitators: "Facilitadores"            
     menu_providers: "Proveedores"            
-    menu_fundations: "Fundaciones"            
+    menu_fundations: "Proyectos Sociales"            
     menu_events: "Eventos"   
-    menu_profile: "Mi Perfil"    
+    menu_profile: "Mi Perfil" 
+    menu_info: "¿Qué es esto?"   
   events:
     add_me_facilitator: "Agregarme como facilitador"
-    add_me_fundation: "Agregarme como fundación"
+    add_me_fundation: "Agregarme como proyecto"
     add_me_provider: "Agregarme como proveedor"
     add_facilitator: "Sugerirle a un facilitador que asista"
-    add_fundation: "Sugerirle a una fundación que asista"
+    add_fundation: "Sugerirle a un proyecto que asista"
     add_provider: "Sugerirle a un proveedor que asista"      
     attending_facilitators: "Facilitadores que asistirán"
-    attending_fundations: "Fundaciones que asistirán"
+    attending_fundations: "Proyectos que asistirán"
     attending_providers: "Proveedores que asistirán"
     attending_shows: "Espectáculos que se presentarán"
     title: "Detalles del Evento"    
@@ -116,36 +117,52 @@ es:
     create_comment: "Comentar"
     edit_title: "Editar el Evento"
     attending_as_facilitator: "Vas a ir como Facilitador"    
-    one_fundation_error: "Debes crear el evento por lo menos para una Fundación"
-    for_fundation: "Este evento será destinado para la Fundación:"
+    one_fundation_error: "Debes crear el evento por lo menos para un Proyecto"
+    for_fundation: "Este evento será destinado para el Proyecto:"
     pic: "Imágen del Evento"
-    provider_alert: "Evento creado para una fundación con audiencia de tu interés"    
-    facilitator_alert: "Evento creado para una fundación de tu interés"
+    provider_alert: "Evento creado para un proyecto con audiencia de tu interés"    
+    facilitator_alert: "Evento creado para un proyecto de tu interés"
   profile:
-    managed_providers: "Proveedores que administra"
-    managed_fundations: "Fundaciónes que administra"  
+    managed_providers: "Proveedores que administras"
+    managed_fundations: "Proyectos Sociales que administras"  
     manage_providers: "Administra los Proveedores agregados por ti"
-    manage_fundations: "Administra las Fundaciónes creadas por ti"
-    create_provider: "Crea un nuevo Proveedor"
-    create_fundation: "Crea una nueva Fundación"    
+    manage_fundations: "Administra los Proyectos Sociales creadas por ti"
+    create_provider: "Registra un nuevo Proveedor"
+    create_fundation: "Registra un nuevo Proyecto Social"  
     population_of_interest: "Población de interés"    
     events_calendar: "Calendario de Eventos"
     alerts: "Aquí están algunas noticias de tu interés"
     alerts_see_event: "Ver evento"
-    followed_fundations: "Fundaciones a las que sigues"
+    followed_fundations: "Proyectos Sociales a las que sigues"
     followed_providers: "Proveedores a las que sigues"    
     followed_facilitators: "Facilitadores a las que sigues"    
   home: 
     welcome: "Bienvenido"
     now: "Actualmente se encuentran conectados:"
     facilitators: "Facilitadores"
-    fundations: "Fundaciones"    
+    fundations: "Proyectos Sociales"    
     providers: "Proveedores de Entretenimiento"    
     join: "Haz parte de la comunidad ... "
     login: "Si ya haces parte ... "
-    message: "Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales clombianos.
-    Conectando personas interesadas en ayudar a estos proyectos por medio de eventos. Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos. Al ingresar inmediatamente serás un facilitador de estos proyectos. También puedes registrar tu proyecto social, y aprovechar este sitio para encontrar recursos para tus eventos. Si sabes entretener, te puedes registrar como proveedor de entretenimiento para prestar tus servicios a los diferentes proyectos sociales. 
-Conéctate para sacarle sonrisas al país."
+    message: |-
+        Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales clombianos.
+        <br/><br>
+        Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos. <br/><br/>
+        <b>¡Conéctate para sacarle sonrisas al país!</b> &nbsp; <a href="home/info">Más información</a>
+    info_message: |-
+        Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales clombianos.
+        <br/><br>
+        Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos. <br/><br/>
+        <b>¡Conéctate para sacarle sonrisas al país!</b>
+        <br><br/>
+        Al ingresar inmediatamente serás un facilitador de estos proyectos.
+        <br/><br/>
+        También puedes registrar tu proyecto social, como una fundación, y aprovechar este sitio para encontrar recursos para tus eventos. <br/><br/>
+        Si sabes entretener, te puedes registrar como proveedor de entretenimiento para prestar tus servicios a los diferentes proyectos sociales.
+        <br/><br/>
+        Espera más información!!
+        <br/><br/>
+        Nos puedes escribir para pedir cualquier información a: info@conectandosonrisas.org
     
 #defaults needed
   first: "Primero"

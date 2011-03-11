@@ -38,10 +38,9 @@ a.home:hover { color: #fff; background-color:#98bf21; }
 
 .locale_menu
 {
-    text-align: center;
     position:fixed;
     top: 5px;
-    left: 5px;
+    left: 75px;
     padding: 5px;
 }
 
@@ -52,6 +51,17 @@ a.home:hover { color: #fff; background-color:#98bf21; }
     top: 5px;
     right: 5px;
     padding: 5px;
+}
+
+.feedbacks
+{
+    position:fixed;
+    top: 5px;
+    left: 5px;
+    padding: 5px;
+    width: 250px;
+    height: 200px;
+    overflow:hidden;
 }
 
 .ads_left
@@ -108,20 +118,17 @@ body.application_body
     height: 80px;
 }
 
-.home_logo
+.home_message
 {
-  font-family: 'Covered By Your Grace', serif;
-  font-size: 40px;
+  font-family: 'Arimo', serif;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 400;
-  text-shadow: none;
+  font-weight: 100;
   text-decoration: none;
   text-transform: none;
-  letter-spacing: 0em;
+  letter-spacing: 0.033em;
   word-spacing: 0em;
-  line-height: 1em;
-  text-shadow: 2px 2px 2px #aaa;
-  margin-top: -15px;
+  line-height: 1.2;
 }
 
 
