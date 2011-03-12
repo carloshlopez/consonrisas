@@ -8,9 +8,13 @@
   <b><%= I18n.t("date_name") %>:</b>
   <%= @event.date %>
 </p>
-<%= link_to I18n.t('edit'), edit_event_path(@event) %>
 
 <% if member_signed_in? %>
+<% if can_current_member_edit_event @event.id %>
+  <%= link_to I18n.t('edit'), edit_event_path(@event) %>
+<% end %>
+
+
 <div id="member_event_actions" class="bordered_box">
   <% if current_member.facilitator %>
     <% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>

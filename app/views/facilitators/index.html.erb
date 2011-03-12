@@ -16,7 +16,7 @@
   <tr class="alt">
   <% end %>
     <td> 
-    <% if facilitator.member.use_facebook_pic and facilitator.member.facebook_id  %>
+    <% if facilitator.member and facilitator.member.use_facebook_pic and facilitator.member.facebook_id  %>
       <%= image_tag "http://graph.facebook.com/#{facilitator.member.facebook_id}/picture" %>
     <% else %>
       <%= image_tag facilitator.pic.url(:thumb) %>
@@ -24,7 +24,7 @@
 
     </td>    
     <td><%= facilitator.name %></td>
-    <% if member_signed_in? %>
+    <% if member_signed_in? and facilitator.member %>
       <td><%= link_to I18n.t('go_to_profile'), member_path(facilitator.member) %>
         <% if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty? %>
           |

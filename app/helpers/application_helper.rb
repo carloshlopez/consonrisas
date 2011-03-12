@@ -18,6 +18,12 @@ module ApplicationHelper
     can_he
   end
   
+  def can_current_member_edit_event(event_id)
+    can_he = true
+    can_he = false if current_member.events.select{|e| e.id == event_id}.empty?
+    can_he
+  end
+  
   def can_current_member_edit_facilitator(facilitator_id)
     can_he = true
     can_he = false unless current_member.facilitator and current_member.facilitator.id == facilitator_id

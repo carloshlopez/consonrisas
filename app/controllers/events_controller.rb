@@ -48,6 +48,7 @@ class EventsController < ApplicationController
     end
     respond_to do |format|
       if @event.save
+        EventAdmin.create(:member_id =>params[:member_id], :event_id => @event.id, :active=>true)
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else

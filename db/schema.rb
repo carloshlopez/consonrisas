@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310234434) do
+ActiveRecord::Schema.define(:version => 20110312203940) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20110310234434) do
     t.integer  "member_id"
     t.integer  "fundation_id"
     t.integer  "provider_id"
+  end
+
+  create_table "event_admins", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "event_id"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", :force => true do |t|
