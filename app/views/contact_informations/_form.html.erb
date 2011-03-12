@@ -15,12 +15,10 @@
     <%= f.label I18n.t('contact_information.phone') %><br />
     <%= f.text_field :phone %>
   </div>
-<% if @member_type == ApplicationHelper::ROLES[:fundation] or @member_type == ApplicationHelper::ROLES[:provider] %>  
   <div class="field">
     <%= f.label I18n.t('contact_information.position') %><br />
     <%= f.text_field :position %>
   </div>
-<% end %>
   <div class ="hiddens">
     <input type="hidden" name="member_id" value="<%= @member.id %>"/>
     <input type="hidden" name="member_type" value="<%= @member_type %>"/>

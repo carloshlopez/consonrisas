@@ -82,6 +82,7 @@ en:
     forgot_password: "Forgot your password?"    
     update: "Update"
     cancel: "Cancel my account"
+    cancel_confirm: "Are you sure? Everything you created or shared will be deleated for ever."
     remember_me: "Remember me"
     send_reset: "Send me reset password instructions"
   messages:

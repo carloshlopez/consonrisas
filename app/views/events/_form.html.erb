@@ -20,12 +20,14 @@
   <div class="field">
     <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
+    <input type="hidden" name="member_id" value="<%= current_member.id %>"/>
   </div>
-
+  <% unless current_member.fundations.empty? %>
   <div class="field">
     <%= I18n.t('events.for_fundation') %> <br/>
     <%=  select_tag "fundation_id", options_from_collection_for_select(current_member.fundations.all, "id", "name") %>
   </div>      
+  <% end %>
   
   <div class="field">
     <%= f.label I18n.t("city") %><br />

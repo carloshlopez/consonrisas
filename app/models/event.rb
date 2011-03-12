@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :fundations, :join_table => :events_fundations, :uniq => true
   has_and_belongs_to_many :providers, :join_table => :events_providers, :uniq => true  
   has_and_belongs_to_many :shows, :join_table => :events_shows, :uniq => true  
+  has_many :event_admins, :dependent =>:destroy
+  has_many :members, :through => :event_admins, :dependent => :destroy  
   
   has_attached_file :pic, :styles => {:profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,
@@ -15,6 +17,10 @@ class Event < ActiveRecord::Base
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
 
+  validates :name, :presence => true, :length => { :maximum => 100 }  
+  validates :city, :presence => true, :length => { :maximum => 100 }  
+  validates :place, :presence => true, :length => { :maximum => 200 }  
+  validates :date, :presence => true
   #validate :at_least_one_fundation  
   
   after_create :generate_alerts

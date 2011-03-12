@@ -21,8 +21,10 @@
     <% if member_signed_in? %>
       <td>
         <%= link_to I18n.t('events.show'), event %>
+        <% if can_current_member_edit_event(event.id) %>
         | <%= link_to I18n.t('edit'), edit_event_path(event) %>
         | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+        <% end %>
       </td>
     <% end %>
   </tr>
