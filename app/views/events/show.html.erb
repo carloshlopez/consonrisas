@@ -1,5 +1,9 @@
 <h2> <%= I18n.t("events.title") %></h2>
+
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= event_url(@event.id) %>" show_faces="false" width="450" font="tahoma" colorscheme="dark"></fb:like>
+<p>
 <%= image_tag @event.pic.url(:profile) %>
+</p>
 <p>
   <b><%= I18n.t("name") %>:</b>
   <%= @event.name %>
@@ -68,6 +72,22 @@
 </p>
 <p>
   <b><%= I18n.t("events.attending_providers")%>: <%= @event.providers.count %></b>
+</p>
+<p><!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=<%= event_url(@event.id) %>&linkname=Evento%20de%20Conectando%20Sonrisas"><%= I18n.t('share') %></a>
+<span class="a2a_divider"></span>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script type="text/javascript">
+var a2a_config = a2a_config || {};
+a2a_config.linkname = "Evneto de Conectando Sonrisas";
+a2a_config.linkurl = '<%= event_url(@event.id) %>';
+</script>
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
 </p>
 
 <% unless @event.comments.empty? %>
