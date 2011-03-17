@@ -15,6 +15,9 @@
 <p>
 <%=@providers%> <%= link_to I18n.t('home.providers'), providers_path %>
 </p>
+<p>
+<%=@events%> <%= link_to I18n.t('home.events'), events_path %>
+</p>
 <% unless member_signed_in?  %>
   <p>
     <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
