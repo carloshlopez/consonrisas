@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @facilitators = Facilitator.count
     @fundations = Fundation.count
     @providers = Provider.count    
+    @events = Event.count    
   end
 
   def info

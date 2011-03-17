@@ -67,7 +67,7 @@ es:
     new: "Registrar nuevo Proyecto"
   account:
     logout: "Salir"  
-    login: "Ingresar"
+    login: "Ingresa"
     register: "Registrate"    
     edit: "Editar mi cuenta"    
     logged_in_as: "Ingresaste como"
@@ -143,11 +143,14 @@ es:
     facilitators: "Facilitadores"
     fundations: "Proyectos Sociales"    
     providers: "Proveedores de Entretenimiento"    
+    events: "Eventos han sido creados"
     join: "Haz parte de la comunidad ... "
     login: "Si ya haces parte ... "
     message: |-
+        NECESITAMOS UN DISEÑADOR GRÁFICO (si quieres ayudar a hacer más bonita esta página, porfavor escríbenos a <a href="mailto:info@conectandosonrisas.org?subject=Contacto%20Diseñador">info@conectandosonrisas.org</a>)
+        <br/><br/>
         Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales clombianos.
-        <br/><br>
+        <br/><br/>
         Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos. <br/><br/>
         <b>¡Conéctate para sacarle sonrisas al país!</b> &nbsp; <a href="home/info">Más información</a>
     info_message: |-

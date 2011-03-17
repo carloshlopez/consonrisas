@@ -4,9 +4,7 @@
     <th></th>
     <th><%= I18n.t('date_name')%></th>
     <th><%= I18n.t('name') %></th>
-    <% if member_signed_in? %>
-      <th> <%= I18n.t('actions') %> </th>
-    <% end %>
+    <th> <%= I18n.t('actions') %> </th>
   </tr>
 <% num = 0 %>
 <% @events.each do |event| %>
@@ -15,18 +13,18 @@
   <% else %>
   <tr class="alt">
   <% end %>
-    <td> <%= image_tag event.pic.url(:thumb) %> </td>
+    <td> 
+    <%= link_to image_tag(event.pic.url(:thumb)), event_path(event.id) %> 
+     </td>
     <td><%= event.date %></td>
     <td><%= event.name %></td>
-    <% if member_signed_in? %>
-      <td>
+    <td>
         <%= link_to I18n.t('events.show'), event %>
-        <% if can_current_member_edit_event(event.id) %>
-        | <%= link_to I18n.t('edit'), edit_event_path(event) %>
-        | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+        <% if  member_signed_in? and can_current_member_edit_event(event.id) %>
+          | <%= link_to I18n.t('edit'), edit_event_path(event) %>
+          | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
         <% end %>
-      </td>
-    <% end %>
+    </td>
   </tr>
 <% 
   num = num + 1
