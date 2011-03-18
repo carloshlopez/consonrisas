@@ -1,38 +1,39 @@
-<h1><%= I18n.t('events.list') %></h1>
 
-<table>
-    <th></th>
-    <th><%= I18n.t('date_name')%></th>
-    <th><%= I18n.t('name') %></th>
-    <th> <%= I18n.t('actions') %> </th>
-  </tr>
-<% num = 0 %>
-<% @events.each do |event| %>
-  <% if num % 2 == 0 %>
-  <tr>
-  <% else %>
-  <tr class="alt">
+  <h1 class="title"><%= I18n.t('events.list') %></h1>
+
+  <table>
+      <th></th>
+      <th><%= I18n.t('date_name')%></th>
+      <th><%= I18n.t('name') %></th>
+      <th> <%= I18n.t('actions') %> </th>
+    </tr>
+  <% num = 0 %>
+  <% @events.each do |event| %>
+    <% if num % 2 == 0 %>
+    <tr>
+    <% else %>
+    <tr class="alt">
+    <% end %>
+      <td> 
+      <%= link_to image_tag(event.pic.url(:thumb)), event_path(event.id), :class=>"nostyle" %> 
+       </td>
+      <td><%= event.date %></td>
+      <td><%= event.name %></td>
+      <td>
+          <%= link_to I18n.t('events.show'), event %>
+          <% if  member_signed_in? and can_current_member_edit_event(event.id) %>
+            | <%= link_to I18n.t('edit'), edit_event_path(event) %>
+            | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+          <% end %>
+      </td>
+    </tr>
+  <% 
+    num = num + 1
+    end 
+  %>
+  </table>
+
+  <br />
+  <% if member_signed_in? %>
+  <%= link_to I18n.t('events.new'), new_event_path %>
   <% end %>
-    <td> 
-    <%= link_to image_tag(event.pic.url(:thumb)), event_path(event.id) %> 
-     </td>
-    <td><%= event.date %></td>
-    <td><%= event.name %></td>
-    <td>
-        <%= link_to I18n.t('events.show'), event %>
-        <% if  member_signed_in? and can_current_member_edit_event(event.id) %>
-          | <%= link_to I18n.t('edit'), edit_event_path(event) %>
-          | <%= link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
-        <% end %>
-    </td>
-  </tr>
-<% 
-  num = num + 1
-  end 
-%>
-</table>
-
-<br />
-<% if member_signed_in? %>
-<%= link_to I18n.t('events.new'), new_event_path %>
-<% end %>

@@ -2,6 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  search: "Search"
   share: "Share"
   use_facebook_pic: "Use same Facebook profile pic?"
   mailto: "Contact us: info@conectandosonrisas.org"

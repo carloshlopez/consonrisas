@@ -2,82 +2,98 @@
 <html>
 <head>
   <title>..::Conectando Sonrisas::..  ::Beta::</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag "scaffold_min" %>  
+  <%= stylesheet_link_tag "jquery-ui-1.8.10.custom.css" %>    
   <link rel="shortcut icon" href="/images/favicon.ico" />
-  <link  href="http://fonts.googleapis.com/css?family=Radley:regular" rel="stylesheet" type="text/css" >
+  <link href="http://fonts.googleapis.com/css?family=Radley:regular" rel="stylesheet" type="text/css" >
   <%= javascript_include_tag "jquery-1.4.4.min" %>
   <%= javascript_include_tag "jquery-ui-1.8.10.custom.min" %>  
   <%= javascript_include_tag "jquery-ui-timepicker-addon" %>    
   <%= javascript_include_tag "ui.feedback" %>
+  <%= javascript_include_tag "ui.homeMenu" %>
   <%= csrf_meta_tag %>
 </head>
-<body class="application_body">
-<div class="application_header">
-    <p class="home_logo">
-          <img src="/images/conectando_sonrisas.png" height="92px" width="460px" title="<%= I18n.t('application.menu_home') %>"/>
-    </p>
+<body>
+<div id="header">
+  <div id="menu">
+    <ul>
+      <% if member_signed_in?  %>
+        <li class="current_page_item"><%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"profile"} %></li>
+      <% else %>
+        <li class="current_page_item"><a href="/" class="home" ><%=I18n.t('application.menu_home')%></a></li>
+      <% end %>
+      <li><a href="/facilitators" class="facilitators" ><%=I18n.t('application.menu_facilitators')%></a></li>  
+      <li><a href="/providers" class="providers"><%=I18n.t('application.menu_providers')%></a></li>  
+      <li><a href="/fundations" class="fundations"><%=I18n.t('application.menu_fundations')%></a></li>  
+      <li><a href="/events" class="events"><%=I18n.t('application.menu_events')%></a></li>    
+      <li><a href="/home/info" class="info" ><%=I18n.t('application.menu_info')%></a></li>
+    <ul>
+  </div>
+	<div id="search">
+		<form id="searchform" method="get" action="#">
+			<fieldset>
+			<input id="s" type="text" name="s" value="" class="text" />
+			<input id="x" type="submit" value="<%= I18n.t('search') %>" class="button" />
+			</fieldset>
+		</form>
+	</div>
+  <div class="account">
+    <% if member_signed_in?  %>
+      <%= I18n.t('account.logged_in_as')%>: <br/> <%= current_member.email %>
+      <br/>
+      <%= link_to I18n.t('account.logout'), destroy_member_session_path %> |
+      <%= link_to I18n.t('account.edit'), edit_member_registration_path %>
+    <% else %>
+      <%= link_to I18n.t('account.register'), new_member_registration_path %> |
+      <%= link_to I18n.t('account.login'), new_member_session_path %>
+    <% end %>
+  </div>
+  <div class="locale_menu">
+    <form action="" method="get">
+      <%= I18n.t('set_locale') %>:<br/>
+      <select id="el_locale" name="locale">
+        <option value="en">English</option>
+        <% if I18n.locale == :es%>
+          <option value="es" selected>Español</option>
+        <% else %>
+          <option value="es">Español</option>
+        <% end %>
+      </select>
+      <input type="submit" value="Ok" name="new_locale"/>
+    </form>
+  </div>
 </div>
+<div id="logo">
+  <img src="/images/conectando_sonrisas.png" height="92px" width="460px" title="<%= I18n.t('application.menu_home') %>"/>
+  <div class="application_messages">
+    <p id="notice" class="notice"><%= notice %></p>
+    <p id="alert" class="alert"><%= alert %></p>
+  </div>
+</div>
+
+<div id="page">
+  <div id="content">
+    <div class="post">
+      <div class="entry">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div id="footer">
 <% if member_signed_in?  %>
   <%= render 'home/feedback' %>
 <% end %>
-<div id="home_menu">
-  <p>
-  <% if member_signed_in?  %>
-    <%= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"home"} %>
-  <% else %>
-    <a href="/" class="home" ><%=I18n.t('application.menu_home')%></a>  
-  <% end %>
-  <a href="/facilitators" class="home" ><%=I18n.t('application.menu_facilitators')%></a>  
-  <a href="/providers" class="home"><%=I18n.t('application.menu_providers')%></a>  
-  <a href="/fundations" class="home"><%=I18n.t('application.menu_fundations')%></a>  
-  <a href="/events" class="home"><%=I18n.t('application.menu_events')%></a>    
-  <a href="/home/info" class="home" ><%=I18n.t('application.menu_info')%></a>  
-  </p>
-</div>
-<div class="account">
-  <% if member_signed_in?  %>
-    <%= I18n.t('account.logged_in_as')%>: <br/> <%= current_member.email %>
-    <br/>
-    <%= link_to I18n.t('account.logout'), destroy_member_session_path %> |
-    <%= link_to I18n.t('account.edit'), edit_member_registration_path %>
-  <% else %>
-    <%= link_to I18n.t('account.register'), new_member_registration_path %> |
-    <%= link_to I18n.t('account.login'), new_member_session_path %>
-  <% end %>
-</div>
-<div class="locale_menu">
-  <form action="" method="get">
-    <%= I18n.t('set_locale') %>:
-    <select id="el_locale" name="locale">
-      <option value="en">English</option>
-      <% if I18n.locale == :es%>
-        <option value="es" selected>Español</option>
-      <% else %>
-        <option value="es">Español</option>
-      <% end %>
-    </select>
-    <input type="submit" value="Ok" name="new_locale"/>
-  </form>
-</div>
-<div class="application_messages">
-  <p id="notice" class="notice"><%= notice %></p>
-  <p id="alert" class="alert"><%= alert %></p>
-</div>
-<div class="application_content">
-<%= yield %>
-</div>
-<div class="ads_right">
-</div>
-<div class="ads_left">
-</div>
-<div class="application_footer">
-...:: BETA ::...
-<p>
-<a href="http://www.twitter.com/consonrisas" target="_blank"><img src="/images/Twitter-icon.png" alt="Follow consonrisas on Twitter" title="Follow consonrisas on Twitter" /></a>
-<a href="http://www.facebook.com/pages/Conectando-Sonrisas/207633962587548" target="_blank"><img src="/images/FaceBook-icon.png" alt="Follow Conectando Sonrisas on Facebook" title="Follow Conectando Sonrisas on Facebook"/></a>
+  ...:: BETA ::...
+<br/>
+<a href="http://www.twitter.com/consonrisas" class="footernostyle" target="_blank"><img src="/images/Twitter-icon24.png" alt="Follow consonrisas on Twitter" title="Follow consonrisas on Twitter" /></a>
+<a href="http://www.facebook.com/pages/Conectando-Sonrisas/207633962587548" class="footernostyle" target="_blank"><img src="/images/FaceBook-icon24.png" alt="Follow Conectando Sonrisas on Facebook" title="Follow Conectando Sonrisas on Facebook"/></a>
 <br/>
 <a href="mailto:info@conectandosonrisas.org?subject=Contacto%20Pagina"><%= I18n.t('mailto') %></a>
-</p>
+&nbsp;|&nbsp;
+Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.
 </div>
 </body>
   <%= javascript_include_tag :defaults %>

@@ -1,4 +1,4 @@
-<h1><%= I18n.t("facilitator.edit") %></h1>
+<h1 class="title"><%= I18n.t("facilitator.edit") %></h1>
 <% if can_current_member_edit_facilitator(@facilitator.id) %>
 <%= render 'form' %>
 <% end %>
