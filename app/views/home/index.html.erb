@@ -1,28 +1,30 @@
-<h1><%= I18n.t("home.welcome") %></h1>
 
-<p class="home_message">
-<%= I18n.t("home.message").html_safe %>
-</p>
-<p>
-<%= I18n.t("home.now") %>
-</p>
-<p>
-<%=@facilitators%> <%= link_to I18n.t('home.facilitators'), facilitators_path %>
-</p>
-<p>
-<%=@fundations%> <%= link_to I18n.t('home.fundations'), fundations_path %>
-</p>
-<p>
-<%=@providers%> <%= link_to I18n.t('home.providers'), providers_path %>
-</p>
-<p>
-<%=@events%> <%= link_to I18n.t('home.events'), events_path %>
-</p>
-<% unless member_signed_in?  %>
-  <p>
-    <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
-  </p>
-  <p>
-    <%= I18n.t('home.login')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
-  </p>
-<% end %>
+  <h1 class="title"><%= I18n.t("home.welcome") %></h1>
+
+    <p class="home_message">
+    <%= I18n.t("home.message").html_safe %>
+    </p>
+    <p>
+    <%= I18n.t("home.now") %>
+    </p>
+    <p>
+    <%=@facilitators%> <%= link_to I18n.t('home.facilitators'), facilitators_path %>
+    </p>
+    <p>
+    <%=@fundations%> <%= link_to I18n.t('home.fundations'), fundations_path %>
+    </p>
+    <p>
+    <%=@providers%> <%= link_to I18n.t('home.providers'), providers_path %>
+    </p>
+    <p>
+    <%=@events%> <%= link_to I18n.t('home.events'), events_path %>
+    </p>
+    <% unless member_signed_in?  %>
+      <p>
+        <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
+      </p>
+      <p>
+        <%= I18n.t('home.login')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
+      </p>
+    <% end %>
+

@@ -1,4 +1,5 @@
 <%= javascript_include_tag "ui.member" %>
+<h1 class="title"> <%= link_to I18n.t('application.menu_profile') %></h1>
 <div id="member">
 <% if @member.use_facebook_pic and @member.facebook_id %>
   <div class="profile_pic">
