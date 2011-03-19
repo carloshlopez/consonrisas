@@ -8,19 +8,19 @@ module ApplicationHelper
     
   def can_current_member_edit_fundation(fundation_id)
     can_he = true
-    can_he = false if current_member.fundations.select{|f| f.id == fundation_id}.empty?
+    can_he = false if current_member.fundation_admins.select{|f| f.fundation.id == fundation_id}.empty?
     can_he
   end
   
   def can_current_member_edit_provider(provider_id)
     can_he = true
-    can_he = false if current_member.providers.select{|p| p.id == provider_id}.empty?
+    can_he = false if current_member.provider_admins.select{|p| p.provider.id == provider_id}.empty?
     can_he
   end
   
   def can_current_member_edit_event(event_id)
     can_he = true
-    can_he = false if current_member.events.select{|e| e.id == event_id}.empty?
+    can_he = false if current_member.event_admins.select{|e| e.event.id == event_id}.empty?
     can_he
   end
   

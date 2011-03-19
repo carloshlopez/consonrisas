@@ -115,4 +115,13 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)    
   end
   
+  def ask_admin
+    event = Event.find(params[:event_id])
+    event.ask_admin params[:member_id] if params[:member_id].to_s != "-1" and params[:member_id].to_s != ""
+    event.ask_admin_by_mail params[:mail] if params[:mail].to_s != "mail" and params[:mail].to_s != ""
+    respond_to do |format|
+      format.js {head :ok}
+    end
+  end  
+  
 end

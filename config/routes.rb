@@ -29,8 +29,12 @@ Prueba::Application.routes.draw do
   get "facilitators/remove_follower"
   
   post "fundations/ask_admin"
+  post "providers/ask_admin"  
+  post "events/ask_admin"  
   
-  post "members/respond_admin"
+  post "members/respond_fundation_admin"
+  post "members/respond_provider_admin"
+  post "members/respond_event_admin"    
 
   root :to => "home#index"
   

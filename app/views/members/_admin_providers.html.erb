@@ -1,4 +1,4 @@
-<% unless @member.providers.empty? %>
+<% unless @member.provider_admins.empty? %>
 <div class="member_providers bordered_box">
   <p> 
     <% if is_current_member_this_member(@member.id) %>
@@ -8,15 +8,20 @@
     <% end %>
   </p>
   <p>
-    <% @member.providers.each do |p|  %>
-      <%= link_to p.name, provider_url(p) %> 
-      <% if is_current_member_this_member(@member.id) %>
-        <%= link_to I18n.t('destroy'), p, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
-      <% end %>
-      <br/>
-      Eventos de este proveedor:
-      <% @provider = p %>
+    <% @member.provider_admins.each do |p| %>
+      <% if p.active %>
+        <%= link_to p.provider.name, provider_url(p.provider) %> 
+        <% if is_current_member_this_member(@member.id) %>
+          <%= link_to I18n.t('destroy'), p.provider, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>
+        <% end %>
+        <br/>
+        Eventos de este proveedor:
+        <% @provider = p.provider %>
       <%= render "providers/events" %>
+      <% else %>
+        <div provider_id="<%= p.provider.id %>" member_id="<%= @member.id %>" class="asked_admin">
+        Te han solicitado ser adminitrador de este proveedor: <%=p.provider.name%>: <a class="provider_admin_accept" href="#">Aceptar</a> | <a href="#" class="provider_admin_reject">Rechazar</a>
+      <% end %>
     <% end %>
   </p>
 </div>

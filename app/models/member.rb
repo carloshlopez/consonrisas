@@ -9,13 +9,14 @@ class Member < ActiveRecord::Base
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator, :dependent => :destroy 
-  has_many :providers, :dependent => :destroy 
   has_many :comments, :dependent => :destroy 
   has_many :alerts, :dependent => :destroy 
   has_many :fundation_admins, :dependent => :destroy 
   has_many :fundations, :through => :fundation_admins
   has_many :event_admins, :dependent => :destroy 
   has_many :events, :through => :event_admins  
+  has_many :provider_admins, :dependent => :destroy 
+  has_many :providers, :through => :provider_admins  
   
   after_create :create_facilitator
 

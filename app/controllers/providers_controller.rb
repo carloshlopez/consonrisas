@@ -46,9 +46,8 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
+        ProviderAdmin.create(:member_id =>params[:member_id], :provider_id => @provider.id, :active=>true)
         format.html { redirect_to(@provider, :notice => 'Provider was successfully created.') }
-#        format.html { redirect_to(@provider.member, :notice => 'Provider was successfully created.') }
-
         format.xml  { render :xml => @provider, :status => :created, :location => @provider }
       else
         format.html { render :action => "new" }
@@ -104,5 +103,14 @@ class ProvidersController < ApplicationController
       format.json {render :json=> 'ok'}
     end
   end  
+  
+  def ask_admin
+    provider = Provider.find(params[:provider_id])
+    provider.ask_admin params[:member_id] if params[:member_id].to_s != "-1" and params[:member_id].to_s != ""
+    provider.ask_admin_by_mail params[:mail] if params[:mail].to_s != "mail" and params[:mail].to_s != ""
+    respond_to do |format|
+      format.js {head :ok}
+    end
+  end
   
 end

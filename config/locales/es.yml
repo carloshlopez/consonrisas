@@ -139,6 +139,9 @@ es:
     followed_fundations: "Proyectos Sociales a las que sigues"
     followed_providers: "Proveedores a las que sigues"    
     followed_facilitators: "Facilitadores a las que sigues"    
+    managed_events: "Eventos que administras"  
+    manage_events: "Administra los Eventos"    
+    create_event: "Crea un nuevo Evento"
   home: 
     welcome: "Bienvenido"
     now: "Actualmente se encuentran conectados:"

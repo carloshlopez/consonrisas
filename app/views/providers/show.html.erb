@@ -1,3 +1,4 @@
+<%= javascript_include_tag "ui.providerAdmins" %>
 <div class="profile_pic">
   <%= image_tag @provider.pic.url(:profile) %>
 </div>
@@ -21,6 +22,30 @@
 <% if member_signed_in? and can_current_member_edit_provider(@provider.id) %>
   <h2><%= I18n.t('contact_information.add')%>:</h2>
   <%= render :partial => "contact_informations/form" %>
+<div id="providerAdmins" class="bordered_box" provider_id="<%= @provider.id %>">
+  <p>
+  <!--QUITAR LOS QEU YA SON ADMINS-->
+    Agregar administrador de este proveedor:
+    <select id="member_id">
+    <option value="-1" selected> -- </option>
+    <% current_member.facilitator.facilitators.each do |fac|
+        unless ProviderAdmin.find(:first, :conditions=>{:provider_id=>@provider.id, :member_id=>fac.member.id})
+          %>
+          <option value="<%= fac.id %>">
+            <%=fac.name%>
+          </option>
+          <%
+        end
+      end %>
+    </select>
+    <br/>
+    ó preguntarle por email
+    <input id="ask_admin_mail" type="text" value="mail"/>
+    <br/>
+    <div id="ask_admin_message">Se envió la solicitud!</div>
+    <a name="ask_admin" href="#" class="ask_admin">Ask To Admin</a>
+  </p>
+</div>  
 <% end %>
 
 <% unless @provider.shows.empty? %>
