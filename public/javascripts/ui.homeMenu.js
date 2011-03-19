@@ -23,6 +23,10 @@ $jq.widget("ui.homeMenu", {
     	else if(path.indexOf('info') > 0){
         	self._updateCurrent('info');
     	}
+    	else
+    	{
+        	self._updateCurrent('home');
+    	}
     	
         $el.find("ul li a").click(function(e){
             //e.preventDefault();
