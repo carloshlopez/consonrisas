@@ -12,6 +12,18 @@
     Role.find_or_create_by_name(r)
 end
 
+the_admin = Member.find_by_email("carloshlopez@gmail.com")
+if the_admin
+  the_admin.update_attribute :admin, true
+else
+  admin = Member.create! do |u|
+    u.email = 'carloshlopez@gmail.com'
+    u.password = 'usuario123'
+    u.password_confirmation = 'usuario123'
+    u.admin = true
+  end
+end
+
 puts "-----------"
 puts "Added Roles"
 puts "-----------"

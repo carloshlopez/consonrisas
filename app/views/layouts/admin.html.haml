@@ -1,0 +1,31 @@
+!!! Strict
+%html{:xmlns=>"http://www.w3.org/1999/xhtml"}
+  %title Admin
+  %head
+
+    :javascript
+      var all_data= #{@models.to_json}
+      var cols;
+      var myDataTable;
+      var myDataSource;
+      var tName;
+      var all_tables = #{@tables.to_json}
+
+    = stylesheet_link_tag "http://yui.yahooapis.com/combo?2.8.1/build/fonts/fonts-min.css&2.8.1/build/paginator/assets/skins/sam/paginator.css&2.8.1/build/datatable/assets/skins/sam/datatable.css&2.8.1/build/calendar/assets/skins/sam/calendar.css"
+
+    = stylesheet_link_tag "admin/yui_grid"
+
+    = javascript_include_tag "http://yui.yahooapis.com/combo?2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&2.8.1/build/element/element-min.js&2.8.1/build/button/button-min.js&2.8.1/build/utilities/utilities.js&2.8.1/build/paginator/paginator-min.js&2.8.1/build/datasource/datasource-min.js&2.8.1/build/datatable/datatable-min.js&2.8.1/build/json/json-min.js&2.8.1/build/yahoo/yahoo-min.js&2.8.1/build/dom/dom-min.js&2.8.1/build/selector/selector-min.js&2.8.1/build/event/event-min.js&2.8.1/build/calendar/calendar-min.js&2.8.1/build/connection/connection-min.js"
+    
+
+    
+    = javascript_include_tag 'admin/admin'
+
+  %body
+    %h1 Administration Panel
+    %a{:href=>"/"}
+      Home
+    = yield :layout
+    = yield :javascripts
+
+

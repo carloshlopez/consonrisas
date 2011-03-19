@@ -1,0 +1,17 @@
+- if current_member.try(:admin?)
+  .admin-table-list
+    %p Tables
+    %ul
+      - @models.each do |model|
+        %li
+          %a{:href=>"##{model[0]}", :title=> "Click to see table data"} #{model[0]}
+    %br
+    %a{:id=>"CreateNewRowLink", :href=>"#New_Row", :title=> "Crete new row", :style=>"display:none"} Create new row
+    #newRow{:style=>"display:none"}
+    %input#addRow{:type=>"button", :title=>"add a row", :value=>"Add", :style=>"display:none"}
+  #forGrid{:class=>"yui-skin-sam"}
+    #gridYui
+- else
+  %p YOU HAVE TO BE AN ADMIN TO VIEW THIS
+
+
