@@ -1,6 +1,17 @@
 Prueba::Application.routes.draw do
-
   devise_for :members
+  
+  #
+  # Admin
+  #
+  get "admin/index"
+  match 'admin/', :controller => 'admin', :action => 'index'
+  match 'admin/db/:table_name.:format', :controller => 'admin', :action => 'get_table_data'  
+  match 'admin/db/:table_name/:id', :controller => 'admin', :action => 'update_table_data', :conditions => {:method => :put }  
+  match 'admin/db/:table_name', :controller => 'admin', :action => 'create_table_data', :conditions => {:method => :post}
+
+
+  
 
   post "events/add_facilitator"
   post "events/add_fundation"

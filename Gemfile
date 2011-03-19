@@ -13,6 +13,7 @@ gem 'aws-s3'
 
 gem 'paperclip'
 
+gem 'haml'
 # Use unicorn as the web server
 # gem 'unicorn'
 
