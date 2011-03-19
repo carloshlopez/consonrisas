@@ -1,4 +1,4 @@
-<% unless @member.fundations.empty? %>
+<% unless @member.fundation_admins.empty? %>
 <div class="member_fundations bordered_box">
   <p> 
     <% if is_current_member_this_member(@member.id) %>
@@ -21,7 +21,7 @@
         <%= render "fundations/events" %>      
       <% else %>
         <div fundation_id="<%= f.fundation.id %>" member_id="<%= @member.id %>" class="asked_admin">
-        Te han solicitado ser adminitrador de esta fundación: <%=f.fundation.name%>: <a class="admin_accept">Aceptar</a> | <a class="admin_reject">Rechazar</a>
+        Te han solicitado ser adminitrador de esta fundación: <%=f.fundation.name%>: <a class="fundation_admin_accept" href="#" >Aceptar</a> | <a href="#" class="fundation_admin_reject">Rechazar</a>
         </div>
       <% end %>
     <% end %>

@@ -1,13 +1,22 @@
 <div class="comment bordered_box">
   <p>
-    <%= I18n.t('labels.comment_by') %> <%= comment.member.email if comment.member %>  <%= I18n.t('labels.comment_on') %> <%= comment.updated_at %>:
+    <% 
+    if comment.member.facilitator.name
+      name = comment.member.facilitator.name
+    else
+      name = comment.member.email
+    end
+    %>
+    <%= I18n.t('labels.comment_by') %> <%= name %>  <%= I18n.t('labels.comment_on') %> <%= I18n.l(comment.updated_at, :format=>:long) %>&nbsp;:
   </p>
   <p>
     <%= comment.comment %>
   </p>
+  <% if can_current_member_edit_event(comment.event.id) %>
   <p>
   <%= link_to I18n.t('labels.delete_comment'), [comment.event, comment],
                :confirm => I18n.t('messages.delete_confirmation'),
                :method => :delete %>
   </p>
+  <% end %>
 </div>

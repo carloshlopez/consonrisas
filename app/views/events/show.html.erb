@@ -1,3 +1,4 @@
+<%= javascript_include_tag "ui.eventAdmins" %>
 <h1 class="title"> <%= I18n.t("events.title") %></h1>
 
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= event_url(@event.id) %>" show_faces="true" width="450" font="tahoma" colorscheme="light"></fb:like>
@@ -10,7 +11,7 @@
 </p>
 <p>
   <b><%= I18n.t("date_name") %>:</b>
-  <%= @event.date %>
+  <%= I18n.l(@event.date, :format=>:long) %>
 </p>
 
 <% if member_signed_in? %>
@@ -62,6 +63,34 @@
     </form>
   </div>
 </div>
+
+<% if can_current_member_edit_event(@event.id) %>
+  <div id="eventAdmins" class="bordered_box" event_id="<%= @event.id %>">
+    <p>
+    <!--QUITAR LOS QEU YA SON ADMINS-->
+      Agregar administrador a este evento:
+      <select id="member_id">
+      <option value="-1" selected> -- </option>
+      <% current_member.facilitator.facilitators.each do |fac|
+          unless EventAdmin.find(:first, :conditions=>{:event_id=>@event.id, :member_id=>fac.member.id})
+            %>
+            <option value="<%= fac.id %>">
+              <%=fac.name%>
+            </option>
+            <%
+          end
+        end %>
+      </select>
+      <br/>
+      ó preguntarle por email
+      <input id="ask_admin_mail" type="text" value="mail"/>
+      <br/>
+      <div id="ask_admin_message">Se envió la solicitud!</div>
+      <a name="ask_admin" href="#" class="ask_admin">Ask To Admin</a>
+    </p>
+  </div>
+<% end %>
+
 <% end %>
 
 <p>

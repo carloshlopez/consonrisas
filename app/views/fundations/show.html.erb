@@ -62,14 +62,13 @@
 
   <h2><%= I18n.t('contact_information.add') %>:</h2>
   <%= render :partial => "contact_informations/form" %>
-<div id="fundations" fundation_id="<%= @fundation.id %>">
+<div id="fundations" class="bordered_box" fundation_id="<%= @fundation.id %>">
   <p>
   <!--QUITAR LOS QEU YA SON ADMINS-->
     Agregar administrador de fundación:
     <select id="member_id">
     <option value="-1" selected> -- </option>
-    <%
-      current_member.facilitator.facilitators.each do |fac|
+    <% current_member.facilitator.facilitators.each do |fac|
         unless FundationAdmin.find(:first, :conditions=>{:fundation_id=>@fundation.id, :member_id=>fac.member.id})
           %>
           <option value="<%= fac.id %>">
@@ -77,16 +76,14 @@
           </option>
           <%
         end
-      end
-      
-    %>
+      end %>
     </select>
     <br/>
     ó preguntarle por email
     <input id="ask_admin_mail" type="text" value="mail"/>
     <br/>
     <div id="ask_admin_message">Se envió la solicitud!</div>
-    <a name="ask_admin" class="ask_admin">Ask To Admin</a>
+    <a name="ask_admin" href="#" class="ask_admin">Ask To Admin</a>
   </p>
 </div>
     <br/>

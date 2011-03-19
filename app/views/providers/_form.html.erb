@@ -15,7 +15,7 @@
   <div class="field">
     <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
-    <input type="hidden" name="provider[member_id]" value="<%= current_member.id %>"/>
+    <input type="hidden" name="member_id" value="<%= current_member.id %>"/>
   </div>
   
   <div class="field">

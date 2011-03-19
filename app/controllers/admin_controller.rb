@@ -31,6 +31,7 @@ class AdminController < ApplicationController
         Photo.all
         Population.all
         Provider.all
+        ProviderAdmin.all
         Role.all
         Show.all
       end

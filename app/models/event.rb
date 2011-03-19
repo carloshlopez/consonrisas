@@ -38,6 +38,15 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def ask_admin member_id
+    EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
+  end
+  
+  def ask_admin_by_mail mail
+    EventAdmin.create(:e_mail =>mail, :event_id => self.id, :active=>false)
+    # TODO send mail with invitation if email not registered
+  end
+  
   private 
   
   def at_least_one_fundation
