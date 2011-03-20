@@ -123,7 +123,7 @@
 <p>
 <% @event.providers.each do |provider| %>
 
-<p><%= link_to provider.name provider_path(provider) %></p>
+<p><%= link_to provider.name, provider_path(provider) %></p>
 <% end %>
 </p>
 <p><!-- AddToAny BEGIN -->
