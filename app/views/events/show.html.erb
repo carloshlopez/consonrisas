@@ -105,7 +105,9 @@
     end
 %>
 
-<p><%= link_to name, member_path(facilitator.member) %></p>
+  <% if facilitator.member %>
+  <p><%= link_to name, member_path(facilitator.member) %></p>
+  <%end%>
 <% end %>
 </p>
 <p>
