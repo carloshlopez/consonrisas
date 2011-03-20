@@ -17,10 +17,10 @@
 
 <div class="member_facilitator_info bordered_box">
   <% @facilitator = @member.facilitator %>
-  <% if @facilitator.has_complete_info %>
-    <%= render 'facilitators/show'%>    
-  <% else %>
+  <% if is_current_member_this_member @member.id and !@facilitator.has_complete_info%>
     <%= render 'facilitators/form'%>
+  <% else %>
+    <%= render 'facilitators/show'%>    
   <% end %>
 </div>
 

@@ -13,13 +13,13 @@
       <% if f.active %>
         <%= link_to f.fundation.name, fundation_url(f.fundation) %> 
         <% if is_current_member_this_member(@member.id) %>
-          <%= link_to I18n.t('destroy'), f.fundation, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
+         | <%= link_to I18n.t('destroy'), f.fundation, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete %>    
         <% end %>
         <br/>
         Eventos de esta fundaci&oacute;n:
         <% @fundation = f.fundation %>
         <%= render "fundations/events" %>      
-      <% else %>
+      <% elsif is_current_member_this_member(@member.id) %>
         <div fundation_id="<%= f.fundation.id %>" member_id="<%= @member.id %>" class="asked_admin">
         Te han solicitado ser adminitrador de esta fundación: <%=f.fundation.name%>: <a class="fundation_admin_accept" href="#" >Aceptar</a> | <a href="#" class="fundation_admin_reject">Rechazar</a>
         </div>
