@@ -12,7 +12,7 @@
   <p>
     <%= comment.comment %>
   </p>
-  <% if can_current_member_edit_event(comment.event.id) %>
+  <% if member_signed_in? and can_current_member_edit_event(comment.event.id) %>
   <p>
   <%= link_to I18n.t('labels.delete_comment'), [comment.event, comment],
                :confirm => I18n.t('messages.delete_confirmation'),
