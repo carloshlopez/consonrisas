@@ -21,7 +21,7 @@
       <%= image_tag fundation.pic.url(:thumb) %>
     </td>      
     <td><%= fundation.name %></td>
-    <td><%= fundation.website %></td>
+    <td><a href="<%= fundation.website %>" target="_blank"><%= fundation.website %></a></td>
     <td><%= population_name(fundation.population_id) %></td>
     <% if member_signed_in? %>
       <td>
