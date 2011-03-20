@@ -97,10 +97,34 @@
   <b> <%= I18n.t("events.attending_facilitators")%>: <%= @event.facilitators.count %></b>
 </p>
 <p>
+<% @event.facilitators.each do |facilitator| 
+    if facilitator.name
+      name = facilitator.name
+    else
+      name = facilitator.member.email
+    end
+%>
+
+<p><%= link_to name, member_path(facilitator.member) %></p>
+<% end %>
+</p>
+<p>
   <b><%= I18n.t("events.attending_fundations")%>: <%= @event.fundations.count %></b>
 </p>
 <p>
+<% @event.fundations.each do |fundation| %>
+
+<p><%= link_to fundation.name, fundation_path(fundation) %></p>
+<% end %>
+</p>
+<p>
   <b><%= I18n.t("events.attending_providers")%>: <%= @event.providers.count %></b>
+</p>
+<p>
+<% @event.providers.each do |provider| %>
+
+<p><%= link_to provider.name provider_path(provider) %></p>
+<% end %>
 </p>
 <p><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_default_style">
