@@ -17,7 +17,7 @@
       <td> 
       <%= link_to image_tag(event.pic.url(:thumb)), event_path(event.id), :class=>"nostyle" %> 
        </td>
-      <td><%= event.date %></td>
+      <td><%= I18n.l(event.date, :format=>:long) %></td>
       <td><%= event.name %></td>
       <td>
           <%= link_to I18n.t('events.show'), event %>

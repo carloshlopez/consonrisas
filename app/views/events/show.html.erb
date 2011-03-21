@@ -96,38 +96,48 @@
 <p>
   <b> <%= I18n.t("events.attending_facilitators")%>: <%= @event.facilitators.count %></b>
 </p>
-<p>
-<% @event.facilitators.each do |facilitator| 
-    if facilitator.name
-      name = facilitator.name
-    else
-      name = facilitator.member.email
-    end
-%>
+<% if @event.facilitators.count > 0%>
+  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
+  <% @event.facilitators.each do |facilitator| 
+      if facilitator.name
+        name = facilitator.name
+      else
+        name = facilitator.member.email
+      end
+  %>
 
-  <% if facilitator.member %>
-  <p><%= link_to name, member_path(facilitator.member) %></p>
-  <%end%>
+    <% if facilitator.member %>
+    <%= link_to image_tag(facilitator.pic.url(:thumb)),  member_path(facilitator.member), :class=>"nostyle"%>
+    <%= link_to name, member_path(facilitator.member) %>
+    &nbsp;&nbsp;
+    <%end%>
+  <% end %>
+  </div>
 <% end %>
-</p>
 <p>
   <b><%= I18n.t("events.attending_fundations")%>: <%= @event.fundations.count %></b>
 </p>
-<p>
-<% @event.fundations.each do |fundation| %>
-
-<p><%= link_to fundation.name, fundation_path(fundation) %></p>
+<% if @event.fundations.count > 0%>
+  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
+  <% @event.fundations.each do |fundation| %>
+    <%= link_to image_tag(fundation.pic.url(:thumb)),  fundation_path(fundation), :class=>"nostyle"%>
+    <%= link_to fundation.name, fundation_path(fundation) %>
+    &nbsp;&nbsp;
+  <% end %>
+  </div>
 <% end %>
-</p>
 <p>
   <b><%= I18n.t("events.attending_providers")%>: <%= @event.providers.count %></b>
 </p>
-<p>
-<% @event.providers.each do |provider| %>
-
-<p><%= link_to provider.name, provider_path(provider) %></p>
+<% if @event.providers.count > 0%>
+  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
+  <% @event.providers.each do |provider| %>
+    <%= link_to image_tag(provider.pic.url(:thumb)),  provider_path(provider), :class=>"nostyle"%>
+    <%= link_to provider.name, provider_path(provider) %>
+    &nbsp;&nbsp;
+  <% end %>
+  </div>
 <% end %>
-</p>
 <p><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_default_style">
 <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=<%= event_url(@event.id) %>&linkname=Evento%20de%20Conectando%20Sonrisas"><%= I18n.t('share') %></a>

@@ -1,4 +1,14 @@
 YAHOO.util.Event.addListener(window, "load", function() {
+
+    YAHOO.util.Event.on(YAHOO.util.Dom.get('deleteRow'),'click',function(){
+        console.log("Table to delete: " + tName);
+        var id = YAHOO.util.Dom.get('deleteRowId').value;
+        console.log("ID to delete: " + id);
+        YAHOO.util.Connect.asyncRequest('POST', '/admin/db/delete/' + tName + '/' + id,createTable(tName), "_method=DELETE");
+        
+    });
+
+
     YAHOO.util.Event.on(YAHOO.util.Dom.get('addRow'),'click',function(){
         myDataTable.set("sortedBy", null);
         var vals = "";
@@ -102,6 +112,7 @@ label: 'delete'
     };
     
     var oConfigs = {
+    selectionMode:"single",
             paginator: new YAHOO.widget.Paginator({
                 rowsPerPage: 15
             })
@@ -123,6 +134,9 @@ label: 'delete'
     myDataTable.subscribe("cellMouseoverEvent", highlightEditableCell);
     myDataTable.subscribe("cellMouseoutEvent", myDataTable.onEventUnhighlightCell);
     myDataTable.subscribe("cellClickEvent", myDataTable.onEventShowCellEditor);
+
+    YAHOO.util.Dom.setStyle('deleteRow', 'display', 'block');
+    YAHOO.util.Dom.setStyle('deleteRowId', 'display', 'block');
             
     return {
         oDS: myDataSource,
@@ -132,6 +146,8 @@ label: 'delete'
 }
 
 function deleteARow(){
+
+
     
 }
 

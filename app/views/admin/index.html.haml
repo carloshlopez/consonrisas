@@ -9,8 +9,11 @@
     %a{:id=>"CreateNewRowLink", :href=>"#New_Row", :title=> "Crete new row", :style=>"display:none"} Create new row
     #newRow{:style=>"display:none"}
     %input#addRow{:type=>"button", :title=>"add a row", :value=>"Add", :style=>"display:none"}
+
   #forGrid{:class=>"yui-skin-sam"}
     #gridYui
+  %a{:id=>"deleteRow", :href=>"#Delete_Row", :title=> "Delete row", :style=>"display:none"} Delete row by id     
+  %input#deleteRowId{:type=>"text", :title=>"delete a row id", :style=>"display:none"}    
 - else
   %p YOU HAVE TO BE AN ADMIN TO VIEW THIS
 
