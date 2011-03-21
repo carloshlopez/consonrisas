@@ -9,6 +9,7 @@ Prueba::Application.routes.draw do
   match 'admin/db/:table_name.:format', :controller => 'admin', :action => 'get_table_data'  
   match 'admin/db/:table_name/:id', :controller => 'admin', :action => 'update_table_data', :conditions => {:method => :put }  
   match 'admin/db/:table_name', :controller => 'admin', :action => 'create_table_data', :conditions => {:method => :post}
+  match 'admin/db/delete/:table_name/:id', :controller => 'admin', :action => 'delete_table_data', :conditions => {:method => :delete }    
 
 
   

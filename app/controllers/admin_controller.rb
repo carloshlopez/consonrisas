@@ -84,4 +84,18 @@ class AdminController < ApplicationController
       end
     end
   end
+  
+  def delete_table_data
+    if current_member.try(:admin?)
+      id = params[:id]
+      table_name = params[:table_name]
+      
+      model = Object.const_get(table_name.camelize)
+      model.find(id).destroy
+    end
+    respond_to do |format|
+      format.js {head:ok}
+    end
+  end
+  
 end
