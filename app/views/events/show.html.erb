@@ -13,6 +13,14 @@
   <b><%= I18n.t("date_name") %>:</b>
   <%= I18n.l(@event.date, :format=>:long) %>
 </p>
+<p>
+  <b><%= I18n.t("place") %>:</b>
+  <%= @event.place %>
+</p>
+<p>
+  <b><%= I18n.t("city") %>:</b>
+  <%= @event.city %>
+</p>
 
 <% if member_signed_in? %>
 <% if can_current_member_edit_event @event.id %>
