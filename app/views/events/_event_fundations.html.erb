@@ -9,6 +9,7 @@
   <% end %>
   </div>
 <% end %>
+<% if member_signed_in? %>
   <% unless current_member.fundations.empty? %>
   <div id="new_fundation">
     <form action="/events/add_fundation" method="post">
@@ -19,4 +20,5 @@
     </form>
   </div>
   <% end %>
+<% end %>
 </div>

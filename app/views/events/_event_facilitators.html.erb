@@ -19,24 +19,24 @@
   </div>
 <% end %>
 <% if member_signed_in? %>
-<% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>
-  <a href="#" class="add_facilitator" title="<%= I18n.t('events.add_me_facilitator') %>" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>"><%= I18n.t('events.add_me_facilitator') %></a>
-<% else %>
-  <%= I18n.t('events.attending_as_facilitator') %>
-  |
-  <a href="#" class="remove_facilitator" title="Eliminarme de este evento, no voy a ir" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>">x</a>
-<% end %>
+  <% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>
+    <a href="#" class="add_facilitator" title="<%= I18n.t('events.add_me_facilitator') %>" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>"><%= I18n.t('events.add_me_facilitator') %></a>
+  <% else %>
+    <%= I18n.t('events.attending_as_facilitator') %>
+    |
+    <a href="#" class="remove_facilitator" title="Eliminarme de este evento, no voy a ir" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>">x</a>
+  <% end %>
 
 
-  <% unless current_member.facilitator.facilitators.empty? %>
-  <div id="ask_facilitator">
-    <form action="/events/add_facilitator" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <%= select_tag "facilitator_id", options_from_collection_for_select(current_member.facilitator.facilitators, "id", "name") %>    
-      <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-      <input type="submit" value="<%= I18n.t('events.add_facilitator') %>" name="ask_facilitator"/>
-    </form>
-  </div>
+    <% unless current_member.facilitator.facilitators.empty? %>
+    <div id="ask_facilitator">
+      <form action="/events/add_facilitator" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <%= select_tag "facilitator_id", options_from_collection_for_select(current_member.facilitator.facilitators, "id", "name") %>    
+        <input name="event_id" type="hidden" value="<%= @event.id %>"/>
+        <input type="submit" value="<%= I18n.t('events.add_facilitator') %>" name="ask_facilitator"/>
+      </form>
+    </div>
   <% end %>
 <% end %>  
 </div>
