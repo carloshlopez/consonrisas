@@ -97,7 +97,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @facilitator = Facilitator.find(params[:facilitator_id])
     @event.facilitators.push(@facilitator)
-    Alert.create(:member_id=> @facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>@event.id) unless current_member.id == @facilitator.member.id
+    unless current_member.id == @facilitator.member.id
+      Alert.create(:member_id=> @facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>@event.id) 
+      EventInvitation.invite_facilitator(@facilitator.member, @event).deliver
+    end
     respond_to do |format|
       format.js {head:ok}
       format.html {redirect_to event_path(@event)}
