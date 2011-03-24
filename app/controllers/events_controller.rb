@@ -97,7 +97,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @facilitator = Facilitator.find(params[:facilitator_id])
     @event.facilitators.push(@facilitator)
-    redirect_to event_path(@event)
+    respond_to do |format|
+#      format.html {redirect_to event_path(@event)}
+      format.js {head:ok}
+    end
+
   end
   
   def add_fundation
@@ -106,6 +110,29 @@ class EventsController < ApplicationController
     @event.fundations.push(@fundation)
     redirect_to event_path(@event)
   end  
+  
+  def remove_provider 
+    @event = Event.find(params[:event_id])
+    @provider = Provider.find(params[:provider_id])
+    @event.providers.delete(@provider)
+    redirect_to event_path(@event)
+  end
+  
+  def remove_facilitator
+    @event = Event.find(params[:event_id])
+    @facilitator = Facilitator.find(params[:facilitator_id])
+    @event.facilitators.delete(@facilitator)
+    respond_to do |format|
+      format.js {head:ok}
+    end
+  end
+  
+  def remove_fundation
+    @event = Event.find(params[:event_id])
+    @fundation = Fundation.find(params[:fundation_id])
+    @event.fundations.delete(@fundation)
+    redirect_to event_path(@event)
+  end    
   
   
   def add_show

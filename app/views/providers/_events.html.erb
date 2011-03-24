@@ -3,7 +3,7 @@
   <%= I18n.t('profile.events_calendar') %>
   </p>
   <% @provider.events.each do |event| %>  
-    <%= event.name%> | <%= event.date %> 
+    <%= link_to ("#{event.name}, #{I18n.l(event.date, :format=> :long)}"), event %>    
     <br/>
   <% end %>
 </div>
