@@ -48,4 +48,12 @@ module ApplicationHelper
     end
     path
   end    
+  
+  def convert_url_for_href(url)
+    href = url
+    unless url.starts_with? 'http://'
+      href = 'http://' << url
+    end
+    href
+  end
 end

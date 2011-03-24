@@ -41,7 +41,7 @@
 
 <p>
   <b><%= I18n.t('website') %>:</b>
-  <a href="<%= @fundation.website %>" target="_blank"><%= @fundation.website %></a>
+  <a href="<%= convert_url_for_href(@fundation.website) %>" target="_blank"><%= @fundation.website %></a>
 </p>
 
   <p>
