@@ -19,6 +19,10 @@ Prueba::Application.routes.draw do
   post "events/add_provider"
   post "events/add_show"  
   
+  post "events/remove_facilitator"
+  post "events/remove_fundation"
+  post "events/remove_provider"  
+  
   #add post!!
   get "fundations/add_follower"
   get "fundations/remove_follower"

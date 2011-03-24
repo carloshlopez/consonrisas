@@ -1,4 +1,5 @@
-<%= javascript_include_tag "ui.eventAdmins" %>
+<%= javascript_include_tag "ui.eventAdmin" %>
+<div id="eventAdmin">
 <h1 class="title"> <%= I18n.t("events.title") %></h1>
 
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= event_url(@event.id) %>" show_faces="true" width="450" font="tahoma" colorscheme="light"></fb:like>
@@ -31,16 +32,11 @@
 <div id="member_event_actions" class="bordered_box">
   <% if current_member.facilitator %>
     <% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>
-      <div id="new_facilitator">
-        <form action="/events/add_facilitator" method="post">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input name="facilitator_id" type="hidden" value="<%= current_member.facilitator.id %>"/>
-          <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-          <input type="submit" value="<%= I18n.t('events.add_me_facilitator') %>" name="new_facilitator"/>
-        </form>
-      </div>
+      <a href="#" class="add_facilitator" title="<%= I18n.t('events.add_me_facilitator') %>" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>"><%= I18n.t('events.add_me_facilitator') %></a>
     <% else %>
       <%= I18n.t('events.attending_as_facilitator') %>
+      |
+      <a href="#" class="remove_facilitator" title="Eliminarme de este evento, no voy a ir" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>">x</a>
     <% end %>
   <% end %>
 
@@ -73,7 +69,7 @@
 </div>
 
 <% if can_current_member_edit_event(@event.id) %>
-  <div id="eventAdmins" class="bordered_box" event_id="<%= @event.id %>">
+  <div class="bordered_box" event_id="<%= @event.id %>">
     <p>
     <!--QUITAR LOS QEU YA SON ADMINS-->
       Agregar administrador a este evento:
@@ -146,6 +142,7 @@
   <% end %>
   </div>
 <% end %>
+</div>
 <p><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_default_style">
 <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=<%= event_url(@event.id) %>&linkname=Evento%20de%20Conectando%20Sonrisas"><%= I18n.t('share') %></a>
