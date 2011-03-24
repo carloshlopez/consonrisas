@@ -1,3 +1,4 @@
 class Alert < ActiveRecord::Base
   belongs_to :member
+  validates :link, :presence => true, :uniqueness => {:scope => :member_id}  
 end

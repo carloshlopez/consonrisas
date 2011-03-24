@@ -40,6 +40,7 @@ Prueba::Application.routes.draw do
   post "members/respond_fundation_admin"
   post "members/respond_provider_admin"
   post "members/respond_event_admin"    
+  post "members/delete_alert"      
 
   root :to => "home#index"
   
@@ -55,7 +56,6 @@ Prueba::Application.routes.draw do
   resources :roles
 
   resources :members do
-#    resources :contact_informations
     post "update_facebook_id"
   end
 

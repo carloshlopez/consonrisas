@@ -81,10 +81,13 @@ class MembersController < ApplicationController
     end
   end
   
-  def destroy_alert
-    @alert = Alert.find(params[:id])
+  def delete_alert
+    @alert = Alert.find(params[:alert_id])
     @alert.destroy
-    redirect_to member_url current_member.id
+    respond_to do |format|
+      format.js  { head :ok }      
+    end    
+
   end
   
   def update_facebook_id
