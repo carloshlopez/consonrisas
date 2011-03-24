@@ -1,0 +1,9 @@
+- if member_signed_in? and !current_member.alerts.empty?
+  %h2= I18n.t('profile.alerts')
+  .news.bordered_box
+    - current_member.alerts.each do |alert|
+      = alert.news
+      | #{link_to I18n.t('events.show'), event_path(alert.link), :title=>"Click para ir al evento"} 
+      |
+      %a.delete_alert{:alert_id => alert.id, :href => "#", :title=>"Eliminar esta noticia"} x
+      %br/

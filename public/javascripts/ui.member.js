@@ -43,6 +43,12 @@ $jq.widget("ui.member", {
             var event_id = $jq(this).closest("div").attr("event_id");
             var mem_id = $jq(this).closest("div").attr("member_id");            
             self._respondEventAdmin(event_id, mem_id, "false");
+        });
+        
+    	$jq('.delete_alert').click(function(e) {
+            e.preventDefault();
+            var alert_id = $jq(this).attr("alert_id");
+            self._deleteAlert(alert_id);
         });        
     },
     _respondFundationAdmin: function(fun_id, mem_id, active){
@@ -83,7 +89,13 @@ $jq.widget("ui.member", {
                 window.location.reload();
             }
         });
-    }
+    },
+    _deleteAlert: function(alert_id){
+        $jq.post( "/members/delete_alert", { alert_id: alert_id },
+            function(data, textStatus, XMLHttpRequest){
+            window.location.reload();
+        }, "text" );
+    }    
 });
 
 
