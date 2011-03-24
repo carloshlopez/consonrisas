@@ -125,6 +125,7 @@ es:
     pic: "Imágen del Evento"
     provider_alert: "Evento creado para un proyecto con audiencia de tu interés"    
     facilitator_alert: "Evento creado para un proyecto de tu interés"
+    facilitator_invite: "Te han invitado a asistir a un evento"
   profile:
     managed_providers: "Proveedores que administras"
     managed_fundations: "Proyectos Sociales que administras"  

@@ -127,6 +127,7 @@ en:
     pic: "Image"
     provider_alert: "Event created for a fundation of your interest"
     facilitator_alert: "Event created for a fundation of your interest"
+    facilitator_invite: "You have been invited to attend an event"
   profile:
     managed_providers: "Providers managed"
     managed_fundations: "Fundations managed"    
