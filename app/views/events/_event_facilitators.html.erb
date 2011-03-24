@@ -26,7 +26,7 @@
   |
   <a href="#" class="remove_facilitator" title="Eliminarme de este evento, no voy a ir" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>">x</a>
 <% end %>
-<% end %>
+
 
   <% unless current_member.facilitator.facilitators.empty? %>
   <div id="ask_facilitator">
@@ -38,4 +38,5 @@
     </form>
   </div>
   <% end %>
+<% end %>  
 </div>
