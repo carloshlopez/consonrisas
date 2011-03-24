@@ -125,7 +125,8 @@ es:
     pic: "Imágen del Evento"
     provider_alert: "Evento creado para un proyecto con audiencia de tu interés"    
     facilitator_alert: "Evento creado para un proyecto de tu interés"
-    facilitator_invite: "Te han invitado a asistir a un evento"
+    facilitator_invite: "Te han invitado a asistir a un evento como facilitador!"
+    mail_invite_subject: "Te han invitado a un evento de Conectando Sonrisas"
   profile:
     managed_providers: "Proveedores que administras"
     managed_fundations: "Proyectos Sociales que administras"  
