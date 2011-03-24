@@ -99,7 +99,7 @@ class EventsController < ApplicationController
     @event.facilitators.push(@facilitator)
     unless current_member.id == @facilitator.member.id
       Alert.create(:member_id=> @facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>@event.id) 
-      EventInvitation.invite_facilitator(@facilitator.member, @event).deliver
+      #EventInvitation.invite_facilitator(@facilitator.member, @event).deliver
     end
     respond_to do |format|
       format.js {head:ok}
