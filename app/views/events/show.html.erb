@@ -22,126 +22,48 @@
   <b><%= I18n.t("city") %>:</b>
   <%= @event.city %>
 </p>
-
 <% if member_signed_in? %>
-<% if can_current_member_edit_event @event.id %>
-  <%= link_to I18n.t('edit'), edit_event_path(@event) %>
-<% end %>
-
-
-<div id="member_event_actions" class="bordered_box">
-  <% if current_member.facilitator %>
-    <% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>
-      <a href="#" class="add_facilitator" title="<%= I18n.t('events.add_me_facilitator') %>" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>"><%= I18n.t('events.add_me_facilitator') %></a>
-    <% else %>
-      <%= I18n.t('events.attending_as_facilitator') %>
-      |
-      <a href="#" class="remove_facilitator" title="Eliminarme de este evento, no voy a ir" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>">x</a>
-    <% end %>
+  <% if can_current_member_edit_event @event.id %>
+    <%= link_to I18n.t('edit'), edit_event_path(@event) %>
+  <% end %>
+</br>    
+  <% if can_current_member_edit_event(@event.id) %>
+    <div class="bordered_box" event_id="<%= @event.id %>">
+      <p>
+      <!--QUITAR LOS QEU YA SON ADMINS-->
+        Agregar administrador a este evento:
+        <select id="member_id">
+        <option value="-1" selected> -- </option>
+        <% current_member.facilitator.facilitators.each do |fac|
+            unless EventAdmin.find(:first, :conditions=>{:event_id=>@event.id, :member_id=>fac.member.id})
+              %>
+              <option value="<%= fac.id %>">
+                <%=fac.name%>
+              </option>
+              <%
+            end
+          end %>
+        </select>
+        <br/>
+        ó preguntarle por email
+        <input id="ask_admin_mail" type="text" value="mail"/>
+        <br/>
+        <div id="ask_admin_message">Se envió la solicitud!</div>
+        <a name="ask_admin" href="#" class="ask_admin">Ask To Admin</a>
+      </p>
+    </div>
   <% end %>
 
-  <div id="new_fundation">
-    <form action="/events/add_fundation" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <%= select_tag "fundation_id", options_from_collection_for_select(current_member.fundations, "id", "name") %>    
-      <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-      <input type="submit" value="<%= I18n.t('events.add_me_fundation') %>" name="new_fundation"/>
-    </form>
-  </div>
-
-  <div id="new_provider">
-    <form action="/events/add_provider" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <%= select_tag "provider_id", options_from_collection_for_select(current_member.providers, "id", "name") %>    
-      <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-      <input type="submit" value="<%= I18n.t('events.add_me_provider') %>" name="new_provider"/>
-    </form>
-  </div>
-
-  <div id="ask_facilitator">
-    <form action="/events/add_facilitator" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <%= select_tag "facilitator_id", options_from_collection_for_select(current_member.facilitator.facilitators, "id", "name") %>    
-      <input name="event_id" type="hidden" value="<%= @event.id %>"/>
-      <input type="submit" value="<%= I18n.t('events.add_facilitator') %>" name="ask_facilitator"/>
-    </form>
-  </div>
-</div>
-
-<% if can_current_member_edit_event(@event.id) %>
-  <div class="bordered_box" event_id="<%= @event.id %>">
-    <p>
-    <!--QUITAR LOS QEU YA SON ADMINS-->
-      Agregar administrador a este evento:
-      <select id="member_id">
-      <option value="-1" selected> -- </option>
-      <% current_member.facilitator.facilitators.each do |fac|
-          unless EventAdmin.find(:first, :conditions=>{:event_id=>@event.id, :member_id=>fac.member.id})
-            %>
-            <option value="<%= fac.id %>">
-              <%=fac.name%>
-            </option>
-            <%
-          end
-        end %>
-      </select>
-      <br/>
-      ó preguntarle por email
-      <input id="ask_admin_mail" type="text" value="mail"/>
-      <br/>
-      <div id="ask_admin_message">Se envió la solicitud!</div>
-      <a name="ask_admin" href="#" class="ask_admin">Ask To Admin</a>
-    </p>
-  </div>
-<% end %>
-
-<% end %>
-
-<p>
-  <b> <%= I18n.t("events.attending_facilitators")%>: <%= @event.facilitators.count %></b>
-</p>
-<% if @event.facilitators.count > 0%>
-  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
-  <% @event.facilitators.each do |facilitator| 
-      if facilitator.name
-        name = facilitator.name
-      else
-        name = facilitator.member.email
-      end
-  %>
-
-    <% if facilitator.member %>
-    <%= link_to image_tag(facilitator.pic.url(:thumb)),  member_path(facilitator.member), :class=>"nostyle"%>
-    <%= link_to name, member_path(facilitator.member) %>
-    &nbsp;&nbsp;
-    <%end%>
-  <% end %>
-  </div>
 <% end %>
 <p>
-  <b><%= I18n.t("events.attending_fundations")%>: <%= @event.fundations.count %></b>
+<%= render :partial => "event_facilitators" %>
 </p>
-<% if @event.fundations.count > 0%>
-  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
-  <% @event.fundations.each do |fundation| %>
-    <%= link_to image_tag(fundation.pic.url(:thumb)),  fundation_path(fundation), :class=>"nostyle"%>
-    <%= link_to fundation.name, fundation_path(fundation) %>
-    &nbsp;&nbsp;
-  <% end %>
-  </div>
-<% end %>
 <p>
-  <b><%= I18n.t("events.attending_providers")%>: <%= @event.providers.count %></b>
+<%= render :partial => "event_fundations" %>
 </p>
-<% if @event.providers.count > 0%>
-  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:700px; white-space: nowrap;">
-  <% @event.providers.each do |provider| %>
-    <%= link_to image_tag(provider.pic.url(:thumb)),  provider_path(provider), :class=>"nostyle"%>
-    <%= link_to provider.name, provider_path(provider) %>
-    &nbsp;&nbsp;
-  <% end %>
-  </div>
-<% end %>
+<p>
+<%= render :partial => "event_providers" %>
+</p>
 </div>
 <p><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_default_style">

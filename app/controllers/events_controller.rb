@@ -98,8 +98,8 @@ class EventsController < ApplicationController
     @facilitator = Facilitator.find(params[:facilitator_id])
     @event.facilitators.push(@facilitator)
     respond_to do |format|
-#      format.html {redirect_to event_path(@event)}
       format.js {head:ok}
+      format.html {redirect_to event_path(@event)}
     end
 
   end

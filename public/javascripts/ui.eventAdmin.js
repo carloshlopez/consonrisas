@@ -32,7 +32,7 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/ask_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
+                //console.log(data);
             }
             else{
                 $jq("#ask_admin_message").show('blind',{},1000,function(){
@@ -51,10 +51,10 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/add_facilitator", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
+                //console.log(data);
             }
             else{
-                alert("Vas a ir como facilitador a este evento");
+                //alert("Vas a ir como facilitador a este evento");
                 window.location.reload();
             }
         });
@@ -64,10 +64,10 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/remove_facilitator", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
+                //console.log(data);
             }
             else{
-                alert("Ya no vas a ir como facilitador a este evento");
+                //alert("Ya no vas a ir como facilitador a este evento");
                 window.location.reload();
             }
         });
