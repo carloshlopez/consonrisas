@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title ..::Conectando Sonrisas::..  
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %img{:src => "www.conectandosonrisas.org/images/conectando_sonrisas.png"}/
+    %h1
+      @{message}
+    %p
+      Has click %a{:href=> events_url(@evnet), :target=>"_blank"} aquí para ver el evento
