@@ -11,7 +11,7 @@
   %>
 
     <% if facilitator.member %>
-    <%= link_to image_tag(facilitator.pic.url(:thumb)),  member_path(facilitator.member), :class=>"nostyle"%>
+    <%= link_to image_tag(member_thumb(facilitator)),  member_path(facilitator.member), :class=>"nostyle"%>
     <%= link_to name, member_path(facilitator.member) %>
     &nbsp;&nbsp;
     <%end%>

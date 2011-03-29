@@ -1,15 +1,9 @@
 <%= javascript_include_tag "ui.member" %>
 <h1 class="title"> <%= link_to I18n.t('application.menu_profile') %></h1>
 <div id="member">
-<% if @member.use_facebook_pic and @member.facebook_id %>
   <div class="profile_pic">
-    <%= image_tag "http://graph.facebook.com/#{@member.facebook_id}/picture?type=large" %>
+    <%= image_tag member_pic(@member.facilitator) %>
   </div>
-<% else %>
-  <div class="profile_pic">
-    <%= image_tag @member.facilitator.pic.url(:profile) %>
-  </div>
-<% end %>
 <p>
   <b>Email:</b>
   <%= @member.email %>
