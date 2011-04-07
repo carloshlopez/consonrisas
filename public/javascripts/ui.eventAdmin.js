@@ -3,6 +3,17 @@ $jq.widget("ui.eventAdmin", {
     _init: function() {
     	var self= this;
     	var $el= this.element;
+
+    	$jq('.admin_photos').click(function(e) {
+            e.preventDefault();
+            $jq(".photo_upload").show();
+        });
+        
+    	$jq('.cancel_admin_photos').click(function(e) {
+            e.preventDefault();
+            $jq(".photo_upload").hide();
+        });
+            	
     	$jq('.ask_admin').click(function(e) {
             e.preventDefault();
             var event_id = $jq(this).closest("div").attr("event_id");
@@ -79,4 +90,14 @@ $jq.widget("ui.eventAdmin", {
 jQuery(document).ready(function($) {
     $jq("#ask_admin_message").hide();
     $jq("#eventAdmin").eventAdmin();
+    $jq("a[rel^='prettyPhoto']").prettyPhoto({
+        animation_speed:'normal',
+        theme:'light_rounded',
+        slideshow:3000, 
+        autoplay_slideshow: false,
+        opacity: 0.5,
+        show_title: false,
+        allow_resize: true,
+        keyboard_shortcuts: true
+    });
 });

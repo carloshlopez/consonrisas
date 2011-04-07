@@ -4,7 +4,7 @@
 
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= event_url(@event.id) %>" show_faces="true" width="450" font="tahoma" colorscheme="light"></fb:like>
 <p>
-<%= image_tag @event.pic.url(:profile) %>
+    <%= image_tag @event.pic.url(:profile) %>
 </p>
 <p>
   <b><%= I18n.t("name") %>:</b>
@@ -22,9 +22,14 @@
   <b><%= I18n.t("city") %>:</b>
   <%= @event.city %>
 </p>
+<%= render :partial=>"photo_gallery" %>
 <% if member_signed_in? %>
   <% if can_current_member_edit_event @event.id %>
-    <%= link_to I18n.t('edit'), edit_event_path(@event) %>
+    <a href="#" class="admin_photos">Administrar Fotos</a>
+    <%= render :partial=>"photo_upload" %>
+    <p>
+      <%= link_to I18n.t('edit'), edit_event_path(@event) %>
+    </p>
   <% end %>
 </br>    
   <% if can_current_member_edit_event(@event.id) %>
@@ -90,5 +95,4 @@ a2a_config.linkurl = '<%= event_url(@event.id) %>';
 <% end %>
 <h2><%= I18n.t("events.add_comment") %> :</h2>
 <%= render :partial => "comments/form" %>
-
 
