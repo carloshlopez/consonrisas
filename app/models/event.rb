@@ -7,6 +7,10 @@ class Event < ActiveRecord::Base
   has_many :event_admins, :dependent =>:destroy
   has_many :members, :through => :event_admins, :dependent => :destroy  
   
+
+  attr_accessible :photos_attributes
+  has_many :photos
+  accepts_nested_attributes_for :photos, :allow_destroy=> true
   has_attached_file :pic, :styles => {:profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",

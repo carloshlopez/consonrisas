@@ -1,0 +1,9 @@
+%h2
+  Galería de Fotos del Evento
+.photo_gallery{:class=>"bordered_box"}
+  - if @event.photos.empty?
+    No existen fotos de este evento todavía
+  - else
+    - @event.photos.each do |p|
+      %a{:href => p.photo.url(:original), :rel => "prettyPhoto[gallery1]"}
+        = image_tag(p.photo.url(:thumb))

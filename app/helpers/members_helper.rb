@@ -8,7 +8,7 @@ module MembersHelper
   end
   
   def member_pic(facilitator)
-    if facilitator.member.use_facebook_pic and facilitator.member.facebook_id
+    if facilitator.member and facilitator.member.use_facebook_pic and facilitator.member.facebook_id
       "http://graph.facebook.com/#{@member.facebook_id}/picture?type=large"
     else 
       facilitator.pic.url(:profile)
