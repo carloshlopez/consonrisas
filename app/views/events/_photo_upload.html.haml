@@ -7,12 +7,12 @@
       Agrega fotos al evento
       %br
       = f.fields_for :photos do |p|
-        %p
-          - if p.object.new_record?
+        - if p.object.new_record?
+          %p
             = p.file_field :photo
-          - else
-            = image_tag(p.object.photo.url(:thumb))
-            Eliminar
-            = p.check_box :_destroy
+        - else
+          = image_tag(p.object.photo.url(:thumb))
+          Eliminar
+          = p.check_box :_destroy
     .actions
       = f.submit :value=>"Sube las fotos"
