@@ -90,7 +90,7 @@ a2a_config.linkurl = '<%= event_url(@event.id) %>';
 <% unless @event.comments.empty? %>
   <h2><%= I18n.t("events.comments")%>:</h2>
   <div class="event_comments bordered_box">
-    <%= render :partial => "comments/comment", :collection=> @event.comments %>
+    <%= render :partial => "comments/comment", :collection=> @event.comments.order("id DESC") %>
   </div>
 <% end %>
 <h2><%= I18n.t("events.add_comment") %> :</h2>
