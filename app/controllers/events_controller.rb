@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:index, :show]
+  before_filter :authenticate_member!, :except => [:index, :show, :gallery]
   # GET /events
   # GET /events.xml
   def index
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
-    5.times {@event.photos.build}
+    5.times {@event.photos.build}    
   end
 
   # POST /events
@@ -161,5 +161,5 @@ class EventsController < ApplicationController
       format.js {head :ok}
     end
   end  
-  
+    
 end

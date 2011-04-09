@@ -26,7 +26,9 @@
 <% if member_signed_in? %>
   <% if can_current_member_edit_event @event.id %>
     <a href="#" class="admin_photos">Administrar Fotos</a>
+    <a href="#" class="admin_videos">Administrar Videos</a>    
     <%= render :partial=>"photo_upload" %>
+    <%= render :partial=>"video_upload" %>
     <p>
       <%= link_to I18n.t('edit'), edit_event_path(@event) %>
     </p>

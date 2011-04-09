@@ -1,4 +1,6 @@
-
+  <%= javascript_include_tag "ui.home" %>  
+  <%= javascript_include_tag "jquery.smoothDivScroll-1.1-min" %>
+  <div id="home">
   <h1 class="title"><%= I18n.t("home.welcome") %></h1>
 
     <p class="home_message">
@@ -19,6 +21,9 @@
     <p>
     <%=@events%> <%= link_to I18n.t('home.events'), events_path %>
     </p>
+    <div id="event_pics">
+    <%= render :partial=>"events_photos"%>
+    </div>
     <% unless member_signed_in?  %>
       <p>
         <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
@@ -27,4 +32,4 @@
         <%= I18n.t('home.login')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
       </p>
     <% end %>
-
+</div>

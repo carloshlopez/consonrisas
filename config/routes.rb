@@ -12,7 +12,7 @@ Prueba::Application.routes.draw do
   match 'admin/db/delete/:table_name/:id', :controller => 'admin', :action => 'delete_table_data', :conditions => {:method => :delete }    
 
 
-  
+  get "events/gallery"
 
   post "events/add_facilitator"
   post "events/add_fundation"
