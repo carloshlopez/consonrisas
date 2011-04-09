@@ -1,0 +1,7 @@
+#makeMeScrollable
+  .scrollingHotSpotLeft
+  .scrollingHotSpotRight
+  .scrollWrapper
+    .scrollableArea
+      - @photos.each do |p|
+        = image_tag(p.photo.url(:med))

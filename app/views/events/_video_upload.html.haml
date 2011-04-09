@@ -1,0 +1,18 @@
+.video_upload{:style=>"display:none"}
+  %a{:href=>"#", :class=>"cancel_admin_videos"}
+    Cerrar Admin Videos
+  - 1.times {@event.videos.build}
+  = form_for(@event, :html =>{:multipart=>true}, :id=>"upload_videos_form") do |f|
+    .field_videos
+      Agrega videos al evento
+      %br
+      = f.fields_for :videos do |v|
+        - if v.object.new_record?
+          %p
+            = v.text_field :url
+        - else
+          = v.object.url
+          Eliminar
+          = v.check_box :_destroy
+    .actions
+      = f.submit :value=>"Sube los videos"

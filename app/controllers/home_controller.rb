@@ -4,6 +4,15 @@ class HomeController < ApplicationController
     @fundations = Fundation.count
     @providers = Provider.count    
     @events = Event.count    
+    
+    @photos = []
+    Event.find(:all).each do |event|  
+      event.photos.each do |photo|
+        @photos << photo
+        break if @photos.length > 15
+      end
+    end
+    
   end
 
   def info

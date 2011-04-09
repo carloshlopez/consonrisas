@@ -7,3 +7,9 @@
     - @event.photos.each do |p|
       %a{:href => p.photo.url(:original), :rel => "prettyPhoto[gallery1]"}
         = image_tag(p.photo.url(:thumb))
+  - if @event.videos.empty?
+    No existen videos de este evento todavía
+  - else
+    - @event.videos.each do |v|
+      %a{:href => v.url, :rel => "prettyPhoto[gallery1]"}
+        = image_tag("/images/play_icon.png")        

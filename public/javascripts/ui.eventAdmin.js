@@ -13,6 +13,16 @@ $jq.widget("ui.eventAdmin", {
             e.preventDefault();
             $jq(".photo_upload").hide();
         });
+        
+    	$jq('.admin_videos').click(function(e) {
+            e.preventDefault();
+            $jq(".video_upload").show();
+        });
+        
+    	$jq('.cancel_admin_videos').click(function(e) {
+            e.preventDefault();
+            $jq(".video_upload").hide();
+        });        
             	
     	$jq('.ask_admin').click(function(e) {
             e.preventDefault();
