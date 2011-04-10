@@ -5,7 +5,7 @@
     No existen fotos de este evento todavía
   - else
     - @event.photos.each do |p|
-      %a{:href => p.photo.url(:big), :rel => "prettyPhoto[gallery1]"}
+      %a{:href => p.photo.url(:original), :rel => "prettyPhoto[gallery1]"}
         = image_tag(p.photo.url(:thumb))
   - if @event.videos.empty?
     No existen videos de este evento todavía
