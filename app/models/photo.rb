@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
     :path => "events/photos/:attachment/:id/:style/:filename"
                     
-  validates_attachment_size :photo, :less_than => 5.megabytes
+  validates_attachment_size :photo, :less_than => 3.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
                       
 end
