@@ -7,24 +7,25 @@ class HomeController < ApplicationController
     
     @photos = []
     @comments = []
-    Event.find(:all).each do |event|  
-      event.photos.each do |photo|
-        @photos << photo
-        break if @photos.length > 15
+    p_ids = 15.times.map{ Random.new.rand(1..Photo.count) }
+    p_ids.each do |p_id|
+      begin
+        @photos << Photo.find(p_id)
+      rescue
+        
       end
-      break if @photos.length > 15
-    end
+    end        
   end
   
   def event_comments
     @comments = []
-    Event.find(:all).each do |event|  
-      event.comments.each do |c|
-        @comments << c 
-        break if @comments.length > 3
-      end      
-      break if @comments.length > 3
-    end
+    c_ids = 3.times.map{ Random.new.rand(1..Comment.count) }
+    c_ids.each do |c_id|
+      begin
+        @comments << Comment.find(c_id)      
+      rescue
+      end
+    end    
     render :layout => false
   end
 
