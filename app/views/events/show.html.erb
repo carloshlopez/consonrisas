@@ -71,7 +71,7 @@
 <p>
 <%= render :partial => "event_providers" %>
 </p>
-</div>
+
 <p><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_default_style">
 <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=<%= event_url(@event.id) %>&linkname=Evento%20de%20Conectando%20Sonrisas"><%= I18n.t('share') %></a>
@@ -97,4 +97,4 @@ a2a_config.linkurl = '<%= event_url(@event.id) %>';
 <% end %>
 <h2><%= I18n.t("events.add_comment") %> :</h2>
 <%= render :partial => "comments/form" %>
-
+</div>

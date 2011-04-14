@@ -1,3 +1,13 @@
 # APP_CONFIG['nsbg']['min_history']
 fb:
     app_id: 161667273881845
+    
+bitly:
+    api_key: R_0eb20408ca41a161a5e5d6ee90d11801
+twitter:
+    api_key: R6UUga0SG6DUyu1mb9DsQ
+    api_secret: j0KBrCUqCOPieJhd1C9UooLKgcBfIub93ErYy9ktk
+    oauth_token: 48552466-V2WH4dkIhwSytyO5xQz7xeSbO04U8F3hB5Wz3uDiw
+    oauth_token_secret: eAqu0yujMfK1WAwpvrxH0XxBLNRh22eCyclp5JU2U
+    consonrisas_id: 266237442
+    

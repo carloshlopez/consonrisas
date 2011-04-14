@@ -13,6 +13,5 @@ module MembersHelper
     else 
       facilitator.pic.url(:profile)
     end
-  end
-  
+  end  
 end

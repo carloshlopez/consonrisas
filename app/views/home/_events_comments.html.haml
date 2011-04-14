@@ -1,0 +1,11 @@
+Comentarios de Eventos Anteriores
+#events_comments.bordered_box
+  - @comments.each do |c|
+    .a_comment.bordered_box
+      = c.comment    
+      , comentario de
+      = comment_name(c)
+      , del evento 
+      = link_to c.event.name, event_url(c.event)
+      = link_to image_tag(c.event.pic.url(:thumb)), event_path(c.event_id), :class=>"nostyle"
+

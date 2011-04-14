@@ -22,6 +22,10 @@
     <div id="event_pics">
     <%= render :partial=>"events_photos"%>
     </div>
+    <div id="home_event_comments">
+    <%= render :partial=>"events_comments"%>
+    </div>    
+        
     <% unless member_signed_in?  %>
       <p>
         <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
@@ -30,6 +34,47 @@
         <%= I18n.t('home.login')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
       </p>
     <% end %>
+</div>
+<div id="twitter_msgs">
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 2,
+  interval: 6000,
+  width: 200,
+  height: 250,
+  theme: {
+    shell: {
+      background: '#5DB72C',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#fafafa',
+      color: '#0a090a',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('consonrisas').start();
+</script>
+<style type="text/css">
+#twitter_msgs
+{
+position:absolute;
+left:900px;
+top:250px;
+}
+</style>
 </div>
  <%= javascript_include_tag "jquery.smoothDivScroll-1.1-min" %>
  <%= javascript_include_tag "ui.home" %>  
