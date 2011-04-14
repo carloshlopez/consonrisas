@@ -8,9 +8,9 @@ $jq.widget("ui.home", {
 		setInterval(function(){
 		    $jq("#events_comments").hide();
     		$jq('#home_event_comments').load('/home/event_comments', function() {
-              console.log('Load was performed.');
+//              console.log('Load was performed.');
             });
-		}, 8000 );
+		}, 10000 );
         
     },
     _updateCurrent: function(current){
@@ -21,4 +21,5 @@ $jq.widget("ui.home", {
 
 $jq(document).ready(function($) {    
     var fb = $jq("#home").home();
+    $jq('#home_event_comments').load('/home/event_comments', function() {});
 });
