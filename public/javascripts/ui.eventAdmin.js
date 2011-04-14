@@ -45,7 +45,16 @@ $jq.widget("ui.eventAdmin", {
             var event_id = $jq(this).attr("event_id");
             var fac_id = $jq(this).attr("facilitator_id");
             self._addFacilitator(event_id, fac_id);
-        });        
+        });
+        
+//        $jq('#comment_submit').click(function(e){
+//            e.preventDefault();
+//            var comment = $jq("#comment_comment").val();
+//            self._toTwitter(comment, document.URL);
+//            
+//        });        
+        
+        
         
     },
     _askAdmin: function(event_id, mem_id, mail){
@@ -90,6 +99,26 @@ $jq.widget("ui.eventAdmin", {
             else{
                 //alert("Ya no vas a ir como facilitador a este evento");
                 window.location.reload();
+            }
+        });
+    },
+    _toTwitter: function(comment, url){
+        $jq.getJSON("http://api.bit.ly/v3/shorten?login=carloshlopez&apiKey=R_0eb20408ca41a161a5e5d6ee90d11801&longUrl="+url+"&format=json",
+          {},
+          function(data) {
+            if(data.status_code == "200"){
+                //Trim coment to 110 characters
+                if (comment.length > 110)
+                {
+                    comment = comment.substr(0, 110);
+                }
+                comment = comment + " ... " + data.data.url    
+                console.log("Comment to post: " + comment);
+                //Post To twitter
+            }
+            else
+            {
+                console.log(data);
             }
         });
     }

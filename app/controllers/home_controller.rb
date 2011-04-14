@@ -6,13 +6,24 @@ class HomeController < ApplicationController
     @events = Event.count    
     
     @photos = []
+    @comments = []
     Event.find(:all).each do |event|  
       event.photos.each do |photo|
         @photos << photo
-        break if @photos.length > 15
       end
+      break if @photos.length > 15
     end
-    
+  end
+  
+  def event_comments
+    @comments = []
+    Event.find(:all).each do |event|  
+      event.comments.each do |c|
+        @comments << c 
+      end      
+      break if @comments.length > 3
+    end
+    render :layout => false
   end
 
   def info

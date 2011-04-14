@@ -13,4 +13,5 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to event_path(@event)
   end
+  
 end
