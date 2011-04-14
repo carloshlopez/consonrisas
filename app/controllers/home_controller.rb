@@ -10,6 +10,7 @@ class HomeController < ApplicationController
     Event.find(:all).each do |event|  
       event.photos.each do |photo|
         @photos << photo
+        break if @photos.length > 15
       end
       break if @photos.length > 15
     end
@@ -20,6 +21,7 @@ class HomeController < ApplicationController
     Event.find(:all).each do |event|  
       event.comments.each do |c|
         @comments << c 
+        break if @comments.length > 3
       end      
       break if @comments.length > 3
     end
