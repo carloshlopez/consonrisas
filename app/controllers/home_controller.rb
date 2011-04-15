@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     
     @photos = []
     @comments = []
-    p_ids = 15.times.map{ Random.new.rand(1..Photo.count) }
+    p_ids = 15.times.map{ rand(Photo.count) }
     p_ids.each do |p_id|
       begin
         @photos << Photo.find(p_id)
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   
   def event_comments
     @comments = []
-    c_ids = 3.times.map{ Random.new.rand(1..Comment.count) }
+    c_ids = 3.times.map{ rand(Comment.count) }
     c_ids.each do |c_id|
       begin
         @comments << Comment.find(c_id)      
