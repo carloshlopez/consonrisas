@@ -3,7 +3,7 @@
 #events_comments.bordered_box
   - @comments.each do |c|
     .a_comment.bordered_box
-      = c.comment    
+      = c.comment[0, 50] << " ... "
       , comentario de
       = comment_name(c)
       , del evento 
