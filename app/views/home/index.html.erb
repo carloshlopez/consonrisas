@@ -22,10 +22,11 @@
     <div id="event_pics">
     <%= render :partial=>"events_photos"%>
     </div>
+    <p>
     <div id="home_event_comments">
     <%= render :partial=>"events_comments"%>
     </div>    
-        
+    </p>  
     <% unless member_signed_in?  %>
       <p>
         <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
