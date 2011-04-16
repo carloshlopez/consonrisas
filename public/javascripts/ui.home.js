@@ -13,14 +13,13 @@ $jq.widget("ui.home", {
     },
     _moveComments: function(){
 
-        $jq('.last').hide('blind', function() {
-            $jq('.show_me').show('blind', function(){
-                $jq("#events_comments").prepend($jq(".a_comment:last"));
-                $jq(".a_comment:last").addClass("last");
-                $jq(".a_comment:first").removeClass("last");
-                $jq(".show_me").prev().addClass('show_me');
-                $jq(".show_me:last").removeClass('show_me');
-            });
+        $jq('.last').hide('blind', 'slow');
+        $jq('.show_me').show('blind', 'slow', function(){
+            $jq("#events_comments").prepend($jq(".a_comment:last"));
+            $jq(".a_comment:last").addClass("last");
+            $jq(".a_comment:first").removeClass("last");
+            $jq(".show_me").prev().addClass('show_me');
+            $jq(".show_me:last").removeClass('show_me');
         });
     }
     
