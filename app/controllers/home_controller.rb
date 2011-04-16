@@ -10,7 +10,8 @@ class HomeController < ApplicationController
     p_ids = 15.times.map{ rand(Photo.count) }
     p_ids.each do |p_id|
       begin
-        @photos << Photo.find(p_id)
+        p = Photo.find(p_id)
+        @photos << p if p
       rescue
         
       end
@@ -22,7 +23,8 @@ class HomeController < ApplicationController
     c_ids = 10.times.map{ rand(Comment.count) }
     c_ids.each do |c_id|
       begin
-        @comments << Comment.find(c_id)      
+        c = Comment.find(c_id)
+        @comments << c if c
       rescue
       end
     end    
