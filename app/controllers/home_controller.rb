@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   
   def event_comments
     @comments = []
-    c_ids = 3.times.map{ rand(Comment.count) }
+    c_ids = 10.times.map{ rand(Comment.count) }
     c_ids.each do |c_id|
       begin
         @comments << Comment.find(c_id)      
