@@ -1,12 +1,26 @@
 %h2
   Comentarios de los Eventos
 #events_comments.bordered_box
-  - @comments.each do |c|
-    .a_comment.bordered_box
-      = c.comment[0, 50] << " ... "
-      , comentario de
-      = comment_name(c)
-      , del evento 
-      = link_to c.event.name, event_url(c.event)
-      = link_to image_tag(c.event.pic.url(:thumb)), event_path(c.event_id), :class=>"nostyle"
-
+  - @comments.each_with_index do |c, i|
+    - if i < 3
+      - if i == 2
+        .a_comment.bordered_box.show_me{:style=>"display:none"}
+      - else
+        .a_comment.bordered_box{:style=>"display:none"}
+          = link_to image_tag(member_thumb(c.member.facilitator)), event_path(c.event_id), :class=>"nostyle"    
+          = c.comment[0, 50] << " ... "
+          , comentario de
+          = comment_name(c)
+          , del evento 
+          = link_to c.event.name, event_url(c.event)
+    - else
+      - if i == @comments.length - 1
+        .a_comment.bordered_box.last
+      - else
+        .a_comment.bordered_box
+          = link_to image_tag(member_thumb(c.member.facilitator)), event_path(c.event_id), :class=>"nostyle"    
+          = c.comment[0, 50] << " ... "
+          , comentario de
+          = comment_name(c)
+          , del evento 
+          = link_to c.event.name, event_url(c.event)
