@@ -17,7 +17,7 @@
   <tr class="alt">
   <% end %>
     <td> 
-      <%= image_tag provider.pic.url(:thumb) %>
+      <%= link_to image_tag(provider.pic.url(:thumb)), provider_path(provider), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
     </td>      
     <td><%= provider.name %></td>    
     <% if member_signed_in? %>
