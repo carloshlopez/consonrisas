@@ -7,20 +7,20 @@
         .a_comment.bordered_box.show_me{:style=>"display:none"}
       - else
         .a_comment.bordered_box{:style=>"display:none"}
-          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle"    
+          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle" ,:title=>I18n.t('events.show')
           = c.comment[0, 50] << " ... "
           , comentario de
           = comment_name(c)
           , del evento 
-          = link_to c.event.name, event_url(c.event)
+          = link_to c.event.name, event_url(c.event) ,:title=>I18n.t('events.show')
     - else
       - if i == @comments.length - 1
         .a_comment.bordered_box.last
       - else
         .a_comment.bordered_box
-          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle"    
+          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle",:title=>I18n.t('events.show')    
           = c.comment[0, 50] << " ... "
           , comentario de
           = comment_name(c)
           , del evento 
-          = link_to c.event.name, event_url(c.event)
+          = link_to c.event.name, event_url(c.event),:title=>I18n.t('events.show')
