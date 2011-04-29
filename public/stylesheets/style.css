@@ -1,6 +1,13 @@
 /*
 Mine
 */
+.event_details
+{
+    float: right;
+    left: 0;
+    margin: 5px;
+    width: 500px;
+}
 .bordered_box
 {
     margin: 3px;
