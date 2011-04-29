@@ -45,7 +45,7 @@
             unless EventAdmin.find(:first, :conditions=>{:event_id=>@event.id, :member_id=>fac.member.id})
               %>
               <option value="<%= fac.id %>">
-                <% if facebook.name %>
+                <% if fac.name %>
                   <%=fac.name%>
                 <% else %>
                   <%=fac.member.email%>
