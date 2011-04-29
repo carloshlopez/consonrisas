@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+#  layout "less"
   def index
     @facilitators = Facilitator.count
     @fundations = Fundation.count

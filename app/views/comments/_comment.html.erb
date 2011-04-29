@@ -7,7 +7,7 @@
       name = comment.member.email
     end
     %>
-    <%= I18n.t('labels.comment_by') %> <%= name %>  <%= I18n.t('labels.comment_on') %> <%= I18n.l(comment.updated_at, :format=>:long) %>&nbsp;:
+    <%= image_tag member_thumb(comment.member.facilitator), :class=>"comment_pic" %> <%= I18n.t('labels.comment_by') %> <%= name %>  <%= I18n.t('labels.comment_on') %> <%= I18n.l(comment.updated_at, :format=>:long) %>&nbsp;:
   </p>
   <p>
     <%= comment.comment %>

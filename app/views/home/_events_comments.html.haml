@@ -7,7 +7,7 @@
         .a_comment.bordered_box.show_me{:style=>"display:none"}
       - else
         .a_comment.bordered_box{:style=>"display:none"}
-          = link_to image_tag(member_thumb(c.member.facilitator)), event_path(c.event_id), :class=>"nostyle"    
+          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle"    
           = c.comment[0, 50] << " ... "
           , comentario de
           = comment_name(c)
@@ -18,7 +18,7 @@
         .a_comment.bordered_box.last
       - else
         .a_comment.bordered_box
-          = link_to image_tag(member_thumb(c.member.facilitator)), event_path(c.event_id), :class=>"nostyle"    
+          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle"    
           = c.comment[0, 50] << " ... "
           , comentario de
           = comment_name(c)

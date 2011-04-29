@@ -48,6 +48,11 @@ Mine
     -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.9)"; /* IE8 */
 }
 
+.comment_pic
+{
+    width:35px;
+    height:35px;
+}
 /*
 Design by Free CSS Templates
 http://www.freecsstemplates.org
