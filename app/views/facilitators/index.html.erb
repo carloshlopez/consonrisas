@@ -16,7 +16,11 @@
   <tr class="alt">
   <% end %>
     <td> 
-    <%= image_tag member_thumb(facilitator) %>
+      <% if facilitator.member %>
+        <%= link_to image_tag(member_thumb(facilitator)), member_path(facilitator.member), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
+      <% else %>
+        <%= image_tag(member_thumb(facilitator)) %>
+      <% end %>
     </td>    
     <td><%= facilitator.name %></td>
     <% if member_signed_in? and facilitator.member %>

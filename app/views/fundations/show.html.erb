@@ -72,7 +72,11 @@
         unless FundationAdmin.find(:first, :conditions=>{:fundation_id=>@fundation.id, :member_id=>fac.member.id})
           %>
           <option value="<%= fac.id %>">
-            <%=fac.name%>
+            <% if fac.name %>
+              <%=fac.name%>
+            <% else %>
+              <%=fac.member.email%>
+            <% end %>
           </option>
           <%
         end

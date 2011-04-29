@@ -18,7 +18,7 @@
   <tr class="alt">
   <% end %>
     <td> 
-      <%= image_tag fundation.pic.url(:thumb) %>
+      <%= link_to image_tag(fundation.pic.url(:thumb)), fundation_path(fundation.id), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
     </td>      
     <td><%= fundation.name %></td>
     <td><a href="<%= convert_url_for_href(fundation.website) %>" target="_blank"><%= fundation.website %></a></td>
