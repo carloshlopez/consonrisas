@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
 
-  before_filter :authenticate_member!, :except => [:index, :show]
+  before_filter :authenticate_member!, :except => [:index]
   # GET /providers
   # GET /providers.xml
   def index
