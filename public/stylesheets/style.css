@@ -1,12 +1,44 @@
 /*
 Mine
 */
+.new_comment
+{
+    width:550px;
+    height: 80px;
+}
 .event_details
 {
-    float: right;
     left: 0;
     margin: 5px;
     width: 500px;
+}
+.profile_details
+{
+    left: 10;
+    margin: 5px;
+    width: 350px;
+}
+.profile_name
+{
+    background-color: #5DB52F;
+    color: #FFFFFF;
+    width: 350px;
+    text-align: center;   
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.5em;
+}
+.profile_pic
+{
+    float: right;
+    width: 350px;
+    text-align: center;       
+}
+.contact_information
+{
+
+   top: 100px;
+   height: 100%;
 }
 .bordered_box
 {

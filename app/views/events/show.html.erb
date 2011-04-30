@@ -5,22 +5,26 @@
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= event_url(@event.id) %>" show_faces="true" width="450" font="tahoma" colorscheme="light"></fb:like>
 <br/>
 <br/>
+
 <div>
-  <%= image_tag @event.pic.url(:profile) %>
-  <div class="event_details">
-  <p>
-  <b><%= I18n.t("name") %>:</b>
-  <%= @event.name %>
-  <br/>
-  <b><%= I18n.t("date_name") %>:</b>
-  <%= I18n.l(@event.date, :format=>:long) %>
-    <br/>
-  <b><%= I18n.t("place") %>:</b>
-  <%= @event.place %>
-    <br/>
-  <b><%= I18n.t("city") %>:</b>
-  <%= @event.city %>  
-  </p>
+  <div class="profile_pic">
+    <%= image_tag @event.pic.url(:profile) %>
+  </div>
+
+  <div class="profile_details bordered_box">
+    <div class="profile_name">
+      <%= @event.name %>
+    </div>
+      <p>
+      <b><%= I18n.t("date_name") %>:</b>
+      <%= I18n.l(@event.date, :format=>:long) %>
+        <br/>
+      <b><%= I18n.t("place") %>:</b>
+      <%= @event.place %>
+        <br/>
+      <b><%= I18n.t("city") %>:</b>
+      <%= @event.city %>  
+    </p>
   </div>
 </div>
 <%= render :partial=>"photo_gallery" %>
