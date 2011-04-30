@@ -1,53 +1,39 @@
 <%= javascript_include_tag "ui.fundations" %>
 <h1 class="title"> <%= I18n.t('fundation.details') %>  </h1>
+<div>
+  <div class="profile_pic">
+    <%= image_tag @fundation.pic.url(:profile) %>  
+  </div>
 
-<div class="profile_pic">
-  <%= image_tag @fundation.pic.url(:profile) %>
-</div>
-<p>
-  <b><%= I18n.t('name') %>:</b>
-  <%= @fundation.name %>
-</p>
-
-<p>
+<div class="profile_details bordered_box">
+  <div class="profile_name">
+    <%= @fundation.name %>
+  </div>
   <b><%= I18n.t('address') %>:</b>
   <%= @fundation.address %>
-</p>
-
-<p>
+  <br/>
   <b><%= I18n.t('cellphone') %>:</b>
   <%= @fundation.cellphone %>
-</p>
-
-<p>
+  <br/>    
   <b><%= I18n.t('city') %>:</b>
-  <%= @fundation.city %>
-</p>
-
-<p>
+  <%= @fundation.city %>  
+  <br/>
   <b><%= I18n.t('country') %>:</b>
   <%= @fundation.country %>
-</p>
-
-<p>
+  <br/>
   <b><%= I18n.t('description') %>:</b>
   <%= @fundation.description %>
-</p>
-
-<p>
+  <br/>
   <b><%= I18n.t('phone') %>:</b>
-  <%= @fundation.phone %>
-</p>
-
-<p>
+  <%= @fundation.phone %>    
+  <br/>
   <b><%= I18n.t('website') %>:</b>
   <a href="<%= convert_url_for_href(@fundation.website) %>" target="_blank"><%= @fundation.website %></a>
-</p>
-
-  <p>
-    <b><%= I18n.t('fundation.population') %>:</b>
-    <%= population_name(@fundation.population_id) %>
-  </p>
+  <br/>
+  <b><%= I18n.t('fundation.population') %>:</b>
+  <%= population_name(@fundation.population_id) %>
+</div>
+</div>
 <% 
   @member =  @fundation 
   @member_type = ApplicationHelper::ROLES[:fundation]

@@ -1,7 +1,6 @@
 <%= form_for([@event, @event.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label I18n.t('events.comment') %><br />
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, :class=>"new_comment" %>
     <% if member_signed_in? %>
       <input type="hidden" name="comment[member_id]" value="<%= current_member.id %>"/>    
     <% end %>

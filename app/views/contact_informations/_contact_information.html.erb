@@ -1,22 +1,17 @@
+<div class="contact_information bordered_box">
 <p>
   <b><%= I18n.t('name') %>:</b>
   <%= contact_information.name %>
-</p>
-<p>
+<br/>
   <b>Email:</b>
   <%=contact_information.email %>
-</p>
-
-<p>
+<br/>
   <b><%= I18n.t('contact_information.cellphone') %>:</b>
   <%= contact_information.cellphone %>
-</p>
-
-<p>
+<br/>
   <b><%= I18n.t('contact_information.phone') %>:</b>
   <%= contact_information.phone %>
-</p>
-<p>
+<br/>
   <b><%= I18n.t('contact_information.position') %>:</b>
   <%= contact_information.position %>
 </p>
@@ -27,3 +22,4 @@
      :method => :delete %>
 </p>
 <% end %>
+</div>
