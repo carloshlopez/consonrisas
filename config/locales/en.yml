@@ -129,6 +129,9 @@ en:
     facilitator_alert: "Event created for a fundation of your interest"
     facilitator_invite: "You have been invited to attend an event"
     mail_invite_subject: "You have been invited to an event of Conectando Sonrisas"    
+    mail_created_subjet: "Event created in Conectando Sonrisas"
+    mail_comment_made_subject: "New comment on an event of Conectando Sonrisas"
+    mail_comment_made_msg: " made a comment on an event of your interest, check the event to see how you can help!"    
   profile:
     managed_providers: "Providers managed"
     managed_fundations: "Fundations managed"    
