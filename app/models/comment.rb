@@ -16,7 +16,7 @@ class Comment < ActiveRecord::Base
     end    
     self.event.providers.each do |provider|
       provider.provider_admins.each do |admin|
-        EventInvitation.event_comment(self, provider.member.email, self.event).deliver if admin.active
+        EventInvitation.event_comment(self, admin.member.email, self.event).deliver if admin.active
       end
     end        
   end
