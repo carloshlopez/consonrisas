@@ -8,8 +8,10 @@
       %img{:src => "www.conectandosonrisas.org/images/conectando_sonrisas.png",:height=>"92px", :width=>"460px"}
     %p
       %b
-        #{@message}
+        =I18n.t('events.mail_created_subjet')
     %p
-      Visita el evento
+      #{@message}
+    %p
+      Visita el evento 
       = link_to @event.name, event_url(@event),:title=>I18n.t('events.show')
       para enterarte de los detalles!
