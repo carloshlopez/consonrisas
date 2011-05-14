@@ -1,0 +1,98 @@
+!!!
+%html
+  %head
+    %title ..::Conectando Sonrisas::..  ::Beta::
+    = stylesheet_link_tag "scaffold_min"
+    = stylesheet_link_tag "jquery-ui-1.8.10.custom"
+    = stylesheet_link_tag "smoothDivScroll"
+    = stylesheet_link_tag "prettyPhoto"
+    = stylesheet_link_tag "less"
+    %link{:href => "/images/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Radley:regular", :rel => "stylesheet", :type => "text/css"}
+      = javascript_include_tag "jquery-1.4.4.min"
+      = javascript_include_tag "jquery-ui-1.8.10.custom.min"
+      = javascript_include_tag "jquery-ui-timepicker-addon"
+      = javascript_include_tag "ui.feedback"
+      = javascript_include_tag "ui.homeMenu"
+      = javascript_include_tag "jquery.prettyPhoto"
+      = csrf_meta_tag
+    %meta{:charset => "utf-8"}/
+    %title
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    = stylesheet_link_tag "less"
+    %link{:href => "", :media => "all", :rel => "stylesheet"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    / Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/
+  %body{:lang => "en"}
+    #header
+      #logo
+        %a.nostyle{:href => "/"}
+          %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
+      #menu
+        %ul
+          - if member_signed_in?
+            %li.current_page_item= link_to I18n.t('application.menu_profile'), member_path(current_member.id), {:class=>"profile"}
+          - else
+            %li.current_page_item
+              %a.home{:href => "/"}= I18n.t('application.menu_home')
+          %li
+            %a.facilitators{:href => "/facilitators"}= I18n.t('application.menu_facilitators')
+          %li
+            %a.providers{:href => "/providers"}= I18n.t('application.menu_providers')
+          %li
+            %a.fundations{:href => "/fundations"}= I18n.t('application.menu_fundations')
+          %li
+            %a.events{:href => "/events"}= I18n.t('application.menu_events')
+          %li
+            %a.info{:href => "/home/info"}= I18n.t('application.menu_info')
+          - if current_member.try(:admin?)
+            %li
+              %a.admin{:href => "/admin/index"} admin
+          %ul
+      #search
+        %form#searchform{:action => "#", :method => "get"}
+          %fieldset
+            %input#s.text{:name => "s", :type => "text", :value => ""}/
+            %input#x.button{:type => "submit", :value => I18n.t('search')}/
+      .account
+        - if member_signed_in?
+          = I18n.t('account.logged_in_as')
+          \:
+          %br/
+          = current_member.email
+          %br/
+          = link_to I18n.t('account.logout'), destroy_member_session_path
+          |
+          \#{link_to I18n.t('account.edit'), edit_member_registration_path}
+        - else
+          = link_to I18n.t('account.register'), new_member_registration_path
+          |
+          \#{link_to I18n.t('account.login'), new_member_session_path}            
+      .locale_menu
+        %form{:action => "", :method => "get"}
+          = I18n.t('set_locale')
+          \:
+          %br/
+          %select#el_locale{:name => "locale"}
+            %option{:value => "en"} English
+            - if I18n.locale == :es
+              %option{:selected => "", :value => "es"} Español
+            - else
+              %option{:value => "es"} Español
+          %input{:name => "new_locale", :type => "submit", :value => "Ok"}/
+    .application_messages
+      %p#notice.notice= notice
+      %p#alert.alert= alert          
+    = yield
+    #footer
+      - if member_signed_in?
+        = render 'home/feedback'
+      \...:: BETA ::...
+      %br/
+      %a.footernostyle{:href => "http://www.twitter.com/consonrisas", :target => "_blank"}
+        %img{:alt => "Follow consonrisas on Twitter", :src => "/images/Twitter-icon24.png", :title => "Follow consonrisas on Twitter"}/
+      %a.footernostyle{:href => "http://www.facebook.com/pages/Conectando-Sonrisas/207633962587548", :target => "_blank"}
+        %img{:alt => "Follow Conectando Sonrisas on Facebook", :src => "/images/FaceBook-icon24.png", :title => "Follow Conectando Sonrisas on Facebook"}/
+      %br/
+      %a{:href => "mailto:info@conectandosonrisas.org?subject=Contacto%20Pagina"}= I18n.t('mailto')
