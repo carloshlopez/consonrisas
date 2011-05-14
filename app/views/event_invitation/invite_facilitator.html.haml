@@ -7,6 +7,6 @@
     %h1 
       #{@message}
     %p
-      Has click 
-      %a{:href=> event_url(@evnet), :target=>"_blank"} aquí 
-      para ver el evento
+      Visita el evento
+      = link_to @event.name, event_url(@event),:title=>I18n.t('events.show')
+      para enterarte de los detalles!
