@@ -45,7 +45,7 @@ class Event < ActiveRecord::Base
 #      end      
 #    end
     the_admin = Member.find_by_email("carloshlopez@gmail.com")
-    EventInvitation.invite_facilitator(the_admin, self )
+    EventInvitation.invite_facilitator(the_admin, self ).deliver
   end
   
   def ask_admin member_id

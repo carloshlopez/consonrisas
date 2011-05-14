@@ -39,16 +39,16 @@ Prueba::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'www.conectandosonrisas.org' }
   config.action_mailer.raise_delivery_errors = true
-  
-ActionMailer::Base.smtp_settings = {
-  :enable_starttls_auto => true,
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => "www.conectandosonrisas.org",
-  :authentication => :plain,
-  :user_name => "noreply@conectandosonrisas.org",
-  :password => "1qaz2wsx"
-}
+#  
+#ActionMailer::Base.smtp_settings = {
+#  :enable_starttls_auto => true,
+#  :address => "smtp.gmail.com",
+#  :port => 587,
+#  :domain => "www.conectandosonrisas.org",
+#  :authentication => :plain,
+#  :user_name => "noreply@conectandosonrisas.org",
+#  :password => "1qaz2wsx"
+#}
 
 
   # Enable threaded mode
