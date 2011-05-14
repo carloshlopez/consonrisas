@@ -34,16 +34,18 @@ class Event < ActiveRecord::Base
   after_create :generate_alerts
   
   def generate_alerts
-    self.fundations.each do |fundation|
-      Show.find_all_by_population_id(fundation.population.id).each do |show|
-        #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
-        Alert.create(:member_id=> show.provider.member.id, :news=> I18n.t('events.provider_alert'))
-      end
-      Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
-        #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
-        Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_alert'), :link=>self.id)
-      end      
-    end
+#    self.fundations.each do |fundation|
+#      Show.find_all_by_population_id(fundation.population.id).each do |show|
+#        #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
+#        Alert.create(:member_id=> show.provider.member.id, :news=> I18n.t('events.provider_alert'))
+#      end
+#      Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
+#        #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
+#        Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_alert'), :link=>self.id)
+#      end      
+#    end
+    the_admin = Member.find_by_email("carloshlopez@gmail.com")
+    EventInvitation.invite_facilitator(the_admin, self )
   end
   
   def ask_admin member_id
@@ -53,6 +55,10 @@ class Event < ActiveRecord::Base
   def ask_admin_by_mail mail
     EventAdmin.create(:e_mail =>mail, :event_id => self.id, :active=>false)
     # TODO send mail with invitation if email not registered
+  end
+  
+  def message_comment
+    
   end
   
   private 
