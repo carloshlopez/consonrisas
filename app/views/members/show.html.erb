@@ -2,7 +2,7 @@
 <h1 class="title"> <%= link_to I18n.t('application.menu_profile') %></h1>
 <div id="member">
   <div>
-    <%= image_tag member_pic(@member.facilitator) %>
+    <%= image_tag member_pic(@member.facilitator), :class=>"member_profile_pic" %>
   </div>
 <p>
   <b>Email:</b>

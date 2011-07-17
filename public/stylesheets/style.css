@@ -20,7 +20,7 @@ Mine
 }
 .profile_name
 {
-    background-color: #5DB52F;
+    background-color: #5AB448;
     color: #FFFFFF;
     width: 350px;
     text-align: center;   
@@ -31,7 +31,8 @@ Mine
 .profile_pic
 {
     float: right;
-    width: 350px;
+    width: 150px;
+    height: 150px
     text-align: center;       
 }
 .contact_information
@@ -92,6 +93,17 @@ Mine
 {
     width:35px;
     height:35px;
+}
+
+.member_profile_pic
+{
+    height:150px;
+}
+
+.list_pic
+{
+    width:50px;
+    height:50px;
 }
 /*
 Design by Free CSS Templates
@@ -242,7 +254,7 @@ table
 td, th 
 {
     font-size:1em;
-    border:1px solid #98bf21;
+    border:1px solid #5AB448;
     padding:3px 7px 2px 7px;
 }
 th 
@@ -251,7 +263,7 @@ th
     text-align:left;
     padding-top:5px;
     padding-bottom:4px;
-    background-color:#5DB72C;
+    background-color:#5AB448;
     color:#ffffff;
 }
 tr.alt td 
@@ -307,7 +319,7 @@ tr.alt td
 }
 
 #menu .current_page_item a {
-	background: #5DB72C url(images/img01.gif) no-repeat;
+	background: #5AB448 url(images/img01.gif) no-repeat;
 	color: #FFFFFF;
 }
 
@@ -336,7 +348,7 @@ tr.alt td
 	margin: 0 auto;
 	height: 122px;
 	background: #FFFFFF url(images/img02.gif) repeat-x left bottom;
-	border: 1px solid #B8D03B;
+	border: 1px solid #5AB448;
 }
 
 
@@ -347,7 +359,7 @@ tr.alt td
 	margin: 0 auto;
 	padding: 20px 0;
 	background: #FFFFFF;
-	border: 1px solid #B8D03B;
+	border: 1px solid #5AB448;
 	border-top: none;
 }
 

@@ -72,7 +72,7 @@
 </div>
 <div id="logo">
   <a href="/" class="nostyle">
-  <img src="/images/conectando_sonrisas.png" height="92px" width="460px" title="<%= I18n.t('application.menu_home') %>"/>
+  <img src="/images/conectando_sonrisas.png" height="100" title="<%= I18n.t('application.menu_home') %>"/>
   </a>
   <div class="application_messages">
     <p id="notice" class="notice"><%= notice %></p>
@@ -91,9 +91,6 @@
 </div>
 <hr/>
 <div id="footer">
-<% if member_signed_in?  %>
-  <%= render 'home/feedback' %>
-<% end %>
   ...:: BETA ::...
 <br/>
 <a href="http://www.twitter.com/consonrisas" class="footernostyle" target="_blank"><img src="/images/Twitter-icon24.png" alt="Follow consonrisas on Twitter" title="Follow consonrisas on Twitter" /></a>
@@ -103,30 +100,22 @@
 &nbsp;|&nbsp;
 Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.
 </div>
-<script type="text/javascript" charset="utf-8">
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
+  <script type="text/javascript" charset="utf-8">
+    var is_ssl = ("https:" == document.location.protocol);
+    var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+    document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
 
-<script type="text/javascript" charset="utf-8">
-  var feedback_widget_options = {};
+  <script type="text/javascript" charset="utf-8">
+    var feedback_widget_options = {};
 
-  feedback_widget_options.display = "overlay";  
-  feedback_widget_options.company = "consonrisas";
-  feedback_widget_options.placement = "left";
-  feedback_widget_options.color = "#51B43E";
-  feedback_widget_options.style = "idea";
-  
-  
-  
-  
-  
-  
-  
-
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-</script>
+    feedback_widget_options.display = "overlay";  
+    feedback_widget_options.company = "consonrisas";
+    feedback_widget_options.placement = "left";
+    feedback_widget_options.color = "#5AB448";
+    feedback_widget_options.style = "idea";
+    var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+  </script>
 </body>
   <%= javascript_include_tag :defaults %>
 </html>

@@ -3,7 +3,7 @@
   <% if @event.providers.count > 0%>
     <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:98%; white-space: nowrap;">
     <% @event.providers.each do |provider| %>
-      <%= link_to image_tag(provider.pic.url(:thumb)),  provider_path(provider), :class=>"nostyle"%>
+      <%= link_to image_tag(provider.pic.url(:thumb), :class=>"comment_pic"),  provider_path(provider), :class=>"nostyle"%>
       <%= link_to provider.name, provider_path(provider) %>
       &nbsp;&nbsp;
     <% end %>

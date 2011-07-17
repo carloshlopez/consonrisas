@@ -42,37 +42,40 @@
 new TWTR.Widget({
   version: 2,
   type: 'profile',
-  rpp: 2,
-  interval: 6000,
+  rpp: 10,
+  interval: 4000,
   width: 200,
   height: 250,
   theme: {
     shell: {
-      background: '#5DB72C',
-      color: '#ffffff'
+      background: '#ffffff',
+      color: '#5bb548'
     },
     tweets: {
-      background: '#fafafa',
-      color: '#0a090a',
-      links: '#4aed05'
+      background: '#ffffff',
+      color: '#827d82',
+      links: '#5bb548'
     }
   },
   features: {
     scrollbar: false,
-    loop: false,
-    live: false,
+    loop: true,
+    live: true,
     hashtags: true,
     timestamp: true,
-    avatars: false,
-    behavior: 'all'
+    avatars: true,
+    behavior: 'default'
   }
 }).render().setUser('consonrisas').start();
 </script>
 <style type="text/css">
 #twitter_msgs
 {
+border-style:solid;
+border-color:#5bb548;
+border-width:1px;
 position:absolute;
-left:900px;
+left:850px;
 top:250px;
 }
 </style>
