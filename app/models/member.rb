@@ -17,7 +17,8 @@ class Member < ActiveRecord::Base
   has_many :events, :through => :event_admins  
   has_many :provider_admins, :dependent => :destroy 
   has_many :providers, :through => :provider_admins  
-  
+  has_many :authentications
+
   after_create :create_facilitator
 
   def create_facilitator
@@ -70,6 +71,15 @@ class Member < ActiveRecord::Base
     is_it = false
     is_it = true if id == current_id
     is_it
+  end
+  
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+  
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
   
 end

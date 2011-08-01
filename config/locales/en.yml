@@ -87,6 +87,8 @@ en:
     cancel_confirm: "Are you sure? Everything you created or shared will be deleated for ever."
     remember_me: "Remember me"
     send_reset: "Send me reset password instructions"
+    login_services: "Sign in through one of these services:"
+    add_login_service: "Add another service to sign in with:"    
   messages:
     delete_confirmation: "Are you sure?"
   labels:

@@ -10,12 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110409172118) do
+ActiveRecord::Schema.define(:version => 20110801041132) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
     t.string   "link"
     t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "member_id"
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

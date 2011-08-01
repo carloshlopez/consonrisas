@@ -1,6 +1,10 @@
 Prueba::Application.routes.draw do
-  devise_for :members
   
+  
+  match '/auth/:provider/callback' => 'authentications#create'
+  resources :authentications
+
+  devise_for :members, :controllers => {:registrations => 'registrations'}
   #
   # Admin
   #

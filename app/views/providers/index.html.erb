@@ -40,6 +40,8 @@
   end 
 %>
 </table>
+<%= page_entries_info @providers %>
+<%= will_paginate @providers %>
 <br/>
 <% if member_signed_in? %>
   <%= link_to I18n.t('provider.new'), new_provider_path %>

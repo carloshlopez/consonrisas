@@ -32,6 +32,8 @@
     end 
   %>
   </table>
+<%= page_entries_info @events %>
+<%= will_paginate @events %>
 
   <br />
   <% if member_signed_in? %>
