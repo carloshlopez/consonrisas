@@ -85,6 +85,8 @@ es:
     cancel_confirm: "Estás seguro que quieres eliminar tu cuenta!? No podrás volver a ingresar y todo lo que has creado o compartido se eliminará para siempre."
     remember_me: "Recordarme"
     send_reset: "Enviarme las instrucciones para reiniciar mi contraseña"    
+    login_services: "Actualmente puedes ingresar con estos servicios:"
+    add_login_service: "También puedes ingresar con estos servicios:"
   messages:
     delete_confirmation: "Seguro?"    
   labels:

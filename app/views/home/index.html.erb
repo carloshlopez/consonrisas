@@ -29,10 +29,7 @@
     </p>  
     <% unless member_signed_in?  %>
       <p>
-        <%= I18n.t('home.join')%> <%= link_to I18n.t("account.register"), new_member_registration_path %>
-      </p>
-      <p>
-        <%= I18n.t('home.login')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
+        <%= I18n.t('home.join')%> <%= link_to I18n.t("account.login"), new_member_session_path %>
       </p>
     <% end %>
 </div>

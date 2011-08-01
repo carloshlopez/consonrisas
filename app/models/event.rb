@@ -39,13 +39,13 @@ class Event < ActiveRecord::Base
         #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
         message = I18n.t('events.provider_alert')
         Alert.create(:member_id=> show.provider.member.id, :news=> message)
-        EventInvitation.event_created(show.provider.member.email, message, self).deliver        
+#        EventInvitation.event_created(show.provider.member.email, message, self).deliver        
       end
       Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
         #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
         message = I18n.t('events.facilitator_alert')
         Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
-        EventInvitation.event_created(facilitator.member.email, message, self).deliver
+#        EventInvitation.event_created(facilitator.member.email, message, self).deliver
       end      
     end
   end

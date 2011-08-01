@@ -16,7 +16,7 @@ class HomeController < ApplicationController
       rescue
         
       end
-    end        
+    end      
   end
   
   def event_comments
