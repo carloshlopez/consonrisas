@@ -3,7 +3,10 @@ Prueba::Application.routes.draw do
   
   get "search/find"
 
+  match '/auth/facebook/logout' => 'application#facebook_logout', :as => :facebook_logout
   match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/failure' => 'users/authentications#failure'
+  
   resources :authentications
 
   devise_for :members, :controllers => {:registrations => 'registrations'}

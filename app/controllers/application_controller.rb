@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :set_locale
   before_filter :set_locale, :authenticate_http
   
+  def facebook_logout
+    split_token = session[:fb_token].split("|")
+    fb_api_key = split_token[0]
+    fb_session_key = split_token[1]
+    session[:fb_token] = nil
+    redirect_to "http://www.facebook.com/logout.php?api_key=#{fb_api_key}&session_key=#{fb_session_key}&confirm=1&next=#{destroy_member_session_url}";
+  end
+  
   private
   
   def authenticate_http
@@ -24,6 +32,8 @@ class ApplicationController < ActionController::Base
   def self.default_url_options(options={})
     options.merge({ :locale => I18n.locale })
   end  
+  
+
   
   
 end
