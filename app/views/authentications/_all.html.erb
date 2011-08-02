@@ -1,8 +1,16 @@
-<% if @authentications %>
+<% 
+  show_twitter = true
+  show_facebook = true
+  if @authentications 
+%>
   <% unless @authentications.empty? %>
     <p><strong><%= I18n.t('account.login_services') %></strong></p>
     <div class="authentications">
-      <% for authentication in @authentications %>
+      <% 
+        for authentication in @authentications 
+          show_twitter = false if authentication.provider == "twitter"
+          show_facebook = false if authentication.provider == "facebook"
+       %>
         <div class="authentication">
           <%= image_tag "#{authentication.provider}_32.png", :size => "32x32" %>
           <div class="provider"><%= authentication.provider.titleize %></div>
@@ -17,15 +25,19 @@
 <% else %>
   <p><strong><%= I18n.t('account.login_services') %></strong></p>
 <% end %>
-
+<div class="supported_services">
+<% if show_twitter %>
 <a href="/auth/twitter" class="auth_provider">
   <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
   Twitter
 </a>
+<% end %>
+<% if show_facebook %>
 <a href="/auth/facebook" class="auth_provider">
   <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>
   Facebook
 </a>
+<% end %>
 <!--a href="/auth/google_apps" class="auth_provider">
   <%= image_tag "google_64.png", :size => "64x64", :alt => "Google" %>
   Google
@@ -34,3 +46,4 @@
   <%= image_tag "openid_64.png", :size => "64x64", :alt => "OpenID" %>
   OpenID
 </a-->
+</div>
