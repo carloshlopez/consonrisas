@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   
   def find
-    @members = Member.where("email like ?", "%#{params[:find]}%")
+    @members = Member.where("LOWER(email) like ?", "%#{params[:find].downcase}%")
     @facilitators = []
     ids = []
     @members.each do |member|
@@ -9,14 +9,14 @@ class SearchController < ApplicationController
     end
     
 
-    @facilitators = Facilitator.where("name like ? AND id NOT IN(?)", "%#{params[:find]}%", ids)
+    @facilitators = Facilitator.where("LOWER(name) like ? AND id NOT IN(?)", "%#{params[:find].downcase}%", ids)
     
     @members.each do |member|
       @facilitators << member.facilitator if member.facilitator
     end
-    @providers = Provider.where("name like ?", "%#{params[:find]}%")
-    @fundations = Fundation.where("name like ?", "%#{params[:find]}%")
-    @events = Event.where("name like ?", "%#{params[:find]}%")
+    @providers = Provider.where("LOWER(name) like ?", "%#{params[:find].downcase}%")
+    @fundations = Fundation.where("LOWER(name) like ?", "%#{params[:find].downcase}%")
+    @events = Event.where("LOWER(name) like ?", "%#{params[:find].downcase}%")
   end
 
 end
