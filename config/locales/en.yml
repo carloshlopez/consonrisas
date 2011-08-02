@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  previous_label: "<< Previous"
+  next_label: "Next >>"
   search: "Search"
   share: "Share"
   use_facebook_pic: "Use same Facebook profile pic?"
@@ -161,4 +163,6 @@ en:
     join: "Join the community ... "
     login: "If you are already a member  ... "   
     message: "Here you can get connected with people interesten in social work, yo can browse social proyects and get involved in them through events. Get connected to get a smile out of your country"           
-    info_message: "Here you can get connected with people interesten in social work, yo can browse social proyects and get involved in them through events. Get connected to get a smile out of your country"               
+    info_message: "Here you can get connected with people interesten in social work, yo can browse social proyects and get involved in them through events. Get connected to get a smile out of your country"      
+  will_paginate:
+    displaying: "Displaying"

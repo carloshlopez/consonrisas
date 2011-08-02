@@ -1,6 +1,8 @@
 Prueba::Application.routes.draw do
   
   
+  get "search/find"
+
   match '/auth/:provider/callback' => 'authentications#create'
   resources :authentications
 

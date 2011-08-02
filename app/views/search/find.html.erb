@@ -1,0 +1,24 @@
+<h1>Resultados de la búsqueda</h1>
+<% if @facilitators.size > 1 %>
+<h2>Facilitadores:</h2>
+<%= render :partial => "facilitators/facilitators_list" %>
+<br/><br/>
+<% end %>
+<% if @fundations.size > 1 %>
+<h2>Proyectos Sociales</h2>
+<%= render :partial => "fundations/fundations_list" %>
+<br/><br/>
+<% end %>
+<% if @providers.size > 1 %>
+<h2>Proveedores</h2>
+<%= render :partial => "providers/providers_list" %>
+<br/><br/>
+<% end %>
+<% if @events.size > 1 %>
+<h2>Eventos</h2>
+<%= render :partial => "events/events_list" %>
+<br/><br/>
+<% end %>
+<% if @facilitators.size < 1  and @fundations.size < 1 and @providers.size < 1 and @events.size < 1%>
+No se encontraron resultados
+<% end %>

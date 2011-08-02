@@ -1,45 +1,7 @@
 <%= javascript_include_tag "ui.providersFollow" %>
 <h1 class="title"><%= I18n.t('provider.list') %></h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th><%= I18n.t('name') %></th>
-    <% if member_signed_in? %>
-      <th><%= I18n.t('actions') %></th>
-    <% end %>
-  </tr>
-<% num = 0 %>
-<% @providers.each do |provider| %>
-  <% if num % 2 == 0 %>
-  <tr>
-  <% else %>
-  <tr class="alt">
-  <% end %>
-    <td> 
-      <%= link_to image_tag(provider.pic.url(:thumb)), provider_path(provider), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
-    </td>      
-    <td><%= provider.name %></td>    
-    <% if member_signed_in? %>
-      <td>
-        <div class="providersFollow" facilitator_id="<%= current_member.facilitator.id %>" provider_id="<%= provider.id %>">
-        <input type="hidden" id="followtext" value="<%= I18n.t('follow')%>"/>
-        <input type="hidden" id="unfollowtext" value="<%= I18n.t('unfollow')%>"/>
-        <%= link_to I18n.t('go_to_profile'), provider %>
-        <% if provider.facilitators.select{|f| f.id == current_member.facilitator.id}.empty? %>
-          | <a href="#" id="follow<%= num %>" class="follow"><%= I18n.t('follow')%></a>
-        <% else %>
-          | <a href="#" id="follow<%= num %>" class="unfollow"><%= I18n.t('unfollow')%></a>
-        <% end %>  
-        </div>
-      </td>  
-    <% end %>    
-  </tr>
-<% 
-  num = num + 1
-  end 
-%>
-</table>
+<%= render :partial => "providers_list" %>
 <%= page_entries_info @providers %>
 <%= will_paginate @providers %>
 <br/>

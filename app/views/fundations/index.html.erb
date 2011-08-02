@@ -1,44 +1,6 @@
 <h1 class="title"><%= I18n.t("fundation.list") %></h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th><%= I18n.t('name') %></th>
-    <th><%= I18n.t('website') %></th>
-    <th><%= I18n.t('fundation.population') %> </th>    
-    <% if member_signed_in? %>
-    <th><%= I18n.t('actions')%> </th>
-    <% end %>
-  </tr>
-<% num = 0 %>
-<% @fundations.each do |fundation| %>
-  <% if num % 2 == 0 %>
-  <tr>
-  <% else %>
-  <tr class="alt">
-  <% end %>
-    <td> 
-      <%= link_to image_tag(fundation.pic.url(:thumb)), fundation_path(fundation.id), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
-    </td>      
-    <td><%= fundation.name %></td>
-    <td><a href="<%= convert_url_for_href(fundation.website) %>" target="_blank"><%= fundation.website %></a></td>
-    <td><%= population_name(fundation.population_id) %></td>
-    <% if member_signed_in? %>
-      <td>
-        <%= link_to I18n.t('fundation.show'), fundation %> 
-        <% if fundation.facilitators.select{|f| f.id == current_member.facilitator.id}.empty? %>
-          | <%= link_to I18n.t('follow'), fundations_add_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>fundation.id) %>
-        <% else %>
-          | <%= link_to I18n.t('unfollow'), fundations_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>fundation.id) %>
-        <% end %>
-      </td>
-    <% end %>
-  </tr>
-<% 
-  num = num + 1
-  end 
-%>
-</table>
+<%= render :partial => "fundations_list" %>
 <%= page_entries_info @fundations %>
 <%= will_paginate @fundations %>
 <br/>

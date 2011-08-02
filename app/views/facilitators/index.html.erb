@@ -1,45 +1,6 @@
 <h1 class="title"><%= I18n.t('facilitator.list') %></h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th><%=I18n.t('name')%></th>
-    <% if member_signed_in? %>
-      <th><%=I18n.t('actions')%></th>
-    <% end %>
-  </tr>
-<% num = 0 %>
-<% @facilitators.each do |facilitator| %>
-  <% if num % 2 == 0 %>
-  <tr>
-  <% else %>
-  <tr class="alt">
-  <% end %>
-    <td> 
-      <% if facilitator.member %>
-        <%= link_to image_tag(member_thumb(facilitator)), member_path(facilitator.member), :class=>"nostyle", :title=>I18n.t('go_to_profile') %>     
-      <% else %>
-        <%= image_tag(member_thumb(facilitator)) %>
-      <% end %>
-    </td>    
-    <td><%= facilitator.name %></td>
-    <% if member_signed_in? and facilitator.member %>
-      <td><%= link_to I18n.t('go_to_profile'), member_path(facilitator.member) %>
-        <% if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty? %>
-          |
-          <%= link_to I18n.t('follow'), facilitators_add_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id) %>
-        <% else %>
-          |
-          <%= link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id) %>
-        <% end %>
-      </td>
-    <% end %>    
-  </tr>
-<% 
-  num = num + 1
-  end 
-%>
-</table>
+<%= render :partial => "facilitators_list" %>
 <%= page_entries_info @facilitators %>
 <%= will_paginate @facilitators %>
 

@@ -4,7 +4,7 @@ class FundationsController < ApplicationController
   # GET /fundations.xml
   def index
 #    @fundations = Fundation.all
-    @fundations = Fundation.paginate :page => params[:page], :order => 'name', :per_page => 10
+    @fundations = Fundation.paginate :page => params[:page], :order => 'name'
 
     respond_to do |format|
       format.html # index.html.erb
