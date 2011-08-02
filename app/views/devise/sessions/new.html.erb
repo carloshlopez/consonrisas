@@ -11,9 +11,11 @@
     <p><%= f.check_box :remember_me %> <%= f.label I18n.t('account.remember_me') %></p>
   <% end -%>
 
-  <p><%= f.submit I18n.t('account.login') %></p>
-  <br/>
-  Puedes ingresar con estos servicios:
+  <p><%= f.submit I18n.t('account.login') %></p>  
+<% end %>
+
+<div class="supported_services">
+Puedes ingresar con estos servicios:
     <br/>
 <a href="/auth/twitter" class="auth_provider">
   <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
@@ -24,7 +26,7 @@
   <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>
   Facebook
 </a>
-  
-<% end %>
+
+</div>
 
 <%= render :partial => "devise/shared/links" %>

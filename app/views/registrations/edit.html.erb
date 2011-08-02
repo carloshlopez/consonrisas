@@ -18,10 +18,12 @@
   <p><%= f.submit I18n.t('account.update') %></p>
 <% end %>
 
+<div>
 <% @authentications = current_member.authentications %>
 <%= render :partial => "authentications/all" %>
-
-
-<div style="display:block">
-<p><%= link_to I18n.t('account.cancel'), registration_path(resource_name), :confirm => I18n.t('account.cancel_confirm'), :method => :delete %></p>
 </div>
+
+
+
+<p><%= link_to I18n.t('account.cancel'), registration_path(resource_name), :confirm => I18n.t('account.cancel_confirm'), :method => :delete %></p>
+

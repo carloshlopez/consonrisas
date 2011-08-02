@@ -2,6 +2,11 @@
 Authentications
 */
 
+.supported_services
+{
+  overflow: auto;
+}
+
 .authentications {
   margin-bottom: 30px;
 }
