@@ -61,7 +61,12 @@
     <% if member_signed_in?  %>
       <%= I18n.t('account.logged_in_as')%>: <br/> <%= current_member.email %>
       <br/>
-      <%= link_to I18n.t('account.logout'), destroy_member_session_path %> |
+      <% if session[:fb_token].nil? %>
+        <%= link_to I18n.t('account.logout'), destroy_member_session_path %> |
+      <% else %>
+         <%= link_to I18n.t('account.logout'), facebook_logout_path %>
+      <% end %>
+
       <%= link_to I18n.t('account.edit'), edit_member_registration_path %>
     <% else %>
       <%= link_to I18n.t('account.login'), new_member_session_path %>

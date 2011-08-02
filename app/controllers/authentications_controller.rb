@@ -9,6 +9,7 @@ class AuthenticationsController < ApplicationController
 #    flash[:notice] = "Authentication successful."
 #    redirect_to authentications_url
    omniauth = request.env["omniauth.auth"]
+   session[:fb_token] = omniauth["credentials"]["token"] if omniauth['provider'] == 'facebook'
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = "Signed in successfully."
@@ -37,5 +38,9 @@ class AuthenticationsController < ApplicationController
     flash[:notice] = "Successfully destroyed authentication."
 #    redirect_to authentications_url
     redirect_to edit_member_registration_url
+  end
+  
+   def failure
+    render :text => "Login Failure!"
   end
 end
