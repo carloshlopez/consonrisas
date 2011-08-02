@@ -5,7 +5,7 @@ class ProvidersController < ApplicationController
   # GET /providers.xml
   def index
 #    @providers = Provider.all
-     @providers = Provider.paginate :page => params[:page], :order => 'name', :per_page => 10
+     @providers = Provider.paginate :page => params[:page], :order => 'name'
 
     respond_to do |format|
       format.html # index.html.erb

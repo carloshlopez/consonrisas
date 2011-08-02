@@ -1,5 +1,7 @@
 # coding: utf-8
 es:
+  previous_label: "<< Anterior"
+  next_label: "Siguiente >>"
   search: "Buscar"
   share: "Compártelo"
   use_facebook_pic: "Utilizar la misma foto de perfil que Facebook?"
@@ -179,7 +181,8 @@ es:
         Espera más información!!
         <br/><br/>
         Nos puedes escribir para pedir cualquier información a: info@conectandosonrisas.org
-    
+  will_paginate:
+    displaying: "Mostrando"
 #defaults needed
   first: "Primero"
 
