@@ -20,7 +20,9 @@ class AuthenticationsController < ApplicationController
 #      redirect_to authentications_url
       redirect_to edit_member_registration_url
     else
-      member = Member.new
+      member = Member.find_by_email(omniauth['user_info']['email']) if omniauth['user_info']['email'] 
+      member = Member.new unless member
+
       member.apply_omniauth(omniauth)
       if member.save
         flash[:notice] = "Signed in successfully."
