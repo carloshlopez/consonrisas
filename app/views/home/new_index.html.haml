@@ -1,0 +1,30 @@
+.arrows
+  .desc-arrow.facilitators-arrow
+  .desc-arrow.providers-arrow
+  .desc-arrow.fundations-arrow
+  .desc-arrow.events-arrow
+  .desc-arrow.info-arrow
+#left_div
+  .left_div_content
+    %p
+      ="Esta es una comunidad virtual para ayudar a suplir necesidades en los proyectos sociales colombianos."
+    %p
+      = "Aquí te podrás conectar con proyectos sociales y otras personas para llevar acabo más y mejores eventos para estos proyectos."
+    %p
+      %a{:href=>"#"}Más Información
+    %p
+      %a{:href=>"#"}Conéctate
+#descs{:style=>"display:none"}
+  Facilitadores ... Proveedores ... Proyectos Sociales ... Eventos ...      
+#pics
+  #event_pics
+    = render :partial=>"events_photos"
+%h2.news_title
+  Sonrisas Recientes
+.arrow-down.news-arrow
+#news
+  #home_event_comments
+    = render :partial=>"events_comments"
+= javascript_include_tag "new_layout/ui.homeMenu"
+= javascript_include_tag "ui.home" 
+= javascript_include_tag "jquery.smoothDivScroll-1.1-min"

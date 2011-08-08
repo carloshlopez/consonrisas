@@ -1,0 +1,24 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label I18n.t('account.password') %><br />
+  <%= f.password_field :password %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> <%= f.label I18n.t('account.remember_me') %></p>
+  <% end -%>
+
+  <p><%= f.submit I18n.t('account.login') %></p>  
+<% end %>
+<div class="supported_services">
+Puedes ingresar con estos servicios:
+    <br/>
+<a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "sign-in-with-twitter-l.png", :alt => "Twitter", :title=>"Sign in with twitter" %>
+</a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "signin_facebook.png", :alt => "Facebook", :title=>"Sign in with facebook" %>
+</a>
+</div>
+<%= render :partial => "devise/shared/links" %>

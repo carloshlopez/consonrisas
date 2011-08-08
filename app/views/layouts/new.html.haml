@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %title ..::Conectando Sonrisas::..  ::Beta::
+    = stylesheet_link_tag "scaffold_min"
+    = stylesheet_link_tag "jquery-ui-1.8.10.custom"
+    = stylesheet_link_tag "smoothDivScroll"
+    = stylesheet_link_tag "prettyPhoto"
+    = stylesheet_link_tag "new"
+    %link{:href => "/images/favicon.ico", :rel => "shortcut icon"}/
+    = javascript_include_tag "jquery-1.4.4.min"
+    = javascript_include_tag "jquery-ui-1.8.10.custom.min"
+    = csrf_meta_tag
+    %meta{:charset => "utf-8"}/
+    %link{:href => "", :media => "all", :rel => "stylesheet"}/
+    = javascript_include_tag "gooAnalytics"
+  %body
+    #right_div_top
+      Conéctate
+      %br
+      %a{:href=>"http://www.twitter.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"/images/Twitter-icon24.png", :alt=>"Follow consonrisas on Twitter", :title=>"Follow consonrisas on Twitter"}  
+      %a{:href=>"http://www.facebook.com/pages/Conectando-Sonrisas/207633962587548", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"/images/FaceBook-icon24.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
+    #left_div_top
+    #header
+      #logo
+        %a.nostyle{:href => "/"}
+          %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
+      #menu
+        %ul
+          %li
+            %a.facilitators{:href => "/facilitators"}
+          %li
+            %a.providers{:href => "/providers"}
+          %li
+            %a.fundations{:href => "/fundations"}
+          %li
+            %a.events{:href => "/events"}
+          %li
+            %a.info{:href => "/home/info"}
+          %ul
+    = yield
+    #footer
+      = 'Publicidad - Privacidad - Terminos y Condiciones - Contáctenos en'
+      %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
+  #login-form{:style=>"display:none"}
+    = render :partial => "/devise/sessions/login_form"
+  :javascript
+    var is_ssl = ("https:" == document.location.protocol);
+    var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+    document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+  = javascript_include_tag "getSatisfaction"

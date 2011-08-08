@@ -1,9 +1,7 @@
-%h2
-  Fotos de los Eventos
 #makeMeScrollable
   .scrollingHotSpotLeft
   .scrollingHotSpotRight
   .scrollWrapper
     .scrollableArea
       - @photos.each do |p|
-        = image_tag(p.photo.url(:med))
+        = image_tag(p.photo.url(:med), :class=>"home_pic")
