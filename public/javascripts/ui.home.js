@@ -26,6 +26,6 @@ $jq.widget("ui.home", {
 });
 
 $jq(document).ready(function($) {    
-    var fb = $jq("#home").home();
+    var fb = $jq("#pics").home();
     $jq('#home_event_comments').load('/home/event_comments', function() {});
 });

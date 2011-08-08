@@ -1,5 +1,20 @@
 class HomeController < ApplicationController
-#  layout "less"
+  
+  def new_index
+    @comments = []
+    @photos = []
+    p_ids = 15.times.map{ rand(Photo.count) }
+    p_ids.each do |p_id|
+      begin
+        p = Photo.find(p_id)
+        @photos << p if p
+      rescue
+        
+      end
+    end      
+    render :layout=>"new"
+  end
+  
   def index
     @facilitators = Facilitator.count
     @fundations = Fundation.count
@@ -8,6 +23,7 @@ class HomeController < ApplicationController
     
     @photos = []
     @comments = []
+    
     p_ids = 15.times.map{ rand(Photo.count) }
     p_ids.each do |p_id|
       begin
@@ -18,14 +34,14 @@ class HomeController < ApplicationController
       end
     end      
   end
-  
+    
   def event_comments
     @comments = []
     c_ids = 10.times.map{ rand(Comment.count) }
     c_ids.each do |c_id|
       begin
         c = Comment.find(c_id)
-        @comments << c if c
+        @comments << c if c and c.event
       rescue
       end
     end    

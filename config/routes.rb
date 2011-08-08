@@ -54,6 +54,7 @@ Prueba::Application.routes.draw do
   root :to => "home#index"
   
   get "home/info"
+  get "home/new_index"
   get "home/event_comments"
   post "home/feedback"
   

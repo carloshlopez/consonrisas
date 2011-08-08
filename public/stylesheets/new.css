@@ -1,0 +1,330 @@
+@font-face{
+  font-family: "consonrisas";
+  src: url( /fonts/MyriadPro-Regular.eot ); /* IE */
+  src: local("MyriadPro Regular"), url( /fonts/MyriadPro-Regular.ttf ) format("truetype"); 
+}
+
+body {
+	width: 980px;
+	padding: 0px 100px 100px;
+	background: white;
+	/*-webkit-text-size-adjust: 100%;*//*  Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.logo
+{
+height: 125px;
+margin-top: 15px;
+margin-bottom: 15px;
+ 
+}
+
+.nostyle{
+    text-decoration: none;
+    color: #FFFFFF;
+    border-bottom: 0px;
+}
+
+#menu {
+	float: left;
+	margin-left: 320px;
+	margin-top: -100px;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+	text-align: center;
+}
+
+#menu a.facilitators{	
+  color:red;
+  background: red; 
+  background-image: url('/images/Facilitator.png');
+  background-repeat: no-repeat;
+  background-position: 17px 12px;
+  
+}
+#menu a.facilitators:hover {
+  background: white;
+  color: white;
+  background-image: url('/images/FacilitadoresLetras.png');
+  background-repeat: no-repeat;
+  background-position: 20px 50px;
+}
+#menu a.providers{
+  color:#E3BB00;
+  background: #E3BB00;
+  margin-top: -5px;
+  line-height: 12;
+  background-image: url('/images/Proveedores.png');
+  background-repeat: no-repeat;
+  background-position: 15px 15px;  
+}
+
+#menu a.providers:hover {
+  background: white;
+  color: white;
+  background-image: url('/images/ProveedoresLetras.png');
+  background-repeat: no-repeat;
+  background-position: 15px 50px;
+}
+
+#menu a.fundations{
+  color: #973B8C;
+  background: #973B8C;
+  line-height: 12;
+  background-image: url('/images/ProyectosSociales.png');
+  background-repeat: no-repeat;
+  background-position: 20px 15px;  
+}
+
+#menu a.fundations:hover {
+  background: white;
+  color: white;
+  background-image: url('/images/ProyectosSocialesLetras.png');
+  background-repeat: no-repeat;
+  background-position: 20px 50px;
+}
+
+#menu a.events{
+  color: #00BCFA;
+  background: #00BCFA;
+  margin-top: -5px;
+  line-height: 12;
+  background-image: url('/images/Eventos.png');
+  background-repeat: no-repeat;
+  background-position: 20px 12px;  
+}
+#menu a.events:hover {
+  background: white;
+  color: white;
+  background-image: url('/images/EventosLetras.png');
+  background-repeat: no-repeat;
+  background-position: 20px 50px;
+}
+#menu a.info{
+  color: rgb(90,180,70);
+  background: rgb(90,180,70);
+  line-height: 12;
+  background-image: url('/images/Info.png');
+  background-repeat: no-repeat;
+  background-position: 20px 20px;  
+}
+
+#menu a.info:hover {
+  background: white;
+  color: white;
+  background-image: url('/images/InfoLetras.png');
+  background-repeat: no-repeat;
+  background-position: 20px 50px;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 95px;
+	width: 95px;
+	margin-right: 5px;
+	text-decoration: none;
+	font-size: small;
+	font-weight: bold;
+	color: white;
+
+  /* W3C */
+  transition-property:color,background;
+  transition-duration:1s;
+
+  /* Firefox 4 */
+  -moz-transition-property:color,background;
+  -moz-transition-duration:1s;
+
+  /* Safari and Chrome */
+  -webkit-transition-property:color,background;
+  -webkit-transition-duration:1s;
+
+  /* Opera */
+  -o-transition-property:color,background;
+  -o-transition-duration:1s;	 
+
+}
+
+
+#left_div{
+  background: rgb(90,180,70);
+  color: white;
+  height: 458px;
+  width: 300px;
+  clear: left;
+  margin-top: -15px;
+  font-family: "consonrisas";
+}
+
+#left_div a{
+ color: #EAFF00;
+ text-decoration: none;
+}
+.left_div_content
+{
+  padding: 20px;
+}
+
+#left_div_top{
+  background: rgb(90,180,70);
+  color: white;
+  height: 10px;
+  width: 300px;
+  margin-top: -10px;
+}
+
+.arrows{
+	margin-left: 352px;
+	margin-top: -25px;
+	height: 15px;
+}
+
+.news-arrow{
+  margin-left: 350px;
+}
+
+#descs{
+	margin-left: 320px;
+	margin-top: -473px;
+	height:210px;
+	width: 515px;
+	color:white;
+	padding: 30px;
+	position: absolute;
+	z-index: -1;
+  font-family: "consonrisas";
+}
+.desc-text
+{
+  margin-left: 125px;
+  margin-top: 20px;
+}
+#pics{  
+	margin-left: 320px;
+	margin-top: -473px;
+	height:150px;
+	width: 515px;
+	padding: 30px;
+	position: absolute;
+	z-index: -2;
+}
+
+#news{
+    background: none repeat scroll 0 0 #DEF1DA;
+    color: black;
+    height: 150px;
+    margin-left: 320px;
+    padding: 30px;
+    position: relative;
+    width: 515px;
+    overflow: hidden;
+    top: -15px;
+}
+
+.news_title{
+    clear: both;
+    color: #5AB446;
+    margin-left: 320px;
+    margin-top: -235px;
+    padding-top: 10px;
+    position: relative;
+    z-index: -3;
+    font-family: "consonrisas";
+}
+
+.desc-arrow{
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid transparent;
+  float: left;
+  margin-right:70px;
+}
+
+#footer{
+  text-align: center;
+  color: rgb(90,180,70);
+  margin: 10px;
+  padding: 10px;
+}
+
+#right_div_top{
+  position: absolute;
+  right: 150px;
+  color: rgb(90,180,70);
+}
+
+#right_div_top img{
+  height: 20px;
+}
+
+#right_div_top a{
+  text-decoration: none;
+}
+
+
+/* create an arrow that points down */
+div.arrow-down {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid white;
+    float: left;
+    margin-right: 75px;
+    margin-top: 0;
+    position: relative;
+    z-index: 4;
+}
+
+/*HOME EVENT COMMENTS*/
+.comment_pic{
+clear: left;
+height: 40px;
+border: 2px solid rgb(90,180,70);
+vertical-align: middle;
+margin-right: 10px;
+float: left;
+}
+
+.home_pic{
+height: 215px;
+}
+
+.a_comment{
+  margin: 5px;
+  font-family: "consonrisas";
+}
+
+.a_comment a{
+  color: green;
+  text-decoration: none;
+}
+
+#event_pics{
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 535px;
+  height: 220px;
+  overflow: hidden;
+}
+
+.ui-dialog-titlebar
+{
+  background: rgb(90,180,70);
+  color: white;
+}
+
+.ui-dialog{
+  font-family: "consonrisas";
+}
+
+
+

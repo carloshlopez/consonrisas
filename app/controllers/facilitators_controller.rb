@@ -7,10 +7,11 @@ class FacilitatorsController < ApplicationController
 #    @facilitators = Facilitator.search(params[:search], params[:page])
     @facilitators = Facilitator.paginate :page => params[:page], :order => 'name'
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @facilitators }
-    end
+    render :layout=>"new"
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @facilitators }
+#    end
   end
 
   # GET /facilitators/1

@@ -390,7 +390,7 @@ tr.alt td
 }
 
 #menu .current_page_item a {
-	background: #5AB448 url(images/img01.gif) no-repeat;
+	background: #5AB448;
 	color: #FFFFFF;
 }
 
