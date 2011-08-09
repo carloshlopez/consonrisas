@@ -7,7 +7,7 @@ class FacilitatorsController < ApplicationController
 #    @facilitators = Facilitator.search(params[:search], params[:page])
     @facilitators = Facilitator.paginate :page => params[:page], :order => 'name'
 
-    render :layout=>"new"
+    #render :layout=>"new"
 #    respond_to do |format|
 #      format.html # index.html.erb
 #      format.xml  { render :xml => @facilitators }

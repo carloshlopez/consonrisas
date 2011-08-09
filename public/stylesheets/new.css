@@ -159,7 +159,7 @@ margin-bottom: 15px;
 #left_div{
   background: rgb(90,180,70);
   color: white;
-  height: 458px;
+  height: 460px;
   width: 300px;
   clear: left;
   margin-top: -15px;
@@ -195,9 +195,9 @@ margin-bottom: 15px;
 
 #descs{
 	margin-left: 320px;
-	margin-top: -473px;
-	height:210px;
-	width: 515px;
+	margin-top: -475px;
+	height:215px;
+	width: 500px;
 	color:white;
 	padding: 30px;
 	position: absolute;
@@ -222,13 +222,13 @@ margin-bottom: 15px;
 #news{
     background: none repeat scroll 0 0 #DEF1DA;
     color: black;
-    height: 150px;
+    height: 170px;
     margin-left: 320px;
-    padding: 30px;
+    padding: 8px;
     position: relative;
-    width: 515px;
+    width: 545px;
     overflow: hidden;
-    top: -15px;
+    top: -20px;
 }
 
 .news_title{
@@ -236,7 +236,7 @@ margin-bottom: 15px;
     color: #5AB446;
     margin-left: 320px;
     margin-top: -235px;
-    padding-top: 10px;
+    padding: 10px;
     position: relative;
     z-index: -3;
     font-family: "consonrisas";
@@ -279,7 +279,7 @@ div.arrow-down {
     border-top: 15px solid white;
     float: left;
     margin-right: 75px;
-    margin-top: 0;
+    margin-top: -20px;
     position: relative;
     z-index: 4;
 }
@@ -301,6 +301,8 @@ height: 215px;
 .a_comment{
   margin: 5px;
   font-family: "consonrisas";
+  font-size: 14px;
+  height: 40px;
 }
 
 .a_comment a{
