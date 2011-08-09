@@ -255,12 +255,21 @@ margin-bottom: 15px;
   color: rgb(90,180,70);
   margin: 10px;
   padding: 10px;
+  font-family: "consonrisas";
 }
 
 #right_div_top{
   position: absolute;
   right: 150px;
   color: rgb(90,180,70);
+}
+
+#right_div_top a 
+{
+  color: rgb(90,180,70);
+  font-family: "consonrisas";
+  font-size: 15px;
+  text-decoration: none;
 }
 
 #right_div_top img{

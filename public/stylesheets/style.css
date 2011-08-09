@@ -2,6 +2,10 @@
 Authentications
 */
 
+.social{
+float: left;
+}
+
 .supported_services
 {
   overflow: auto;

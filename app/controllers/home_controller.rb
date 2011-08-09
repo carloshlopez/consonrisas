@@ -58,4 +58,8 @@ class HomeController < ApplicationController
       format.js {head:ok}
     end
   end
+  
+  def social
+    
+  end
 end 

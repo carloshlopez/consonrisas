@@ -16,12 +16,15 @@
     = javascript_include_tag "gooAnalytics"
   %body
     #right_div_top
-      Conéctate
+      %a{:href=>"/social", :title=> "Conéctate en nuestras redes sociales"}
+        Conéctate
       %br
       %a{:href=>"http://www.twitter.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
         %img{:src=>"/images/Twitter-icon24.png", :alt=>"Follow consonrisas on Twitter", :title=>"Follow consonrisas on Twitter"}  
       %a{:href=>"http://www.facebook.com/pages/Conectando-Sonrisas/207633962587548", :class=>"footernostyle", :target=>"_blank"}
         %img{:src=>"/images/FaceBook-icon24.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
+      %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"http://a.vimeocdn.com/images/blogbadge_bluev.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo", :height=>"24px"}
     #left_div_top
     #header
       #logo
@@ -30,15 +33,15 @@
       #menu
         %ul
           %li
-            %a.facilitators{:href => "/facilitators"}
+            %a.facilitators{:href => "/facilitators", :title=> I18n.t('application.menu_facilitators')}
           %li
-            %a.providers{:href => "/providers"}
+            %a.providers{:href => "/providers", :title=> I18n.t('application.menu_providers')}
           %li
-            %a.fundations{:href => "/fundations"}
+            %a.fundations{:href => "/fundations", :title=> I18n.t('application.menu_fundations')}
           %li
-            %a.events{:href => "/events"}
+            %a.events{:href => "/events", :title=> I18n.t('application.menu_events')}
           %li
-            %a.info{:href => "/home/info"}
+            %a.info{:href => "/home/info", :title=> I18n.t('application.menu_info')}
           %ul
     = yield
     #footer
