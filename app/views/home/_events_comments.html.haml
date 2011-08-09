@@ -7,7 +7,7 @@
         .a_comment.bordered_box{:style=>"display:none"}
           = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle" ,:title=>I18n.t('events.show')
           %p
-            = c.comment[0, 50] << " ... "
+            = c.comment[0, 100] << " ... "
             , comentario de
             = comment_name(c)
             , del evento 
