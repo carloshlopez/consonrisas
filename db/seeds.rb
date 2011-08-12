@@ -39,4 +39,10 @@ puts "-----------"
 puts "Added Populations"
 puts "-----------"
   
+Member.all.each do |member|
+  member.update_attribute :emailNotifications, false
+end
 
+puts "-----------"
+puts "Added Email notifications to members"
+puts "-----------"

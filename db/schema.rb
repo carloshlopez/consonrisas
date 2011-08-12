@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801041132) do
+ActiveRecord::Schema.define(:version => 20110812204027) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20110801041132) do
     t.string   "facebook_id"
     t.boolean  "use_facebook_pic",                    :default => false
     t.boolean  "admin",                               :default => false
+    t.boolean  "emailNotifications",                  :default => true
   end
 
   create_table "photos", :force => true do |t|
