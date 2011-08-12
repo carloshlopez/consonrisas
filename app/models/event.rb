@@ -45,9 +45,9 @@ class Event < ActiveRecord::Base
           already_created << admin.member.id
         end
       end
-      Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
+      Facilitator.find_all_by_population_id(fundation.population.id}).each do |facilitator|
         #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
-        unless already_created.include?(facilitator.id)
+        unless already_created.include?(facilitator.member.id)
           message = I18n.t('events.facilitator_alert')
           Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
           EventInvitation.event_created(facilitator.member.email, message, self).deliver
