@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic, :emailNotifications
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator, :dependent => :destroy 
@@ -81,5 +81,16 @@ class Member < ActiveRecord::Base
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
+  
+  def as_json(options={})
+    options ||= {} # need this because to_json without options will pass nil to as_json
+    options[:methods] ||= []; 
+    options[:methods] << :id;
+    options[:methods] << :sign_in_count;
+    options[:methods] << :last_sign_in_at;
+    options[:methods] << :admin;    
+    super(options);
+  end
+
   
 end

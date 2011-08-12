@@ -34,6 +34,7 @@ class Event < ActiveRecord::Base
   after_create :generate_alerts
   
   def generate_alerts
+    
     already_created = []
     self.fundations.each do |fundation|
       Show.find_all_by_population_id(fundation.population.id).each do |show|
@@ -41,17 +42,20 @@ class Event < ActiveRecord::Base
         message = I18n.t('events.provider_alert')
         show.provider.provider_admins.each do |admin|
           Alert.create(:member_id=> admin.member.id, :news=> message)
-          EventInvitation.event_created(admin.member.email, message, self).deliver          
+          EventInvitation.event_created(admin.member.email, message, self).deliver if admin.member.emailNotifications 
           already_created << admin.member.id
         end
       end
-      Facilitator.find(:all, :include => :populations, :conditions => {"facilitator_populations.population_id" => fundation.population.id}).each do |facilitator|
+      Population.all.each do |pop|
         #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
-        unless already_created.include?(facilitator.member.id)
-          message = I18n.t('events.facilitator_alert')
-          Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
-          EventInvitation.event_created(facilitator.member.email, message, self).deliver
+        pop.facilitators.each do |facilitator|
+          unless already_created.include?(facilitator.member.id)
+            message = I18n.t('events.facilitator_alert')
+            Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
+            EventInvitation.event_created(facilitator.member.email, message, self).deliver if facilitator.member.emailNotifications
+          end          
         end
+
       end      
     end
   end

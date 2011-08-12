@@ -47,8 +47,8 @@ class AdminController < ApplicationController
   def get_table_data
     if current_member.try(:admin?)
       model = Object.const_get(params[:table_name].camelize)
-      @table_data = { :results => model.find(:all) }
-    
+      @table_data = { :results => model.all }
+      
       respond_to do |format|
         format.html # index.html.erb
         format.xml { render :xml => @table_data }
