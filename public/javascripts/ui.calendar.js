@@ -9,6 +9,6 @@ jQuery(document).ready(function($) {
 	    hourText: 'Hora',
 	    minuteText: 'Mins',
 	    currentText: 'Ahora',
-	    closeText: 'X'
+	    closeText: 'Listo'
     });
 });
