@@ -1,11 +1,1 @@
-
-  <h1 class="title"><%= I18n.t('events.list') %></h1>
-
 <%= render :partial => "events_list" %>
-<%= page_entries_info @events %>
-<%= will_paginate @events %>
-
-  <br />
-  <% if member_signed_in? %>
-  <%= link_to I18n.t('events.new'), new_event_path %>
-  <% end %>

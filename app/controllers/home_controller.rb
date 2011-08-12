@@ -60,6 +60,6 @@ class HomeController < ApplicationController
   end
   
   def social
-    
+    render :layout=> "new"
   end
 end 

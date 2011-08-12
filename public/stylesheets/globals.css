@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "consonrisas";
+  src: url(/fonts/MyriadPro-Regular.eot);
+  /* IE */
+  src: local("MyriadPro Regular"), url(/fonts/MyriadPro-Regular.ttf) format("truetype"); }
+
+body {
+  width: 896px;
+  padding-left: 150px;
+  background: white;
+  -webkit-text-size-adjust: 100%;
+  /* Stops Mobile Safari from auto-adjusting font-sizes */ }
+
+.nostyle {
+  text-decoration: none;
+  color: white;
+  border-bottom: 0px; }

@@ -51,19 +51,22 @@ Prueba::Application.routes.draw do
   post "members/respond_event_admin"    
   post "members/delete_alert"      
 
+  #root :to => "home#new_index"
   root :to => "home#index"
   
-  get "home/info"
+  get "/info" =>"home#info"
   get "home/new_index"
   get "home/event_comments"
-  match "/social" => "home#social"
+  get "/social" => "home#social"
   post "home/feedback"
   
   resources :events do
     resources :comments
   end
-  
+
+  get "/facilitators/list" => "facilitators#list"  
   resources :facilitators
+
   
   resources :roles
 

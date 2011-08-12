@@ -1,0 +1,27 @@
+.list-title.list-providers
+  %h1
+    = I18n.t('provider.list')
+.all-items.all-providers
+  - num = 0
+  - @providers.each do |provider|
+    .one-item
+      = link_to image_tag(provider.pic.url(:thumb)), provider_path(provider), :class=>"nostyle", :title=>I18n.t('go_to_profile')
+      %span
+        = provider.name
+        - if member_signed_in?
+          .providersFollow{:facilitator_id=>"#{current_member.facilitator.id}", :provider_id=>"#{provider.id}", :style=>"display:inline"}
+            %input{:type=>"hidden",:id=>"followtext", :value=>"#{I18n.t('follow')}"}
+            %input{:type=>"hidden", :id=>"unfollowtext", :value=>"#{I18n.t('unfollow')}"}
+            = link_to I18n.t('go_to_profile'), provider
+            - if provider.facilitators.select{|f| f.id == current_member.facilitator.id}.empty?
+              |
+              %a{:href=>"#",:id=>"follow#{num}", :class=>"follow"}
+                = I18n.t('follow')
+            - else
+              |
+              %a{:href=>"#", :id=>"follow#{num}", :class=>"unfollow"}
+                = I18n.t('unfollow')
+    - num = num + 1
+  %br
+  - if member_signed_in?
+    = link_to I18n.t('provider.new'), new_provider_path

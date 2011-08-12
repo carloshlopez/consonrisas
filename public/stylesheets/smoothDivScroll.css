@@ -10,20 +10,20 @@ div.scrollingHotSpotLeft
 	height: 300px;
 	/* There is a big background image and it's used to solve some problems I experienced
     in Internet Explorer 6. */
-	background-image: url(images/big_transparent.gif);
+	background-image: url(/images/big_transparent.gif);
 	background-repeat: repeat;
 	background-position: center center;
 	position: absolute;
 	z-index: 200;
 	left: 0;
 	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
-	cursor: url(images/cursors/cursor_arrow_left.cur), url(images/cursors/cursor_arrow_left.cur),w-resize;
+	cursor: url(/images/cursors/cursor_arrow_left.cur), url(/images/cursors/cursor_arrow_left.cur),w-resize;
 }
 
 /* Visible left hotspot */
 div.scrollingHotSpotLeftVisible
 {
-	background-image: url(images/arrow_left.gif);				
+	background-image: url(/images/arrow_left.gif);				
 	background-color: #fff;
 	background-repeat: no-repeat;
 	opacity: 0.35; /* Standard CSS3 opacity setting */
@@ -38,19 +38,19 @@ div.scrollingHotSpotRight
 	min-width: 75px;
 	width: 100px;
 	height: 300px;
-	background-image: url(images/big_transparent.gif);
+	background-image: url(/images/big_transparent.gif);
 	background-repeat: repeat;
 	background-position: center center;
 	position: absolute;
 	z-index: 200;
 	right: -100px;
-	cursor: url(images/cursors/cursor_arrow_right.cur), url(images/cursors/cursor_arrow_right.cur),e-resize;
+	cursor: url(/images/cursors/cursor_arrow_right.cur), url(/images/cursors/cursor_arrow_right.cur),e-resize;
 }
 
 /* Visible right hotspot */
 div.scrollingHotSpotRightVisible
 {
-	background-image: url(images/arrow_right.gif);
+	background-image: url(/images/arrow_right.gif);
 	background-color: #fff;
 	background-repeat: no-repeat;
 	opacity: 0.35;

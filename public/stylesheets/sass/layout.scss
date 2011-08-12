@@ -1,0 +1,147 @@
+.logo
+{
+height: 125px;
+margin-top: 15px;
+margin-bottom: 15px;
+ 
+}
+
+#menu {
+	float: left;
+	margin-left: 320px;
+	margin-top: -100px;
+	
+	ul {
+	  margin: 0;
+	  padding: 0;
+	  list-style: none;
+	  line-height: normal;
+  }
+  
+  li {
+	  float: left;
+	  text-align: center;
+  }
+  a {
+	  display: block;
+	  float: left;
+	  height: 95px;
+	  width: 95px;
+	  margin-right: 5px;
+	  text-decoration: none;
+	  font-size: small;
+	  font-weight: bold;
+	  color: white;
+
+    /* W3C */
+    transition-property:color,background;
+    transition-duration:1s;
+
+    /* Firefox 4 */
+    -moz-transition-property:color,background;
+    -moz-transition-duration:1s;
+
+    /* Safari and Chrome */
+    -webkit-transition-property:color,background;
+    -webkit-transition-duration:1s;
+
+    /* Opera */
+    -o-transition-property:color,background;
+    -o-transition-duration:1s;	 
+
+  }  
+  
+  a.facilitators{	
+    color:$facilitators-color;
+    background: $facilitators-color; 
+    @include bk-image(url('/images/Facilitator.png'), 17px 12px);
+    
+  }  
+  
+  a.providers{
+    color:$providers-color;
+    background: $providers-color;
+    margin-top: -5px;
+    line-height: 12;
+    @include bk-image(url('/images/Proveedores.png'), 15px 15px);
+  }
+  a.fundations{
+    color: $fundations-color;
+    background: $fundations-color;
+    line-height: 12;
+    @include bk-image(url('/images/ProyectosSociales.png'), 20px 15px);    
+  }  
+  a.events{
+    color: $events-color;
+    background: $events-color;
+    margin-top: -5px;
+    line-height: 12;
+    @include bk-image(url('/images/Eventos.png'), 20px 12px);    
+  }
+  a.info{
+    color: $info-color;
+    background: $info-color;
+    line-height: 12;
+    @include bk-image(url('/images/Info.png'), 20px 20px);
+  }  
+  
+}
+ 
+#menu a.facilitators:hover, .current_page_item_facilitators {
+  background: $main-background;
+  color: $main-background;
+  @include bk-image(url('/images/FacilitadoresLetras.png'), 20px 50px);    
+}
+
+#menu a.providers:hover, .current_page_item_providers {
+  background: $main-background;
+  color: $main-background;
+  @include bk-image(url('/images/ProveedoresLetras.png'), 15px 50px);
+}
+
+#menu a.fundations:hover, .current_page_item_fundations {
+  background: $main-background;
+  color: $main-background;
+  @include bk-image(url('/images/ProyectosSocialesLetras.png'), 20px 50px);
+}
+
+
+#menu a.events:hover, .current_page_item_events {
+  background: $main-background;
+  color: $main-background;
+  @include bk-image(url('/images/EventosLetras.png'), 20px 50px);
+}
+
+#menu a.info:hover, .current_page_item_info {
+  background: $main-background;
+  color: $main-background;
+  @include bk-image(url('/images/InfoLetras.png'), 20px 50px);      
+}
+
+
+#right_div_top{
+  position: absolute;
+  right: 150px;
+  color: $site-color;
+ a{
+    color: $site-color;
+    font-family: "consonrisas";
+    font-size: 15px;
+    text-decoration: none;
+  }  
+  img{
+    height: 20px;
+  }  
+  a{
+    text-decoration: none;
+  }  
+}
+
+#footer{
+  clear: left;
+  text-align: center;
+  color: $site-color;
+  margin-top: -10px;
+  font-family: "consonrisas";
+  font-size: 13px;
+}

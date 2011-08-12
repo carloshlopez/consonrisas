@@ -3,16 +3,14 @@ class FacilitatorsController < ApplicationController
   # GET /facilitators
   # GET /facilitators.xml
   def index
-#    @facilitators = Facilitator.all
-#    @facilitators = Facilitator.search(params[:search], params[:page])
-    @facilitators = Facilitator.paginate :page => params[:page], :order => 'name'
-
+    #@facilitators = Facilitator.all
+    @facilitators = Facilitator.order("name").page(params[:page])
     #render :layout=>"new"
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.xml  { render :xml => @facilitators }
-#    end
   end
+  def list
+    @facilitators = Facilitator.all #paginate :page => params[:page], :order => 'name'
+    render :layout=>"new"
+  end  
 
   # GET /facilitators/1
   # GET /facilitators/1.xml

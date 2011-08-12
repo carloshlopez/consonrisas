@@ -15,7 +15,12 @@ gem 'paperclip'
 
 gem 'haml'
 
-gem 'will_paginate', '~> 3.0.pre4'
+gem 'sass'
+
+#gem 'will_paginate', '~> 3.0.pre4'
+
+
+gem 'kaminari'
 
 gem 'omniauth'
 

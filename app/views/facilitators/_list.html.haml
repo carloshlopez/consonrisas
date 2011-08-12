@@ -1,0 +1,22 @@
+.list-title.list-facilitators
+  %h1
+    = I18n.t('facilitator.list')
+.all-items
+  - num = 0
+  - @facilitators.each do |facilitator|
+    .one-item
+      - if facilitator.member 
+        = link_to image_tag(member_thumb(facilitator)), member_path(facilitator.member), :class=>"nostyle", :title=>I18n.t('go_to_profile')
+      - else 
+        = image_tag(member_thumb(facilitator))      
+      %span
+        = facilitator.name
+        - if member_signed_in? and facilitator.member
+          = link_to I18n.t('go_to_profile'), member_path(facilitator.member)
+          - if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty?
+            |
+            \#{link_to I18n.t('follow'), facilitators_add_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id)}
+          - else
+            |
+            \#{link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id)}
+  = paginate @facilitators

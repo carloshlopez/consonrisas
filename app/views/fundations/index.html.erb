@@ -1,9 +1,1 @@
-<h1 class="title"><%= I18n.t("fundation.list") %></h1>
-
 <%= render :partial => "fundations_list" %>
-<%= page_entries_info @fundations %>
-<%= will_paginate @fundations %>
-<br/>
-<% if member_signed_in? %>
-  <%= link_to I18n.t('fundation.new'), new_fundation_path %>
-<% end %>

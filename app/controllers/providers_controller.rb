@@ -5,12 +5,8 @@ class ProvidersController < ApplicationController
   # GET /providers.xml
   def index
 #    @providers = Provider.all
-     @providers = Provider.paginate :page => params[:page], :order => 'name'
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @providers }
-    end
+      @providers = Provider.order("name").page(params[:page])
+#    render :layout=>"new"
   end
 
   # GET /providers/1

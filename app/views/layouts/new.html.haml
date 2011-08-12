@@ -40,9 +40,12 @@
             %a.fundations{:href => "/fundations", :title=> I18n.t('application.menu_fundations')}
           %li
             %a.events{:href => "/events", :title=> I18n.t('application.menu_events')}
-          %li
-            %a.info{:href => "/home/info", :title=> I18n.t('application.menu_info')}
-          %ul
+          - if member_signed_in?
+            %li
+              %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
+          - else
+            %li
+              %a.info{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
     = yield
     #footer
       = 'Publicidad - Privacidad - Terminos y Condiciones - Contáctenos en'
@@ -54,3 +57,4 @@
     var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
     document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
   = javascript_include_tag "getSatisfaction"
+  = javascript_include_tag "new_layout/ui.homeMenu"
