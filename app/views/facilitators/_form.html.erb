@@ -39,7 +39,14 @@
       <% end %>
     <% end %>
   </div> 
-  
+  <div class="field">
+    <%= f.label I18n.t("emailNotifications") %> &nbsp;
+    <% if @facilitator.member.emailNotifications %>
+      <%= check_box_tag 'emailNotifications', 1, true%>
+    <% else %>
+      <%= check_box_tag 'emailNotifications', 0, false%>
+    <% end %>
+  </div>  
   <div class="field">
     <%= f.label I18n.t("use_facebook_pic") %> &nbsp;
     <% if @facilitator.member.use_facebook_pic %>
