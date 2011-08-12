@@ -1,0 +1,34 @@
+$facilitators-color: red;
+$providers-color: #E3BB00;
+$fundations-color: #973B8C;
+$events-color: #00BCFA;
+$info-color: rgb(90,180,70);
+$site-color: rgb(90,180,70);
+$main-background: white;
+$home-link-yellow: #EAFF00;
+
+@font-face{
+  font-family: "consonrisas";
+  src: url( /fonts/MyriadPro-Regular.eot ); /* IE */
+  src: local("MyriadPro Regular"), url( /fonts/MyriadPro-Regular.ttf ) format("truetype"); 
+}
+
+@mixin bk-image($url, $position){
+    background-image: $url;
+    background-repeat: no-repeat;
+    background-position: $position;
+}
+
+body {
+	width: 896px;
+	padding-left: 150px;
+	background: white;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.nostyle{
+    text-decoration: none;
+    color: $main-background;
+    border-bottom: 0px;
+}
+

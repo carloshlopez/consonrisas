@@ -4,6 +4,28 @@ $jq.widget("ui.homeMenu", {
     	var self= this;
     	var $el= this.element;
     	var path = window.location.pathname;
+    	if(path.indexOf('member') > 0){
+        	self._updateCurrent('profile');
+    	}
+    	else if(path.indexOf('facilitator') > 0){
+        	self._updateCurrent('facilitators');
+    	}
+    	else if(path.indexOf('provider') > 0){
+        	self._updateCurrent('providers');
+    	}
+    	else if(path.indexOf('fundation') > 0){
+        	self._updateCurrent('fundations');
+    	}
+    	else if(path.indexOf('event') > 0){
+        	self._updateCurrent('events');
+    	}
+    	else if(path.indexOf('info') > 0){
+        	self._updateCurrent('info');
+    	}
+    	else
+    	{
+        	self._updateCurrent('home');
+    	}    	
       
       $el.find("ul li a").mouseenter(function(e){
         //console.log('mouse over');
@@ -31,6 +53,11 @@ $jq.widget("ui.homeMenu", {
       //console.log(current);
       $jq("."+current+"-arrow").css("border-top","15px solid transparent");
       $jq("#descs").slideUp();
+    },
+    _updateCurrent: function(current){
+        var cur = $jq("a."+current);
+        cur.addClass("current_page_item_"+current);
+        cur.removeClass(current);
     }
     
 });
@@ -65,7 +92,7 @@ function description(current){
 $jq(document).ready(function($) {    
     $jq("#menu").homeMenu();
 
-    $jq("#left_div a").click(function(e){
+    $jq(".login").click(function(e){
       e.preventDefault();
       $jq("#login-form").dialog({modal:true, title:"Ingresar", width: 400, closeText:"X", show:"clip"});
     });

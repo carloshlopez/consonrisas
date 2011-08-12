@@ -1,0 +1,59 @@
+/*lists as divs*/
+.list-facilitators{
+  background-image: url('/images/IconosFacilitadoresNoFondo.png');
+  background-color: $facilitators-color;
+}
+
+.list-providers{
+  background-image: url('/images/IconosProveedoresNoFondo.png');
+  background-color: $providers-color;
+}
+
+.list-fundations{
+  background-image: url('/images/IconosProyectosSocialesNoFondo.png');
+  background-color: $fundations-color;
+}
+
+.list-events{
+  background-image: url('/images/IconosEventosNoFondo.png');
+  background-color: $events-color;
+}
+
+.list-title{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  font-family: "consonrisas";
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  color: $main-background;
+  height: 170px;
+  h1{
+    margin-left: 150px;
+    margin-top: 60px;
+    position: absolute;
+  }  
+}
+
+.all-items{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.one-item{
+   height: 50px;
+   padding: 10px;
+   font-family: "consonrisas";
+   font-size: medium;
+   border-color: $site-color;
+   border-width: 0 0 1px;
+   border-style: solid;
+  span{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px;
+  }   
+}

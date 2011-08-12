@@ -1,0 +1,19 @@
+.list-title.list-events
+  %h1
+    = I18n.t('events.list')
+.all-items
+  - num = 0
+  - @events.each do |event|
+    .one-item
+      = link_to image_tag(event.pic.url(:thumb)), event_path(event.id), :class=>"nostyle",:title=>I18n.t('events.show')
+      %span   
+        = I18n.l(event.date, :format=>:long)
+        = event.name
+        = link_to I18n.t('events.show'), event
+        - if  member_signed_in? and can_current_member_edit_event(event.id)
+          | 
+          = link_to I18n.t('edit'), edit_event_path(event)
+          |
+          = link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete
+  - if member_signed_in?
+    = link_to I18n.t('events.new'), new_event_path

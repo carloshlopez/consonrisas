@@ -1,341 +1,418 @@
-@font-face{
+@font-face {
   font-family: "consonrisas";
-  src: url( /fonts/MyriadPro-Regular.eot ); /* IE */
-  src: local("MyriadPro Regular"), url( /fonts/MyriadPro-Regular.ttf ) format("truetype"); 
-}
+  src: url(/fonts/MyriadPro-Regular.eot);
+  /* IE */
+  src: local("MyriadPro Regular"), url(/fonts/MyriadPro-Regular.ttf) format("truetype"); }
 
 body {
-	width: 980px;
-	padding: 0px 100px 100px;
-	background: white;
-	/*-webkit-text-size-adjust: 100%;*//*  Stops Mobile Safari from auto-adjusting font-sizes */
-}
+  width: 896px;
+  padding-left: 150px;
+  background: white;
+  -webkit-text-size-adjust: 100%;
+  /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
-.logo
-{
-height: 125px;
-margin-top: 15px;
-margin-bottom: 15px;
- 
-}
+.nostyle {
+  text-decoration: none;
+  color: white;
+  border-bottom: 0px; }
 
-.nostyle{
-    text-decoration: none;
-    color: #FFFFFF;
-    border-bottom: 0px;
-}
+.logo {
+  height: 125px;
+  margin-top: 15px;
+  margin-bottom: 15px; }
 
 #menu {
-	float: left;
-	margin-left: 320px;
-	margin-top: -100px;
-}
+  float: left;
+  margin-left: 320px;
+  margin-top: -100px; }
+  #menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: normal; }
+  #menu li {
+    float: left;
+    text-align: center; }
+  #menu a {
+    display: block;
+    float: left;
+    height: 95px;
+    width: 95px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: small;
+    font-weight: bold;
+    color: white;
+    /* W3C */
+    transition-property: color,background;
+    transition-duration: 1s;
+    /* Firefox 4 */
+    -moz-transition-property: color,background;
+    -moz-transition-duration: 1s;
+    /* Safari and Chrome */
+    -webkit-transition-property: color,background;
+    -webkit-transition-duration: 1s;
+    /* Opera */
+    -o-transition-property: color,background;
+    -o-transition-duration: 1s; }
+  #menu a.facilitators {
+    color: red;
+    background: red;
+    background-image: url("/images/Facilitator.png");
+    background-repeat: no-repeat;
+    background-position: 17px 12px; }
+  #menu a.providers {
+    color: #e3bb00;
+    background: #e3bb00;
+    margin-top: -5px;
+    line-height: 12;
+    background-image: url("/images/Proveedores.png");
+    background-repeat: no-repeat;
+    background-position: 15px 15px; }
+  #menu a.fundations {
+    color: #973b8c;
+    background: #973b8c;
+    line-height: 12;
+    background-image: url("/images/ProyectosSociales.png");
+    background-repeat: no-repeat;
+    background-position: 20px 15px; }
+  #menu a.events {
+    color: #00bcfa;
+    background: #00bcfa;
+    margin-top: -5px;
+    line-height: 12;
+    background-image: url("/images/Eventos.png");
+    background-repeat: no-repeat;
+    background-position: 20px 12px; }
+  #menu a.info {
+    color: #5ab446;
+    background: #5ab446;
+    line-height: 12;
+    background-image: url("/images/Info.png");
+    background-repeat: no-repeat;
+    background-position: 20px 20px; }
 
-#menu ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	line-height: normal;
-}
-
-#menu li {
-	float: left;
-	text-align: center;
-}
-
-#menu a.facilitators{	
-  color:red;
-  background: red; 
-  background-image: url('/images/Facilitator.png');
-  background-repeat: no-repeat;
-  background-position: 17px 12px;
-  
-}
-#menu a.facilitators:hover {
+#menu a.facilitators:hover, .current_page_item_facilitators {
   background: white;
   color: white;
-  background-image: url('/images/FacilitadoresLetras.png');
+  background-image: url("/images/FacilitadoresLetras.png");
   background-repeat: no-repeat;
-  background-position: 20px 50px;
-}
-#menu a.providers{
-  color:#E3BB00;
-  background: #E3BB00;
-  margin-top: -5px;
-  line-height: 12;
-  background-image: url('/images/Proveedores.png');
-  background-repeat: no-repeat;
-  background-position: 15px 15px;  
-}
+  background-position: 20px 50px; }
 
-#menu a.providers:hover {
+#menu a.providers:hover, .current_page_item_providers {
   background: white;
   color: white;
-  background-image: url('/images/ProveedoresLetras.png');
+  background-image: url("/images/ProveedoresLetras.png");
   background-repeat: no-repeat;
-  background-position: 15px 50px;
-}
+  background-position: 15px 50px; }
 
-#menu a.fundations{
-  color: #973B8C;
-  background: #973B8C;
-  line-height: 12;
-  background-image: url('/images/ProyectosSociales.png');
-  background-repeat: no-repeat;
-  background-position: 20px 15px;  
-}
-
-#menu a.fundations:hover {
+#menu a.fundations:hover, .current_page_item_fundations {
   background: white;
   color: white;
-  background-image: url('/images/ProyectosSocialesLetras.png');
+  background-image: url("/images/ProyectosSocialesLetras.png");
   background-repeat: no-repeat;
-  background-position: 20px 50px;
-}
+  background-position: 20px 50px; }
 
-#menu a.events{
-  color: #00BCFA;
-  background: #00BCFA;
-  margin-top: -5px;
-  line-height: 12;
-  background-image: url('/images/Eventos.png');
-  background-repeat: no-repeat;
-  background-position: 20px 12px;  
-}
-#menu a.events:hover {
+#menu a.events:hover, .current_page_item_events {
   background: white;
   color: white;
-  background-image: url('/images/EventosLetras.png');
+  background-image: url("/images/EventosLetras.png");
   background-repeat: no-repeat;
-  background-position: 20px 50px;
-}
-#menu a.info{
-  color: rgb(90,180,70);
-  background: rgb(90,180,70);
-  line-height: 12;
-  background-image: url('/images/Info.png');
-  background-repeat: no-repeat;
-  background-position: 20px 20px;  
-}
+  background-position: 20px 50px; }
 
-#menu a.info:hover {
+#menu a.info:hover, .current_page_item_info {
   background: white;
   color: white;
-  background-image: url('/images/InfoLetras.png');
+  background-image: url("/images/InfoLetras.png");
   background-repeat: no-repeat;
-  background-position: 20px 50px;
-}
+  background-position: 20px 50px; }
 
-#menu a {
-	display: block;
-	float: left;
-	height: 95px;
-	width: 95px;
-	margin-right: 5px;
-	text-decoration: none;
-	font-size: small;
-	font-weight: bold;
-	color: white;
+#right_div_top {
+  position: absolute;
+  right: 150px;
+  color: #5ab446; }
+  #right_div_top a {
+    color: #5ab446;
+    font-family: "consonrisas";
+    font-size: 15px;
+    text-decoration: none; }
+  #right_div_top img {
+    height: 20px; }
+  #right_div_top a {
+    text-decoration: none; }
 
-  /* W3C */
-  transition-property:color,background;
-  transition-duration:1s;
+#footer {
+  clear: left;
+  text-align: center;
+  color: #5ab446;
+  margin-top: -10px;
+  font-family: "consonrisas";
+  font-size: 13px; }
 
-  /* Firefox 4 */
-  -moz-transition-property:color,background;
-  -moz-transition-duration:1s;
-
-  /* Safari and Chrome */
-  -webkit-transition-property:color,background;
-  -webkit-transition-duration:1s;
-
-  /* Opera */
-  -o-transition-property:color,background;
-  -o-transition-duration:1s;	 
-
-}
-
-
-#left_div{
-  background: rgb(90,180,70);
+#left_div {
+  background: #5ab446;
   color: white;
   height: 460px;
   width: 300px;
   clear: left;
   margin-top: -15px;
-  font-family: "consonrisas";
-}
+  font-family: "consonrisas"; }
+  #left_div a {
+    color: #eaff00;
+    text-decoration: none; }
+  #left_div ul {
+    color: #eaff00;
+    list-style-type: square;
+    margin-left: -25px; }
 
-#left_div a{
- color: #EAFF00;
- text-decoration: none;
-}
-.left_div_content
-{
-  padding: 20px;
-}
+.left_div_content {
+  padding: 20px; }
 
-#left_div_top{
-  background: rgb(90,180,70);
+#left_div_top {
+  background: #5ab446;
   color: white;
   height: 10px;
   width: 300px;
-  margin-top: -10px;
-}
+  margin-top: -10px; }
 
-.arrows{
-	margin-left: 352px;
-	margin-top: -25px;
-	height: 15px;
-}
+.arrows {
+  margin-left: 352px;
+  margin-top: -25px;
+  height: 15px; }
 
-.news-arrow{
-  margin-left: 350px;
-}
+.news-arrow {
+  margin-left: 350px; }
 
-#descs{
-	margin-left: 320px;
-	margin-top: -475px;
-	height:215px;
-	width: 500px;
-	color:white;
-	padding: 30px;
-	position: absolute;
-	z-index: -1;
-  font-family: "consonrisas";
-}
-.desc-text
-{
-  margin-left: 125px;
-  margin-top: 20px;
-}
-#pics{  
-	margin-left: 320px;
-	margin-top: -473px;
-	height:150px;
-	width: 515px;
-	padding: 30px;
-	position: absolute;
-	z-index: -2;
-}
-
-#news{
-    background: none repeat scroll 0 0 #DEF1DA;
-    color: black;
-    height: 170px;
-    margin-left: 320px;
-    padding: 8px;
-    position: relative;
-    width: 545px;
-    overflow: hidden;
-    top: -20px;
-}
-
-.news_title{
-    clear: both;
-    color: #5AB446;
-    margin-left: 320px;
-    margin-top: -235px;
-    padding: 10px;
-    position: relative;
-    z-index: -3;
-    font-family: "consonrisas";
-}
-
-.desc-arrow{
-  border-left:15px solid transparent;
-  border-right:15px solid transparent;
-  border-top:15px solid transparent;
-  float: left;
-  margin-right:70px;
-}
-
-#footer{
-  text-align: center;
-  color: rgb(90,180,70);
-  margin: 10px;
-  padding: 10px;
-  font-family: "consonrisas";
-}
-
-#right_div_top{
+#descs {
+  margin-left: 320px;
+  margin-top: -475px;
+  height: 215px;
+  width: 500px;
+  color: white;
+  padding: 30px;
   position: absolute;
-  right: 150px;
-  color: rgb(90,180,70);
-}
+  z-index: -1;
+  font-family: "consonrisas"; }
 
-#right_div_top a 
-{
-  color: rgb(90,180,70);
-  font-family: "consonrisas";
-  font-size: 15px;
-  text-decoration: none;
-}
+.desc-text {
+  margin-left: 125px;
+  margin-top: 20px; }
 
-#right_div_top img{
-  height: 20px;
-}
+#pics {
+  margin-left: 320px;
+  margin-top: -473px;
+  height: 150px;
+  width: 515px;
+  padding: 30px;
+  position: absolute;
+  z-index: -2; }
 
-#right_div_top a{
-  text-decoration: none;
-}
+/* You can alter this CSS in order to give SmoothDivScroll your own look'n'feel */
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft {
+  /* The hotspots have a minimum width of 75 pixels 
+     and if there is room the will grow and occupy 10% 
+     of the scrollable area (20% combined). 
+     Adjust it to your own taste. */
+  min-width: 75px;
+  width: 10%;
+  height: 100%;
+  /* There is a big background image and it's used to 
+  solve some problems I experienced in Internet Explorer 6. */
+  background-image: url(../images/big_transparent.gif);
+  background-repeat: repeat;
+  background-position: center center;
+  position: absolute;
+  z-index: 200;
+  left: 0;
+  /*  The first cursor url is for Firefox and other 
+      browsers, the second is for Internet Explorer */
+  cursor: url(../images/cursors/cursor_arrow_left.cur), url(../images/cursors/cursor_arrow_left.cur), w-resize; }
 
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible {
+  background-image: url(../images/arrow_left.gif);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  /* Standard CSS3 opacity setting */
+  opacity: 0.35;
+  /* Opacity for really old versions of 
+     Mozilla Firefox (0.9 or older) */
+  -moz-opacity: 0.35;
+  /* Opacity for Internet Explorer. */
+  filter: alpha(opacity=35);
+  /* Use zoom to Trigger "hasLayout" in 
+     Internet Explorer 6 or older versions */
+  zoom: 1; }
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight {
+  min-width: 75px;
+  width: 10%;
+  height: 100%;
+  background-image: url(../images/big_transparent.gif);
+  background-repeat: repeat;
+  background-position: center center;
+  position: absolute;
+  z-index: 200;
+  right: 0;
+  cursor: url(../images/cursors/cursor_arrow_right.cur), url(../images/cursors/cursor_arrow_right.cur), e-resize; }
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible {
+  background-image: url(../images/arrow_right.gif);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  filter: alpha(opacity=35);
+  -moz-opacity: 0.35;
+  zoom: 1; }
+
+/* The scroll wrapper is always the same width and 
+   height as the containing element (div). Overflow 
+   is hidden because you don't want to show all of 
+   the scrollable area.
+*/
+div.scrollWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%; }
+
+div.scrollableArea {
+  position: relative;
+  width: auto;
+  height: 100%; }
+
+#news {
+  background: none repeat scroll 0 0 #DEF1DA;
+  color: black;
+  height: 170px;
+  margin-left: 320px;
+  padding: 8px;
+  position: relative;
+  width: 545px;
+  overflow: hidden;
+  top: -20px; }
+
+.news_title {
+  clear: both;
+  color: #5ab446;
+  margin-left: 320px;
+  margin-top: -235px;
+  padding: 10px;
+  position: relative;
+  z-index: -3;
+  font-family: "consonrisas"; }
+
+.desc-arrow {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid transparent;
+  float: left;
+  margin-right: 70px; }
 
 /* create an arrow that points down */
 div.arrow-down {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid white;
-    float: left;
-    margin-right: 75px;
-    margin-top: -20px;
-    position: relative;
-    z-index: 4;
-}
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid white;
+  float: left;
+  margin-right: 75px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 4; }
 
 /*HOME EVENT COMMENTS*/
-.comment_pic{
-clear: left;
-height: 40px;
-border: 2px solid rgb(90,180,70);
-vertical-align: middle;
-margin-right: 10px;
-float: left;
-}
+.comment_pic {
+  clear: left;
+  height: 40px;
+  border: 2px solid #5ab446;
+  vertical-align: middle;
+  margin-right: 10px;
+  float: left; }
 
-.home_pic{
-height: 215px;
-}
+.home_pic {
+  height: 215px; }
 
-.a_comment{
+.a_comment {
   margin: 10px;
   font-family: "consonrisas";
   font-size: 14px;
-  height: 40px;
-}
+  height: 40px; }
+  .a_comment a {
+    color: #5ab446;
+    text-decoration: none; }
 
-.a_comment a{
-  color: green;
-  text-decoration: none;
-}
-
-#event_pics{
+#event_pics {
   margin-left: -10px;
   margin-top: -10px;
   width: 535px;
   height: 220px;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-.ui-dialog-titlebar
-{
-  background: rgb(90,180,70);
-  color: white;
-}
+.ui-dialog-titlebar {
+  background: #5ab446;
+  color: white; }
 
-.ui-dialog{
+.ui-dialog {
+  font-family: "consonrisas"; }
+
+/*lists as divs*/
+.list-facilitators {
+  background-image: url("/images/IconosFacilitadoresNoFondo.png");
+  background-color: red; }
+
+.list-providers {
+  background-image: url("/images/IconosProveedoresNoFondo.png");
+  background-color: #e3bb00; }
+
+.list-fundations {
+  background-image: url("/images/IconosProyectosSocialesNoFondo.png");
+  background-color: #973b8c; }
+
+.list-events {
+  background-image: url("/images/IconosEventosNoFondo.png");
+  background-color: #00bcfa; }
+
+.list-title {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   font-family: "consonrisas";
-}
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  color: white;
+  height: 170px; }
+  .list-title h1 {
+    margin-left: 150px;
+    margin-top: 60px;
+    position: absolute; }
 
+.all-items {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px; }
 
+.one-item {
+  height: 50px;
+  padding: 10px;
+  font-family: "consonrisas";
+  font-size: medium;
+  border-color: #5ab446;
+  border-width: 0 0 1px;
+  border-style: solid; }
+  .one-item span {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px; }
 
+.social-containter {
+  padding: 30px; }
+  .social-containter h2 {
+    color: #5ab446;
+    font-family: "consonrisas"; }
+  .social-containter .social-cs {
+    display: inline-block; }

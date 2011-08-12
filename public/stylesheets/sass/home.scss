@@ -1,0 +1,246 @@
+
+#left_div{
+  background: $site-color;
+  color: $main-background;
+  height: 460px;
+  width: 300px;
+  clear: left;
+  margin-top: -15px;
+  font-family: "consonrisas";
+  a{
+   color: $home-link-yellow;
+   text-decoration: none;
+  }
+  ul{
+   color: $home-link-yellow;
+   list-style-type: square;
+   margin-left: -25px;
+  }  
+}
+
+.left_div_content
+{
+  padding: 20px;
+}
+
+#left_div_top{
+  background: $site-color;
+  color: $main-background;
+  height: 10px;
+  width: 300px;
+  margin-top: -10px;
+}
+
+.arrows{
+	margin-left: 352px;
+	margin-top: -25px;
+	height: 15px;
+}
+
+.news-arrow{
+  margin-left: 350px;
+}
+
+#descs{
+	margin-left: 320px;
+	margin-top: -475px;
+	height:215px;
+	width: 500px;
+	color:$main-background;;
+	padding: 30px;
+	position: absolute;
+	z-index: -1;
+  font-family: "consonrisas";
+}
+.desc-text
+{
+  margin-left: 125px;
+  margin-top: 20px;
+}
+#pics{  
+	margin-left: 320px;
+	margin-top: -473px;
+	height:150px;
+	width: 515px;
+	padding: 30px;
+	position: absolute;
+	z-index: -2;
+}
+
+/* You can alter this CSS in order to give SmoothDivScroll your own look'n'feel */
+
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft
+{
+	/* The hotspots have a minimum width of 75 pixels 
+	   and if there is room the will grow and occupy 10% 
+	   of the scrollable area (20% combined). 
+	   Adjust it to your own taste. */
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	/* There is a big background image and it's used to 
+	solve some problems I experienced in Internet Explorer 6. */
+	background-image: url(../images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	left: 0;
+	/*  The first cursor url is for Firefox and other 
+	    browsers, the second is for Internet Explorer */
+	cursor: url(../images/cursors/cursor_arrow_left.cur), url(../images/cursors/cursor_arrow_left.cur),w-resize;
+}
+
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible
+{
+	background-image: url(../images/arrow_left.gif);				
+	background-color: #fff;
+	background-repeat: no-repeat;
+	/* Standard CSS3 opacity setting */
+	opacity: 0.35; 
+	/* Opacity for really old versions of 
+	   Mozilla Firefox (0.9 or older) */
+	-moz-opacity: 0.35;
+	/* Opacity for Internet Explorer. */
+	filter: alpha(opacity = 35);
+	/* Use zoom to Trigger "hasLayout" in 
+	   Internet Explorer 6 or older versions */	
+	zoom: 1; 
+}
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight
+{
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	background-image: url(../images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	right: 0;
+	cursor: url(../images/cursors/cursor_arrow_right.cur), url(../images/cursors/cursor_arrow_right.cur),e-resize;
+}
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible
+{
+	background-image: url(../images/arrow_right.gif);
+	background-color: #fff;
+	background-repeat: no-repeat;
+	opacity: 0.35;
+	filter: alpha(opacity = 35);
+	-moz-opacity: 0.35;
+	zoom: 1;
+}
+
+/* The scroll wrapper is always the same width and 
+   height as the containing element (div). Overflow 
+   is hidden because you don't want to show all of 
+   the scrollable area.
+*/
+div.scrollWrapper
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+div.scrollableArea
+{
+	position: relative;
+	width: auto;
+	height: 100%;
+}
+
+
+#news{
+    background: none repeat scroll 0 0 #DEF1DA;
+    color: black;
+    height: 170px;
+    margin-left: 320px;
+    padding: 8px;
+    position: relative;
+    width: 545px;
+    overflow: hidden;
+    top: -20px;
+}
+
+.news_title{
+    clear: both;
+    color: $site-color;
+    margin-left: 320px;
+    margin-top: -235px;
+    padding: 10px;
+    position: relative;
+    z-index: -3;
+    font-family: "consonrisas";
+}
+
+.desc-arrow{
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid transparent;
+  float: left;
+  margin-right:70px;
+}
+
+
+/* create an arrow that points down */
+div.arrow-down {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid white;
+    float: left;
+    margin-right: 75px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 4;
+}
+
+/*HOME EVENT COMMENTS*/
+.comment_pic{
+  clear: left;
+  height: 40px;
+  border: 2px solid $site-color;
+  vertical-align: middle;
+  margin-right: 10px;
+  float: left;
+}
+
+.home_pic{
+  height: 215px;
+}
+
+.a_comment{
+  margin: 10px;
+  font-family: "consonrisas";
+  font-size: 14px;
+  height: 40px;
+  a{
+    color: $site-color;
+    text-decoration: none;
+  }  
+}
+
+#event_pics{
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 535px;
+  height: 220px;
+  overflow: hidden;
+}
+
+.ui-dialog-titlebar
+{
+  background: $site-color;
+  color: white;
+}
+
+.ui-dialog{
+  font-family: "consonrisas";
+}
