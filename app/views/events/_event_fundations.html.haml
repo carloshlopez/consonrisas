@@ -1,0 +1,19 @@
+.bordered_box
+  %b
+    = I18n.t("events.attending_fundations")
+    \: #{@event.fundations.count}
+  - if @event.fundations.count > 0
+    %div{:style => "overflow-x:auto; overflow-y:hidden; height:80px; width:98%; white-space: nowrap;"}
+      - @event.fundations.each do |fundation|
+        .fundation-going{:id=>"fundation-going-#{fundation.id}", :style=>"display:inline"}      
+          = link_to image_tag(fundation.pic.url(:thumb), :class=>"comment_pic"),  fundation_path(fundation), :class=>"nostyle"
+          = link_to fundation.name, fundation_path(fundation)
+          - unless member_signed_in? and current_member.fundations.select{|f| f.id == fundation.id}.empty?
+            %a{:href=>"#", :class=>"remove_fundation", :event_id=>"#{@event.id}", :fundation_id=>"#{fundation.id}"}x
+  - if member_signed_in?
+    #new_fundation
+      %form{:action => "/events/add_fundation", :method => "post"}
+        %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
+          = select_tag "fundation_id", options_from_collection_for_select(current_member.fundations, "id", "name")
+          %input{:name => "event_id", :type => "hidden", :value => @event.id}/
+          %input{:name => "new_fundation", :type => "submit", :value => I18n.t('events.add_me_fundation')}/

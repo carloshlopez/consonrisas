@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
 #    @events = Event.all
-    @events = Event.order("date DESC").page(params[:page])
+    @events = Event.order("date").page(params[:page])
     #render :layout=>"new"
   end
 
