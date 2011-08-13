@@ -4,48 +4,62 @@ $jq.widget("ui.eventAdmin", {
     	var self= this;
     	var $el= this.element;
 
-    	$jq('.admin_photos').click(function(e) {
+    	$el.find('.admin_photos').click(function(e) {
             e.preventDefault();
-            $jq(".photo_upload").show();
+            $el.find(".photo_upload").show();
         });
         
-    	$jq('.cancel_admin_photos').click(function(e) {
+    	$el.find('.cancel_admin_photos').click(function(e) {
             e.preventDefault();
-            $jq(".photo_upload").hide();
+            $el.find(".photo_upload").hide();
         });
         
-    	$jq('.admin_videos').click(function(e) {
+    	$el.find('.admin_videos').click(function(e) {
             e.preventDefault();
-            $jq(".video_upload").show();
+            $el.find(".video_upload").show();
         });
         
-    	$jq('.cancel_admin_videos').click(function(e) {
+    	$el.find('.cancel_admin_videos').click(function(e) {
             e.preventDefault();
-            $jq(".video_upload").hide();
+            $el.find(".video_upload").hide();
         });        
             	
-    	$jq('.ask_admin').click(function(e) {
+    	$el.find('.ask_admin').click(function(e) {
             e.preventDefault();
             var event_id = $jq(this).closest("div").attr("event_id");
-            var mem_id = $jq("#member_id option:selected").val();
-            var mail = $jq("#ask_admin_mail").val();
+            var mem_id = $el.find("#member_id option:selected").val();
+            var mail = $el.find("#ask_admin_mail").val();
             
             self._askAdmin(event_id, mem_id, mail);
         });
         
-        $jq('.remove_facilitator').click(function(e){
+        $el.find('.remove_facilitator').click(function(e){
             e.preventDefault();
             var event_id = $jq(this).attr("event_id");
             var fac_id = $jq(this).attr("facilitator_id");
             self._removeFacilitator(event_id, fac_id);
         });
         
-        $jq('.add_facilitator').click(function(e){
+        $el.find('.add_facilitator').click(function(e){
             e.preventDefault();
             var event_id = $jq(this).attr("event_id");
             var fac_id = $jq(this).attr("facilitator_id");
             self._addFacilitator(event_id, fac_id);
         });
+        
+        $el.find('.remove_fundation').click(function(e){
+            e.preventDefault();
+            var event_id = $jq(this).attr("event_id");
+            var fund_id = $jq(this).attr("fundation_id");
+            self._removeFundation(event_id, fund_id);
+        });        
+        
+        $el.find('.remove_provider').click(function(e){
+            e.preventDefault();
+            var event_id = $jq(this).attr("event_id");
+            var prov_id = $jq(this).attr("provider_id");
+            self._removeProvider(event_id, prov_id);
+        });                
         
 //        $jq('#comment_submit').click(function(e){
 //            e.preventDefault();
@@ -99,6 +113,32 @@ $jq.widget("ui.eventAdmin", {
             else{
                 //alert("Ya no vas a ir como facilitador a este evento");
                 window.location.reload();
+            }
+        });
+    },
+    _removeFundation: function(event_id, fund_id){
+        var postData = {event_id:event_id, fundation_id:fund_id};
+        $jq.post("/events/remove_fundation", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+                //console.log(data);
+            }
+            else{
+                alert("Esta fundación ya no va a ir a este evento");
+                $jq("#fundation-going-"+fund_id).remove();
+            }
+        });
+    },
+    _removeProvider: function(event_id, prov_id){
+        var postData = {event_id:event_id, provider_id:prov_id};
+        $jq.post("/events/remove_provider", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+                //console.log(data);
+            }
+            else{
+                alert("Ya no vas a ir como proveedor a este evento");
+                $jq("#provider-going-"+prov_id).remove();
             }
         });
     },

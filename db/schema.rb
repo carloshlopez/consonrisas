@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812204027) do
+ActiveRecord::Schema.define(:version => 20110813193606) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110812204027) do
     t.datetime "pic_updated_at"
     t.string   "city"
     t.string   "place"
+    t.boolean  "isRaiser",         :default => false
   end
 
   create_table "events_facilitators", :id => false, :force => true do |t|
