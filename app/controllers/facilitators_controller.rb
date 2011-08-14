@@ -4,7 +4,7 @@ class FacilitatorsController < ApplicationController
   # GET /facilitators.xml
   def index
     #@facilitators = Facilitator.all
-    @facilitators = Facilitator.order("name").page(params[:page])
+    @facilitators = Facilitator.order("name").page(params[:page]).per(5)
     #render :layout=>"new"
   end
   def list
