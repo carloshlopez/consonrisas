@@ -1,8 +1,9 @@
 @font-face {
-  font-family: "consonrisas";
-  src: url(/fonts/MyriadPro-Regular.eot);
-  /* IE */
-  src: local("MyriadPro Regular"), url(/fonts/MyriadPro-Regular.ttf) format("truetype"); }
+  font-family: 'MyriadProRegular';
+  src: url("/fonts/consr-regular-webfont.eot");
+  src: url("/fonts/consr-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/consr-regular-webfont.woff") format("woff"), url("/fonts/consr-regular-webfont.ttf") format("truetype"), url("/fonts/consr-regular-webfont.svg#MyriadProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 body {
   width: 896px;
@@ -133,7 +134,7 @@ body {
   color: #5ab446; }
   #right_div_top a {
     color: #5ab446;
-    font-family: "consonrisas";
+    font-family: "MyriadProRegular";
     font-size: 15px;
     text-decoration: none; }
   #right_div_top img {
@@ -146,7 +147,7 @@ body {
   text-align: center;
   color: #5ab446;
   margin-top: -10px;
-  font-family: "consonrisas";
+  font-family: "MyriadProRegular";
   font-size: 13px; }
 
 #left_div {
@@ -156,7 +157,7 @@ body {
   width: 300px;
   clear: left;
   margin-top: -15px;
-  font-family: "consonrisas"; }
+  font-family: "MyriadProRegular"; }
   #left_div a {
     color: #eaff00;
     text-decoration: none; }
@@ -192,7 +193,7 @@ body {
   padding: 30px;
   position: absolute;
   z-index: -1;
-  font-family: "consonrisas"; }
+  font-family: "MyriadProRegular"; }
 
 .desc-text {
   margin-left: 125px;
@@ -303,7 +304,7 @@ div.scrollableArea {
   padding: 10px;
   position: relative;
   z-index: -3;
-  font-family: "consonrisas"; }
+  font-family: "MyriadProRegular"; }
 
 .desc-arrow {
   border-left: 15px solid transparent;
@@ -337,7 +338,7 @@ div.arrow-down {
 
 .a_comment {
   margin: 10px;
-  font-family: "consonrisas";
+  font-family: "MyriadProRegular";
   font-size: 14px;
   height: 40px; }
   .a_comment a {
@@ -356,7 +357,7 @@ div.arrow-down {
   color: white; }
 
 .ui-dialog {
-  font-family: "consonrisas"; }
+  font-family: "MyriadProRegular"; }
 
 /*lists as divs*/
 .list-facilitators {
@@ -380,7 +381,7 @@ div.arrow-down {
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  font-family: "consonrisas";
+  font-family: "MyriadProRegular";
   background-repeat: no-repeat;
   background-position: 10px 10px;
   color: white;
@@ -399,7 +400,7 @@ div.arrow-down {
 .one-item {
   height: 50px;
   padding: 10px;
-  font-family: "consonrisas";
+  font-family: "MyriadProRegular";
   font-size: medium;
   border-color: #5ab446;
   border-width: 0 0 1px;
@@ -413,6 +414,6 @@ div.arrow-down {
   padding: 30px; }
   .social-containter h2 {
     color: #5ab446;
-    font-family: "consonrisas"; }
+    font-family: "MyriadProRegular"; }
   .social-containter .social-cs {
     display: inline-block; }
