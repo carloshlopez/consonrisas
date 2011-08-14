@@ -40,7 +40,7 @@ $jq.widget("ui.homeMenu", {
       });
     },
     _showDesc: function(current){
-      //console.log(current);
+      $jq("#descs").stop(true, true);
       $jq("#descs").css("background", color(current) );
       $jq("#descs").css("background-image", image(current));
       $jq("#descs").css("background-repeat", "no-repeat");
@@ -50,7 +50,6 @@ $jq.widget("ui.homeMenu", {
       $jq("."+current+"-arrow").css("border-top","15px solid white");
     },
     _hideDesc: function(current){
-      //console.log(current);
       $jq("."+current+"-arrow").css("border-top","15px solid transparent");
       $jq("#descs").slideUp();
     },
