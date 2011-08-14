@@ -7,11 +7,18 @@ $site-color: rgb(90,180,70);
 $main-background: white;
 $home-link-yellow: #EAFF00;
 
-@font-face{
-  font-family: "consonrisas";
-  src: url( /fonts/MyriadPro-Regular.eot ); /* IE */
-  src: local("MyriadPro Regular"), url( /fonts/MyriadPro-Regular.ttf ) format("truetype"); 
+@font-face {
+    font-family: 'consonrisas';
+    src: url('/fonts/consr-regular-webfont.eot');
+    src: url('/fonts/consr-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/consr-regular-webfont.woff') format('woff'),
+         url('/fonts/consr-regular-webfont.ttf') format('truetype'),
+         url('/fonts/consr-regular-webfont.svg#MyriadProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
 
 @mixin bk-image($url, $position){
     background-image: $url;
