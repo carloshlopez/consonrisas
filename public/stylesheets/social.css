@@ -6,11 +6,11 @@ Syntax error: Undefined variable: "$site-color".
 2:   padding: 30px;
 3:   h2{
 4:     color: $site-color;
-5:     font-family: "MyriadProRegular";
-6:   }
-7:   .social-cs{
-8:     display: inline-block;
-9:   } 
+5:   }
+6:   .social-cs{
+7:     display: inline-block;
+8:   } 
+9: }
 
 Backtrace:
 /home/carlos/Projects/prueba/public/stylesheets/sass/social.scss:4
@@ -104,4 +104,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 4 of /home/carlos/Projects/prueba/public/stylesheets/sass/social.scss\A \A 1: .social-containter{\A 2:   padding: 30px;\A 3:   h2{\A 4:     color: $site-color;\A 5:     font-family: \"MyriadProRegular\";\A 6:   }\A 7:   .social-cs{\A 8:     display: inline-block;\A 9:   } "; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 4 of /home/carlos/Projects/prueba/public/stylesheets/sass/social.scss\A \A 1: .social-containter{\A 2:   padding: 30px;\A 3:   h2{\A 4:     color: $site-color;\A 5:   }\A 6:   .social-cs{\A 7:     display: inline-block;\A 8:   } \A 9: }"; }

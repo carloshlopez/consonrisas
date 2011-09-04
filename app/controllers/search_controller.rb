@@ -26,7 +26,6 @@ class SearchController < ApplicationController
 
     @events = Event.where("LOWER(name) like ?", "%#{params[:find].downcase}%")
     @events.sort! { |a,b| a.name.downcase <=> b.name.downcase }
-
   end
 
 end

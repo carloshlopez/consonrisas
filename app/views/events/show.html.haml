@@ -1,0 +1,80 @@
+#eventAdmin
+  #event-profile
+    #left-div-profile-event
+      .profile-info
+        = image_tag 'EventoTransparenteChiqui.png', :class=>"transparent"
+        %h2
+          = @event.name
+        .type
+          evento
+        = image_tag @event.pic.url(:profile), :class=>"img-profile"  
+        .about-me
+          .about-me-text
+            %b
+              = I18n.t("date_name")
+            \:
+            = I18n.l(@event.date, :format=>:long)
+            %br
+            %b
+              = I18n.t("place")
+            \:
+            = @event.place
+            %br
+            %b
+              = I18n.t("city")
+            \:
+            = @event.city
+            %br
+            .share_this
+              = render :partial => "share_event"            
+            - if member_signed_in?
+              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? 
+                %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
+              - if can_current_member_edit_event(@event.id)
+                %br
+                %a.edit-me{:href=>"#"}
+                  = I18n.t('edit')
+                #event-edit{:style=>"display:none"}
+                  = render :partial=>"form"
+    #profile-content-event
+      .my-profile-title
+        %h1 
+          evento
+          = image_tag '/images/EventoTransparenteMedio.png'
+      .my-profile-menu
+        %a.all{:href=>"#menu", :show=>"all"} todo
+        |    
+        %a.comments{:href=>"#menu", :show=>"comments"} comentarios
+        |
+        %a.pics{:href=>"#menu", :show=>"pics"} fotos y videos
+        |
+        %a.assistants{:href=>"#", :show=>"assistants"} asistentes
+      .my-profile-arrows
+        .arrow-up-profile.arrow-all    
+        .arrow-up-profile.arrow-comments{:href=>"#", :style=>"display:none"}
+        .arrow-up-profile.arrow-pics{:href=>"#", :style=>"display:none"}
+        .arrow-up-profile.arrow-assistants{:href=>"#", :style=>"display:none"}
+      .share_fb
+        = render :partial => "share_fb"
+      .mine.my-pics           
+        = render :partial=>"photo_gallery"
+      .mine.my-assistants
+        %p
+          = render :partial => "event_facilitators"
+        %p
+          = render :partial => "event_fundations"
+        %p
+          = render :partial => "event_providers"
+      .mine.my-comments
+        %h2
+          = I18n.t("events.comments")
+          \:
+        .all-items
+          %h2
+            = I18n.t("events.add_comment")
+            \:
+          - if member_signed_in?
+            = image_tag member_thumb(current_member.facilitator), :class=>"new_comment_img"
+          = render :partial => "comments/form"                
+          = render :partial => "comments/comment", :collection=> @event.comments.order("id DESC")
+= javascript_include_tag "ui.eventAdmin"

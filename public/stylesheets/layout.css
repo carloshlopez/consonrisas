@@ -1,34 +1,24 @@
 /*
-Syntax error: Undefined variable: "$facilitators-color".
-        on line 55 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss
+Syntax error: Undefined variable: "$site-color".
+        on line 23 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss
 
-50:     -o-transition-duration:1s;	 
-51: 
-52:   }  
-53:   
-54:   a.facilitators{	
-55:     color:$facilitators-color;
-56:     background: $facilitators-color; 
-57:     @include bk-image(url('/images/Facilitator.png'), 17px 12px);
-58:     
-59:   }  
-60:   
+18: margin-bottom: 15px;
+19:  
+20: }
+21: 
+22: #left_div_top{
+23:   background: $site-color;
+24:   color: $main-background;
+25:   height: 25px;
+26:   width: $left-div-width;
+27:   margin-top: -10px;
+28:   input.home-color{
 
 Backtrace:
-/home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss:55
+/home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss:23
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:18:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:235:in `visit_rule'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:18:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -106,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$facilitators-color\".\A         on line 55 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 50:     -o-transition-duration:1s;	 \A 51: \A 52:   }  \A 53:   \A 54:   a.facilitators{	\A 55:     color:$facilitators-color;\A 56:     background: $facilitators-color; \A 57:     @include bk-image(url('/images/Facilitator.png'), 17px 12px);\A 58:     \A 59:   }  \A 60:   "; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 23 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 18: margin-bottom: 15px;\A 19:  \A 20: }\A 21: \A 22: #left_div_top{\A 23:   background: $site-color;\A 24:   color: $main-background;\A 25:   height: 25px;\A 26:   width: $left-div-width;\A 27:   margin-top: -10px;\A 28:   input.home-color{"; }

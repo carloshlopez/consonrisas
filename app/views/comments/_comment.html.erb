@@ -1,4 +1,4 @@
-<div class="comment bordered_box">
+<div class="one-item">
     <% 
     if comment.member.facilitator.name
       name = comment.member.facilitator.name
@@ -6,8 +6,8 @@
       name = comment.member.email
     end
     %>
-    <%= link_to image_tag(member_thumb(comment.member.facilitator), :class=>"comment_pic"), member_path(comment.member), :class=>"nostyle", :title=>I18n.t('go_to_profile')  %>
-    <%= link_to name, member_path(comment.member), :title=>I18n.t('go_to_profile')  %> 
+    <%= link_to image_tag(member_thumb(comment.member.facilitator), :class=>"comment_pic"), facilitator_path(comment.member.facilitator), :class=>"nostyle", :title=>I18n.t('go_to_profile')  %>
+    <%= link_to name, facilitator_path(comment.member.facilitator), :title=>I18n.t('go_to_profile')  %> 
     <%= I18n.l(comment.updated_at, :format=>:long) %>&nbsp;:
     <br/>
     <%= comment.comment %>

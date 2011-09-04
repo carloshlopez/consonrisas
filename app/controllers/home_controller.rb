@@ -12,7 +12,6 @@ class HomeController < ApplicationController
         
       end
     end      
-    render :layout=>"new"
   end
   
   def index

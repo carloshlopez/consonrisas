@@ -1,0 +1,23 @@
+- if member_signed_in? and !current_member.alerts.empty?
+  %h2 Mensajes enviados a ti
+  .all-items
+    - i = 0  
+    - current_member.alerts.where("alert_type = 2").order("created_at DESC").each do |alert|
+      .one-item{:id=>"msg-item-#{i}"}
+        - alert_member = Member.find(alert.member_from)
+        = link_to image_tag(alert_member.facilitator.pic.url(:thumb)), facilitator_path(alert_member.facilitator), :title=>"Click para ver el Facilitador"
+        %span
+          .one-item-name.invite-news
+            = alert.news
+          #{link_to I18n.t('go_to_profile'), facilitator_path(alert_member.facilitator), :title=>"Ver Perfil"} 
+          - if is_current_member_this_member @member.id 
+            |
+            .loading{:style=>"display:none", :id=>"msg-img-#{i}"}
+              = image_tag "mini-loader.gif"                                  
+            %a.delete_msg{:alert_id => alert.id, :href => "#",:id=>"delete-msg-#{i}", :title=>"Eliminar esta noticia"} Eliminar
+            &nbsp;                 
+            #{"-"}
+            &nbsp;   
+            .msg-date
+              = I18n.l(alert.created_at, :format=>:long)            
+      - i = i + 1              

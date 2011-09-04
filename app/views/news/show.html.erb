@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<%= image_tag @news.pic.url(:profile) %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= Role.find(@news.news_type).name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @news.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @news.date %>
+</p>
+
+<p>
+  <b>News:</b>
+  <%= @news.news %>
+</p>
+
+<p>
+  <b>Es la actual:</b>
+  <%= @news.actual %>
+</p>
+
+
+<%= link_to 'Edit', edit_news_path(@news) %> |
+<%= link_to 'Back', news_index_path %>

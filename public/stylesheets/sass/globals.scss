@@ -1,14 +1,34 @@
-$facilitators-color: red;
+$facilitators-color: red; //E20000
+$facilitators-color-dark: #B70000;
 $providers-color: #E3BB00;
+$providers-color-dark: #C9AD30;
 $fundations-color: #973B8C;
+$fundations-color-dark: #8C3681;
 $events-color: #00BCFA;
+$events-color-dark: #008CFF;
 $info-color: rgb(90,180,70);
 $site-color: rgb(90,180,70);
+$site-color-dark: #458C36;
 $main-background: white;
 $home-link-yellow: #EAFF00;
+$body-width: 950px;
+$left-div-width: 300px;
+$main-width: 500px;
+$footer-color: #DCFFD5;
 
 @font-face {
-    font-family: 'MyriadProRegular';
+    font-family: 'contitulos';
+    src: url('/fonts/chapenettoer_8_thin_update_0-webfont.eot');
+    src: url('/fonts/chapenettoer_8_thin_update_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/chapenettoer_8_thin_update_0-webfont.woff') format('woff'),
+         url('/fonts/chapenettoer_8_thin_update_0-webfont.ttf') format('truetype'),
+         url('/fonts/chapenettoer_8_thin_update_0-webfont.svg#Chapenettoer8THIN') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'consonrisas';
     src: url('/fonts/consr-regular-webfont.eot');
     src: url('/fonts/consr-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('/fonts/consr-regular-webfont.woff') format('woff'),
@@ -19,6 +39,14 @@ $home-link-yellow: #EAFF00;
 
 }
 
+body {
+	width: $body-width;
+	background: $main-background;
+	margin-left: auto;
+	margin-right: auto;
+  font-family: "consonrisas";  	
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
 
 @mixin bk-image($url, $position){
     background-image: $url;
@@ -26,16 +54,43 @@ $home-link-yellow: #EAFF00;
     background-position: $position;
 }
 
-body {
-	width: 896px;
-	padding-left: 150px;
-	background: white;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+@mixin search($bk-color){
+  background: $bk-color;
+  color: white;
+  height: 25px;
+  border: 0px;
+  padding: 0px 0px 0px 10px;
+  font-family: "consonrisas";
+  font-size: 13px;
+  width: $left-div-width - 30px;
 }
 
-.nostyle{
-    text-decoration: none;
-    color: $main-background;
-    border-bottom: 0px;
+@mixin facilitators-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
+  background: -webkit-gradient(linear, left top, left bottom, from($facilitators-color), to($facilitators-color-dark));
+  background: -moz-linear-gradient(top,  $facilitators-color,  $facilitators-color-dark);
 }
 
+@mixin fundations-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BA43AA', endColorstr='#8C3681');
+  background: -webkit-gradient(linear, left top, left bottom, from(#BA43AA), to(#8C3681));
+  background: -moz-linear-gradient(top,  #BA43AA,  #8C3681);
+}
+
+@mixin providers-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD200', endColorstr='#C9AD30');
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFD200), to(#C9AD30));
+  background: -moz-linear-gradient(top,  #FFD200,  #C9AD30);
+}
+
+@mixin events-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C3FF', endColorstr='#008CFF');
+  background: -webkit-gradient(linear, left top, left bottom, from(#00C3FF), to(#008CFF));
+  background: -moz-linear-gradient(top,  #00C3FF,  #008CFF);
+}
+
+@mixin site-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
+  background: -webkit-gradient(linear, left top, left bottom, from(#5AB446), to(#458C36));
+  background: -moz-linear-gradient(top,  #5AB446,  #458C36);
+}

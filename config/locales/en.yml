@@ -136,6 +136,9 @@ en:
     mail_created_subjet: "Event created in Conectando Sonrisas"
     mail_comment_made_subject: "New comment on an event of Conectando Sonrisas"
     mail_comment_made_msg: " made a comment on an event of your interest, check the event to see how you can help!"    
+    mail_msg_subject: "Here is a message from someone in Conectando Sonrisas"
+    mail_msg_admin_fundation_subject: "Menssage sent to your Social Proyect in Conectando Sonrisas"
+    mail_msg_admin_provider_subject: "Menssage sent to your Provider in Conectando Sonrisas"        
   profile:
     managed_providers: "Providers managed"
     managed_fundations: "Fundations managed"    

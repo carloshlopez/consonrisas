@@ -1,0 +1,32 @@
+- unless @member.provider_admins.empty?
+  %h2
+    - if is_current_member_this_member(@member.id)
+      = I18n.t('profile.manage_providers')
+    - else
+      = I18n.t('profile.managed_providers')
+  .all-items
+    - @member.provider_admins.each_with_index do |p, i|
+      .one-item{:id=>"provider-item-#{i}"}
+        = link_to image_tag(p.provider.pic(:thumb)), provider_path(p.provider), :title=>"Click para ver el proveedor"        
+        %span    
+          - if p.active
+            .one-item-name
+              = link_to p.provider.name, provider_path(p.provider)
+            - if is_current_member_this_member(@member.id)
+              = link_to I18n.t('edit'), edit_provider_path(p.provider)
+              | 
+              .loading{:style=>"display:none", :id=>"provider-img-#{i}"}
+                = image_tag "mini-loader.gif"              
+              %a.delete_provider{:provider_id=>"#{p.provider.id}", :id=>"delete-provider-#{i}", :href=>"#"}
+                = I18n.t('destroy')
+          - elsif is_current_member_this_member(@member.id)
+            .asked_admin{:member_id => @member.id, :provider_id => p.provider.id}
+              Te han solicitado ser adminitrador de este proveedor: #{p.provider.name}
+              %br
+              %a.provider_admin_accept{:href => "#"} Aceptar
+              |
+              %a.provider_admin_reject{:href => "#"} Rechazar
+- else
+  %p
+    Este facilitador no administra a ningún proveedor
+  %a.send-msg{:href=>"#"}Enviar un mensaje              

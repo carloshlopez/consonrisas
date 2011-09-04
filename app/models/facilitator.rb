@@ -20,5 +20,14 @@ class Facilitator < ActiveRecord::Base
     is_it = false unless name
     is_it
   end
+  
+  def send_msg(alert)
+    Alert.new(alert).save!
+    begin
+      SendMsg.msg_to_facilitator(Member.find(alert["member_from"]), self.member, alert["news"]).deliver if self.member.emailNotifications
+    rescue => e
+      puts "Error facilittor send_msg: #{e.inspect}"
+    end
+  end
 
 end

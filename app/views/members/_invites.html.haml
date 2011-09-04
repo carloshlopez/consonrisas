@@ -1,0 +1,24 @@
+- if member_signed_in? and !current_member.alerts.empty?
+  %h2 Invitaciones a eventos de tu interés
+  .all-items
+    - i = 0
+    - current_member.alerts.where("alert_type=1").order("created_at DESC").each do |alert|
+      .one-item{:id=>"alert-item-#{i}"}
+        = link_to image_tag(Event.find(alert.link).pic.url(:thumb)), event_path(alert.link), :title=>"Click para ver el evento"
+        %span
+          .one-item-name.invite-news
+            = alert.news
+          #{link_to I18n.t('events.show'), event_path(alert.link), :title=>"Click para ir al evento"} 
+          - if is_current_member_this_member @member.id 
+            |
+            .loading{:style=>"display:none", :id=>"alert-img-#{i}"}
+              = image_tag "mini-loader.gif"                      
+            %a.delete_alert{:alert_id => alert.id, :href => "#", :title=>"Eliminar esta noticia",:id=>"delete-alert-#{i}"} Eliminar
+            &nbsp;                 
+            #{"-"}
+            &nbsp;            
+            .msg-date
+              = I18n.l(alert.created_at, :format=>:long)
+      - i = i + 1
+- else
+  No tienes invitaciones en este momento

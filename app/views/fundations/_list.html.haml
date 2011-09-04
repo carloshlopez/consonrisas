@@ -1,23 +1,40 @@
 .list-title.list-fundations
   %h1
     = I18n.t('fundation.list')
-.all-items
-  - num = 0
+    = image_tag '/images/FundacionesTransparenteMedio.png'
+.list-arrow.list-arrow-fundations    
+.all-items.all-fundations
+  %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"}
+  %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}
+  - i = 0
   - @fundations.each do |fundation|
-    .one-item
-      = link_to image_tag(fundation.pic.url(:thumb)), fundation_path(fundation.id), :class=>"nostyle", :title=>I18n.t('go_to_profile')     
+    .one-item.one-item-fundations
+      = link_to image_tag(fundation.pic.url(:thumb), :class=>"img-fundations"), fundation_path(fundation.id), :title=>I18n.t('go_to_profile')     
       %span
-        = fundation.name
-        %a{:href=>"#{convert_url_for_href(fundation.website)}", :target=>"_blank"}
-          = fundation.website
-        = population_name(fundation.population_id)
+        .one-item-name
+          = link_to fundation.name, fundation
+        %a.www{:href=>"#{convert_url_for_href(fundation.website)}", :target=>"_blank", :title=>"#{fundation.website}"}www          
         - if member_signed_in?
           = link_to I18n.t('fundation.show'), fundation
-          - if fundation.facilitators.select{|f| f.id == current_member.facilitator.id}.empty?
-            |
-            = link_to I18n.t('follow'), fundations_add_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>fundation.id)
+          |
+          %a.send-msg{:href=>"#", :id=>"msg-#{i}"}
+            Enviar Mensaje
+          |
+          %span.loading{:style=>"display:none", :id=>"fund-img-#{i}"}
+            = image_tag "mini-loader.gif"          
+          - if current_member.facilitator.fundations.select{|f| f.id == fundation.id}.empty?
+            %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#", :id=>"fund-#{i}"}
+              = I18n.t('follow')
           - else
-            | 
-            = link_to I18n.t('unfollow'), fundations_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>fundation.id)
-  - if member_signed_in?
-    = link_to I18n.t('fundation.new'), new_fundation_path
+            %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#",:id=>"fund-#{i}"}
+              =I18n.t('unfollow')          
+      .one-item-populations.one-item-fundations
+        = population_name(fundation.population_id)
+      - if member_signed_in?
+        - @num = i
+        - @fundation = fundation
+        = render :partial=>"send_msg" 
+    - i = i + 1   
+  .pagination-fundations 
+    = paginate @fundations    
+  = javascript_include_tag "new_layout/ui.fundationsFollow"

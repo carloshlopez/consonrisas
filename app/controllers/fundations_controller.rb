@@ -4,8 +4,7 @@ class FundationsController < ApplicationController
   # GET /fundations.xml
   def index
 #    @fundations = Fundation.all
-    @fundations = Fundation.order("name").page(params[:page])
-#    render :layout=> "new"
+    @fundations = Fundation.order("name").page(params[:page]).per(8)
   end
 
   # GET /fundations/1
@@ -75,10 +74,12 @@ class FundationsController < ApplicationController
   def destroy
     @fundation = Fundation.find(params[:id])
     @fundation.destroy
+    resp ={"resp" => "ok"}
 
     respond_to do |format|
       format.html { redirect_to(fundations_url) }
       format.xml  { head :ok }
+      format.json {render :json=>resp}
     end
   end
   
@@ -86,14 +87,18 @@ class FundationsController < ApplicationController
     fundation = Fundation.find(params[:fundation_id])
     facilitator = Facilitator.find(params[:facilitator_id])
     fundation.facilitators.push(facilitator)
-    redirect_to fundations_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end
   
   def remove_follower
     fundation = Fundation.find(params[:fundation_id])
     facilitator = Facilitator.find(params[:facilitator_id])
     fundation.facilitators.delete(facilitator)
-    redirect_to fundations_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end
   
   def ask_admin
@@ -104,5 +109,21 @@ class FundationsController < ApplicationController
       format.js {head :ok}
     end
   end
+  
+  def send_msg_to_admins
+    resp = {:message=> "ok"}
+    begin
+      fundation = Fundation.find(params[:fundation_id])
+      member_from = Member.find(params[:member_from])
+      fundation.send_msg_to_admins(member_from, params[:msg])
+    rescue => e 
+      puts "Error on fundations send_msg_to_admins: #{e.inspect}"
+      resp = {:message => e.message}
+    end
+    respond_to do |format|
+      format.json {render :json=>resp}
+    end
+  end  
+  
   
 end

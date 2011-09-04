@@ -1,0 +1,90 @@
+.create-button{
+  height: 50px;
+  width: $left-div-width - 4;
+  margin-top: 10px;
+  padding-top: 2px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  direction: rtl;
+}
+
+.create-fundation{
+  background-image: url('/images/FundacionesTransparenteMedio.png');
+  background-position: -20px -20px;  
+  background-color: $fundations-color;
+  border-top: lighten($fundations-color, 30%) 2px solid;
+  border-right: darken($fundations-color, 20%) 2px solid;
+  border-bottom: darken($fundations-color, 20%) 2px solid;
+  border-left: lighten($fundations-color, 30%) 2px solid;  
+}
+
+.create-provider{
+  background-image: url('/images/ProveedorTransparenteChiqui.png');
+  background-position: 10px -5px;    
+  background-color: $providers-color;
+  border-top: lighten($providers-color, 10%) 2px solid;
+  border-right: darken($providers-color, 20%) 2px solid;
+  border-bottom: darken($providers-color, 20%) 2px solid;
+  border-left: lighten($providers-color, 10%) 2px solid;    
+}
+
+.create-event{
+  background-image: url('/images/EventoTransparenteMedio.png');
+  background-position: -20px -5px;    
+  background-color: $events-color;
+  border-top: lighten($events-color, 10%) 2px solid;
+  border-right: darken($events-color, 30%) 2px solid;
+  border-bottom: darken($events-color, 30%) 2px solid;
+  border-left: lighten($events-color, 10%) 2px solid;      
+}
+.create-button:hover{
+  border-top: black 2px solid;
+  border-right: white 2px solid;
+  border-bottom: white 2px solid;
+  border-left: black 2px solid;     
+}
+
+.create-fundation-img{
+  margin-top: 5px;
+  margin-right: 10px;
+  border: $fundations-color;
+}
+.create-event-img{
+  margin-top: 10px;
+  margin-right: 10px;
+  border: $events-color;
+}
+
+.create-provider-img{
+  margin-top: 10px;
+  margin-right: 10px;
+  border: $providers-color;
+}
+
+.desc-create-triangle{
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid $site-color;
+  height: 0px;
+  width: 0px;
+  margin-top: 50px;
+  margin-right: 60px;
+}
+
+.create-buttons a span{
+  display: none;
+  color: white;
+  font-family: "consonrisas";
+  font-size: 13px;
+  font-weight: normal;
+}
+.create-buttons a:hover span{
+  display: block;
+  position: absolute;
+  background: $site-color;
+  height: 50px;
+  width: $left-div-width/2;
+  margin-right: 150px;
+  margin-top: -112px;
+}

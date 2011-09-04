@@ -1,0 +1,36 @@
+- unless @member.event_admins.empty?
+  %h2
+    - if is_current_member_this_member(@member.id)
+      = I18n.t('profile.manage_events')
+    - else
+      = I18n.t('profile.managed_events')
+  .all-items
+    - @member.event_admins.each_with_index do |e, i|  
+      .one-item{:id=>"event-item-#{i}"}
+        = link_to image_tag(e.event.pic.url(:thumb)), event_path(e.event), :title=>"Click para ver el evento"        
+        %span
+          - if e.active
+            .one-item-name
+              = link_to e.event.name, event_path(e.event)
+              = "-"
+              = I18n.l(e.event.date, :format=>:long)
+            - if is_current_member_this_member(@member.id)
+              = link_to "Editar", edit_event_path(e.event)
+              |
+              .loading{:style=>"display:none", :id=>"event-img-#{i}"}
+                = image_tag "mini-loader.gif"                                                
+              %a.delete_event{:event_id=>"#{e.event.id}", :id=>"delete-event-#{i}", :href=>"#"} 
+                = I18n.t('destroy')
+          - elsif is_current_member_this_member(@member.id)
+            .asked_admin.invite-news{:event_id => e.event.id, :member_id => @member.id}
+              Te han solicitado ser adminitrador de este evento: #{e.event.name}
+              %br
+              %a.event_admin_accept{:href => "#"} Aceptar
+              |
+              %a.event_admin_reject{:href => "#"} Rechazar
+          - else
+            Solicitud de administración pendiente responder
+- else
+  %p
+    Este facilitador no a asistido a ningún evento
+  %a.send-msg{:href=>"#"}Enviar un mensaje

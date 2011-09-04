@@ -1,9 +1,0 @@
-<div class="my_events bordered_box">
-  <p>
-  <%= I18n.t('profile.events_calendar') %>
-  </p>
-  <% @fundation.events.each do |event| %>  
-    <%= link_to ("#{event.name}, #{I18n.l(event.date, :format=> :long)}"), event %>
-    <br/>
-  <% end %>
-</div>

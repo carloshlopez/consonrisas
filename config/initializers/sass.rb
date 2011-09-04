@@ -12,4 +12,4 @@
 #    :root => "#{Rails.root}/tmp")
 
 #IF YOU PUT THE GENERATED CSS ON THE DEFAULT LOCATION, UNCOMMENT THIS LINE WHEN UPLOADED TO HEROKU
-Sass::Plugin.options[:never_update] = true
+#Sass::Plugin.options[:never_update] = true

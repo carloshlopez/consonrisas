@@ -4,23 +4,17 @@ class FacilitatorsController < ApplicationController
   # GET /facilitators.xml
   def index
     #@facilitators = Facilitator.all
-    @facilitators = Facilitator.order("name").page(params[:page])
-    #render :layout=>"new"
+    @facilitators = Facilitator.order("name").page(params[:page]).per(8)
   end
+  
   def list
     @facilitators = Facilitator.all #paginate :page => params[:page], :order => 'name'
-    render :layout=>"new"
   end  
 
   # GET /facilitators/1
   # GET /facilitators/1.xml
   def show
     @facilitator = Facilitator.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @facilitator }
-    end
   end
 
   # GET /facilitators/new
@@ -99,14 +93,32 @@ class FacilitatorsController < ApplicationController
     facilitator = Facilitator.find(params[:facilitator_id])
     followed = Facilitator.find(params[:followed_id])
     facilitator.facilitators.push(followed)
-    redirect_to facilitators_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end
   
   def remove_follower
     facilitator = Facilitator.find(params[:facilitator_id])
     followed = Facilitator.find(params[:followed_id])
     facilitator.facilitators.delete(followed)
-    redirect_to facilitators_path
+    respond_to do |format|
+      format.json {render :json=> 'ok'}
+    end
   end  
+  
+  def send_msg
+    resp = {"resp" => "ok"}
+    begin
+      facilitator = Facilitator.find(params[:alert]["member_id"])
+      facilitator.send_msg(params[:alert])
+    rescue => e
+      resp = {"resp" => "error", "message" => e.message}
+    end
+
+    respond_to do |format|
+      format.json { render :json => resp }
+    end
+  end
   
 end

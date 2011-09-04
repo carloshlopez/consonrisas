@@ -1,59 +1,269 @@
-/*lists as divs*/
-.list-facilitators{
-  background-image: url('/images/IconosFacilitadoresNoFondo.png');
-  background-color: $facilitators-color;
-}
-
-.list-providers{
-  background-image: url('/images/IconosProveedoresNoFondo.png');
-  background-color: $providers-color;
-}
-
-.list-fundations{
-  background-image: url('/images/IconosProyectosSocialesNoFondo.png');
-  background-color: $fundations-color;
-}
-
-.list-events{
-  background-image: url('/images/IconosEventosNoFondo.png');
-  background-color: $events-color;
-}
-
-.list-title{
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  font-family: "MyriadProRegular";
-  background-repeat: no-repeat;
-  background-position: 10px 10px;
+#left-div-lists{
   color: $main-background;
-  height: 170px;
-  h1{
-    margin-left: 150px;
-    margin-top: 60px;
-    position: absolute;
+  width: $left-div-width;
+  clear: left;
+  margin-top: -15px;
+  a{
+   text-decoration: none;
+  }
+  a:hover{
+   color: darken($main-background, 10%);
+   font-weight: bold;
+  }
+  .vip{
+    height: 500px;
+    img.transparent{
+      position: absolute;
+      margin-top: 5px;
+      margin-left: -30px;      
+    }
+    img.news-img{
+      margin-top: 15px;
+      margin-left: 30px;      
+    }
+    h2{
+      padding-top: 25px;
+      padding-left: 35px;
+    }
+    .type{
+      padding-left: 40px;
+      margin-top: -20px;
+    }
+    .text{
+      height: 300px;
+      .news-title{
+        font-weight: bold;
+        padding-left: 25px;
+      }
+      .news-fecha{
+        padding-left: 25px;      
+      }
+      .news{
+        padding: 0 25px 25px;
+        font-size: 14px;
+        min-height: 150px;
+      }
+      .news-link{
+        direction: rtl;
+        margin-right: 5px;
+        margin-top: -40px
+      }
+      a.news-more{
+        padding-left: 18  0px;
+        margin-bottom: -100px;
+        text-decoration: none;
+        color: white;
+      }
+      a.news-more:hover{
+        font-weight: bold;
+      }      
+    }    
+  }
+  .vip-facilitators{
+    @include facilitators-gradient();
+  }
+  .vip-providers{
+    @include providers-gradient();    
+  }  
+  .vip-fundations{
+    @include fundations-gradient();
+  }  
+  .vip-events{
+    @include events-gradient();
   }  
 }
 
+#list-content{
+  width: $main-width + 100px;
+	margin-left: 320px;
+	margin-top: -715px;
+	min-height:700px;
+}
+
+/*lists as divs*/
+.list-facilitators{
+  @include facilitators-gradient();;
+}
+
+.list-providers{
+  @include providers-gradient();
+}
+
+.list-fundations{
+  @include fundations-gradient();
+}
+
+.list-events{
+  @include events-gradient();
+}
+
+.list-title{
+  color: $main-background;
+  font-family: "contitulos";
+  height: 100px;
+  letter-spacing: -2px;
+ h1{
+    padding-left: 15px;
+    padding-top: 25px;
+  }  
+  img{
+    position: absolute;
+    margin-left: 150px;
+  }  
+}
+
+.list-arrow{
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    height: 0;
+    margin-left: 25px;
+    width: 0;
+}
+.list-arrow-facilitators{
+  border-top: 17px solid $facilitators-color-dark;
+}
+.list-arrow-providers{
+  border-top: 17px solid $providers-color-dark;
+}
+.list-arrow-fundations{
+  border-top: 17px solid $fundations-color-dark;
+}
+.list-arrow-events{
+  border-top: 17px solid $events-color-dark;
+}
+
 .all-items{
-  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+}
+
+.loading{
+  display: inline-block;
+  img{
+    color: $main-background;
+    border: 0;
+  }
 }
 
 .one-item{
    height: 50px;
-   padding: 10px;
-   font-family: "MyriadProRegular";
+   padding: 10px 10px 20px;
    font-size: medium;
-   border-color: $site-color;
    border-width: 0 0 1px;
-   border-style: solid;
+   border-style: dotted;
+   color: $site-color;
   span{
     position: absolute;
-    margin-top: 20px;
+    margin-top: 8px;
     margin-left: 10px;
-  }   
+  }
+  a{
+    text-decoration: none;
+    color: $site-color;
+    font-size: 13px;
+  }
+  a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+  }  
+  img{
+    border: solid;
+  }
+  img.img-facilitators{
+    border-color: $facilitators-color;
+  }
+  img.img-providers{
+    border-color: $providers-color;
+  }
+  img.img-fundations{
+    border-color: $fundations-color;
+  }      
+  img.img-events{
+    border-color: $events-color;
+  }        
+  .www{
+    background: $fundations-color;
+    color: white;
+    font-weight: bold;
+  }
+  .msg-date{
+    color: black;
+    display: inline;
+    font-weight: normal;
+    font-size: 11px;
+  }
+  .invite-news{
+    color: black;
+  }
+}
+
+.one-item-populations{
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+  border-style: solid;
+  border-width: 0 0 5px;
+  display: inline;
+  left: 86%;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.one-item-facilitators{
+  border-color: $facilitators-color;
+}
+.one-item-providers{
+  border-color: $providers-color;
+}
+.one-item-fundations{
+  border-color: $fundations-color;
+}
+.one-item-events{
+  border-color: $events-color;
+}
+
+.one-item-name a{
+ color: $site-color;
+ font-size: 18px;
+ font-weight: bold;
+}
+
+.one-item-date{
+ color: $site-color;
+ font-size: 15px;
+ display: inline;
+ font-weight: normal;
+}
+
+.pagination{
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: xlarge;
+ a{
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+ }
+ a:hover{
+   font-weight: bold;
+   text-decoration: none;
+ }
+}
+
+.pagination-facilitators{
+margin-top: 10px;
+background: $facilitators-color;
+}
+.pagination-providers{
+margin-top: 10px;
+background: $providers-color;
+}
+.pagination-fundations{
+margin-top: 10px;
+background: $fundations-color;
+}
+.pagination-events{
+margin-top: 10px;
+background: $events-color;
 }

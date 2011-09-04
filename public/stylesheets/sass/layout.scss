@@ -1,9 +1,149 @@
+.application_messages{
+    direction: ltr;
+    margin-right: 350px;
+    position: absolute;
+  }
+
+.notice{
+  color: green;
+}
+.alert{
+  color: red;
+}
+
 .logo
 {
 height: 125px;
 margin-top: 15px;
 margin-bottom: 15px;
  
+}
+
+#left_div_top{
+  background: $site-color;
+  color: $main-background;
+  height: 25px;
+  width: $left-div-width;
+  margin-top: -10px;
+  input.home-color{
+    @include search($site-color);
+  }
+  input.home-color:hover{
+    background: lighten($site-color, 25%);
+    color: darken($site-color, 20%);
+  }  
+  input.home-color:focus{
+    background: lighten($site-color, 45%);
+    color: darken($site-color, 60%);
+  }
+  a{
+    height: 20px;
+    width: 20px;
+  }
+  .search-triangle-button{
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid white;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  .search-triangle-button:hover{
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid white;
+    float: right;
+    margin-top: 3px;
+    margin-right: 10px;
+  }  
+}
+
+input.facilitators-color{
+  @include search($facilitators-color);
+}
+input.facilitators-color:hover{
+  background: lighten($facilitators-color, 25%);
+  color: darken($facilitators-color, 20%);
+}  
+input.facilitators-color:focus{
+  background: lighten($facilitators-color, 45%);
+  color: darken($facilitators-color, 40%);
+}
+
+input.providers-color{
+  @include search($providers-color);
+}
+input.providers-color:hover{
+  background: lighten($providers-color, 25%);
+  color: darken($providers-color, 20%);
+}  
+input.providers-color:focus{
+  background: lighten($providers-color, 45%);
+  color: darken($providers-color, 40%);
+}
+
+
+input.fundations-color{
+  @include search($fundations-color);
+}
+input.fundations-color:hover{
+  background: lighten($fundations-color, 25%);
+  color: darken($fundations-color, 20%);
+}  
+input.fundations-color:focus{
+  background: lighten($fundations-color, 45%);
+  color: darken($fundations-color, 40%);
+}
+
+
+
+input.events-color{
+  @include search($events-color);
+}
+input.events-color:hover{
+  background: lighten($events-color, 25%);
+  color: darken($events-color, 20%);
+}  
+input.events-color:focus{
+  background: lighten($events-color, 45%);
+  color: darken($events-color, 40%);
+}
+
+
+input.info-color{
+  @include search($site-color);
+}
+input.info-color:hover{
+  background: lighten($site-color, 25%);
+  color: darken($site-color, 20%);
+}  
+input.info-color:focus{
+  background: lighten($site-color, 45%);
+  color: darken($site-color, 40%);
+}
+
+#right_div_top{
+  direction: rtl;
+  color: black;
+  float:right;
+  margin-top: -20px;
+  font-size: 13px;  
+ a{
+    color: $site-color;
+    text-decoration: none;
+  }
+ a:hover{
+    color: darken($site-color, 20%);
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+#logo{
+  width: $left-div-width;
+  a{
+    color: $main-background;
+  }
 }
 
 #menu {
@@ -23,7 +163,7 @@ margin-bottom: 15px;
 	  text-align: center;
   }
   a {
-	  display: block;
+	  display: inline-block;
 	  float: left;
 	  height: 95px;
 	  width: 95px;
@@ -118,30 +258,34 @@ margin-bottom: 15px;
   @include bk-image(url('/images/InfoLetras.png'), 20px 50px);      
 }
 
-
-#right_div_top{
-  position: absolute;
-  right: 150px;
+#follow-us{
   color: $site-color;
+  height: 35px;
+  float: left;
  a{
     color: $site-color;
-    font-family: "MyriadProRegular";
-    font-size: 15px;
+    font-size: 13px;
     text-decoration: none;
-  }  
+  }
+ a.follow-text:hover{
+    color: darken($site-color, 10%);
+    font-weight: bold;
+  } 
   img{
-    height: 20px;
-  }  
-  a{
-    text-decoration: none;
+    vertical-align: middle;
   }  
 }
 
+
 #footer{
   clear: left;
-  text-align: center;
+  text-align: right;
   color: $site-color;
-  margin-top: -10px;
-  font-family: "MyriadProRegular";
+  margin-top: 10px;
   font-size: 13px;
+  background-color: $footer-color;
+  height: 40px;
+  line-height: 350%;
+  width: 840px;
+  padding: 0px 20px 0px;
 }

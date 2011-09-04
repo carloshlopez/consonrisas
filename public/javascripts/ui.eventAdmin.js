@@ -59,7 +59,12 @@ $jq.widget("ui.eventAdmin", {
             var event_id = $jq(this).attr("event_id");
             var prov_id = $jq(this).attr("provider_id");
             self._removeProvider(event_id, prov_id);
-        });                
+        });               
+        
+        $el.find(".edit-me").click(function(e){
+          e.preventDefault();
+          $jq("#event-edit").dialog({modal:true, title:"Editar Evento", width: 500, closeText:"X", show:"fadeIn"});
+        });         
         
 //        $jq('#comment_submit').click(function(e){
 //            e.preventDefault();
@@ -68,8 +73,23 @@ $jq.widget("ui.eventAdmin", {
 //            
 //        });        
         
+      	$el.find(".my-profile-menu a").click(function(e) {
+    	    e.preventDefault();
+    	    var to_show = $jq(this).attr("show");
+    	    console.log(to_show);    	    
+          self._show(to_show);
+        });
         
-        
+    }, _show: function(show){
+      $jq(".arrow-up-profile").hide();
+      $jq(".arrow-"+ show).show();
+      if (show == "all" ){
+        $jq(".mine").show();
+      }
+      else {
+        $jq(".mine").hide();
+        $jq(".my-"+ show).show(); 
+      }
     },
     _askAdmin: function(event_id, mem_id, mail){
         var postData = {event_id:event_id, member_id:mem_id, mail:mail};
@@ -178,5 +198,5 @@ jQuery(document).ready(function($) {
         show_title: false,
         allow_resize: true,
         keyboard_shortcuts: true
-    });
+    });    
 });

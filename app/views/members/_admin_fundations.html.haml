@@ -1,0 +1,32 @@
+- unless @member.fundation_admins.empty?
+  %h2
+    - if is_current_member_this_member(@member.id)
+      = I18n.t('profile.manage_fundations')
+    - else
+      = I18n.t('profile.managed_fundations')
+  .all-items
+    - @member.fundation_admins.each_with_index do |f, i|
+      .one-item{:id=>"fundation-item-#{i}"}
+        = link_to image_tag(f.fundation.pic(:thumb)), fundation_path(f.fundation), :title=>"Click para ver el proyecto social"        
+        %span
+          - if f.active
+            .one-item-name
+              = link_to f.fundation.name, fundation_path(f.fundation)
+            - if is_current_member_this_member(@member.id)
+              = link_to I18n.t('edit'), edit_fundation_path(f.fundation)
+              |
+              .loading{:style=>"display:none", :id=>"fundation-img-#{i}"}
+                = image_tag "mini-loader.gif"                                        
+              %a.delete_fundation{:fundation_id => "#{f.fundation.id}", :id=>"delete-fundation-#{i}", :href=>"#"}
+                = I18n.t('destroy')
+          - elsif is_current_member_this_member(@member.id)
+            .asked_admin{:fundation_id => f.fundation.id, :member_id => @member.id}
+              Te han solicitado ser adminitrador de esta fundación: #{f.fundation.name}
+              %br
+              %a.fundation_admin_accept{:href => "#"} Aceptar
+              |
+              %a.fundation_admin_reject{:href => "#"} Rechazar
+- else
+  %p
+    Este facilitador no pertenece ni administra ningun proyecto social
+  %a.send-msg{:href=>"#"}Enviar un mensaje
