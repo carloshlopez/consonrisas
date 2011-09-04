@@ -1,0 +1,18 @@
+- unless @fundation.events.empty?
+  .all-items
+    %h3
+      = I18n.t('profile.events_calendar')
+    - @fundation.events.order("date DESC").each do |event|
+      .one-item
+        = link_to image_tag(event.pic.url(:thumb), :class=>"img-events"), event_path(event.id),:title=>I18n.t('events.show')
+        %span
+          .one-item-name
+            = link_to event.name.size > 30 ? event.name[0.. 30] + "..." : event.name, event
+            #{"-"}
+            .one-item-date
+              = I18n.l(event.date, :format=>:long)
+          = link_to I18n.t('events.show'), event
+- else
+  %p
+    Este proyecto social no a asistido a ningún evento
+  %a.send-msg{:href=>"#"}Enviar un mensaje        

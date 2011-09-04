@@ -8,7 +8,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 
-["Fundación", "Proveedor", "Facilitador"].each do |r|
+["Fundación", "Proveedor", "Facilitador", "Eventos"].each do |r|
     Role.find_or_create_by_name(r)
 end
 

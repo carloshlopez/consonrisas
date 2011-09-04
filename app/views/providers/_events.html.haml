@@ -1,0 +1,18 @@
+- unless @provider.events.empty?
+  %h3
+    =I18n.t('profile.events_calendar')
+  .all-items
+    - @provider.events.each do |event|  
+      .one-item
+        = link_to image_tag(event.pic.url(:thumb),:class=>"img-events"), event_path(event), :title=>"Click para ver el evento"        
+        %span
+          .one-item-name
+            = link_to event.name, event_path(event)
+            = "-"
+            .one-item-date
+              = I18n.l(event.date, :format=>:long)
+          = link_to I18n.t('events.show'), event            
+- else
+  %p
+    Este proveedor no a asistido a ningún evento
+  %a.send-msg{:href=>"#"}Enviar un mensaje

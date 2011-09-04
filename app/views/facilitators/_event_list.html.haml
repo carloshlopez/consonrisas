@@ -1,0 +1,16 @@
+- unless @facilitator.events.empty?
+  %h2
+    Eventos a los que este facilitador a asistido
+  .all-items
+    - @facilitator.events.each do |event|  
+      .one-item
+        = link_to image_tag(event.pic.url(:thumb)), event_path(event), :title=>"Click para ver el evento"        
+        %span
+          .one-item-name
+            = link_to event.name, event_path(event)
+            = "-"
+            = I18n.l(event.date, :format=>:long)
+- else
+  %p
+    Este facilitador no a asistido a ningún evento
+  %a.send-msg{:href=>"#"}Enviar un mensaje

@@ -5,7 +5,7 @@ $jq.widget("ui.homeMenu", {
     	var $el= this.element;
     	var path = window.location.pathname;
     	if(path.indexOf('member') > 0){
-        	self._updateCurrent('profile');
+        	self._updateCurrent('info');
     	}
     	else if(path.indexOf('facilitator') > 0){
         	self._updateCurrent('facilitators');
@@ -56,7 +56,9 @@ $jq.widget("ui.homeMenu", {
     _updateCurrent: function(current){
         var cur = $jq("a."+current);
         cur.addClass("current_page_item_"+current);
-        cur.removeClass(current);
+        cur.removeClass(current);        
+        $jq("#left_div_top").css("background", color(current));
+        $jq("#search-text").attr('class', current+'-color') ;
     }
     
 });
@@ -90,9 +92,4 @@ function description(current){
 
 $jq(document).ready(function($) {    
     $jq("#menu").homeMenu();
-
-    $jq(".login").click(function(e){
-      e.preventDefault();
-      $jq("#login-form").dialog({modal:true, title:"Ingresar", width: 400, closeText:"X", show:"clip"});
-    });
 });

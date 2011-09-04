@@ -1,24 +1,14 @@
 class MembersController < ApplicationController
   before_filter :authenticate_member!
-  # GET /members
-  # GET /members.xml
-  def index
-    @members = Member.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @members }
-    end
-  end
 
   # GET /members/1
   # GET /members/1.xml
   def show
     @member = Member.find(params[:id])
-    @contact_informations = @member.contact_informations
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @member }
+    if member_signed_in? and current_member.id == @member.id
+      @contact_informations = @member.contact_informations
+    else
+      redirect_to facilitator_path(@member.facilitator)
     end
   end
 
@@ -82,12 +72,16 @@ class MembersController < ApplicationController
   end
   
   def delete_alert
-    @alert = Alert.find(params[:alert_id])
-    @alert.destroy
+    resp = {"resp" => "ok"}
+    begin
+      @alert = Alert.find(params[:alert_id])
+      @alert.destroy
+    rescue => e
+      resp = {"resp" => "error", "message" => e.message}
+    end
     respond_to do |format|
-      format.js  { head :ok }      
+      format.json  { render :json=> resp }      
     end    
-
   end
   
   def update_facebook_id

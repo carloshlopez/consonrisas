@@ -1,0 +1,110 @@
+#fundation-profile
+  #left-div-profile-fundation
+    .profile-info
+      = image_tag 'FundacionesTransparenteChiqui.png', :class=>"transparent"
+      %h2
+        = @fundation.name
+      .type
+        proyecto social
+      = image_tag @fundation.pic.url(:profile), :class=>"img-profile"  
+      .about-me
+        .about-me-text
+          - if !@fundation.website.empty?
+            %b
+              www:
+            = @fundation.website
+          %br
+          %b
+            Población que atienden:
+          = population_name(@fundation.population_id)
+          %br
+          %b
+            = I18n.t('address')
+            \:
+          = @fundation.address
+          %br/
+          %b
+            = I18n.t('cellphone')
+            \:
+          = @fundation.cellphone
+          %br/
+          %b
+            = I18n.t('city')
+            \:
+          = @fundation.city
+          %br/
+          %b
+            = I18n.t('country')
+            \:
+          = @fundation.country
+          %br/
+          %b
+            = I18n.t('description')
+            \:
+          = @fundation.description
+          %br/
+          %b
+            = I18n.t('phone')
+            \:
+          = @fundation.phone
+          %br/          
+          %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"} 
+          %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}          
+          %span.loading{:style=>"display:none", :id=>"fund-img-0"}
+            = image_tag "mini-loader-yellow-on-purple.gif"                    
+          - if current_member.facilitator.fundations.select{|f| f.id == @fundation.id}.empty?          
+            %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{@fundation.id}", :href=>"#", :id=>"fund-0"}
+              = I18n.t('follow')
+          - else
+            %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{@fundation.id}", :href=>"#",:id=>"fund-0"}
+              =I18n.t('unfollow')          
+          %br
+          %a.send-msg{:href=>"#"}Enviar un mensaje
+    = render :partial => "shared/create_buttons"
+  #profile-content-fundation
+    .my-profile-title
+      %h1 
+        proyecto social      
+        = image_tag '/images/FundacionesTransparenteMedio.png'
+    .my-profile-menu
+      %a.events{:href=>"#menu", :show=>"events"} eventos
+      |
+      %a.contact{:href=>"#menu", :show=>"contact"} información de contacto
+    .my-profile-arrows
+      .arrow-up-profile.arrow-events
+      .arrow-up-profile.arrow-contact{:style=>"display:none"}
+    .mine.my-events
+      = render :partial => "events"  
+    .mine.my-contact{:style=>"display:none"}
+      -  @member =  @fundation 
+      -  @member_type = ApplicationHelper::ROLES[:fundation]
+      - unless @fundation.contact_informations.empty?
+        %h2
+          = I18n.t('contact_informations')
+          \:
+        = render :partial => "contact_informations/contact_information", :collection=> @fundation.contact_informations
+      - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)
+        %h2
+          = I18n.t('contact_information.add')
+          \:
+        = render :partial => "contact_informations/form"
+        #fundations.bordered_box{:fundation_id => @fundation.id}
+          Agregar administrador de fundación:
+          %select#member_id
+            %option{:selected => "", :value => "-1"} --
+            - current_member.facilitator.facilitators.each do |fac|
+              - unless FundationAdmin.find(:first, :conditions=>{:fundation_id=>@fundation.id, :member_id=>fac.member.id})
+                %option{:value => fac.id}
+                  - if fac.name
+                    = fac.name
+                  - else
+                    = fac.member.email
+          %br
+          ó preguntarle por email
+          %input#ask_admin_mail{:type => "text", :value => "mail"}
+          %br
+          #ask_admin_message{:style=>"display:none"} Se envió la solicitud!
+          %a.ask_admin{:href => "#", :name => "ask_admin"}Ask To Admin   
+  - @num = 0
+  = render :partial=>"send_msg"
+  = javascript_include_tag "new_layout/ui.profileFundation"          

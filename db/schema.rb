@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813193606) do
+ActiveRecord::Schema.define(:version => 20110825190043) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20110813193606) do
     t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "alert_type",  :default => 1
+    t.integer  "member_from"
   end
 
   create_table "authentications", :force => true do |t|
@@ -174,6 +176,20 @@ ActiveRecord::Schema.define(:version => 20110813193606) do
     t.boolean  "use_facebook_pic",                    :default => false
     t.boolean  "admin",                               :default => false
     t.boolean  "emailNotifications",                  :default => true
+  end
+
+  create_table "news", :force => true do |t|
+    t.integer  "news_type"
+    t.string   "title"
+    t.date     "date"
+    t.text     "news"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
+    t.boolean  "actual"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photos", :force => true do |t|

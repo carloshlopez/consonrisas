@@ -1,0 +1,63 @@
+#facilitator-profile
+  #left-div-profile-facilitator
+    .profile-info
+      = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
+      %h2
+        = @facilitator.name.nil? ? @facilitator.member.email : @facilitator.name
+      .type
+        facilitador
+      = image_tag member_pic(@facilitator), :class=>"img-profile"  
+      .about-me
+        .about-me-text
+          = render 'show'
+          %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"} 
+          %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}          
+          %span.loading{:style=>"display:none", :id=>"fac-img-0"}
+            = image_tag "mini-loader-yellow.gif"                    
+          - if current_member.facilitator.facilitators.select{|f| f.id == @facilitator.id}.empty?          
+            %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{@facilitator.id}", :href=>"#", :id=>"fac-0"}
+              = I18n.t('follow')
+          - else
+            %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{@facilitator.id}", :href=>"#",:id=>"fac-0"}
+              =I18n.t('unfollow')          
+          %br
+          %a.send-msg{:href=>"#"}Enviar un mensaje
+    .my-connections
+      .my-connections-faces
+        - @facilitator.facilitators.each_with_index do |fac, i|
+          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
+          - break if i >= 2
+      .my-connections-link
+        Sus Conecciones
+        %br
+        %a.see-all{:href=>"#"}ver todas
+    = render :partial => "shared/create_buttons"
+  #profile-content-facilitator
+    .my-profile-title
+      %h1 
+        facilitador
+        = image_tag '/images/FacilitadorTransparenteMedio.png'
+    .my-profile-menu
+      %a.events{:href=>"#menu", :show=>"events"} eventos
+      | 
+      %a.fundtions{:href=>"#menu", :show=>"fundations"} proyectos sociales 
+      | 
+      %a.providers{:href=>"#menu", :show=>"providers"} proveedores
+    .my-profile-arrows
+      .arrow-up-profile.arrow-events
+      .arrow-up-profile.arrow-fundations{:style=>"display:none"}
+      .arrow-up-profile.arrow-providers{:style=>"display:none"}  
+    - @member = @facilitator.member
+    .mine.my-events
+      = render :partial => "event_list"  
+    .mine.my-fundations{:style=>"display:none"}
+      = render :partial => "members/admin_fundations"  
+    .mine.my-providers{:style=>"display:none"}
+      = render :partial => "members/admin_providers"  
+  #following{:style=>"display:none"}
+    =render :partial =>"members/following"
+  - if member_signed_in? 
+    - @num = 0
+    - @member_to = @member.id
+    = render :partial => "send_msg"
+  = javascript_include_tag "new_layout/ui.profileFacilitator"

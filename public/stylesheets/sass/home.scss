@@ -1,16 +1,20 @@
 
 #left_div{
-  background: $site-color;
+  @include site-gradient();
   color: $main-background;
   height: 460px;
-  width: 300px;
+  width: $left-div-width;
   clear: left;
   margin-top: -15px;
-  font-family: "MyriadProRegular";
   a{
    color: $home-link-yellow;
    text-decoration: none;
   }
+  a:hover{
+   color: darken($home-link-yellow, 10%);
+   font-weight: bold;
+   text-decoration: none;
+  }  
   ul{
    color: $home-link-yellow;
    list-style-type: square;
@@ -21,14 +25,10 @@
 .left_div_content
 {
   padding: 20px;
-}
-
-#left_div_top{
-  background: $site-color;
-  color: $main-background;
-  height: 10px;
-  width: 300px;
-  margin-top: -10px;
+  .image{
+    direction:rtl;
+    margin-top:25px;
+  }
 }
 
 .arrows{
@@ -46,11 +46,10 @@
 	margin-top: -475px;
 	height:215px;
 	width: 500px;
-	color:$main-background;;
+	color:$main-background;
 	padding: 30px;
 	position: absolute;
 	z-index: -1;
-  font-family: "MyriadProRegular";
 }
 .desc-text
 {
@@ -178,7 +177,6 @@ div.scrollableArea
     padding: 10px;
     position: relative;
     z-index: -3;
-    font-family: "MyriadProRegular";
 }
 
 .desc-arrow{
@@ -218,7 +216,6 @@ div.arrow-down {
 
 .a_comment{
   margin: 10px;
-  font-family: "MyriadProRegular";
   font-size: 14px;
   height: 40px;
   a{
@@ -242,5 +239,4 @@ div.arrow-down {
 }
 
 .ui-dialog{
-  font-family: "MyriadProRegular";
 }

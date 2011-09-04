@@ -42,3 +42,11 @@
     <% end %>
   </div>
 <% end %>
+
+<% if @member.facilitator.facilitators.empty? and @member.facilitator.providers.empty? and  @member.facilitator.fundations.empty? %>
+<p>
+  Este facilitador todavía no tiene conexones
+</p>
+<a class="send-msg" href="#">Enviar un mensaje</a>
+
+<%end%>

@@ -1,6 +1,8 @@
 Prueba::Application.routes.draw do
   
   
+  resources :news
+
   get "search/find"
 
   match '/auth/facebook/logout' => 'application#facebook_logout', :as => :facebook_logout
@@ -32,15 +34,17 @@ Prueba::Application.routes.draw do
   post "events/remove_fundation"
   post "events/remove_provider"  
   
-  #add post!!
-  get "fundations/add_follower"
-  get "fundations/remove_follower"
+  post "fundations/add_follower"
+  post "fundations/remove_follower"
+  post "fundations/send_msg_to_admins"    
   
   post "providers/add_follower"
   post "providers/remove_follower"
+  post "providers/send_msg_to_admins"  
   
-  get "facilitators/add_follower"
-  get "facilitators/remove_follower"
+  post "facilitators/add_follower"
+  post "facilitators/remove_follower"
+  post "facilitators/send_msg"
   
   post "fundations/ask_admin"
   post "providers/ask_admin"  
@@ -51,8 +55,8 @@ Prueba::Application.routes.draw do
   post "members/respond_event_admin"    
   post "members/delete_alert"      
 
-  #root :to => "home#new_index"
-  root :to => "home#index"
+  root :to => "home#new_index"
+  #root :to => "home#index"
   
   get "/info" =>"home#info"
   get "home/new_index"

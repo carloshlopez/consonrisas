@@ -1,0 +1,179 @@
+#left-div-profile-event{
+  color: $main-background;
+  width: $left-div-width;
+  clear: left;
+  margin-top: -15px;
+  a{
+   color: $home-link-yellow;
+   text-decoration: none;
+  }
+  a:hover{
+   color: darken($home-link-yellow, 10%);
+   font-weight: bold;
+  }
+  .profile-info{
+    @include events-gradient();
+    height: 500px;
+    img.transparent{
+      position: absolute;
+      margin-top: 5px;
+      margin-left: -30px;      
+    }
+    img.img-profile{
+      margin-top: 15px;
+      margin-left: 30px;     
+      max-height: 150px; 
+    }
+    h2{
+      padding-top: 25px;
+      padding-left: 35px;
+    }
+    .type{
+      padding-left: 40px;
+      margin-top: -20px;
+    }
+    .about-me{
+      height: 300px;
+      .about-me-text{
+        padding: 0 25px 25px;
+        font-size: 14px;
+        min-height: 150px;
+      }    
+    }    
+  }
+}
+
+#profile-content-event{
+  width: $main-width + 100px;
+	margin-left: 320px;
+	margin-top: -520px;
+	min-height: 780px;
+  .my-profile-title{
+    @include events-gradient();
+    color: $main-background;
+    font-family: "contitulos";
+    height: 100px;
+    letter-spacing: -2px;
+   h1{
+      padding-left: 25px;
+    }  
+    img{
+      position: absolute;
+      margin-left: 460px;
+      margin-top: 1px;
+    }  
+  }
+  .my-profile-menu-top{
+    margin-top: -55px;
+    margin-left: 10px;
+    position: absolute;
+    color: darken($site-color, 35%);
+    .my-personal{	
+      margin-left: 100px;
+    }
+  }
+  .my-profile-menu{
+    color: $main-background;
+    margin-left: 15px;
+    margin-top: -36px;
+    a{
+    color:white;
+      text-decoration:none;    
+    }
+    a:hover{
+      font-weight: bold;
+    }
+  }  
+  .my-profile-arrows{
+    clear: left;
+    margin-top: 3px;
+    position: absolute;
+    .arrow-up-profile{
+      border-left:15px solid transparent;
+      border-right:15px solid transparent;
+      border-bottom:15px solid $main-background;
+      width: 0;
+      float: left;
+    }
+    .arrow-all{
+      margin-left: 15px;
+    }
+    .arrow-comments{
+      margin-left: 85px;
+    }
+    .arrow-pics{
+      margin-left: 180px;
+    }      
+    .arrow-assistants{
+      margin-left: 270px;
+    }          
+  }
+  .mine.my-comments{
+    .new_comment_img{
+      float: left;
+      padding-right: 15px;
+    } 
+    textarea{
+      width: 400px;
+      height: 50px;
+    }
+    input[type="submit"]{
+      margin-left: 65px;
+    }
+  }
+  .share_fb{
+    margin-top: 25px;
+  }
+}
+
+.news-item{
+   height: 50px;
+   padding: 10px 10px 20px;
+   font-size: medium;
+   border-width: 0 0 1px;
+   border-style: dotted;
+   color: $site-color;
+  span{
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 10px;
+  }
+  a{
+    text-decoration: none;
+    color: $site-color;
+    font-size: 13px;
+  }
+  a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+  }  
+  img{
+    border: solid;
+  }
+  img.img-facilitators{
+    border-color: $facilitators-color;
+  }
+  img.img-providers{
+    border-color: $providers-color;
+  }
+  img.img-fundations{
+    border-color: $fundations-color;
+  }      
+  img.img-events{
+    border-color: $events-color;
+  }        
+  .www{
+    background: $fundations-color;
+    color: white;
+    font-weight: bold;
+  }
+  
+}
+//Para volver el jquery ui dialog más oscuro
+//.ui-widget-overlay
+//{
+//  opacity: .60 !important; /* Make sure to change both of these, as IE only sees the second one */
+//  filter: Alpha(Opacity=60) !important;
+//  background-color: rgb(60, 60, 60) !important; /* This will make it darker */
+//}
+

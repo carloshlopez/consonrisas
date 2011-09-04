@@ -1,19 +1,17 @@
 /*
-Syntax error: Undefined variable: "$facilitators-color".
-        on line 4 of /home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss
+Syntax error: Undefined variable: "$main-background".
+        on line 2 of /home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss
 
-1: /*lists as divs*/
-2: .list-facilitators{
-3:   background-image: url('/images/IconosFacilitadoresNoFondo.png');
-4:   background-color: $facilitators-color;
-5: }
-6: 
-7: .list-providers{
-8:   background-image: url('/images/IconosProveedoresNoFondo.png');
-9:   background-color: $providers-color;
+1: #left-div-lists{
+2:   color: $main-background;
+3:   width: $left-div-width;
+4:   clear: left;
+5:   margin-top: -15px;
+6:   a{
+7:    text-decoration: none;
 
 Backtrace:
-/home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss:4
+/home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss:2
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -94,4 +92,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$facilitators-color\".\A         on line 4 of /home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss\A \A 1: /*lists as divs*/\A 2: .list-facilitators{\A 3:   background-image: url('/images/IconosFacilitadoresNoFondo.png');\A 4:   background-color: $facilitators-color;\A 5: }\A 6: \A 7: .list-providers{\A 8:   background-image: url('/images/IconosProveedoresNoFondo.png');\A 9:   background-color: $providers-color;"; }
+  content: "Syntax error: Undefined variable: \"$main-background\".\A         on line 2 of /home/carlos/Projects/prueba/public/stylesheets/sass/lists.scss\A \A 1: #left-div-lists{\A 2:   color: $main-background;\A 3:   width: $left-div-width;\A 4:   clear: left;\A 5:   margin-top: -15px;\A 6:   a{\A 7:    text-decoration: none;"; }

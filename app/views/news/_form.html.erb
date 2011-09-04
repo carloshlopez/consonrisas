@@ -1,0 +1,43 @@
+<%= form_for(@news, :html => {:multipart=> true}) do |f| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% @news.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"> 
+  <%= select_tag "news[news_type]", options_from_collection_for_select(Role.all, "id", "name")%>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :news %><br />
+    <%= f.text_area :news %>
+  </div>
+  <div class="field">
+    <%= f.label :actual %><br />
+    <%= f.check_box :actual %>
+  </div>  
+  
+  <div class="field custom_pic">
+    <%= f.label I18n.t("picture") %><br />
+    <%= f.file_field :pic %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

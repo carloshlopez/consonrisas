@@ -1,0 +1,73 @@
+#my-profile
+  #left-div-profile
+    .profile-info
+      = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
+      %h2
+        = @member.facilitator.name.nil? ? "DEBES INGRESAR TU NOMBRE!" : @member.facilitator.name
+      .type
+        facilitador
+      = image_tag member_pic(@member.facilitator), :class=>"img-profile"  
+      .about-me
+        .about-me-text
+          - @facilitator = @member.facilitator
+          = render 'facilitators/show'
+          - if is_current_member_this_member @member.id
+            %a.edit-me{:href=>"#"}Editar
+    .my-connections
+      .my-connections-faces
+        - @member.facilitator.facilitators.each_with_index do |fac, i|
+          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
+          - break if i >= 2
+      .my-connections-link
+        - if is_current_member_this_member @member.id 
+          Mis Conecciones
+        - else
+          Sus Conecciones
+        %br
+        %a.see-all{:href=>"#"}ver todas
+    = render :partial => "shared/create_buttons"
+  #profile-content
+    .my-profile-title
+      %h1
+        - if is_current_member_this_member @member.id 
+          mi sonrisa
+        - else
+          una sonrisa
+        = image_tag '/images/SonrisaTransparenteMedio.png'
+    .my-profile-menu-top
+      %span.my-news
+        Noticias
+      %span.my-personal      
+        Personal      
+    .my-profile-menu
+      %span.news
+        %a.invites{:href=>"#invites", :show=>"invites"} invitaciones
+        | 
+        %a.msgs{:href=>"#msgs", :show=>"msgs"} mensajes
+      %span.personal
+        %a.events{:href=>"#events", :show=>"events"} eventos
+        | 
+        %a.fundtions{:href=>"#fundations", :show=>"fundations"} proyectos sociales 
+        | 
+        %a.providers{:href=>"#providers", :show=>"providers"} proveedores
+    .my-profile-arrows
+      .arrow-up-profile.arrow-invites
+      .arrow-up-profile.arrow-msgs{:style=>"display:none"}
+      .arrow-up-profile.arrow-events{:style=>"display:none"}
+      .arrow-up-profile.arrow-fundations{:style=>"display:none"}
+      .arrow-up-profile.arrow-providers{:style=>"display:none"}  
+    .mine.my-invites
+      = render :partial => "invites"
+    .mine.my-msgs{:style=>"display:none"}
+      = render :partial => "msgs"  
+    .mine.my-events{:style=>"display:none"}
+      = render :partial => "admin_events"  
+    .mine.my-fundations{:style=>"display:none"}
+      = render :partial => "admin_fundations"  
+    .mine.my-providers{:style=>"display:none"}
+      = render :partial => "admin_providers"  
+  #following{:style=>"display:none"}
+    =render :partial =>"following" 
+  #edit-facilitator{:style=>"display:none"}
+    =render :partial =>"facilitators/form"     
+= javascript_include_tag "new_layout/ui.myProfile"

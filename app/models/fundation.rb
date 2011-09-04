@@ -25,4 +25,23 @@ class Fundation < ActiveRecord::Base
     FundationAdmin.create(:e_mail =>mail, :fundation_id => self.id, :active=>false)
   end
   
+  def send_msg_to_admins(member_from, message)
+    Thread.new{send_msg_to_admins_t(member_from, message)}
+  end
+  
+  private
+  
+  def send_msg_to_admins_t(member_from, message)
+    fundation_admins.each do |admin|
+      if admin.active
+        Alert.create(:member_id=> admin.member.id, :news=> message, :member_from=>member_from.id, :alert_type=>2)
+        begin
+          SendMsg.msg_to_fundation_admin(member_from, admin.member, message).deliver if admin.member.emailNotifications
+        rescue => e
+            puts("Error enviando mail admin fundations: #{e.message}")
+        end
+      end
+    end 
+  end  
+  
 end

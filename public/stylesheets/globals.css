@@ -1,18 +1,22 @@
 @font-face {
-  font-family: 'MyriadProRegular';
+  font-family: 'contitulos';
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot");
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.woff") format("woff"), url("/fonts/chapenettoer_8_thin_update_0-webfont.ttf") format("truetype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.svg#Chapenettoer8THIN") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'consonrisas';
   src: url("/fonts/consr-regular-webfont.eot");
   src: url("/fonts/consr-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/consr-regular-webfont.woff") format("woff"), url("/fonts/consr-regular-webfont.ttf") format("truetype"), url("/fonts/consr-regular-webfont.svg#MyriadProRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 body {
-  width: 896px;
-  padding-left: 150px;
+  width: 950px;
   background: white;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "consonrisas";
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
-
-.nostyle {
-  text-decoration: none;
-  color: white;
-  border-bottom: 0px; }

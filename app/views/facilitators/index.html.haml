@@ -1,0 +1,22 @@
+#left-div-lists
+  .vip.vip-facilitators
+    - new = News.where("news_type = ? AND actual = ?", 3, true).order("updated_at DESC").first();
+    - if new
+      = image_tag  '/images/FacilitadorTransparenteChiqui.png', :class=>"transparent"
+      %h2
+        Destacados
+      .type
+        facilitador
+      = image_tag "#{new.pic.url(:profile)}", :class=>"news-img"
+      .text
+        .news-title
+          = new.title
+        .news-fecha
+          = I18n.l(new.date, :format=>:long)
+        %p.news
+          = new.news.size > 400 ? new.news[0 .. 400] + "..." : new.news
+          .news-link
+            %a.news-more{:href=>"#"}ver más
+  = render :partial => "shared/create_buttons"
+#list-content
+  = render :partial => "list"

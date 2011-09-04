@@ -5,8 +5,7 @@ class ProvidersController < ApplicationController
   # GET /providers.xml
   def index
 #    @providers = Provider.all
-      @providers = Provider.order("name").page(params[:page])
-#    render :layout=>"new"
+      @providers = Provider.order("name").page(params[:page]).per(8)
   end
 
   # GET /providers/1
@@ -79,6 +78,7 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to member_url(member_id) }
       format.xml  { head :ok }
+      format.json {render :json=> {"resp" => "ok"} }
     end
   end
   
@@ -107,6 +107,21 @@ class ProvidersController < ApplicationController
     provider.ask_admin_by_mail params[:mail] if params[:mail].to_s != "mail" and params[:mail].to_s != ""
     respond_to do |format|
       format.js {head :ok}
+    end
+  end
+  
+  def send_msg_to_admins
+    resp = {:message=> "ok"}
+    begin
+      provider = Provider.find(params[:provider_id])
+      member_from = Member.find(params[:member_from])
+      provider.send_msg_to_admins(member_from, params[:msg])
+    rescue => e 
+      puts "Error on send_msg_to_admins: #{e.inspect}"
+      resp = {:message => e.message}
+    end
+    respond_to do |format|
+      format.json {render :json=>resp}
     end
   end
   

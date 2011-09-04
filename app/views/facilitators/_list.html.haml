@@ -1,21 +1,38 @@
 .list-title.list-facilitators
   %h1
     = I18n.t('facilitator.list')
-.all-items
-  - num = 0
+    = image_tag '/images/FacilitadorTransparenteMedio.png'
+.list-arrow.list-arrow-facilitators	
+.all-items.all-facilitators
+  %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"}
+  %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}
+  - i = 0
   - @facilitators.each do |facilitator|
-    .one-item
-      - if facilitator.member 
-        = link_to image_tag(member_thumb(facilitator)), member_path(facilitator.member), :class=>"nostyle", :title=>I18n.t('go_to_profile')
-      - else 
-        = image_tag(member_thumb(facilitator))      
-      %span
-        = facilitator.name
-        - if member_signed_in? and facilitator.member
-          = link_to I18n.t('go_to_profile'), member_path(facilitator.member)
-          - if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty?
+    - if facilitator.member   
+      .one-item.one-item-facilitators
+        = link_to image_tag(member_thumb(facilitator), :class=>"img-facilitators"), facilitator_path(facilitator), :title=>I18n.t('go_to_profile')
+        %span
+          .one-item-name
+            = link_to facilitator.name.blank? ? facilitator.member.email : facilitator.name, facilitator_path(facilitator)
+          - if member_signed_in? and facilitator.member
+            = link_to I18n.t('go_to_profile'), facilitator_path(facilitator)
             |
-            \#{link_to I18n.t('follow'), facilitators_add_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id)}
-          - else
+            %a.send-msg{:href=>"#", :id=>"msg-#{i}"}
+              Enviar Mensaje
             |
-            \#{link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>facilitator.id)}
+            %span.loading{:style=>"display:none", :id=>"fac-img-#{i}"}
+              = image_tag "mini-loader.gif"          
+            - if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty?
+              %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#", :id=>"fac-#{i}"}
+                = I18n.t('follow')
+            - else
+              %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#",:id=>"fac-#{i}"}
+                =I18n.t('unfollow')
+        - if member_signed_in?
+          - @member_to = facilitator.member.id
+          - @num = i
+          = render :partial => "send_msg"     
+    - i = i + 1          
+  .pagination-facilitators            
+    = paginate @facilitators
+= javascript_include_tag "new_layout/ui.facilitatorsFollow"

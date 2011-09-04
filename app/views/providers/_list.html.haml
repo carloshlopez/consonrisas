@@ -1,27 +1,37 @@
 .list-title.list-providers
   %h1
     = I18n.t('provider.list')
+    = image_tag '/images/ProveedorTransparenteMedio.png'
+.list-arrow.list-arrow-providers    
 .all-items.all-providers
   - num = 0
   - @providers.each do |provider|
-    .one-item
-      = link_to image_tag(provider.pic.url(:thumb)), provider_path(provider), :class=>"nostyle", :title=>I18n.t('go_to_profile')
+    .one-item.one-item-providers
+      = link_to image_tag(provider.pic.url(:thumb), :class=>"img-providers"), provider_path(provider), :title=>I18n.t('go_to_profile')
       %span
-        = provider.name
+        .one-item-name
+          = link_to provider.name, provider
         - if member_signed_in?
           .providersFollow{:facilitator_id=>"#{current_member.facilitator.id}", :provider_id=>"#{provider.id}", :style=>"display:inline"}
             %input{:type=>"hidden",:id=>"followtext", :value=>"#{I18n.t('follow')}"}
             %input{:type=>"hidden", :id=>"unfollowtext", :value=>"#{I18n.t('unfollow')}"}
             = link_to I18n.t('go_to_profile'), provider
+            |
+            %a.send-msg{:href=>"#", :id=>"msg-#{num}"}
+              Enviar Mensaje
+            |
+            %span.loading{:style=>"display:none", :id=>"prov-img-#{num}"}
+              = image_tag "mini-loader.gif"          
             - if provider.facilitators.select{|f| f.id == current_member.facilitator.id}.empty?
-              |
-              %a{:href=>"#",:id=>"follow#{num}", :class=>"follow"}
+              %a{:href=>"#",:id=>"follow-#{num}", :class=>"follow"}
                 = I18n.t('follow')
             - else
-              |
-              %a{:href=>"#", :id=>"follow#{num}", :class=>"unfollow"}
+              %a{:href=>"#", :id=>"follow-#{num}", :class=>"unfollow"}
                 = I18n.t('unfollow')
+          - @num = num
+          - @provider = provider
+          = render :partial=>"send_msg"
     - num = num + 1
-  %br
-  - if member_signed_in?
-    = link_to I18n.t('provider.new'), new_provider_path
+  .pagination-providers
+    = paginate @providers
+= javascript_include_tag "new_layout/ui.providersFollow"

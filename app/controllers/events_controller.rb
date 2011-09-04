@@ -4,8 +4,7 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
 #    @events = Event.all
-    @events = Event.order("date DESC").page(params[:page])
-    #render :layout=>"new"
+    @events = Event.order("date DESC").page(params[:page]).per(8)
   end
 
   # GET /events/1
@@ -40,7 +39,7 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-    if params[:fundation_id]
+    if params[:fundation_id] and params[:fundation_id] != ""
       fundation = Fundation.find(params[:fundation_id]) 
       @event.fundations.push(fundation)
     end
@@ -77,10 +76,11 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-
+    resp = {"resp" => "ok"}
     respond_to do |format|
       format.html { redirect_to(events_url) }
       format.xml  { head :ok }
+      format.json { render :json=>resp}
     end
   end
   

@@ -15,7 +15,7 @@
   <b><%= I18n.t('contact_information.position') %>:</b>
   <%= contact_information.position %>
 </p>
-<% if member_signed_in? and current_member.is_current @member.id %>
+<% if member_signed_in? and (can_current_member_edit_fundation  @member.id or can_current_member_edit_provider @member.id ) %>
 <p>
   <%= link_to I18n.t('destroy'), destroy_contact_information(@member, contact_information.id, @member_type),
     :confirm => I18n.t('messages.delete_confirmation'),

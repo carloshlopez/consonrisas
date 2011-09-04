@@ -1,0 +1,31 @@
+<h1>Listing news</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Actual</th>
+    <th>Pic</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @news.each do |news| %>
+  <tr>
+    <td><%= Role.find(news.news_type).name %></td>
+    <td><%= news.title %></td>
+    <td><%= news.date %></td>
+    <td><%= news.actual %></td>
+    <td><%= image_tag news.pic.url(:thumb) %></td>
+    <td><%= link_to 'Show', news %></td>
+    <td><%= link_to 'Edit', edit_news_path(news) %></td>
+    <td><%= link_to 'Destroy', news, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New News', new_news_path %>

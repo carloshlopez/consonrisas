@@ -1,21 +1,21 @@
 /*
-Syntax error: Undefined variable: "$site-color".
-        on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss
+Syntax error: Undefined mixin 'site-gradient'.
+        on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss, in `site-gradient'
+        from line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss
 
 1: 
 2: #left_div{
-3:   background: $site-color;
+3:   @include site-gradient();
 4:   color: $main-background;
 5:   height: 460px;
-6:   width: 300px;
+6:   width: $left-div-width;
 7:   clear: left;
 8:   margin-top: -15px;
 
 Backtrace:
+/home/carlos/Projects/prueba/public/stylesheets/sass/home.scss:3:in `site-gradient'
 /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss:3
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:169:in `visit_mixin'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:18:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -93,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss\A \A 1: \A 2: #left_div{\A 3:   background: $site-color;\A 4:   color: $main-background;\A 5:   height: 460px;\A 6:   width: 300px;\A 7:   clear: left;\A 8:   margin-top: -15px;"; }
+  content: "Syntax error: Undefined mixin 'site-gradient'.\A         on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss, in `site-gradient'\A         from line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss\A \A 1: \A 2: #left_div{\A 3:   @include site-gradient();\A 4:   color: $main-background;\A 5:   height: 460px;\A 6:   width: $left-div-width;\A 7:   clear: left;\A 8:   margin-top: -15px;"; }
