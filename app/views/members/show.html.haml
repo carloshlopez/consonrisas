@@ -5,51 +5,45 @@
       %h2
         = @member.facilitator.name.nil? ? "DEBES INGRESAR TU NOMBRE!" : @member.facilitator.name
       .type
-        facilitador
+        #{I18n.t('facilitator_name')}
       = image_tag member_pic(@member.facilitator), :class=>"img-profile"  
       .about-me
         .about-me-text
           - @facilitator = @member.facilitator
           = render 'facilitators/show'
           - if is_current_member_this_member @member.id
-            %a.edit-me{:href=>"#"}Editar
+            %a.edit-me{:href=>"#"}#{I18n.t('edit')}
     .my-connections
       .my-connections-faces
         - @member.facilitator.facilitators.each_with_index do |fac, i|
           = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
           - break if i >= 2
       .my-connections-link
-        - if is_current_member_this_member @member.id 
-          Mis Conecciones
-        - else
-          Sus Conecciones
+        = I18n.t('connections')
         %br
-        %a.see-all{:href=>"#"}ver todas
+        %a.see-all{:href=>"#"}#{I18n.t('see_all')}
     = render :partial => "shared/create_buttons"
   #profile-content
     .my-profile-title
       %h1
-        - if is_current_member_this_member @member.id 
-          mi sonrisa
-        - else
-          una sonrisa
+        = I18n.t('application.menu_profile')
         = image_tag '/images/SonrisaTransparenteMedio.png'
     .my-profile-menu-top
       %span.my-news
-        Noticias
+        = I18n.t('news')
       %span.my-personal      
-        Personal      
+        = I18n.t('personal')
     .my-profile-menu
       %span.news
-        %a.invites{:href=>"#invites", :show=>"invites"} invitaciones
+        %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
         | 
-        %a.msgs{:href=>"#msgs", :show=>"msgs"} mensajes
+        %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
       %span.personal
-        %a.events{:href=>"#events", :show=>"events"} eventos
+        %a.events{:href=>"#events", :show=>"events"} #{I18n.t('events_name')}
         | 
-        %a.fundtions{:href=>"#fundations", :show=>"fundations"} proyectos sociales 
+        %a.fundtions{:href=>"#fundations", :show=>"fundations"} #{I18n.t('fundations')}
         | 
-        %a.providers{:href=>"#providers", :show=>"providers"} proveedores
+        %a.providers{:href=>"#providers", :show=>"providers"} #{I18n.t('providers')}
     .my-profile-arrows
       .arrow-up-profile.arrow-invites
       .arrow-up-profile.arrow-msgs{:style=>"display:none"}
