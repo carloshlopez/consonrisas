@@ -14,5 +14,5 @@
           = link_to I18n.t('events.show'), event            
 - else
   %p
-    Este proveedor no a asistido a ningún evento
-  %a.send-msg{:href=>"#"}Enviar un mensaje
+    = I18n.t('profile.no_assists')
+  %a.send-msg{:href=>"#"}#{I18n.t('profile.send_a_msg')}  

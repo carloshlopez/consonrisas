@@ -1,5 +1,11 @@
 # coding: utf-8
 es:
+  invites: "invitaciones"
+  messages_name: "mensajes"
+  news: "noticias"
+  personal: "personal"
+  see_all: "ver todas"
+  connections: "Conexiones"
   isRaiser: "Este va a ser un evento para recolctar fondos?"
   search: "Buscar"
   share: "Compártelo"
@@ -19,7 +25,7 @@ es:
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"
   fundation: "Proyecto"    
-  facilitator: "Facilitador"  
+  facilitator_name: "Facilitador"  
   show: "Espectáculo"  
   show_name: "Mostrar"    
   edit: "Editar"  
@@ -29,9 +35,10 @@ es:
   follow: "Conectarse"  
   unfollow: "Desconectarse"
   website: "Sitio web"
-  fundations: "Proyectos Sociales"
-  providers: "Proveedores"
-  facilitators: "Facilitadores"
+  fundations: "proyectos Sociales"
+  providers: "proveedores"
+  events_name: "eventos"
+  facilitators: "facilitadores"
   actions: "Acciones"
   picture: "Agrega una foto"
   
@@ -101,7 +108,7 @@ es:
     menu_providers: "Proveedores"            
     menu_fundations: "Proyectos Sociales"            
     menu_events: "Eventos"   
-    menu_profile: "Mi Perfil" 
+    menu_profile: "mi sonrisa" 
     menu_info: "¿Qué es esto?"   
   events:
     add_me_facilitator: "Yo quiero ir al evento como Facilitador! (click aquí)"
@@ -154,6 +161,9 @@ es:
     managed_events: "Eventos que administras"  
     manage_events: "Administra los Eventos"    
     create_event: "Crea un nuevo Evento"
+    no_conexions: "No tiene ninguna conexión"    
+    no_assists: "No ha asistido a ningún Evento"
+    send_a_msg: "Envíale un mensaje"
   home: 
     welcome: "Bienvenido"
     now: "Actualmente se encuentran conectados:"

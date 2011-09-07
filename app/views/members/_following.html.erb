@@ -45,8 +45,8 @@
 
 <% if @member.facilitator.facilitators.empty? and @member.facilitator.providers.empty? and  @member.facilitator.fundations.empty? %>
 <p>
-  Este facilitador todavía no tiene conexones
+  <%= I18n.t('profile.no_conexions') %>
 </p>
-<a class="send-msg" href="#">Enviar un mensaje</a>
+<a class="send-msg" href="#"><%= I18n.t('profile.send_a_msg') %></a>
 
 <%end%>
