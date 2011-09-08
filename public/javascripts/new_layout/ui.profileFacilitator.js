@@ -72,7 +72,7 @@ $jq(document).ready(function($) {
   
   $jq(".see-all").click(function(e){
     e.preventDefault();
-    $jq("#following").dialog({modal:true, title:"Conecciones", width: 550, closeText:"X", show:"slide"});
+    $jq("#following").dialog({modal:true, title:"Conexiones", width: 550, closeText:"X", show:"slide"});
   });  
   
   $jq(".send-msg").click(function(e){

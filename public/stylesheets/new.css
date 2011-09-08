@@ -21,6 +21,13 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+.bordered_box {
+  margin: 3px;
+  border: 1px solid gray;
+  padding: 3px;
+  border-radius: 5px;
+  -moz-border-radius: 5px; }
+
 .application_messages {
   direction: ltr;
   margin-right: 320px;
@@ -657,8 +664,7 @@ div.arrow-down {
     border: 0; }
 
 .one-item {
-  height: 50px;
-  padding: 10px 10px 20px;
+  padding: 10px 10px 10px;
   font-size: medium;
   border-width: 0 0 1px;
   border-style: dotted;
@@ -1421,7 +1427,7 @@ div.arrow-down {
       padding-left: 25px; }
     #profile-content-event .my-profile-title img {
       position: absolute;
-      margin-left: 460px;
+      margin-left: 390px;
       margin-top: 1px; }
   #profile-content-event .my-profile-menu-top {
     margin-top: -55px;
@@ -1468,6 +1474,31 @@ div.arrow-down {
   #profile-content-event .share_fb {
     margin-top: 25px; }
 
+.going-div {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 98%;
+  white-space: nowrap;
+  padding: 4px; }
+
+.going_pic {
+  height: 40px;
+  border: 2px solid #5ab446;
+  vertical-align: middle;
+  margin-right: 10px; }
+
+img.img-facilitators {
+  border-color: red; }
+
+img.img-providers {
+  border-color: #e3bb00; }
+
+img.img-fundations {
+  border-color: #973b8c; }
+
+img.img-events {
+  border-color: #00bcfa; }
+
 .news-item {
   height: 50px;
   padding: 10px 10px 20px;
@@ -1488,14 +1519,6 @@ div.arrow-down {
     text-decoration: underline; }
   .news-item img {
     border: solid; }
-  .news-item img.img-facilitators {
-    border-color: red; }
-  .news-item img.img-providers {
-    border-color: #e3bb00; }
-  .news-item img.img-fundations {
-    border-color: #973b8c; }
-  .news-item img.img-events {
-    border-color: #00bcfa; }
   .news-item .www {
     background: #973b8c;
     color: white;

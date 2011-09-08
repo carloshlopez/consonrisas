@@ -20,3 +20,10 @@ body {
   font-family: "consonrisas";
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
+
+.bordered_box {
+  margin: 3px;
+  border: 1px solid gray;
+  padding: 3px;
+  border-radius: 5px;
+  -moz-border-radius: 5px; }

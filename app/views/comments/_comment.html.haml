@@ -1,0 +1,12 @@
+.one-item{:id=>"comment-#{comment.id}"}
+  = link_to image_tag(member_thumb(comment.member.facilitator), :class=>"comment_pic"), facilitator_path(comment.member.facilitator), :class=>"nostyle", :title=>I18n.t('go_to_profile')
+  = link_to comment.member.facilitator.name, facilitator_path(comment.member.facilitator), :title=>I18n.t('go_to_profile')
+  .msg-date
+    = I18n.l(comment.created_at, :format=>:long)
+  \:     
+  .one-item-name.invite-news
+    = comment.comment
+  - if member_signed_in? and can_current_member_edit_event(comment.event.id)
+    .loading{:style=>"display:none", :id=>"comment-img-#{comment.id}"}
+      = image_tag "mini-loader.gif"                                  
+    %a.delete_comment{:comment_id => comment.id, :href => "#",:id=>"delete-comment-#{comment.id}", :title=>"Eliminar"} #{I18n.t('destroy')}
