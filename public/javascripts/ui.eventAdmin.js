@@ -79,6 +79,19 @@ $jq.widget("ui.eventAdmin", {
     	    console.log(to_show);    	    
           self._show(to_show);
         });
+
+      	$el.find('.delete_comment').click(function(e) {
+              e.preventDefault();
+	            var answer = confirm("¿Seguro que desea eliminar este comentario?\n Esto no se puede deshacer")
+              if (answer){
+                var comment_id = $jq(this).attr("comment_id");
+                var event_id = $jq("#event-id").val();                
+                var elId = $jq(this).attr("id").split("-")[2];
+                $jq("#comment-img-"+elId).css('display', 'inline');
+                $jq(this).hide();
+                self._deleteComment(comment_id,event_id, elId);
+	            }
+          });  
         
     }, _show: function(show){
       $jq(".arrow-up-profile").hide();
@@ -161,6 +174,22 @@ $jq.widget("ui.eventAdmin", {
                 $jq("#provider-going-"+prov_id).remove();
             }
         });
+    },
+    _deleteComment: function(comment_id, event_id, elId){
+        $jq.post( "/events/"+event_id+"/comments/"+ comment_id+".json", { "_method": "delete" },
+            function(data, textStatus, XMLHttpRequest){
+              var obj = $jq.parseJSON(data);
+              console.log(obj);
+              if(obj.resp == "ok"){ 
+                $jq("#comment-"+elId).fadeOut("slow", function(){
+                  $jq("#comment-"+elId).remove();
+                });
+
+              }
+              else{
+                alert(data);
+              }
+        }, "text" );
     },
     _toTwitter: function(comment, url){
         $jq.getJSON("http://api.bit.ly/v3/shorten?login=carloshlopez&apiKey=R_0eb20408ca41a161a5e5d6ee90d11801&longUrl="+url+"&format=json",

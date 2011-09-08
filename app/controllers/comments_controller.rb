@@ -11,7 +11,9 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = @event.comments.find(params[:id])
     @comment.destroy
-    redirect_to event_path(@event)
+    respond_to do |format|
+      format.json {render :json=>'{"resp":"ok"}'}
+    end
   end
   
 end

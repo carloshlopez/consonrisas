@@ -1,4 +1,7 @@
+- can_edit = false
+- can_edit = can_current_member_edit_event(@event.id) if member_signed_in?
 #eventAdmin
+  %input#event-id{:type=>"hidden", :value=>"#{@event.id}"}
   #event-profile
     #left-div-profile-event
       .profile-info
@@ -30,7 +33,7 @@
             - if member_signed_in?
               - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? 
                 %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
-              - if can_current_member_edit_event(@event.id)
+              - if can_edit
                 %br
                 %a.edit-me{:href=>"#"}
                   = I18n.t('edit')
@@ -58,6 +61,11 @@
         = render :partial => "share_fb"
       .mine.my-pics           
         = render :partial=>"photo_gallery"
+        - if can_edit
+          %a.admin_photos{:href => "#"} Administrar Fotos
+          %a.admin_videos{:href => "#"} Administrar Videos
+          = render :partial=>"photo_upload"
+          = render :partial=>"video_upload"
       .mine.my-assistants
         %p
           = render :partial => "event_facilitators"
@@ -70,11 +78,31 @@
           = I18n.t("events.comments")
           \:
         .all-items
-          %h2
+          %h3
             = I18n.t("events.add_comment")
             \:
           - if member_signed_in?
             = image_tag member_thumb(current_member.facilitator), :class=>"new_comment_img"
           = render :partial => "comments/form"                
           = render :partial => "comments/comment", :collection=> @event.comments.order("id DESC")
+      .add-admins{:style=>"display:none"}
+        - if can_edit
+          .bordered_box{:event_id => @event.id}
+            Agregar administrador a este evento:
+            %select#member_id
+              %option{:selected => "", :value => "-1"} --
+              - current_member.facilitator.facilitators.each do |fac|
+                - unless EventAdmin.find(:first, :conditions=>{:event_id=>@event.id, :member_id=>fac.member.id})
+                  %option{:value => fac.id}
+                    - if fac.name
+                      = fac.name
+                    - else
+                      = fac.member.email     
+            %br
+            ó preguntarle por email
+            %input#ask_admin_mail{:type => "text", :value => "mail"}
+            %br
+            #ask_admin_message Se envió la solicitud!
+            %a.ask_admin{:href => "#", :name => "ask_admin"} 
+              Ask To Admin                       
 = javascript_include_tag "ui.eventAdmin"

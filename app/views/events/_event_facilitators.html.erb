@@ -1,7 +1,7 @@
 <div class="bordered_box">
 <b> <%= I18n.t("events.attending_facilitators")%>: <%= @event.facilitators.count %></b>
 <% if @event.facilitators.count > 0%>
-  <div style="overflow-x:auto; overflow-y:hidden; height:80px; width:98%; white-space: nowrap;">
+  <div class="going-div">
   <% @event.facilitators.each do |facilitator| 
       if facilitator.name
         name = facilitator.name
@@ -11,9 +11,7 @@
   %>
 
     <% if facilitator.member %>
-    <%= link_to image_tag(member_thumb(facilitator), :class=>"comment_pic"),  member_path(facilitator.member), :class=>"nostyle"%>
-    <%= link_to name, member_path(facilitator.member) %>
-    &nbsp;&nbsp;
+    <%= link_to image_tag(member_thumb(facilitator), :class=>"going_pic img-facilitators"),  member_path(facilitator.member), :title=>"#{facilitator.name}"%>
     <%end%>
   <% end %>
   </div>

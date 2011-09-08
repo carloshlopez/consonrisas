@@ -3,13 +3,13 @@
     = I18n.t("events.attending_providers")
     \: #{@event.providers.count}
   - if @event.providers.count > 0
-    %div{:style => "overflow-x:auto; overflow-y:hidden; height:80px; width:98%; white-space: nowrap;"}
+    .going-div
       - @event.providers.each do |provider|
         .provider-going{:id=>"provider-going-#{provider.id}", :style=>"display:inline"}
-          = link_to image_tag(provider.pic.url(:thumb), :class=>"comment_pic"),  provider_path(provider), :class=>"nostyle"
-          = link_to provider.name, provider_path(provider)
-          - unless member_signed_in? and current_member.providers.select{|p| p.id == provider.id}.empty?
-            %a{:href=>"#", :class=>"remove_provider", :event_id=>"#{@event.id}", :provider_id=>"#{provider.id}"}x
+          = link_to image_tag(provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(provider), :title=>"#{provider.name}"
+          - if member_signed_in?
+            - unless current_member.providers.select{|p| p.id == provider.id}.empty?
+              %a{:href=>"#", :class=>"remove_provider", :event_id=>"#{@event.id}", :provider_id=>"#{provider.id}"}x
   - if member_signed_in?
     - unless current_member.providers.empty?
       #new_provider
