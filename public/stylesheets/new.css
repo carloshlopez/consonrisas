@@ -23,7 +23,8 @@ body {
 
 .application_messages {
   direction: ltr;
-  margin-right: 350px;
+  margin-right: 320px;
+  margin-left: -550px;
   position: absolute; }
 
 .notice {
@@ -43,6 +44,8 @@ body {
   height: 25px;
   width: 300px;
   margin-top: -10px; }
+  #left_div_top input {
+    width: 80%; }
   #left_div_top input.home-color {
     background: #5ab446;
     color: white;
@@ -188,7 +191,7 @@ input.info-color:focus {
 #menu {
   float: left;
   margin-left: 320px;
-  margin-top: -100px; }
+  margin-top: -115px; }
   #menu ul {
     margin: 0;
     padding: 0;
@@ -588,7 +591,7 @@ div.arrow-down {
 #list-content {
   width: 600px;
   margin-left: 320px;
-  margin-top: -715px;
+  margin-top: -710px;
   min-height: 700px; }
 
 /*lists as divs*/
@@ -770,40 +773,30 @@ div.arrow-down {
   padding-top: 2px;
   background-repeat: no-repeat;
   display: inline-block;
-  direction: rtl; }
+  direction: rtl;
+  -moz-box-shadow: 5px 5px 2px #605d5d;
+  -webkit-box-shadow: 5px 5px 2px #605d5d;
+  box-shadow: 5px 5px 2px #605d5d; }
 
 .create-fundation {
   background-image: url("/images/FundacionesTransparenteMedio.png");
   background-position: -20px -20px;
-  background-color: #973b8c;
-  border-top: #d695ce 2px solid;
-  border-right: #4e1e48 2px solid;
-  border-bottom: #4e1e48 2px solid;
-  border-left: #d695ce 2px solid; }
+  background-color: #973b8c; }
 
 .create-provider {
   background-image: url("/images/ProveedorTransparenteChiqui.png");
   background-position: 10px -5px;
-  background-color: #e3bb00;
-  border-top: #ffd617 2px solid;
-  border-right: #7d6700 2px solid;
-  border-bottom: #7d6700 2px solid;
-  border-left: #ffd617 2px solid; }
+  background-color: #e3bb00; }
 
 .create-event {
   background-image: url("/images/EventoTransparenteMedio.png");
   background-position: -20px -5px;
-  background-color: #00bcfa;
-  border-top: #2ecbff 2px solid;
-  border-right: #004961 2px solid;
-  border-bottom: #004961 2px solid;
-  border-left: #2ecbff 2px solid; }
+  background-color: #00bcfa; }
 
 .create-button:hover {
-  border-top: black 2px solid;
-  border-right: white 2px solid;
-  border-bottom: white 2px solid;
-  border-left: black 2px solid; }
+  -moz-box-shadow: inset 0 0 5px 3px #605d5d;
+  -webkit-box-shadow: inset 0 0 5px 3px #605d5d;
+  box-shadow: inset 0 0 5px 3px #605d5d; }
 
 .create-fundation-img {
   margin-top: 5px;
@@ -1042,7 +1035,7 @@ div.arrow-down {
 #profile-content-facilitator {
   width: 600px;
   margin-left: 320px;
-  margin-top: -780px;
+  margin-top: -770px;
   min-height: 780px; }
   #profile-content-facilitator .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
