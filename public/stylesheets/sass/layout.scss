@@ -26,9 +26,6 @@ margin-bottom: 15px;
   height: 25px;
   width: $left-div-width;
   margin-top: -10px;
-  input{
-    width: 80%;
-  }
   input.home-color{
     @include search($site-color);
   }
