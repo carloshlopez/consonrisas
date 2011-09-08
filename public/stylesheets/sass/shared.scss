@@ -6,42 +6,32 @@
   background-repeat: no-repeat;
   display: inline-block;
   direction: rtl;
+  -moz-box-shadow: 5px 5px 2px $shadow-color;
+  -webkit-box-shadow: 5px 5px 2px $shadow-color;
+  box-shadow: 5px 5px 2px $shadow-color;
 }
 
 .create-fundation{
   background-image: url('/images/FundacionesTransparenteMedio.png');
   background-position: -20px -20px;  
   background-color: $fundations-color;
-  border-top: lighten($fundations-color, 30%) 2px solid;
-  border-right: darken($fundations-color, 20%) 2px solid;
-  border-bottom: darken($fundations-color, 20%) 2px solid;
-  border-left: lighten($fundations-color, 30%) 2px solid;  
 }
 
 .create-provider{
   background-image: url('/images/ProveedorTransparenteChiqui.png');
   background-position: 10px -5px;    
   background-color: $providers-color;
-  border-top: lighten($providers-color, 10%) 2px solid;
-  border-right: darken($providers-color, 20%) 2px solid;
-  border-bottom: darken($providers-color, 20%) 2px solid;
-  border-left: lighten($providers-color, 10%) 2px solid;    
 }
 
 .create-event{
   background-image: url('/images/EventoTransparenteMedio.png');
   background-position: -20px -5px;    
   background-color: $events-color;
-  border-top: lighten($events-color, 10%) 2px solid;
-  border-right: darken($events-color, 30%) 2px solid;
-  border-bottom: darken($events-color, 30%) 2px solid;
-  border-left: lighten($events-color, 10%) 2px solid;      
 }
 .create-button:hover{
-  border-top: black 2px solid;
-  border-right: white 2px solid;
-  border-bottom: white 2px solid;
-  border-left: black 2px solid;     
+  -moz-box-shadow: inset 0 0 5px 3px $shadow-color;
+  -webkit-box-shadow: inset 0 0 5px 3px $shadow-color;
+  box-shadow: inset 0 0 5px 3px $shadow-color;
 }
 
 .create-fundation-img{
