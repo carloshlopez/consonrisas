@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   
   def new_index
+    @num_facilitators = Facilitator.count
+    @num_fundations = Fundation.count
+    @num_providers = Provider.count    
+    @num_events = Event.count    
     @comments = []
     @photos = []
     p_ids = 15.times.map{ rand(Photo.count) }

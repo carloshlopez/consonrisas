@@ -82,11 +82,26 @@ function image(current){
 }
 
 function description(current){
- if (current=="facilitators"){return '<div class="desc-text">Facilitadores son: ...</div>';}
- if (current=="fundations"){return '<div class="desc-text">Proyectos Sociales son: ...</div>';}
- if (current=="providers"){return '<div class="desc-text">Proveedores de Entretenimiento son: ...</div>';}
- if (current=="events"){return '<div class="desc-text">Eventos son: ...</div>';} 
- if (current=="info"){return '<div class="desc-text">Conectando Sonrisas es: ...</div>';} 
+ if (current=="facilitators"){
+  var desc = $jq('#facilitators-desc').html();
+  return '<div class="desc-text">'+desc+'</div>';
+ }
+ if (current=="fundations"){
+   var desc = $jq('#fundations-desc').html();
+   return '<div class="desc-text">'+desc+'</div>';
+ }
+ if (current=="providers"){
+  var desc = $jq('#providers-desc').html(); 
+  return '<div class="desc-text">'+desc+ '</div>';
+}
+ if (current=="events"){
+  var desc = $jq('#events-desc').html(); 
+  return '<div class="desc-text">'+ desc + '</div>';
+} 
+ if (current=="info"){
+  var desc = $jq('#info-desc').html(); 
+  return '<div class="desc-text">'+desc + '</div>';
+} 
   
 }
 

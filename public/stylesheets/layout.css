@@ -12,7 +12,7 @@ Syntax error: Undefined variable: "$site-color".
 26:   height: 25px;
 27:   width: $left-div-width;
 28:   margin-top: -10px;
-29:   input{
+29:   input.home-color{
 
 Backtrace:
 /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss:24
@@ -96,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 24 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 19: margin-bottom: 15px;\A 20:  \A 21: }\A 22: \A 23: #left_div_top{\A 24:   background: $site-color;\A 25:   color: $main-background;\A 26:   height: 25px;\A 27:   width: $left-div-width;\A 28:   margin-top: -10px;\A 29:   input{"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 24 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 19: margin-bottom: 15px;\A 20:  \A 21: }\A 22: \A 23: #left_div_top{\A 24:   background: $site-color;\A 25:   color: $main-background;\A 26:   height: 25px;\A 27:   width: $left-div-width;\A 28:   margin-top: -10px;\A 29:   input.home-color{"; }
