@@ -67,6 +67,8 @@ en:
     searched: "providers found"    
     edit_title: "Edit Provider"
   facilitator:
+    welcome_message: |-
+        Welcome to <b>Conectando Sonrisas<b/><br/> Please fill the following information:  
     edit: "Editing facilitator"
     submit_edit: "Update Your Facilitator Info"
     list: "Listing facilitators"

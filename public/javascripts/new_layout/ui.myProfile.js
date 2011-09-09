@@ -240,7 +240,14 @@ $jq(document).ready(function($) {
     $jq("#following").dialog({modal:true, title:"Conexiones", width: 550, closeText:"X", show:"slide"});
   });
   
-  $jq(".edit-me").click(function(e){
-    $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 550, closeText:"X", show:"slide"});
-    });
+  $jq(".edit-me").click(showEdit); 
+  
+  if($jq("#show_edit").val() == "show"){
+    showEdit();
+  }
+  
 });
+
+function showEdit(){
+  $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 550, closeText:"X", show:"slide"});
+}

@@ -12,6 +12,9 @@
       </ul>
     </div>
   <% end %>
+  <% unless @facilitator.name%>
+    <%= I18n.t('facilitator.welcome_message').html_safe  %>
+  <% end %>
   <div class="field">
     <%= f.label I18n.t("name") %><br />
     <%= f.text_field :name %>
@@ -19,7 +22,7 @@
 
   <div class="field">
     <%= f.label I18n.t("contribution") %><br />
-    <%= f.text_area :contribution %>
+    <%= f.text_area :contribution, :class=>"contribution_textarea" %>
     <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
   </div>
   

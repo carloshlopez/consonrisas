@@ -12,7 +12,7 @@ es:
   use_facebook_pic: "Utilizar la misma foto de perfil que Facebook?"
   emailNotifications: "Deseo recibir información por correo electrónico"
   mailto: "Escríbenos a info@conectandosonrisas.org"
-  name: "Nombret"
+  name: "Nombre"
   address: "Dirección"
   cellphone: "Celular"
   city: "Ciudad"
@@ -20,7 +20,7 @@ es:
   country: "País"
   phone: "Teléfono"  
   description: "Descripción"  
-  contribution: "Acerca de"
+  contribution: "Breve descripción acerca de tí, y ¿Como estás dispuesto a ayudar?"
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"
@@ -65,6 +65,8 @@ es:
     searched: "proveedores encontrados"    
     edit_title: "Modificar la información del proveedor"
   facilitator:
+    welcome_message: |-
+        Bienvenido a <b>Conectando Sonrisas</b><br/> Porfavor llena los datos a continuación:
     edit: "Editar tu información como facilitador"  
     submit_edit: "Actualizar tu información"    
     list: "facilitadores conectados"

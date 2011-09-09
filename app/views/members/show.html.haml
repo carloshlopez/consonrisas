@@ -1,5 +1,9 @@
 #my-profile
   #left-div-profile
+    - if @member.facilitator.name.nil?
+      %input#show_edit{:type=>"hidden", :value=>"show"}
+    - else
+      %input#show_edit{:type=>"hidden", :value=>"no"}
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
