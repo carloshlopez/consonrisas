@@ -10,7 +10,6 @@ $jq.widget("ui.fbConnect", {
          
         FB.Event.subscribe('auth.login', function(response) {
 	        FB.api('/me', function(response) {
-	          console.log(response);
 	          var fbId = response.id;
 	          self._updateFbId(fbId);
 	        });
@@ -18,7 +17,6 @@ $jq.widget("ui.fbConnect", {
     },
     _updateFbId: function(fbId){
     	var self= this;
-    	console.log("fbId: " + fbId );
         var member_id = this.element.attr("member_id");
         jQuery.post( "/members/"+ member_id +"/update_facebook_id", { facebook_id: fbId },
             function(data, textStatus, XMLHttpRequest){
@@ -53,10 +51,8 @@ $jq.widget("ui.fbConnect", {
 		    caption:'Somos todos!'
 		    }, function(response) {
 	      		if (!response || response.error) {
-			    ///console.log(response);
 	        	alert(response);
 	      	} else {
-	        	//console.log("Message posted! - " + response);
 	      	}
 	    });  
     }

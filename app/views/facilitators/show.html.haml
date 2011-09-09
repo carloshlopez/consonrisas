@@ -12,6 +12,8 @@
           = render 'show'
           %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"} 
           %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}          
+          - if member_signed_in?
+            %input{:type=>"hidden", :name=>"alert[member_from]", :value=>"#{current_member.id}", :id=>"member-from"}          
           %span.loading{:style=>"display:none", :id=>"fac-img-0"}
             = image_tag "mini-loader-yellow.gif"                    
           - if current_member.facilitator.facilitators.select{|f| f.id == @facilitator.id}.empty?          
@@ -21,7 +23,7 @@
             %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{@facilitator.id}", :href=>"#",:id=>"fac-0"}
               =I18n.t('unfollow')          
           %br
-          %a.send-msg{:href=>"#"}#{I18n.t('profile.send_a_msg')}
+          %a.fac-send-msg{:href=>"#"}#{I18n.t('profile.send_a_msg')}
     .my-connections
       .my-connections-faces
         - @facilitator.facilitators.each_with_index do |fac, i|

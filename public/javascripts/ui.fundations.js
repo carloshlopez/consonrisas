@@ -17,7 +17,6 @@ $jq.widget("ui.fundations", {
         $jq.post("/fundations/ask_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
             }
             else{
                 $jq("#ask_admin_message").show('blind',{},1000,function(){

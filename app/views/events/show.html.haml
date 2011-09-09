@@ -28,6 +28,9 @@
             \:
             = @event.city
             %br
+            - if @event.isRaiser
+              %b #{I18n.t('events.isRaiser')}
+              %br
             .share_this
               = render :partial => "share_event"            
             - if member_signed_in?

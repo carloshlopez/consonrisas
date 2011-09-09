@@ -1,7 +1,6 @@
-.send-msg-div{:style=>"display:none", :id=>"send-msg-#{@num}"}
-  %textarea{:name=>"alert[news]", :cols=>"40", :rows=>"4" , :id=>"news-#{@num}"}
-  %input{:type=>"hidden", :name=>"alert[member_id]", :value=>"#{@member_to}" , :id=>"member-id-#{@num}"}
-  %input{:type=>"hidden", :name=>"alert[member_from]", :value=>"#{current_member.id}", :id=>"member-from-#{@num}"}
-  .send-msg-message{:style=>"display:none", :id=>"send-msg-message-#{@num}"}
+.send-msg-div{:style=>"display:none", :id=>"fac-send-msg-#{@num}"}
+  %textarea{:name=>"alert[news]", :cols=>"40", :rows=>"4" , :id=>"fac-news-#{@num}"}
+  %input{:type=>"hidden", :name=>"alert[member_id]", :value=>"#{@member_to}" , :id=>"fac-member-id-#{@num}"}
+  .send-msg-message{:style=>"display:none", :id=>"fac-send-msg-message-#{@num}"}
     Mensaje Enviado!
-  %input.send-msg-button{:type=>"submit", :value=>"Enviar", :id=>"send-msg-button-#{@num}"}    
+  %input.fac-send-msg-button{:type=>"submit", :value=>"Enviar", :id=>"fac-send-msg-button-#{@num}"}    

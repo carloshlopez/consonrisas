@@ -1,11 +1,13 @@
 .list-title.list-fundations
   %h1
-    = I18n.t('fundation.list')
+    = @fund_list_title
     = image_tag '/images/FundacionesTransparenteMedio.png'
 .list-arrow.list-arrow-fundations    
 .all-items.all-fundations
   %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"}
   %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}
+  - if member_signed_in?
+    %input{:type=>"hidden", :value=>"#{current_member.id}", :id=>"member-from"}            
   - i = 0
   - @fundations.each do |fundation|
     .one-item.one-item-fundations
@@ -17,24 +19,22 @@
         - if member_signed_in?
           = link_to I18n.t('fundation.show'), fundation
           |
-          %a.send-msg{:href=>"#", :id=>"msg-#{i}"}
+          %a.fund-send-msg{:href=>"#", :id=>"fund-msg-#{i}"}
             Enviar Mensaje
           |
           %span.loading{:style=>"display:none", :id=>"fund-img-#{i}"}
             = image_tag "mini-loader.gif"          
           - if current_member.facilitator.fundations.select{|f| f.id == fundation.id}.empty?
-            %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#", :id=>"fund-#{i}"}
+            %a.fund-follow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#", :id=>"fund-#{i}"}
               = I18n.t('follow')
           - else
-            %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#",:id=>"fund-#{i}"}
+            %a.fund-unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#",:id=>"fund-#{i}"}
               =I18n.t('unfollow')          
       .one-item-populations.one-item-fundations
         = population_name(fundation.population_id)
       - if member_signed_in?
         - @num = i
         - @fundation = fundation
-        = render :partial=>"send_msg" 
+        = render :partial=>"fundations/send_msg" 
     - i = i + 1   
-  .pagination-fundations 
-    = paginate @fundations    
   = javascript_include_tag "new_layout/ui.fundationsFollow"

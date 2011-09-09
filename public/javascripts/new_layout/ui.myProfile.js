@@ -109,7 +109,6 @@ $jq.widget("ui.myProfile", {
     	$el.find(".my-profile-menu span a").click(function(e) {
     	    e.preventDefault();
     	    var to_show = $jq(this).attr("show");
-    	    console.log(to_show);    	    
           self._show(to_show);
         });
         
@@ -125,7 +124,6 @@ $jq.widget("ui.myProfile", {
         $jq.post("/members/respond_fundation_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
             }
             else{
                 alert("Ahora eres admin de esta fundación");
@@ -138,7 +136,6 @@ $jq.widget("ui.myProfile", {
         $jq.post("/members/respond_provider_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
             }
             else{
                 alert("Ahora eres admin de este proveedor");
@@ -151,7 +148,6 @@ $jq.widget("ui.myProfile", {
         $jq.post("/members/respond_event_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                console.log(data);
             }
             else{
                 alert("Ahora eres admin de este evento");
@@ -163,7 +159,6 @@ $jq.widget("ui.myProfile", {
         $jq.post( "/members/delete_alert", { alert_id: alert_id },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){
                 $jq("#alert-item-"+elId).fadeOut("slow", function(){
                   $jq("#alert-item-"+elId).remove();
@@ -179,7 +174,6 @@ $jq.widget("ui.myProfile", {
         $jq.post( "/members/delete_alert", { alert_id: alert_id },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){
                 $jq("#msg-item-"+elId).fadeOut("slow", function(){
                   $jq("#msg-item-"+elId).remove();
@@ -195,7 +189,6 @@ $jq.widget("ui.myProfile", {
         $jq.post( "/events/"+event_id+".json", { "_method": "delete" },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){
                 $jq("#event-item-"+elId).fadeOut("slow", function(){
                   $jq("#event-item-"+elId).remove();
@@ -211,7 +204,6 @@ $jq.widget("ui.myProfile", {
         $jq.post( "/fundations/"+fundation_id+".json", { "_method": "delete" },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){
                 $jq("#fundation-item-"+elId).fadeOut("slow", function(){
                   $jq("#fundation-item-"+elId).remove();
@@ -227,7 +219,6 @@ $jq.widget("ui.myProfile", {
         $jq.post( "/providers/"+provider_id+".json", { "_method": "delete" },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){
                 $jq("#provider-item-"+elId).fadeOut("slow", function(){
                   $jq("#provider-item-"+elId).remove();

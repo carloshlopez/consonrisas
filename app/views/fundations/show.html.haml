@@ -49,7 +49,9 @@
           = @fundation.phone
           %br/          
           %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"} 
-          %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}          
+          %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}    
+          - if member_signed_in?
+            %input{:type=>"hidden", :value=>"#{current_member.id}", :id=>"member-from"}                            
           %span.loading{:style=>"display:none", :id=>"fund-img-0"}
             = image_tag "mini-loader-yellow-on-purple.gif"                    
           - if current_member.facilitator.fundations.select{|f| f.id == @fundation.id}.empty?          

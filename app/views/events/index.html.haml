@@ -19,4 +19,7 @@
             %a.news-more{:href=>"#"}ver más     
   = render :partial => "shared/create_buttons"
 #list-content
+  - @event_list_title = I18n.t('events.list')
   = render :partial => "list"
+  .pagination-events
+    = paginate @events  

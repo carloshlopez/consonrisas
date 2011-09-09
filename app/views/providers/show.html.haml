@@ -11,6 +11,8 @@
         .about-me-text
           %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"} 
           %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}          
+          - if member_signed_in?
+            %input{:type=>"hidden", :value=>"#{current_member.id}" ,:id=>"member-from"}                      
           %span.loading{:style=>"display:none", :id=>"prov-img-0"}
             = image_tag "mini-loader-yellow-on-yellow.gif"                    
           - if current_member.facilitator.providers.select{|p| p.id == @provider.id}.empty?          
@@ -62,7 +64,8 @@
           = I18n.t('show.add')
         = render :partial => "shows/form"
       - else
-        Este proveedor no tiene registrado ningún espectáculo
+        %p
+          Este proveedor no tiene registrado ningún espectáculo
     #providerAdmins.bordered_box{:provider_id => @provider.id}
       Agregar administrador de este proveedor:
       %select#member_id

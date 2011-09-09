@@ -1,24 +1,28 @@
-<h1>Resultados de la búsqueda</h1>
-<% if @facilitators.size > 0 %>
-<h2>Facilitadores:</h2>
-<%= render :partial => "facilitators/facilitators_list" %>
-<br/><br/>
+<div class="search-results">
+<h2>Resultados de la búsqueda</h2>
+<% if @facilitators.size > 0 
+  @fac_list_title = I18n.t('facilitator.searched')
+%>
+<%= render :partial => "facilitators/list" %>
 <% end %>
-<% if @fundations.size > 0 %>
-<h2>Proyectos Sociales</h2>
-<%= render :partial => "fundations/fundations_list" %>
-<br/><br/>
+<% if @fundations.size > 0 
+  @fund_list_title = I18n.t('fundation.searched')
+%>
+<%= render :partial => "fundations/list" %>
 <% end %>
-<% if @providers.size > 0 %>
-<h2>Proveedores</h2>
-<%= render :partial => "providers/providers_list" %>
-<br/><br/>
+<% if @providers.size > 0 
+  @prov_list_title = I18n.t('provider.searched')
+%>
+<%= render :partial => "providers/list" %>
 <% end %>
-<% if @events.size > 0 %>
-<h2>Eventos</h2>
-<%= render :partial => "events/events_list" %>
-<br/><br/>
+<% if @events.size > 0 
+  @event_list_title = I18n.t('events.searched')
+%>
+<%= render :partial => "events/list" %>
 <% end %>
 <% if @facilitators.size < 1  and @fundations.size < 1 and @providers.size < 1 and @events.size < 1%>
-No se encontraron resultados
+<p>
+  No se encontraron resultados
+</p>
 <% end %>
+<div/>

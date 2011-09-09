@@ -1,11 +1,13 @@
 .list-title.list-facilitators
   %h1
-    = I18n.t('facilitator.list')
+    = @fac_list_title
     = image_tag '/images/FacilitadorTransparenteMedio.png'
 .list-arrow.list-arrow-facilitators	
 .all-items.all-facilitators
   %input#followtext{:type=>"hidden", :value=>"#{I18n.t('follow')}"}
   %input#unfollowtext{:type=>"hidden", :value=>"#{I18n.t('unfollow')}"}
+  - if member_signed_in?
+    %input{:type=>"hidden", :name=>"alert[member_from]", :value=>"#{current_member.id}", :id=>"member-from"}
   - i = 0
   - @facilitators.each do |facilitator|
     - if facilitator.member   
@@ -17,22 +19,20 @@
           - if member_signed_in? and facilitator.member
             = link_to I18n.t('go_to_profile'), facilitator_path(facilitator)
             |
-            %a.send-msg{:href=>"#", :id=>"msg-#{i}"}
+            %a.fac-send-msg{:href=>"#", :id=>"fac-msg-#{i}"}
               Enviar Mensaje
             |
             %span.loading{:style=>"display:none", :id=>"fac-img-#{i}"}
               = image_tag "mini-loader.gif"          
             - if current_member.facilitator.facilitators.select{|f| f.id == facilitator.id}.empty?
-              %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#", :id=>"fac-#{i}"}
+              %a.fac-follow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#", :id=>"fac-#{i}"}
                 = I18n.t('follow')
             - else
-              %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#",:id=>"fac-#{i}"}
+              %a.fac-unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:followed_id=>"#{facilitator.id}", :href=>"#",:id=>"fac-#{i}"}
                 =I18n.t('unfollow')
         - if member_signed_in?
           - @member_to = facilitator.member.id
           - @num = i
-          = render :partial => "send_msg"     
+          = render :partial => "facilitators/send_msg"     
     - i = i + 1          
-  .pagination-facilitators            
-    = paginate @facilitators
 = javascript_include_tag "new_layout/ui.facilitatorsFollow"

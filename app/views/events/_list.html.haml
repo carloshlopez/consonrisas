@@ -1,6 +1,6 @@
 .list-title.list-events
   %h1
-    = I18n.t('events.list')
+    = @event_list_title
     = image_tag '/images/EventoTransparenteMedio.png'
 .list-arrow.list-arrow-events    
 .all-items
@@ -19,5 +19,3 @@
           = link_to I18n.t('edit'), edit_event_path(event)
           |
           = link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete
-  .pagination-events
-    = paginate @events

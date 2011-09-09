@@ -75,8 +75,7 @@ $jq.widget("ui.eventAdmin", {
         
       	$el.find(".my-profile-menu a").click(function(e) {
     	    e.preventDefault();
-    	    var to_show = $jq(this).attr("show");
-    	    console.log(to_show);    	    
+    	    var to_show = $jq(this).attr("show"); 	    
           self._show(to_show);
         });
 
@@ -109,7 +108,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/ask_admin", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                //console.log(data);
             }
             else{
                 $jq("#ask_admin_message").show('blind',{},1000,function(){
@@ -128,7 +126,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/add_facilitator", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                //console.log(data);
             }
             else{
                 //alert("Vas a ir como facilitador a este evento");
@@ -141,7 +138,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/remove_facilitator", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                //console.log(data);
             }
             else{
                 //alert("Ya no vas a ir como facilitador a este evento");
@@ -154,7 +150,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/remove_fundation", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                //console.log(data);
             }
             else{
                 alert("Esta fundación ya no va a ir a este evento");
@@ -167,7 +162,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post("/events/remove_provider", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
-                //console.log(data);
             }
             else{
                 alert("Ya no vas a ir como proveedor a este evento");
@@ -179,7 +173,6 @@ $jq.widget("ui.eventAdmin", {
         $jq.post( "/events/"+event_id+"/comments/"+ comment_id+".json", { "_method": "delete" },
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
-              console.log(obj);
               if(obj.resp == "ok"){ 
                 $jq("#comment-"+elId).fadeOut("slow", function(){
                   $jq("#comment-"+elId).remove();
@@ -201,13 +194,11 @@ $jq.widget("ui.eventAdmin", {
                 {
                     comment = comment.substr(0, 110);
                 }
-                comment = comment + " ... " + data.data.url    
-                console.log("Comment to post: " + comment);
-                //Post To twitter
+                comment = comment + " ... " + data.data.url
             }
             else
             {
-                console.log(data);
+                alert(data);
             }
         });
     }
