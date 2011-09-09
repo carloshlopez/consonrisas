@@ -999,6 +999,10 @@ div.arrow-down {
     color: white;
     font-weight: bold; }
 
+.contribution_textarea {
+  height: 100px;
+  width: 320px; }
+
 #left-div-profile-facilitator {
   color: white;
   width: 300px;
