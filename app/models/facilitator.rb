@@ -15,8 +15,6 @@ class Facilitator < ActiveRecord::Base
   validates_attachment_size :pic, :less_than => 5.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']
   
-  validates :name, :presence => true
-  
   def has_complete_info
     is_it = true
     is_it = false unless name
