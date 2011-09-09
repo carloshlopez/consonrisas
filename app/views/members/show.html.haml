@@ -1,6 +1,6 @@
 #my-profile
   #left-div-profile
-    - if @member.facilitator.name.nil?
+    - if @member.facilitator.name.nil? or @member.facilitator.name.length < 1
       %input#show_edit{:type=>"hidden", :value=>"show"}
     - else
       %input#show_edit{:type=>"hidden", :value=>"no"}

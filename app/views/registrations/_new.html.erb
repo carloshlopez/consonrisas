@@ -1,0 +1,46 @@
+<h2><%= I18n.t('account.sign_up') %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <% 
+    show = true
+    begin 
+      devise_error_messages!
+    rescue 
+      show = false  
+    end
+  %>
+  <% if show %>
+  <%= devise_error_messages! %>
+  <% end %>
+
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+  <% if @member.nil? %>
+    <p><%= f.label I18n.t('account.password') %><br />
+    <%= f.password_field :password %></p>
+
+    <p><%= f.label I18n.t('account.password_confirmation') %><br />
+    <%= f.password_field :password_confirmation %></p>
+  <% elsif @member.password_required? %>
+    <p><%= f.label I18n.t('account.password') %><br />
+    <%= f.password_field :password %></p>
+
+    <p><%= f.label I18n.t('account.password_confirmation') %><br />
+    <%= f.password_field :password_confirmation %></p>
+  <% end %>
+  <p><%= f.submit I18n.t('account.sign_up') %></p>
+  
+  <% unless @member and !@member.password_required? %>
+  <div class="supported_services">
+  Puedes ingresar con estos servicios:
+      <br/>
+  <a href="/auth/twitter" class="auth_provider">
+    <%= image_tag "sign-in-with-twitter-l.png", :alt => "Twitter", :title=>"Sign in with twitter" %>
+  </a>
+  <a href="/auth/facebook" class="auth_provider">
+    <%= image_tag "signin_facebook.png", :alt => "Facebook", :title=>"Sign in with facebook" %>
+  </a>
+  </div>  
+  <% end %>
+
+<% end %>

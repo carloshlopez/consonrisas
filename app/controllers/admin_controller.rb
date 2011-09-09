@@ -34,6 +34,7 @@ class AdminController < ApplicationController
         ProviderAdmin.all
         Role.all
         Show.all
+        Authentication.all
       end
       
       ActiveRecord::Base.send(:subclasses).each do |c|
