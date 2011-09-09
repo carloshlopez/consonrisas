@@ -64,13 +64,16 @@ en:
     edit: "Editing provider"
     submit_edit: "Update Your Provider Info"
     list: "Listing Providers"
+    searched: "providers found"    
     edit_title: "Edit Provider"
   facilitator:
     edit: "Editing facilitator"
     submit_edit: "Update Your Facilitator Info"
     list: "Listing facilitators"
+    searched: "facilitators found"    
   fundation:
     list: "Listing fundations"
+    searched: "fundations found"    
     show: "Show"
     population: "Population"        
     new_title: "Create a Fundation"
@@ -113,6 +116,7 @@ en:
     menu_profile: "My Profile"
     menu_info: "¿What is this?"  
   events:
+    isRaiser: "This event raises money for the fundations"
     add_me_facilitator: "Add me as facilitator"
     add_me_fundation: "Add me as fundation"
     add_me_provider: "Add me as provider"
@@ -125,6 +129,7 @@ en:
     attending_shows: "Shows to be presented"
     title: "Event Details"
     list: "Listing Events"    
+    searched: "events found"    
     show: "Show"
     new: "Create a new Event"
     comment: "Comment"

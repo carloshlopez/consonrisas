@@ -1,4 +1,5 @@
-jQuery(document).ready(function($) {    
+var $jq = jQuery.noConflict();
+$jq(document).ready(function($) {    
     var cities = [
 			"Arauca",    
 			"Armenia",		
@@ -36,7 +37,7 @@ jQuery(document).ready(function($) {
 			"Tenjo",			
 			"Tobia"
 		];
-		$( ".cities" ).autocomplete({
+		$jq( ".cities" ).autocomplete({
 			source: cities
 		});
     

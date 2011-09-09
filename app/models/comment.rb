@@ -5,7 +5,8 @@ class Comment < ActiveRecord::Base
   after_create :email_comment
   
   def email_comment
-    Thread.new{email_comment_t}
+#    Thread.new{email_comment_t}
+    email_comment_t
   end
   
   private

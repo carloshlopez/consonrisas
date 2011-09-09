@@ -158,13 +158,12 @@ ActiveRecord::Schema.define(:version => 20110825190043) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "email"
-    t.string   "encrypted_password",   :limit => 128
-    t.string   "password_salt"
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count"
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -177,6 +176,9 @@ ActiveRecord::Schema.define(:version => 20110825190043) do
     t.boolean  "admin",                               :default => false
     t.boolean  "emailNotifications",                  :default => true
   end
+
+  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "news", :force => true do |t|
     t.integer  "news_type"

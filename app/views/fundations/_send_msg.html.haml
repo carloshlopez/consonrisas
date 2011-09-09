@@ -1,9 +1,8 @@
-.send-msg-div{:style=>"display:none", :id=>"send-msg-#{@num}"}
-  %h2
+.send-msg-div{:style=>"display:none", :id=>"fund-send-msg-#{@num}"}
+  %b
     Este mensaje será enviado a todos los facilitadores que administran este proyecto social
-  %textarea{:name=>"alert[news]", :cols=>"40", :rows=>"4" , :id=>"news-#{@num}"}
+  %textarea{:name=>"alert[news]", :cols=>"40", :rows=>"4" , :id=>"fund-news-#{@num}"}
   %input{:type=>"hidden", :value=>"#{@fundation.id}" ,:id=>"fundation-id-#{@num}"}
-  %input{:type=>"hidden", :value=>"#{current_member.id}", :id=>"member-from-#{@num}"}          
-  .send-msg-message{:style=>"display:none", :id=>"send-msg-message-#{@num}"}
+  .send-msg-message{:style=>"display:none", :id=>"fund-send-msg-message-#{@num}"}
     Mensaje Enviado!
-  %input.send-msg-button{:type=>"submit", :value=>"Enviar", :id=>"send-msg-button-#{@num}"}    
+  %input.fund-send-msg-button{:type=>"submit", :value=>"Enviar", :id=>"fund-send-msg-button-#{@num}"}    

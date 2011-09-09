@@ -34,7 +34,8 @@ class Event < ActiveRecord::Base
   after_create :generate_alerts
   
   def generate_alerts
-    Thread.new{generate_alerts_t}
+#    Thread.new{generate_alerts_t}
+    generate_alerts_t
   end
     
   def ask_admin member_id

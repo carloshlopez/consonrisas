@@ -28,7 +28,8 @@ class Provider < ActiveRecord::Base
   end
   
   def send_msg_to_admins(member_from, message)
-    Thread.new{send_msg_to_admins_t(member_from, message)}
+#    Thread.new{send_msg_to_admins_t(member_from, message)}
+    send_msg_to_admins_t(member_from, message)
   end
   
   private 

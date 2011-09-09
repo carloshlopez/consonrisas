@@ -1,6 +1,6 @@
 .list-title.list-providers
   %h1
-    = I18n.t('provider.list')
+    = @prov_list_title
     = image_tag '/images/ProveedorTransparenteMedio.png'
 .list-arrow.list-arrow-providers    
 .all-items.all-providers
@@ -15,23 +15,22 @@
           .providersFollow{:facilitator_id=>"#{current_member.facilitator.id}", :provider_id=>"#{provider.id}", :style=>"display:inline"}
             %input{:type=>"hidden",:id=>"followtext", :value=>"#{I18n.t('follow')}"}
             %input{:type=>"hidden", :id=>"unfollowtext", :value=>"#{I18n.t('unfollow')}"}
+            %input{:type=>"hidden", :value=>"#{current_member.id}" ,:id=>"member-from"}            
             = link_to I18n.t('go_to_profile'), provider
             |
-            %a.send-msg{:href=>"#", :id=>"msg-#{num}"}
+            %a.prov-send-msg{:href=>"#", :id=>"prov-msg-#{num}"}
               Enviar Mensaje
             |
             %span.loading{:style=>"display:none", :id=>"prov-img-#{num}"}
               = image_tag "mini-loader.gif"          
             - if provider.facilitators.select{|f| f.id == current_member.facilitator.id}.empty?
-              %a{:href=>"#",:id=>"follow-#{num}", :class=>"follow"}
+              %a.prov-follow{:href=>"#",:id=>"follow-#{num}"}
                 = I18n.t('follow')
             - else
-              %a{:href=>"#", :id=>"follow-#{num}", :class=>"unfollow"}
+              %a.prov-unfollow{:href=>"#", :id=>"follow-#{num}"}
                 = I18n.t('unfollow')
           - @num = num
           - @provider = provider
-          = render :partial=>"send_msg"
+          = render :partial=>"providers/send_msg"
     - num = num + 1
-  .pagination-providers
-    = paginate @providers
 = javascript_include_tag "new_layout/ui.providersFollow"

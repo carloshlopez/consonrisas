@@ -1521,3 +1521,8 @@ img.img-events {
     background: #973b8c;
     color: white;
     font-weight: bold; }
+
+.search-results {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto; }
