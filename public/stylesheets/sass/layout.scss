@@ -7,6 +7,7 @@
 
 .notice{
   color: green;
+  margin-left: 100px;
 }
 .alert{
   color: red;
@@ -124,7 +125,6 @@ input.info-color:focus{
 }
 
 #right_div_top{
-  direction: rtl;
   color: black;
   float:right;
   margin-top: -20px;
@@ -146,7 +146,6 @@ input.info-color:focus{
 #login-form{
   position: absolute;
   z-index: 100;
-  direction: ltr;
   background: $main-background;
   padding: 10px;
   border-left: solid 3px $site-color;
@@ -156,6 +155,7 @@ input.info-color:focus{
   border-bottom-right-radius: 10px;
   -moz-border-radius-bottomleft: 10px;
   border-bottom-left-radius: 10px;  
+  margin-left: -290px;
 }
 
 #logo{
