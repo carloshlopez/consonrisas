@@ -2,12 +2,20 @@ var $jq = jQuery.noConflict();
 $jq(document).ready(function($) {    
     $jq(".login").click(function(e){
       e.preventDefault();
-      $jq("#login-form").dialog({modal:true, title:"Ingresar", width: 400, closeText:"X", show:"clip"});
+      var dir = $(this).attr("direction");
+      if(dir == "down"){
+        $(this).attr("direction", "up");
+        $jq("#login-form").slideDown();
+      }
+      else{
+        $(this).attr("direction", "down");
+        $jq("#login-form").slideUp();
+      }
     });
     
     $jq(".register").click(function(e){
       e.preventDefault();
-      $jq("#register-form").dialog({modal:true, title:"Registrate", width: 400, closeText:"X", show:"clip"});
+      $jq("#register-form").dialog({modal:true, title:"Registrate", width: 345, closeText:"X", show:"clip"});
     });
     
 });
