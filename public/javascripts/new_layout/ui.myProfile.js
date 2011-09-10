@@ -237,7 +237,7 @@ $jq(document).ready(function($) {
   
   $jq(".see-all").click(function(e){
     e.preventDefault();
-    $jq("#following").dialog({modal:true, title:"Conexiones", width: 550, closeText:"X", show:"slide"});
+    $jq("#following").dialog({modal:true, title:"Conexiones", width: 600, closeText:"X", show:"slide"});
   });
   
   $jq(".edit-me").click(showEdit); 
@@ -249,5 +249,5 @@ $jq(document).ready(function($) {
 });
 
 function showEdit(){
-  $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 550, closeText:"X", show:"slide"});
+  $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 400, closeText:"X", show:"slide"});
 }

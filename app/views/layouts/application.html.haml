@@ -35,8 +35,10 @@
           - else
             = link_to I18n.t('account.logout'), facebook_logout_path
         - else
-          %a{:class=>"login", :href=>"#", :title=>"Conéctate!"}
-            Conéctate        
+          %a{:class=>"login", :href=>"#", :title=>"Conéctate", :direction=>"down"}
+            = I18n.t('account.login')
+        #login-form{:style=>"display:none"}
+          = render :partial => "/devise/sessions/login_form"
     #header
       #logo
         %a{:href => "/"}
@@ -70,10 +72,6 @@
           %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
       = 'Publicidad - Privacidad - Terminos y Condiciones - Contáctenos en'
       %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
-  #login-form{:style=>"display:none"}
-    = render :partial => "/devise/sessions/login_form"
-  #register-form{:style=>"display:none"}
-    = render :partial => "/registrations/new"    
   :javascript
     var is_ssl = ("https:" == document.location.protocol);
     var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";

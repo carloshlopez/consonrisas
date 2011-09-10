@@ -140,6 +140,24 @@ input.info-color:focus{
   }
 }
 
+.account{
+}
+
+#login-form{
+  position: absolute;
+  z-index: 100;
+  direction: ltr;
+  background: $main-background;
+  padding: 10px;
+  border-left: solid 3px $site-color;
+  border-right: solid 3px $site-color;
+  border-bottom: solid 3px $site-color;    
+  -moz-border-radius-bottomright: 10px;
+  border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-bottom-left-radius: 10px;  
+}
+
 #logo{
   width: $left-div-width;
   a{

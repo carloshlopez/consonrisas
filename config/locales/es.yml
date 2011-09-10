@@ -20,7 +20,8 @@ es:
   country: "País"
   phone: "Teléfono"  
   description: "Descripción"  
-  contribution: "Breve descripción acerca de tí, y ¿Como estás dispuesto a ayudar?"
+  contribution: |-
+      Breve descripción acerca de ti <br/> ¿Como estás dispuesto a ayudar?  
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"

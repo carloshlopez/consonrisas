@@ -17,28 +17,38 @@
   <% end %>
   <div class="field">
     <%= f.label I18n.t("name") %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class=>"input_dialog" %>
   </div>
 
   <div class="field">
-    <%= f.label I18n.t("contribution") %><br />
-    <%= f.text_area :contribution, :class=>"contribution_textarea" %>
+    <%= I18n.t("contribution").html_safe %><br />
+    <%= f.text_area :contribution, :class=>"textarea_dialog" %>
     <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
   </div>
   
   <div class="field">
     <%= f.label I18n.t("city") %><br />
-    <%= f.text_field :city, :class=>"cities" %>
+    <%= f.text_field :city, :class=>"cities input_dialog" %>
   </div>
   
     <div class="field">
     <%= f.label I18n.t("profile.population_of_interest") %>
-    <% for population in Population.find(:all) do %>
-      <br><%= check_box_tag 'population_ids[]', population.id, @facilitator.populations.include?(Population.find(population.id)) %>
+    <br/>
+    <% 
+      size = Population.count - 1
+      Population.find(:all).each_with_index do |population, i|
+    %>
+      <%= check_box_tag 'population_ids[]', population.id, @facilitator.populations.include?(population) %>
       <% if I18n.locale.to_s == "en" %>
         <%= population.name_en %>
+        <% if i <= size - 1 %> 
+        ,
+        <% end %>
       <% else %>
         <%= population.name_es %>
+        <% if i <= size - 1 %> 
+        ,
+        <% end %>
       <% end %>
     <% end %>
   </div> 

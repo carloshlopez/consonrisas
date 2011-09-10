@@ -47,6 +47,7 @@
 <p>
   <%= I18n.t('profile.no_conexions') %>
 </p>
+<% unless is_current_member_this_member(@member.id) %>
 <a class="send-msg" href="#"><%= I18n.t('profile.send_a_msg') %></a>
-
+<% end %>
 <%end%>

@@ -1,4 +1,6 @@
+<% if @show_title %>
 <h2><%= I18n.t('account.sign_up') %></h2>
+<% end %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <% 

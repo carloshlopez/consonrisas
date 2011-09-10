@@ -188,6 +188,20 @@ input.info-color:focus {
     font-weight: bold;
     text-decoration: none; }
 
+#login-form {
+  position: absolute;
+  z-index: 100;
+  direction: ltr;
+  background: white;
+  padding: 10px;
+  border-left: solid 3px #5ab446;
+  border-right: solid 3px #5ab446;
+  border-bottom: solid 3px #5ab446;
+  -moz-border-radius-bottomright: 10px;
+  border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-bottom-left-radius: 10px; }
+
 #logo {
   width: 300px; }
   #logo a {
@@ -527,7 +541,13 @@ div.arrow-down {
 
 .ui-dialog-titlebar {
   background: #5ab446;
-  color: white; }
+  color: white;
+  font-family: "contitulos";
+  font-size: 20px; }
+
+.ui-dialog {
+  font-family: "consonrisas";
+  font-size: 15px; }
 
 #left-div-lists {
   color: white;
@@ -999,9 +1019,12 @@ div.arrow-down {
     color: white;
     font-weight: bold; }
 
-.contribution_textarea {
-  height: 100px;
-  width: 320px; }
+.textarea_dialog {
+  height: 60px;
+  width: 300px; }
+
+.input_dialog {
+  width: 300px; }
 
 #left-div-profile-facilitator {
   color: white;
