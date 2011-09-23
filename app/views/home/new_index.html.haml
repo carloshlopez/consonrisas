@@ -99,9 +99,5 @@
 #news
   #home_event_comments
     = render :partial=>"events_comments"
-- unless member_signed_in?
-  #register-form{:style=>"display:none"}
-    = render :partial => "/registrations/new"        
-//= javascript_include_tag "new_layout/ui.homeMenu"
 = javascript_include_tag "ui.home" 
 = javascript_include_tag "jquery.smoothDivScroll-1.1-min"

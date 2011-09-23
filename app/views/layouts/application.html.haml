@@ -58,7 +58,7 @@
               %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
           - else
             %li
-              %a.info{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
+              %a.info.register{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
     = yield
     #footer
       #follow-us
@@ -72,6 +72,9 @@
           %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
       = 'Publicidad - Privacidad - Terminos y Condiciones - Contáctenos en'
       %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
+  - unless member_signed_in?
+    #register-form{:style=>"display:none"}
+      = render :partial => "/registrations/new"        
   :javascript
     var is_ssl = ("https:" == document.location.protocol);
     var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
