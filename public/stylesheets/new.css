@@ -880,7 +880,7 @@ div.arrow-down {
     background: -webkit-gradient(linear, left top, left bottom, from(#5ab446), to(#458c36));
     background: -moz-linear-gradient(top, #5ab446, #458c36);
     height: 500px;
-    margin-top: -15px; }
+    margin-top: -5px; }
     #left-div-profile .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -927,7 +927,7 @@ div.arrow-down {
 #profile-content {
   width: 600px;
   margin-left: 320px;
-  margin-top: -780px;
+  margin-top: -790px;
   min-height: 780px; }
   #profile-content .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
@@ -1043,7 +1043,7 @@ div.arrow-down {
     background: -webkit-gradient(linear, left top, left bottom, from(red), to(#b70000));
     background: -moz-linear-gradient(top, red, #b70000);
     height: 500px;
-    margin-top: -15px; }
+    margin-top: -5px; }
     #left-div-profile-facilitator .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1068,7 +1068,7 @@ div.arrow-down {
 #profile-content-facilitator {
   width: 600px;
   margin-left: 320px;
-  margin-top: -780px;
+  margin-top: -790px;
   min-height: 780px; }
   #profile-content-facilitator .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
@@ -1169,7 +1169,7 @@ div.arrow-down {
     background: -webkit-gradient(linear, left top, left bottom, from(#ba43aa), to(#8c3681));
     background: -moz-linear-gradient(top, #ba43aa, #8c3681);
     height: 500px;
-    margin-top: -15px; }
+    margin-top: -5px; }
     #left-div-profile-fundation .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1194,7 +1194,7 @@ div.arrow-down {
 #profile-content-fundation {
   width: 600px;
   margin-left: 320px;
-  margin-top: -720px;
+  margin-top: -730px;
   min-height: 780px; }
   #profile-content-fundation .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BA43AA', endColorstr='#8C3681');
@@ -1297,7 +1297,7 @@ div.arrow-down {
     background: -webkit-gradient(linear, left top, left bottom, from(#ffd200), to(#c9ad30));
     background: -moz-linear-gradient(top, #ffd200, #c9ad30);
     height: 500px;
-    margin-top: -15px; }
+    margin-top: -5px; }
     #left-div-profile-provider .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1322,7 +1322,7 @@ div.arrow-down {
 #profile-content-provider {
   width: 600px;
   margin-left: 320px;
-  margin-top: -720px;
+  margin-top: -730px;
   min-height: 780px; }
   #profile-content-provider .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD200', endColorstr='#C9AD30');
