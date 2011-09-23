@@ -13,7 +13,7 @@
   .profile-info{
     @include fundations-gradient();
     height: 500px;
-    margin-top: -15px;
+    margin-top: -5px;
     img.transparent{
       position: absolute;
       margin-top: 5px;
@@ -46,7 +46,7 @@
 #profile-content-fundation{
   width: $main-width + 100px;
 	margin-left: 320px;
-	margin-top: -720px;
+	margin-top: -730px;
 	min-height: 780px;
   .my-profile-title{
     @include fundations-gradient();
