@@ -28,14 +28,18 @@ $jq.widget("ui.homeMenu", {
     	}    	
       
       $el.find("ul li a").mouseenter(function(e){
-        //console.log('mouse over');
         var current = $jq(this).attr("class");
+        if(current.indexOf(" ") > 0){
+          current = current.substring(0, current.indexOf(" "));
+        }
         self._showDesc(current);
       });
       
       $el.find("ul li a").mouseleave(function(e){
-        //console.log('mouse leave');
         var current = $jq(this).attr("class");
+        if(current.indexOf(" ") > 0){
+          current = current.substring(0, current.indexOf(" "));
+        }        
         self._hideDesc(current);
       });
     },
