@@ -19,7 +19,7 @@ es:
   place: "Lugar"
   country: "País"
   phone: "Teléfono"  
-  description: "Descripción"  
+  description: "descripción"  
   contribution: |-
       Breve descripción acerca de ti <br/> ¿Como estás dispuesto a ayudar?  
   date_name: "Fecha"

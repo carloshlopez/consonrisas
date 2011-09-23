@@ -1,5 +1,6 @@
 #my-profile
   #left-div-profile
+    = render :partial => "shared/create_buttons"  
     - if @member.facilitator.name.nil? or @member.facilitator.name.length < 1
       %input#show_edit{:type=>"hidden", :value=>"show"}
     - else
@@ -26,7 +27,6 @@
         = I18n.t('connections')
         %br
         %a.see-all{:href=>"#"}#{I18n.t('see_all')}
-    = render :partial => "shared/create_buttons"
   #profile-content
     .my-profile-title
       %h1

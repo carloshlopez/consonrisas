@@ -1,5 +1,6 @@
 #facilitator-profile
   #left-div-profile-facilitator
+    = render :partial => "shared/create_buttons"  
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -33,7 +34,6 @@
         = I18n.t('connections')
         %br
         %a.see-all{:href=>"#"}ver todas
-    = render :partial => "shared/create_buttons"
   #profile-content-facilitator
     .my-profile-title
       %h1 

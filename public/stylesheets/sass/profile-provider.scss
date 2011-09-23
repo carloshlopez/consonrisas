@@ -14,6 +14,7 @@
   .profile-info{
     @include providers-gradient();
     height: 500px;
+    margin-top: -15px;
     img.transparent{
       position: absolute;
       margin-top: 5px;
@@ -59,7 +60,7 @@
     }  
     img{
       position: absolute;
-      margin-left: 220px;
+      margin-left: 320px;
       margin-top: 5px;
     }  
   }
@@ -98,16 +99,25 @@
       width: 0;
       float: left;
     }
+    .arrow-desc{
+      margin-left: 35px;
+    }    
     .arrow-events{
-      margin-left: 25px;
+      margin-left: 115px;
     }
     .arrow-contact{
-      margin-left: 130px;
+      margin-left: 230px;
     }
     .arrow-shows{
-      margin-left: 280px;
+      margin-left: 370px;
     }      
   }
+  
+  .prov-desc{
+    p{
+      text-align:justify;
+    }
+  }  
 }
 
 .news-item{
