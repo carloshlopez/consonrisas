@@ -552,8 +552,7 @@ div.arrow-down {
 #left-div-lists {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-lists a {
     text-decoration: none; }
   #left-div-lists a:hover {
@@ -869,8 +868,7 @@ div.arrow-down {
 #left-div-profile {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-profile a {
     color: #eaff00;
     text-decoration: none; }
@@ -1033,8 +1031,7 @@ div.arrow-down {
 #left-div-profile-facilitator {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-profile-facilitator a {
     color: #eaff00;
     text-decoration: none; }
@@ -1160,8 +1157,7 @@ div.arrow-down {
 #left-div-profile-fundation {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-profile-fundation a {
     color: #eaff00;
     text-decoration: none; }
@@ -1289,8 +1285,7 @@ div.arrow-down {
 #left-div-profile-provider {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-profile-provider a {
     color: #eaff00;
     text-decoration: none; }
@@ -1416,8 +1411,7 @@ div.arrow-down {
 #left-div-profile-event {
   color: white;
   width: 300px;
-  clear: left;
-  margin-top: -15px; }
+  clear: left; }
   #left-div-profile-event a {
     color: #eaff00;
     text-decoration: none; }
