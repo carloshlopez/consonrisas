@@ -94,7 +94,7 @@
           = I18n.t('contact_information.add')
           \:
         = render :partial => "contact_informations/form"
-        #fundations.bordered_box{:fundation_id => @fundation.id}
+        #fundations.bordered_box{:fundation_id => @fundation.id, :style=>"display:none;"}
           Agregar administrador de fundación:
           %select#member_id
             %option{:selected => "", :value => "-1"} --
