@@ -1,5 +1,6 @@
 #provider-profile
   #left-div-profile-provider
+    = render :partial => "shared/create_buttons"  
     .profile-info
       = image_tag 'ProveedorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -23,23 +24,31 @@
               =I18n.t('unfollow')    
           %br
           %a.send-msg{:href=>"#"}Enviar un mensaje
-    = render :partial => "shared/create_buttons"
   #profile-content-provider
     .my-profile-title
       %h1 
         proveedor
         = image_tag '/images/ProveedorTransparenteMedio.png'
     .my-profile-menu
+      %a.events{:href=>"#menu", :show=>"desc"} #{I18n.t('description')}
+      |    
       %a.events{:href=>"#menu", :show=>"events"} eventos
       |
       %a.contact{:href=>"#menu", :show=>"contact"} información de contacto
       |
       %a.contact{:href=>"#menu", :show=>"shows"} espectáculos      
     .my-profile-arrows
-      .arrow-up-profile.arrow-events
+      .arrow-up-profile.arrow-desc    
+      .arrow-up-profile.arrow-events{:style=>"display:none"}
       .arrow-up-profile.arrow-contact{:style=>"display:none"}
       .arrow-up-profile.arrow-shows{:style=>"display:none"}
-    .mine.my-events
+    .mine.my-desc
+      .prov-desc
+        %h2
+          = @provider.name
+        %p
+          = @provider.description
+    .mine.my-events{:style=>"display:none"}
       = render :partial => "events"  
     .mine.my-contact{:style=>"display:none"}
       -  @member =  @provider
@@ -66,7 +75,7 @@
       - else
         %p
           Este proveedor no tiene registrado ningún espectáculo
-    #providerAdmins.bordered_box{:provider_id => @provider.id}
+    #providerAdmins.bordered_box{:provider_id => @provider.id, :style=>"display:none;"}
       Agregar administrador de este proveedor:
       %select#member_id
         %option{:selected => "", :value => "-1"} --

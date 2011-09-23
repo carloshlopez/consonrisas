@@ -1,5 +1,6 @@
 #fundation-profile
   #left-div-profile-fundation
+    = render :partial => "shared/create_buttons"  
     .profile-info
       = image_tag 'FundacionesTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -39,11 +40,6 @@
           = @fundation.country
           %br/
           %b
-            = I18n.t('description')
-            \:
-          = @fundation.description
-          %br/
-          %b
             = I18n.t('phone')
             \:
           = @fundation.phone
@@ -62,20 +58,28 @@
               =I18n.t('unfollow')          
           %br
           %a.send-msg{:href=>"#"}Enviar un mensaje
-    = render :partial => "shared/create_buttons"
   #profile-content-fundation
     .my-profile-title
       %h1 
         proyecto social      
         = image_tag '/images/FundacionesTransparenteMedio.png'
     .my-profile-menu
+      %a.desc{:href=>"#menu", :show=>"desc"} #{I18n.t('description')}
+      |    
       %a.events{:href=>"#menu", :show=>"events"} eventos
       |
       %a.contact{:href=>"#menu", :show=>"contact"} información de contacto
     .my-profile-arrows
-      .arrow-up-profile.arrow-events
+      .arrow-up-profile.arrow-desc    
+      .arrow-up-profile.arrow-events{:style=>"display:none"}
       .arrow-up-profile.arrow-contact{:style=>"display:none"}
-    .mine.my-events
+    .mine.my-desc
+      .fund-desc
+        %h2
+          = @fundation.name
+        %p
+          = @fundation.description
+    .mine.my-events{:style=>"display:none"}
       = render :partial => "events"  
     .mine.my-contact{:style=>"display:none"}
       -  @member =  @fundation 

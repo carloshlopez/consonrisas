@@ -1,4 +1,5 @@
 #left-div-lists
+  = render :partial => "shared/create_buttons"
   .vip.vip-providers
     - new = News.where("news_type = ? AND actual = ?", 2, true).order("updated_at DESC").first();
     - if new
@@ -17,7 +18,6 @@
           = new.news.size > 400 ? new.news[0 .. 400] + "..." : new.news
           .news-link
             %a.news-more{:href=>"#"}ver más
-  = render :partial => "shared/create_buttons"
 #list-content
   - @prov_list_title = I18n.t('provider.list')
   = render :partial => "list"

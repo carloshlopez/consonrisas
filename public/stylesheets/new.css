@@ -616,7 +616,7 @@ div.arrow-down {
 #list-content {
   width: 600px;
   margin-left: 320px;
-  margin-top: -710px;
+  margin-top: -715px;
   min-height: 700px; }
 
 /*lists as divs*/
@@ -847,6 +847,9 @@ div.arrow-down {
   margin-top: 50px;
   margin-right: 60px; }
 
+.create-buttons {
+  padding-bottom: 15px; }
+
 .create-buttons a span {
   display: none;
   color: white;
@@ -878,7 +881,8 @@ div.arrow-down {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
     background: -webkit-gradient(linear, left top, left bottom, from(#5ab446), to(#458c36));
     background: -moz-linear-gradient(top, #5ab446, #458c36);
-    height: 500px; }
+    height: 500px;
+    margin-top: -15px; }
     #left-div-profile .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1041,7 +1045,8 @@ div.arrow-down {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
     background: -webkit-gradient(linear, left top, left bottom, from(red), to(#b70000));
     background: -moz-linear-gradient(top, red, #b70000);
-    height: 500px; }
+    height: 500px;
+    margin-top: -15px; }
     #left-div-profile-facilitator .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1066,7 +1071,7 @@ div.arrow-down {
 #profile-content-facilitator {
   width: 600px;
   margin-left: 320px;
-  margin-top: -770px;
+  margin-top: -780px;
   min-height: 780px; }
   #profile-content-facilitator .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
@@ -1167,7 +1172,8 @@ div.arrow-down {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BA43AA', endColorstr='#8C3681');
     background: -webkit-gradient(linear, left top, left bottom, from(#ba43aa), to(#8c3681));
     background: -moz-linear-gradient(top, #ba43aa, #8c3681);
-    height: 500px; }
+    height: 500px;
+    margin-top: -15px; }
     #left-div-profile-fundation .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1238,10 +1244,14 @@ div.arrow-down {
       border-bottom: 15px solid white;
       width: 0;
       float: left; }
+    #profile-content-fundation .my-profile-arrows .arrow-desc {
+      margin-left: 35px; }
     #profile-content-fundation .my-profile-arrows .arrow-events {
-      margin-left: 25px; }
+      margin-left: 112px; }
     #profile-content-fundation .my-profile-arrows .arrow-contact {
-      margin-left: 130px; }
+      margin-left: 230px; }
+  #profile-content-fundation .fund-desc p {
+    text-align: justify; }
 
 .news-item {
   height: 50px;
@@ -1291,7 +1301,8 @@ div.arrow-down {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD200', endColorstr='#C9AD30');
     background: -webkit-gradient(linear, left top, left bottom, from(#ffd200), to(#c9ad30));
     background: -moz-linear-gradient(top, #ffd200, #c9ad30);
-    height: 500px; }
+    height: 500px;
+    margin-top: -15px; }
     #left-div-profile-provider .profile-info img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -1330,7 +1341,7 @@ div.arrow-down {
       padding-left: 25px; }
     #profile-content-provider .my-profile-title img {
       position: absolute;
-      margin-left: 220px;
+      margin-left: 320px;
       margin-top: 5px; }
   #profile-content-provider .my-profile-menu-top {
     margin-top: -55px;
@@ -1358,12 +1369,16 @@ div.arrow-down {
       border-bottom: 15px solid white;
       width: 0;
       float: left; }
+    #profile-content-provider .my-profile-arrows .arrow-desc {
+      margin-left: 35px; }
     #profile-content-provider .my-profile-arrows .arrow-events {
-      margin-left: 25px; }
+      margin-left: 115px; }
     #profile-content-provider .my-profile-arrows .arrow-contact {
-      margin-left: 130px; }
+      margin-left: 230px; }
     #profile-content-provider .my-profile-arrows .arrow-shows {
-      margin-left: 280px; }
+      margin-left: 370px; }
+  #profile-content-provider .prov-desc p {
+    text-align: justify; }
 
 .news-item {
   height: 50px;

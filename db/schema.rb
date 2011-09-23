@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825190043) do
+ActiveRecord::Schema.define(:version => 20110923020622) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -236,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20110825190043) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.string   "city"
+    t.text     "description"
   end
 
   create_table "providers_facilitators", :id => false, :force => true do |t|

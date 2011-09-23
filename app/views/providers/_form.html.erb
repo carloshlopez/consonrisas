@@ -19,6 +19,11 @@
   </div>
   
   <div class="field">
+    <%= f.label I18n.t('description') %><br />
+    <%= f.text_area :description %>
+  </div>  
+  
+  <div class="field">
     <%= f.label I18n.t("city") %><br />
     <%= f.text_field :city, :class=>"cities" %>
   </div>
