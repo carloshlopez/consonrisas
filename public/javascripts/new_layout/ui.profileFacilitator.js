@@ -30,8 +30,20 @@ $jq.widget("ui.profileFacilitator", {
           self._show(to_show);
         });
     }, _show: function(show){
-      $jq(".arrow-up-profile").hide();
-      $jq(".arrow-"+ show).show();
+      var newMargin = '15px';
+      if(show == "profile"){
+        newMargin = '15px';
+      }
+      else if(show == "events"){
+        newMargin = '70px';
+      }
+      else if(show == "fundations"){
+        newMargin = '170px';
+      }
+      else if(show == "providers"){
+        newMargin = '280px';
+      }
+      $jq(".arrow-profile").animate({marginLeft: newMargin});
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
     },

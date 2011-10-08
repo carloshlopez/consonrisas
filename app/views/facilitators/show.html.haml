@@ -40,16 +40,21 @@
         facilitador
         = image_tag '/images/FacilitadorTransparenteMedio.png'
     .my-profile-menu
+      %a.profile{:href=>"#menu", :show=>"profile"} #{I18n.t('profile_text')}
+      |     
       %a.events{:href=>"#menu", :show=>"events"} eventos
       | 
       %a.fundtions{:href=>"#menu", :show=>"fundations"} proyectos sociales 
       | 
       %a.providers{:href=>"#menu", :show=>"providers"} proveedores
     .my-profile-arrows
-      .arrow-up-profile.arrow-events
-      .arrow-up-profile.arrow-fundations{:style=>"display:none"}
-      .arrow-up-profile.arrow-providers{:style=>"display:none"}  
+      .arrow-up-profile.arrow-profile
     - @member = @facilitator.member
+    .mine.my-profile
+      %p
+        %b #{I18n.t("contribution2").html_safe}
+      %p
+        = @facilitator.contribution
     .mine.my-events
       = render :partial => "event_list"  
     .mine.my-fundations{:style=>"display:none"}
