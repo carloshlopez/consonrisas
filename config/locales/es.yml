@@ -1,5 +1,6 @@
 # coding: utf-8
 es:
+  profile_text: "perfil"
   invites: "invitaciones"
   messages_name: "mensajes"
   news: "noticias"
@@ -22,6 +23,7 @@ es:
   description: "descripción"  
   contribution: |-
       Breve descripción acerca de ti <br/> ¿Como estás dispuesto a ayudar?  
+  contribution2: "Breve descripción; ¿Como está dispuesto a ayudar?"
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"

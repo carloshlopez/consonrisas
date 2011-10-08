@@ -1114,12 +1114,8 @@ div.arrow-down {
       border-bottom: 15px solid white;
       width: 0;
       float: left; }
-    #profile-content-facilitator .my-profile-arrows .arrow-events {
-      margin-left: 25px; }
-    #profile-content-facilitator .my-profile-arrows .arrow-fundations {
-      margin-left: 120px; }
-    #profile-content-facilitator .my-profile-arrows .arrow-providers {
-      margin-left: 230px; }
+    #profile-content-facilitator .my-profile-arrows .arrow-profile {
+      margin-left: 15px; }
 
 .news-item {
   height: 50px;
@@ -1365,13 +1361,13 @@ div.arrow-down {
       width: 0;
       float: left; }
     #profile-content-provider .my-profile-arrows .arrow-desc {
-      margin-left: 35px; }
+      margin-left: 15px; }
     #profile-content-provider .my-profile-arrows .arrow-events {
-      margin-left: 115px; }
+      margin-left: 70px; }
     #profile-content-provider .my-profile-arrows .arrow-contact {
-      margin-left: 230px; }
+      margin-left: 195px; }
     #profile-content-provider .my-profile-arrows .arrow-shows {
-      margin-left: 370px; }
+      margin-left: 320px; }
   #profile-content-provider .prov-desc p {
     text-align: justify; }
 

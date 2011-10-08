@@ -2,6 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  profile_text: "profile"
   invites: "invites"
   messages_name: "messages"
   news: "news"
@@ -23,6 +24,7 @@ en:
   phone: "Phone"
   description: "Description"
   contribution: "About you, and hoy would you like to contribute?"
+  contribution2: "About you, and hoy would you like to contribute?"
   date_name: "Date"
   set_locale: "Set Language"
   provider: "Provider"
