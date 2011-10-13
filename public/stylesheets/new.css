@@ -554,9 +554,9 @@ div.arrow-down {
   height: 215px; }
 
 .a_comment {
-  margin: 10px;
+  margin: 10px, 10px, 15px;
   font-size: 14px;
-  height: 40px; }
+  height: 45px; }
   .a_comment a {
     color: #5ab446;
     text-decoration: none; }
@@ -564,7 +564,8 @@ div.arrow-down {
     cursor: pointer;
     background-color: #bbe1b2;
     border-radius: 15px;
-    border: 2px solid #eaff00; }
+    border: 1px solid #eaff00;
+    font-size: 11px; }
   .a_comment input[type="button"]:hover {
     background-color: #51a23f;
     color: white; }
