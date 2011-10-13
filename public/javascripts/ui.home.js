@@ -5,7 +5,7 @@ $jq.widget("ui.home", {
     	var $el= this.element;
 		$jq("div#makeMeScrollable").smoothDivScroll({ autoScroll: "onstart", autoScrollDirection: "backandforth", autoScrollStep: 1, autoScrollInterval: 15});
 		
-		setInterval(self._moveComments, 5000 );
+		setInterval(self._moveComments, 7000 );
         
     },
     _updateCurrent: function(current){
