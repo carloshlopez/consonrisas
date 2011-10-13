@@ -7,13 +7,13 @@
         .a_comment{:style=>"display:none"}
           = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle" ,:title=>I18n.t('events.show')
           %p
-            = c.comment[0, 100] << " ... "
+            = c.comment[0, 80] << " ... "
             , comentario de
             = comment_name(c)
             , del evento 
             = link_to c.event.name, event_url(c.event) ,:title=>I18n.t('events.show')
             - unless member_signed_in?
-              %input.register{:type=>"button", :href=>"#", :value=>"Empieza a ayudar", :title=> "Cónectate para sacrle sonrisas al país"}             
+              %input.register{:type=>"button", :href=>"#", :value=>"Tú puedes ayudar", :title=> "Cónectate para sacrle sonrisas al país"}             
     - else
       - if i == @comments.length - 1
         .a_comment.last
@@ -21,10 +21,10 @@
         .a_comment
           = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle",:title=>I18n.t('events.show')    
           %p
-            = c.comment[0, 100] << " ... "
+            = c.comment[0, 80] << " ... "
             , comentario de
             = comment_name(c)
             , del evento 
             = link_to c.event.name, event_url(c.event),:title=>I18n.t('events.show')
             - unless member_signed_in?
-              %input.register{:type=>"button", :href=>"#", :value=>"Empieza a ayudar",:title=> "Cónectate para sacrle sonrisas al país"} 
+              %input.register{:type=>"button", :href=>"#", :value=>"Tú puedes ayudar",:title=> "Cónectate para sacrle sonrisas al país"} 
