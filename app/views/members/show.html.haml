@@ -17,8 +17,9 @@
           - @facilitator = @member.facilitator
           = render 'facilitators/show'
           %p
-            %b #{I18n.t('contribution').html_safe} 
-            = @facilitator.contribution.slice(0..100) + " ..."
+            %b #{I18n.t('contribution').html_safe}
+            %br
+            = @facilitator.contribution.slice(0..100) + " ..." if @facilitator.contribution
           - if is_current_member_this_member @member.id
             %a.edit-me{:href=>"#"}#{I18n.t('edit')} #{I18n.t('profile_text')} 
     .my-connections

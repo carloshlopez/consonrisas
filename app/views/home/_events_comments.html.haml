@@ -12,6 +12,8 @@
             = comment_name(c)
             , del evento 
             = link_to c.event.name, event_url(c.event) ,:title=>I18n.t('events.show')
+            - unless member_signed_in?
+              %input.register{:type=>"button", :href=>"#", :value=>"Empieza a ayudar", :title=> "Cónectate para sacrle sonrisas al país"}             
     - else
       - if i == @comments.length - 1
         .a_comment.last
@@ -24,3 +26,5 @@
             = comment_name(c)
             , del evento 
             = link_to c.event.name, event_url(c.event),:title=>I18n.t('events.show')
+            - unless member_signed_in?
+              %input.register{:type=>"button", :href=>"#", :value=>"Empieza a ayudar",:title=> "Cónectate para sacrle sonrisas al país"} 

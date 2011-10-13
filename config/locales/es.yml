@@ -90,7 +90,7 @@ es:
     register: "Registrate"    
     edit: "Editar mi cuenta"    
     logged_in_as: "Ingresaste como"
-    sign_up: "Registrate"
+    sign_up: "Conéctate"
     password: "Contraseña"
     password_new_explain: "(dejar en blanco si NO la quieres cambiar)"        
     password_confirmation: "Confirmar contraseña"
@@ -211,6 +211,9 @@ es:
       truncate: "..."
       last: "Último"
       first: "Primero"
+  errors:
+    messages:
+      not_saved: "No se puede continuar"
 
 #defaults needed
   first: "Primero"

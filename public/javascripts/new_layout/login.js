@@ -13,7 +13,7 @@ $jq(document).ready(function($) {
       }
     });
     
-    $jq(".register").click(function(e){
+    $jq(".register").live('click', function(e){
       e.preventDefault();
       $jq("#register-form").dialog({modal:true, title:"Registrate", width: 345, closeText:"X", show:"clip"});
     });
