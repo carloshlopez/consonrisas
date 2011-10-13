@@ -248,6 +248,7 @@ $jq(document).ready(function($) {
   
 });
 
-function showEdit(){
+function showEdit(e){
+  e.preventDefault();
   $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 400, closeText:"X", show:"slide"});
 }
