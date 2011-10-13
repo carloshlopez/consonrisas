@@ -79,7 +79,7 @@
     var is_ssl = ("https:" == document.location.protocol);
     var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
     document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-  = javascript_include_tag "getSatisfaction"
+  = javascript_include_tag "usersvoice"  
   = javascript_include_tag "new_layout/ui.homeMenu"
   = javascript_include_tag "new_layout/login"  
   = javascript_include_tag "new_layout/search"
