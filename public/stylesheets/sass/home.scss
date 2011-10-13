@@ -2,19 +2,9 @@
 #left_div{
   @include site-gradient();
   color: $main-background;
-  height: 460px;
+  height: 610px;
   width: $left-div-width;
-  clear: left;
-  margin-top: -15px;
-  a{
-   color: $home-link-yellow;
-   text-decoration: none;
-  }
-  a:hover{
-   color: darken($home-link-yellow, 10%);
-   font-weight: bold;
-   text-decoration: none;
-  }  
+  clear: left; 
   ul{
    color: $home-link-yellow;
    list-style-type: square;
@@ -25,16 +15,58 @@
 .left_div_content
 {
   padding: 20px;
+  padding-top: 1px;
   .image{
     direction:rtl;
-    margin-top:25px;
   }
+  input {
+    width: 250px;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    background-color: lighten($site-color, 30%);
+    width: 255px;
+    height: 35px;
+    border-radius: 15px;
+    border:3px solid $home-link-yellow;
+    font-weight:bold;
+    font-size: large;
+  }
+  input[type="submit"]:hover {
+    background-color: darken($site-color, 5%);
+    color: white;
+  }  
+  input:hover {
+    background-color: #AAAFFF;
+  }  
+  .supported_services{
+    text-align: center;
+    a.auth_provider{
+     text-decoration: none;
+     font-weight: normal;     
+     }
+    a.auth_provider:hover{
+     color: blue;
+     text-decoration: none;
+     font-weight: normal;
+    }
+  }
+  a{
+   color: $home-link-yellow;
+   text-decoration: none;
+  }
+  a:hover{
+   color: darken($home-link-yellow, 10%);
+   font-weight: bold;
+   text-decoration: none;
+  }   
 }
 
 .arrows{
 	margin-left: 352px;
-	margin-top: -25px;
 	height: 15px;
+	position: absolute;
+	z-index: 10;
 }
 
 .news-arrow{
@@ -43,7 +75,7 @@
 
 #descs{
 	margin-left: 320px;
-	margin-top: -475px;
+	margin-top: -610px;
 	height:215px;
 	width: 500px;
 	color:$main-background;
@@ -56,14 +88,23 @@
   margin-left: 110px;
   margin-top: 25px;
 }
+
 #pics{  
-	margin-left: 320px;
-	margin-top: -473px;
-	height:150px;
-	width: 515px;
+	margin-left: 300px;
+	margin-top: -625px;
+	height:215px;
+	width: 550px;
 	padding: 30px;
 	position: absolute;
 	z-index: -2;
+}
+
+#event_pics{
+//  margin-left: -10px;
+//  margin-top: -10px;
+  width: 550px;
+  height: 215px;
+  overflow: hidden;
 }
 
 /* You can alter this CSS in order to give SmoothDivScroll your own look'n'feel */
@@ -160,7 +201,7 @@ div.scrollableArea
 #news{
     background: none repeat scroll 0 0 #DEF1DA;
     color: black;
-    height: 170px;
+    height: 270px;
     margin-left: 320px;
     padding: 8px;
     position: relative;
@@ -173,7 +214,7 @@ div.scrollableArea
     clear: both;
     color: $site-color;
     margin-left: 320px;
-    margin-top: -235px;
+    margin-top: -335px;
     padding: 10px;
     position: relative;
     z-index: -3;
@@ -222,14 +263,16 @@ div.arrow-down {
     color: $site-color;
     text-decoration: none;
   }  
-}
-
-#event_pics{
-  margin-left: -10px;
-  margin-top: -10px;
-  width: 535px;
-  height: 220px;
-  overflow: hidden;
+  input[type="button"] {
+    cursor: pointer;
+    background-color: lighten($site-color, 30%);
+    border-radius: 15px;
+    border:2px solid $home-link-yellow;
+  }
+  input[type="button"]:hover {
+    background-color: darken($site-color, 5%);
+    color: white;
+  }    
 }
 
 .ui-dialog-titlebar

@@ -7,10 +7,10 @@ Syntax error: Undefined mixin 'site-gradient'.
 2: #left_div{
 3:   @include site-gradient();
 4:   color: $main-background;
-5:   height: 460px;
+5:   height: 610px;
 6:   width: $left-div-width;
-7:   clear: left;
-8:   margin-top: -15px;
+7:   clear: left; 
+8:   ul{
 
 Backtrace:
 /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss:3:in `site-gradient'
@@ -93,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'site-gradient'.\A         on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss, in `site-gradient'\A         from line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss\A \A 1: \A 2: #left_div{\A 3:   @include site-gradient();\A 4:   color: $main-background;\A 5:   height: 460px;\A 6:   width: $left-div-width;\A 7:   clear: left;\A 8:   margin-top: -15px;"; }
+  content: "Syntax error: Undefined mixin 'site-gradient'.\A         on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss, in `site-gradient'\A         from line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/home.scss\A \A 1: \A 2: #left_div{\A 3:   @include site-gradient();\A 4:   color: $main-background;\A 5:   height: 610px;\A 6:   width: $left-div-width;\A 7:   clear: left; \A 8:   ul{"; }
