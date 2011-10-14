@@ -1,9 +1,21 @@
+.social-title{
+  text-align: center;
+}
+
+.social-p{
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .social-containter{
-  padding: 30px;
-  h2{
-    color: $site-color;
-  }
+  -moz-column-count:2; /* Firefox */
+  -webkit-column-count:2; /* Safari and Chrome */
+  column-count:2;
+  margin-left: 100px;
   .social-cs{
-    display: inline-block;
+    display: block;
+    margin-bottom: 30px;
   } 
 }

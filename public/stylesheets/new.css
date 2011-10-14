@@ -813,12 +813,25 @@ div.arrow-down {
   margin-top: 10px;
   background: #00bcfa; }
 
+.social-title {
+  text-align: center; }
+
+.social-p {
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .social-containter {
-  padding: 30px; }
-  .social-containter h2 {
-    color: #5ab446; }
+  -moz-column-count: 2;
+  /* Firefox */
+  -webkit-column-count: 2;
+  /* Safari and Chrome */
+  column-count: 2;
+  margin-left: 100px; }
   .social-containter .social-cs {
-    display: inline-block; }
+    display: block;
+    margin-bottom: 30px; }
 
 .create-button {
   height: 50px;
