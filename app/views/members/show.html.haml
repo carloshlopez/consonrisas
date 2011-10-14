@@ -22,6 +22,8 @@
             = @facilitator.contribution.slice(0..100) + " ..." if @facilitator.contribution
           - if is_current_member_this_member @member.id
             %a.edit-me{:href=>"#"}#{I18n.t('edit')} #{I18n.t('profile_text')} 
+            %br
+            = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
     .my-connections
       .my-connections-faces
         - @member.facilitator.facilitators.each_with_index do |fac, i|
@@ -44,8 +46,12 @@
     .my-profile-menu
       %span.news
         %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
+        .num-invites
+          = @invites.size
         | 
         %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
+        .num-invites
+          = @msgs.size        
       %span.personal
         %a.events{:href=>"#events", :show=>"events"} #{I18n.t('events_name')}
         | 
@@ -54,10 +60,6 @@
         %a.providers{:href=>"#providers", :show=>"providers"} #{I18n.t('providers')}
     .my-profile-arrows
       .arrow-up-profile.arrow-invites
-      .arrow-up-profile.arrow-msgs{:style=>"display:none"}
-      .arrow-up-profile.arrow-events{:style=>"display:none"}
-      .arrow-up-profile.arrow-fundations{:style=>"display:none"}
-      .arrow-up-profile.arrow-providers{:style=>"display:none"}  
     .mine.my-invites
       = render :partial => "invites"
     .mine.my-msgs{:style=>"display:none"}

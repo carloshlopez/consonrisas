@@ -64,4 +64,11 @@ class HomeController < ApplicationController
   
   def social
   end
+  
+  def allies
+  end
+  
+  def donate
+  end  
+  
 end 

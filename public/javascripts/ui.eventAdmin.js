@@ -93,8 +93,17 @@ $jq.widget("ui.eventAdmin", {
           });  
         
     }, _show: function(show){
-      $jq(".arrow-up-profile").hide();
-      $jq(".arrow-"+ show).show();
+      var newMargin = '15px';
+      if(show == 'comments'){    
+        newMargin = '85px';
+      }
+      else if(show == 'pics'){
+        newMargin = '180px';
+      }      
+      else if (show == 'assistants'){
+        newMargin = '270px';
+      }  
+      $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       if (show == "all" ){
         $jq(".mine").show();
       }

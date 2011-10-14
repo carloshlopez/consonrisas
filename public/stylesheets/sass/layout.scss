@@ -281,15 +281,6 @@ input.info-color:focus{
   color: $site-color;
   height: 35px;
   float: left;
- a{
-    color: $site-color;
-    font-size: 13px;
-    text-decoration: none;
-  }
- a.follow-text:hover{
-    color: darken($site-color, 10%);
-    font-weight: bold;
-  } 
   img{
     vertical-align: middle;
   }  
@@ -307,4 +298,14 @@ input.info-color:focus{
   line-height: 350%;
   width: 840px;
   padding: 0px 20px 0px;
+ a{
+    color: $site-color;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  a:hover{
+    color: darken($site-color, 10%);
+    text-decoration: underline;
+  } 
+
 }

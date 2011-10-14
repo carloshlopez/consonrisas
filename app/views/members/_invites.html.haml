@@ -2,7 +2,7 @@
   %h2 Invitaciones a eventos de tu interés
   .all-items
     - i = 0
-    - current_member.alerts.where("alert_type=1").order("created_at DESC").each do |alert|
+    - @invites.each do |alert|
       .one-item{:id=>"alert-item-#{i}"}
         = link_to image_tag(Event.find(alert.link).pic.url(:thumb)), event_path(alert.link), :title=>"Click para ver el evento"
         %span

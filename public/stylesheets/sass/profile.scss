@@ -84,8 +84,8 @@
     }  
     img{
       position: absolute;
-      margin-left: 300px;
-      margin-top: 10px;
+      margin-left: 320px;
+      margin-top: -30px;
     }  
   }
   .my-profile-menu-top{
@@ -109,10 +109,18 @@
       text-decoration:none;    
     }
     a:hover{
-      font-weight: bold;
+      text-decoration: underline;
     }
     .news{
       margin-left: 5px;
+      .num-invites{
+        display: inline;
+        background-color: white;
+        border-radius: 15px;
+        color: darken($site-color, 35%);
+        padding: 0 5px;
+        margin-right: 3px;
+      }
     }
     .personal{
       margin-left: 20px;
@@ -131,19 +139,7 @@
     }
     .arrow-invites{
       margin-left: 45px;
-    }
-    .arrow-msgs{
-      margin-left: 130px;
-    }    
-    .arrow-events{
-      margin-left: 210px;
-    }
-    .arrow-fundations{
-      margin-left: 300px;
-    }
-    .arrow-providers{
-      margin-left: 410px;
-    }      
+    }     
   }
 }
 

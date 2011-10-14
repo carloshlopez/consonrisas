@@ -27,6 +27,7 @@
               |
               %a.fundation_admin_reject{:href => "#"} Rechazar
 - else
-  %p
-    Este facilitador no pertenece ni administra ningun proyecto social
-  %a.send-msg{:href=>"#"}Enviar un mensaje
+  - unless is_current_member_this_member(@member.id)
+    %p
+      Este facilitador no administra a ningún proyecto
+    %a.fac-send-msg{:href=>"#"}Enviar un mensaje   

@@ -316,13 +316,6 @@ input.info-color:focus {
   color: #5ab446;
   height: 35px;
   float: left; }
-  #follow-us a {
-    color: #5ab446;
-    font-size: 13px;
-    text-decoration: none; }
-  #follow-us a.follow-text:hover {
-    color: #488f38;
-    font-weight: bold; }
   #follow-us img {
     vertical-align: middle; }
 
@@ -337,6 +330,13 @@ input.info-color:focus {
   line-height: 350%;
   width: 840px;
   padding: 0px 20px 0px; }
+  #footer a {
+    color: #5ab446;
+    font-size: 13px;
+    text-decoration: none; }
+  #footer a:hover {
+    color: #488f38;
+    text-decoration: underline; }
 
 #left_div {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
@@ -823,15 +823,41 @@ div.arrow-down {
   margin-right: auto; }
 
 .social-containter {
-  -moz-column-count: 2;
-  /* Firefox */
-  -webkit-column-count: 2;
-  /* Safari and Chrome */
-  column-count: 2;
-  margin-left: 100px; }
+  margin: 0 auto 0 auto;
+  width: 70%; }
   .social-containter .social-cs {
     display: block;
-    margin-bottom: 30px; }
+    margin: 30px; }
+
+.allies {
+  padding-top: 15px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border-width: 0 0 1px;
+  border-style: dotted;
+  border-color: #5ab446; }
+
+.donations {
+  margin: 0 auto 0 auto;
+  width: 400px; }
+
+.box {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  display: box;
+  box-orient: horizontal; }
+
+.donate-item {
+  margin: 5px;
+  margin-top: 10px;
+  width: 200px;
+  text-align: center;
+  border-width: 0 0 1px 0;
+  border-style: dotted;
+  border-color: #5ab446; }
 
 .create-button {
   height: 50px;
@@ -985,8 +1011,8 @@ div.arrow-down {
       padding-left: 25px; }
     #profile-content .my-profile-title img {
       position: absolute;
-      margin-left: 300px;
-      margin-top: 10px; }
+      margin-left: 320px;
+      margin-top: -30px; }
   #profile-content .my-profile-menu-top {
     margin-top: -55px;
     margin-left: 10px;
@@ -1002,9 +1028,16 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content .my-profile-menu a:hover {
-      font-weight: bold; }
+      text-decoration: underline; }
     #profile-content .my-profile-menu .news {
       margin-left: 5px; }
+      #profile-content .my-profile-menu .news .num-invites {
+        display: inline;
+        background-color: white;
+        border-radius: 15px;
+        color: #1a3314;
+        padding: 0 5px;
+        margin-right: 3px; }
     #profile-content .my-profile-menu .personal {
       margin-left: 20px; }
   #profile-content .my-profile-arrows {
@@ -1019,14 +1052,6 @@ div.arrow-down {
       float: left; }
     #profile-content .my-profile-arrows .arrow-invites {
       margin-left: 45px; }
-    #profile-content .my-profile-arrows .arrow-msgs {
-      margin-left: 130px; }
-    #profile-content .my-profile-arrows .arrow-events {
-      margin-left: 210px; }
-    #profile-content .my-profile-arrows .arrow-fundations {
-      margin-left: 300px; }
-    #profile-content .my-profile-arrows .arrow-providers {
-      margin-left: 410px; }
 
 .news {
   margin-left: auto;
@@ -1282,10 +1307,6 @@ div.arrow-down {
       float: left; }
     #profile-content-fundation .my-profile-arrows .arrow-desc {
       margin-left: 35px; }
-    #profile-content-fundation .my-profile-arrows .arrow-events {
-      margin-left: 112px; }
-    #profile-content-fundation .my-profile-arrows .arrow-contact {
-      margin-left: 230px; }
   #profile-content-fundation .fund-desc p {
     text-align: justify; }
 
@@ -1406,12 +1427,6 @@ div.arrow-down {
       float: left; }
     #profile-content-provider .my-profile-arrows .arrow-desc {
       margin-left: 15px; }
-    #profile-content-provider .my-profile-arrows .arrow-events {
-      margin-left: 70px; }
-    #profile-content-provider .my-profile-arrows .arrow-contact {
-      margin-left: 195px; }
-    #profile-content-provider .my-profile-arrows .arrow-shows {
-      margin-left: 320px; }
   #profile-content-provider .prov-desc p {
     text-align: justify; }
 
@@ -1531,12 +1546,6 @@ div.arrow-down {
       float: left; }
     #profile-content-event .my-profile-arrows .arrow-all {
       margin-left: 15px; }
-    #profile-content-event .my-profile-arrows .arrow-comments {
-      margin-left: 85px; }
-    #profile-content-event .my-profile-arrows .arrow-pics {
-      margin-left: 180px; }
-    #profile-content-event .my-profile-arrows .arrow-assistants {
-      margin-left: 270px; }
   #profile-content-event .mine.my-comments .new_comment_img {
     float: left;
     padding-right: 15px; }

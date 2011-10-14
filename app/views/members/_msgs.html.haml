@@ -2,7 +2,7 @@
   %h2 Mensajes enviados a ti
   .all-items
     - i = 0  
-    - current_member.alerts.where("alert_type = 2").order("created_at DESC").each do |alert|
+    - @msgs.each do |alert|
       .one-item{:id=>"msg-item-#{i}"}
         - alert_member = Member.find(alert.member_from)
         = link_to image_tag(alert_member.facilitator.pic.url(:thumb)), facilitator_path(alert_member.facilitator), :title=>"Click para ver el Facilitador"
