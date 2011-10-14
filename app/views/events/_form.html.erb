@@ -45,6 +45,11 @@
   </div>  
   
   <div class="field">
+    <%= f.label I18n.t("isClosed") %><br />
+    <%= f.check_box :isClosed %>
+  </div>    
+  
+  <div class="field">
     <%= I18n.t('events.pic') %><br/>
     <%= f.file_field :pic %>
   </div>    

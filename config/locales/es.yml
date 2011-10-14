@@ -9,6 +9,7 @@ es:
   see_all: "ver todas"
   connections: "Conexiones"
   isRaiser: "Este va a ser un evento para recolctar fondos?"
+  isClosed: "Este va a ser un evento cerrado? (Solo tú podrás hacer invitaciones a asistir)"  
   search: "Buscar"
   share: "Compártelo"
   use_facebook_pic: "Utilizar la misma foto de perfil que Facebook?"
@@ -120,6 +121,7 @@ es:
     menu_profile: "mi sonrisa" 
     menu_info: "¿Qué es esto?"   
   events:
+    isClosed: "Este evento es cerrado, por lo tanto solo el administrador de este evento podrá hacer invitaciones"  
     isRaiser: "Este evento es para recaudar dinero para los proyectos sociales que atenderán"
     add_me_facilitator: "Yo quiero ir al evento como Facilitador! (click aquí)"
     add_me_fundation: "Ir como proyecto social"

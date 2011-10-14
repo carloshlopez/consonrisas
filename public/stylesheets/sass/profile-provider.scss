@@ -80,11 +80,12 @@
     margin-left: 15px;
     margin-top: -36px;
     a{
-    color:white;
+      color:white;
       text-decoration:none;    
     }
     a:hover{
-      font-weight: bold;
+      color: darken(white, 15%);
+      text-decoration:underline;    
     }
   }  
   .my-profile-arrows{

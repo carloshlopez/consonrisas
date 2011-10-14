@@ -244,24 +244,24 @@
   font-weight: normal;
  }
  a:hover{
-   font-weight: bold;
-   text-decoration: none;
+   color: darken(white, 10%);
+   text-decoration: underline;
  }
 }
 
 .pagination-facilitators{
 margin-top: 10px;
-background: $facilitators-color;
+background: $facilitators-color-dark;
 }
 .pagination-providers{
 margin-top: 10px;
-background: $providers-color;
+background: $providers-color-dark;
 }
 .pagination-fundations{
 margin-top: 10px;
-background: $fundations-color;
+background: $fundations-color-dark;
 }
 .pagination-events{
 margin-top: 10px;
-background: $events-color;
+background: $events-color-dark;
 }

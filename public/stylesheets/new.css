@@ -794,24 +794,24 @@ div.arrow-down {
     text-decoration: none;
     font-weight: normal; }
   .pagination a:hover {
-    font-weight: bold;
-    text-decoration: none; }
+    color: #e6e6e6;
+    text-decoration: underline; }
 
 .pagination-facilitators {
   margin-top: 10px;
-  background: red; }
+  background: #b70000; }
 
 .pagination-providers {
   margin-top: 10px;
-  background: #e3bb00; }
+  background: #c9ad30; }
 
 .pagination-fundations {
   margin-top: 10px;
-  background: #973b8c; }
+  background: #8c3681; }
 
 .pagination-events {
   margin-top: 10px;
-  background: #00bcfa; }
+  background: #008cff; }
 
 .social-title {
   text-align: center; }
@@ -1028,7 +1028,8 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content .my-profile-menu a:hover {
-      text-decoration: underline; }
+      text-decoration: underline;
+      color: #e6e6e6; }
     #profile-content .my-profile-menu .news {
       margin-left: 5px; }
       #profile-content .my-profile-menu .news .num-invites {
@@ -1168,7 +1169,8 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content-facilitator .my-profile-menu a:hover {
-      font-weight: bold; }
+      text-decoration: underline;
+      color: #d9d9d9; }
     #profile-content-facilitator .my-profile-menu .news {
       margin-left: 5px; }
     #profile-content-facilitator .my-profile-menu .personal {
@@ -1290,7 +1292,8 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content-fundation .my-profile-menu a:hover {
-      font-weight: bold; }
+      text-decoration: underline;
+      color: #d9d9d9; }
     #profile-content-fundation .my-profile-menu .news {
       margin-left: 5px; }
     #profile-content-fundation .my-profile-menu .personal {
@@ -1414,7 +1417,8 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content-provider .my-profile-menu a:hover {
-      font-weight: bold; }
+      color: #d9d9d9;
+      text-decoration: underline; }
   #profile-content-provider .my-profile-arrows {
     clear: left;
     margin-top: 3px;
@@ -1533,7 +1537,8 @@ div.arrow-down {
       color: white;
       text-decoration: none; }
     #profile-content-event .my-profile-menu a:hover {
-      font-weight: bold; }
+      text-decoration: underline;
+      color: #cccccc; }
   #profile-content-event .my-profile-arrows {
     clear: left;
     margin-top: 3px;

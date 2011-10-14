@@ -11,6 +11,7 @@ en:
   see_all: "see all"
   connections: "Connections"
   isRaiser: "Is this a money raiser event?"
+  isClosed: "Is this a clsed event?"  
   search: "Search"
   share: "Share"
   use_facebook_pic: "Use same Facebook profile pic?"
@@ -121,6 +122,7 @@ en:
     menu_profile: "My Profile"
     menu_info: "¿What is this?"  
   events:
+    isClosed: "This a closed event, only de admin can invite"  
     isRaiser: "This event raises money for the fundations"
     add_me_facilitator: "Add me as facilitator"
     add_me_fundation: "Add me as fundation"
