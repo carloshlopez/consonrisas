@@ -114,8 +114,20 @@ $jq.widget("ui.myProfile", {
         
     }, 
     _show: function(show){
-      $jq(".arrow-up-profile").hide();
-      $jq(".arrow-"+ show).show();
+      var newMargin = '45px';
+      if(show == 'msgs'){
+        newMargin = '155px';
+      }    
+      else if( show == 'events'){
+        newMargin = '255px';
+      }
+      else if( show == 'fundations'){
+        newMargin = '350px';
+      }
+      else if(show == 'providers'){
+        newMargin = '460px';
+      } 
+      $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
     },

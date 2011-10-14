@@ -26,7 +26,8 @@
               %a.provider_admin_accept{:href => "#"} Aceptar
               |
               %a.provider_admin_reject{:href => "#"} Rechazar
-- else
-  %p
-    Este facilitador no administra a ningún proveedor
-  %a.send-msg{:href=>"#"}Enviar un mensaje              
+- else 
+  - unless is_current_member_this_member(@member.id)
+    %p
+      Este facilitador no administra a ningún proveedor
+    %a.fac-send-msg{:href=>"#"}Enviar un mensaje              

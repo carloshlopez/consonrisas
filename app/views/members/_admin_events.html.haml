@@ -31,6 +31,7 @@
           - else
             Solicitud de administración pendiente responder
 - else
-  %p
-    Este facilitador no a asistido a ningún evento
-  %a.send-msg{:href=>"#"}Enviar un mensaje
+  - unless is_current_member_this_member(@member.id)
+    %p
+      Este facilitador no ha asistigo a ningún evento
+    %a.fac-send-msg{:href=>"#"}Enviar un mensaje   

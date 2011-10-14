@@ -59,6 +59,8 @@ Prueba::Application.routes.draw do
   #root :to => "home#index"
   
   get "/info" =>"home#info"
+  get "/donate" =>"home#donate"  
+  get "/allies" =>"home#allies"
   get "home/new_index"
   get "home/event_comments"
   get "/social" => "home#social"

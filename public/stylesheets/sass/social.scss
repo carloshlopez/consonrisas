@@ -10,12 +10,46 @@
 }
 
 .social-containter{
-  -moz-column-count:2; /* Firefox */
-  -webkit-column-count:2; /* Safari and Chrome */
-  column-count:2;
-  margin-left: 100px;
+  margin:0 auto 0 auto; 
+  width: 70%;
   .social-cs{
     display: block;
-    margin-bottom: 30px;
+    margin: 30px;
   } 
+}
+
+.allies{
+  padding-top: 15px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border-width: 0 0 1px;
+  border-style: dotted;
+  border-color: $site-color;
+}
+
+.donations{
+  margin:0 auto 0 auto; 
+  width:400px; 
+}
+
+.box{      
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+
+  display: box;
+  box-orient: horizontal;
+}
+
+.donate-item{
+  margin: 5px;
+  margin-top: 10px;
+  width: 200px;
+  text-align: center;
+  border-width: 0 0 1px 0;
+  border-style: dotted;
+  border-color: $site-color;
 }

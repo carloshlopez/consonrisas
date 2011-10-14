@@ -86,6 +86,7 @@ $jq(document).ready(function($) {
   
   $jq("#fac-send-msg-button-0").click(function(e){
     e.preventDefault();
+    $jq(this).hide();
     var alert ={news: null, member_id: null, alert_type: 2, member_from: null};
     alert.news = $jq( 'textarea[name="alert[news]"]' ).val();
     alert.member_id = $jq( 'input[name="alert[member_id]"]' ).val();
@@ -99,6 +100,7 @@ $jq(document).ready(function($) {
           setTimeout(function(){
             $jq(".send-msg-message").hide("slide");
             $jq("#fac-send-msg-0").dialog("close");
+            $jq("#fac-send-msg-button-0").show();
           }, 2000);
         }
         else{
@@ -107,6 +109,7 @@ $jq(document).ready(function($) {
           setTimeout(function(){
             $jq(".send-msg-message").hide("slide"); 
             $jq("#fac-send-msg-0").dialog("close");
+            $jq("#fac-send-msg-button-0").show();
             }, 2000);
         }
       }

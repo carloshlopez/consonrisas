@@ -5,6 +5,8 @@ class MembersController < ApplicationController
   # GET /members/1.xml
   def show
     @member = Member.find(params[:id])
+    @invites = current_member.alerts.where("alert_type=1").order("created_at DESC")
+    @msgs = current_member.alerts.where("alert_type = 2").order("created_at DESC")
     if member_signed_in? and current_member.id == @member.id
       @contact_informations = @member.contact_informations
     else

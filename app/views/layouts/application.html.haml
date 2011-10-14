@@ -70,7 +70,12 @@
           %img{:src=>"/images/FacebookBtn.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
         %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
           %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
-      = 'Publicidad - Privacidad - Terminos y Condiciones - Contáctenos en'
+      %a{:href=>"/donate"} Apoyar la causa
+      #{" - "}          
+      %a{:href=>"/allies"} Aliados
+      #{" - "}
+      %a{:href=>"#"} Terminos y Condiciones
+      #{" - "}
       %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
   - unless member_signed_in?
     #register-form{:style=>"display:none"}

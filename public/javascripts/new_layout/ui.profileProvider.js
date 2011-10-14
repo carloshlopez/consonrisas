@@ -30,8 +30,17 @@ $jq.widget("ui.profileProvider", {
           self._show(to_show);
         });
     }, _show: function(show){
-      $jq(".arrow-up-profile").hide();
-      $jq(".arrow-"+ show).show();
+      var newMargin = '15px';
+      if(show == 'events'){    
+        newMargin = '70px';
+      }
+      else if (show == 'contact'){
+        newMargin = '195px';
+      }
+      else if(show == 'shows'){
+        newMargin = '320px';
+      }      
+      $jq(".arrow-up-profile").animate({marginLeft: newMargin});        
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
     },
