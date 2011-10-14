@@ -105,11 +105,12 @@
     margin-left: 15px;
     margin-top: -36px;
     a{
-    color:white;
+      color:white;
       text-decoration:none;    
     }
     a:hover{
       text-decoration: underline;
+      color: darken(white, 10%);
     }
     .news{
       margin-left: 5px;

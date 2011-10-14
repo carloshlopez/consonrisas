@@ -26,15 +26,11 @@
             %b
               = I18n.t("city")
             \:
-            = @event.city
-            %br
-            - if @event.isRaiser
-              %b #{I18n.t('events.isRaiser')}
-              %br
+            = @event.city           
             .share_this
               = render :partial => "share_event"            
             - if member_signed_in?
-              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? 
+              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
                 %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
               - if can_edit
                 %br
@@ -59,6 +55,8 @@
         .arrow-up-profile.arrow-all    
       .share_fb
         = render :partial => "share_fb"
+      - if @event.isRaiser
+        %b #{I18n.t('events.isRaiser')}        
       .mine.my-pics           
         = render :partial=>"photo_gallery"
         - if can_edit
@@ -67,6 +65,8 @@
           = render :partial=>"photo_upload"
           = render :partial=>"video_upload"
       .mine.my-assistants
+        - if @event.isClosed
+          %b #{I18n.t('events.isClosed')}
         %p
           = render :partial => "event_facilitators"
         %p

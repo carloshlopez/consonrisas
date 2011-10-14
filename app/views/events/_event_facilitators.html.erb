@@ -16,7 +16,7 @@
   <% end %>
   </div>
 <% end %>
-<% if member_signed_in? %>
+<% if member_signed_in? and !@event.isClosed %>
   <% if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? %>
     <a href="#" class="add_facilitator" title="<%= I18n.t('events.add_me_facilitator') %>" event_id="<%=@event.id%>" facilitator_id="<%= current_member.facilitator.id %>"><%= I18n.t('events.add_me_facilitator') %></a>
   <% else %>
