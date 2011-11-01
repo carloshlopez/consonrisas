@@ -1616,3 +1616,97 @@ img.img-events {
   width: 75%;
   margin-left: auto;
   margin-right: auto; }
+
+.social {
+  float: left; }
+
+.supported_services {
+  overflow: auto; }
+
+.authentications {
+  margin-bottom: 30px; }
+
+.authentication {
+  float: left;
+  background-color: #EEE;
+  border: solid 1px #999;
+  padding: 5px 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  position: relative;
+  margin-right: 10px; }
+
+.authentication .remove {
+  text-decoration: none;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #333;
+  padding: 2px 4px;
+  font-size: 10px; }
+
+.authentication .remove:hover {
+  color: #FFF;
+  background-color: #777;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px; }
+
+.authentication img {
+  float: left; }
+
+.authentication .provider, .authentication .uid {
+  margin-left: 38px;
+  margin-right: 20px; }
+
+.authentication .provider {
+  font-weight: bold; }
+
+.authentication .uid {
+  color: #666;
+  font-size: 11px; }
+
+.auth_provider img {
+  display: block; }
+
+.auth_provider {
+  float: left;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+  margin-bottom: 10px; }
+
+.pop_up_triangle {
+  position: absolute;
+  border-right: 15px solid #5ab446;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  height: 0px;
+  width: 0px;
+  margin-left: -23px;
+  margin-top: 99px; }
+
+.pop_up a span {
+  display: none;
+  color: white;
+  font-family: "consonrisas";
+  font-size: 13px;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #5ab446;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  text-aling: center; }
+
+.pop_up a:hover span {
+  display: block;
+  position: absolute;
+  background: #5ab446;
+  margin-top: -117px;
+  width: 160px;
+  text-decoration: none;
+  margin-left: 82px;
+  padding: 10px; }
+
+.pop_up a:visited {
+  text-decoration: none; }

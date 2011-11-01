@@ -15,7 +15,11 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:member, authentication.member)
   elsif current_member
-      current_member.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_member.authentications.create!(:provider => omniauth['provider'], 
+          :uid => omniauth['uid'], 
+          :token => (omniauth['credentials']['token'] rescue nil),
+          :secret => (omniauth['credentials']['secret'] rescue nil))
+      current_member.update_attributes(:facebook_id => omniauth['uid']) if omniauth['provider'] == 'facebook'
       flash[:notice] = "Authentication successful."
 #      redirect_to authentications_url
       redirect_to edit_member_registration_url
@@ -29,6 +33,7 @@ class AuthenticationsController < ApplicationController
         sign_in_and_redirect(:member, member)
       else
         session[:omniauth] = omniauth.except('extra')
+#        session[:omniauth] = omniauth
         redirect_to new_member_registration_url
       end
     end

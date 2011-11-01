@@ -1,5 +1,9 @@
 # coding: utf-8
 es:
+  companyAddress: "Dirección de la empresa"
+  companyPhone: "Teléfono de la empresa"
+  website: "Si tienes página web"
+  isCompany: "Estes es un perfil para una empresa?"
   see_public_profile: "Ver tu perfil público"
   profile_text: "perfil"
   invites: "invitaciones"
@@ -25,7 +29,7 @@ es:
   description: "descripción"  
   contribution: |-
       Breve descripción acerca de ti <br/> ¿Como estás dispuesto a ayudar?  
-  contribution2: "Breve descripción; ¿Como está dispuesto a ayudar?"
+  contribution2: "Breve descripción; ¿Como estás dispuesto a ayudar?"
   date_name: "Fecha"
   set_locale: "Cambiar Idioma"
   provider: "Proveedor"
@@ -104,8 +108,8 @@ es:
     cancel_confirm: "Estás seguro que quieres eliminar tu cuenta!? No podrás volver a ingresar y todo lo que has creado o compartido se eliminará para siempre."
     remember_me: "Recordarme"
     send_reset: "Enviarme las instrucciones para reiniciar mi contraseña"    
-    login_services: "Actualmente puedes ingresar con estos servicios:"
-    add_login_service: "También puedes ingresar con estos servicios:"
+    login_services: "Tus conexiones con servicios:"
+    add_login_service: "Conéctate con estos servicios:"
   messages:
     delete_confirmation: "Seguro?"    
   labels:

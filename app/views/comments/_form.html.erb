@@ -1,4 +1,5 @@
 <%= form_for([@event, @event.comments.build]) do |f| %>
+  <input type="hidden" id="has_twitter" value="<%= current_member_has_twitter %>" />
   <div class="field">
     <%= f.text_area :comment, :class=>"new_comment" %>
     <% if member_signed_in? %>

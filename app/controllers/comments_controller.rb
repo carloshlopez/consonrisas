@@ -4,6 +4,26 @@ class CommentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @event.comments.create(params[:comment])
+    comment = params[:comment][:comment]
+    if !current_member.authentications.select{|a| a.provider == "twitter"}.empty?
+      begin
+        current_member.twitter.update(comment[0, 85] << " ... http://www.conectandosonrisas.org/events/#{@event.id}")
+      rescue 
+        
+      end
+    end
+    if !current_member.authentications.select{|a| a.provider == "facebook"}.empty?
+      begin
+        current_member.facebook.feed!(
+        :message => comment, 
+        :caption => "Comentario en un evento de Conectando Sonrisas",
+        :picture => CGI::escape("http://www.conectandosonrisas.org/pics/thumb/missing.png"),
+        :link => CGI::escape("http://www.conectandosonrisas.org/events/#{@event.id}")
+        )
+      rescue
+        
+      end
+    end
     redirect_to event_path(@event)
   end
   

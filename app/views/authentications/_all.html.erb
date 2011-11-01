@@ -7,7 +7,9 @@
     <p><strong><%= I18n.t('account.login_services') %></strong></p>
     <div class="authentications">
       <% 
+        i = 0
         for authentication in @authentications 
+          i = i + 1
           show_twitter = false if authentication.provider == "twitter"
           show_facebook = false if authentication.provider == "facebook"
        %>
@@ -15,13 +17,18 @@
           <%= image_tag "#{authentication.provider}_32.png", :size => "32x32" %>
           <div class="provider"><%= authentication.provider.titleize %></div>
           <div class="uid"><%= authentication.uid %></div>
-          <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+          <%= link_to "X", authentication, :class => "auth-remove remove", :id=>"auth-#{i}" %>
         </div>
       <% end %>
     </div>
   <% end %>
   <br/>
+  <% unless !show_facebook && !show_twitter %>
   <p><strong><%= I18n.t('account.add_login_service') %></strong></p>
+  <% end %>
+  <p>
+  <div class="pop_up"><a href="#"><span><div class="pop_up_triangle"></div> Para poder ingresar sin usuario ni clave, solamente haciendo click.<br/> Pero lo más importante es para poder ayudarnos a regar la voz con tu conocimiento en redes sociales. </span>¿Para qué?</a></div>
+  </p>
 <% else %>
   <p><strong><%= I18n.t('account.login_services') %></strong></p>
 <% end %>

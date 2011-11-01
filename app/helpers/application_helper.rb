@@ -57,6 +57,10 @@ module ApplicationHelper
     href
   end
   
+  def current_member_has_twitter
+    member_signed_in? and !current_member.authentications.select{|a| a.provider == "twitter"}.empty?
+  end
+  
   def resource_name
     :member
   end

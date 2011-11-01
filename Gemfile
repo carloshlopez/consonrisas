@@ -5,6 +5,8 @@ gem 'rails', '3.0.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
+
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'devise'
@@ -23,6 +25,12 @@ gem 'sass'
 gem 'kaminari'
 
 gem 'omniauth'
+
+gem 'multi_json'
+
+gem 'twitter'
+
+gem 'fb_graph'
 
 #gem "oauth-plugin", ">= 0.4.0.pre5"
 #gem "oauth-plugin", :git => "https://github.com/pelle/oauth-plugin.git", :branch => "0_4-branch" 

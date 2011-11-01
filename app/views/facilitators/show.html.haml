@@ -7,6 +7,8 @@
         = @facilitator.name.nil? ? @facilitator.member.email : @facilitator.name
       .type
         facilitador
+        - if @facilitator.isCompany
+          #{" - empresa "}
       = image_tag member_pic(@facilitator), :class=>"img-profile"  
       .about-me
         .about-me-text
@@ -54,6 +56,13 @@
       %p
         %b Este es tu perfil público, así es como el mundo te verá en Conectando Sonrisas
     .mine.my-profile
+      - if @facilitator.isCompany
+        %p
+          %b Este es un perfil de empresa
+        .companyAddress
+          #{I18n.t("companyAddress") + ": " + @facilitator.companyAddress}
+        .companyPhone
+          #{I18n.t("companyPhone") + ": " + @facilitator.companyPhone}
       %p
         %b #{I18n.t("contribution2").html_safe}
       %p
