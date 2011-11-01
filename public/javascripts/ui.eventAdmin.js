@@ -65,14 +65,7 @@ $jq.widget("ui.eventAdmin", {
           e.preventDefault();
           $jq("#event-edit").dialog({modal:true, title:"Editar Evento", width: 500, closeText:"X", show:"fadeIn"});
         });         
-        
-//        $jq('#comment_submit').click(function(e){
-//            e.preventDefault();
-//            var comment = $jq("#comment_comment").val();
-//            self._toTwitter(comment, document.URL);
-//            
-//        });        
-        
+          
       	$el.find(".my-profile-menu a").click(function(e) {
     	    e.preventDefault();
     	    var to_show = $jq(this).attr("show"); 	    
@@ -91,17 +84,40 @@ $jq.widget("ui.eventAdmin", {
                 self._deleteComment(comment_id,event_id, elId);
 	            }
           });  
+          
+          
+         $el.find('.delete_need').click(function(e) {
+              e.preventDefault();
+	            var answer = confirm("¿Seguro que desea eliminar está necesidad?\n Esto no se puede deshacer")
+              if (answer){
+                var need_id = $jq(this).attr("need_id");
+                var event_id = $jq("#event-id").val();                
+                var elId = $jq(this).attr("id").split("-")[2];
+                $jq("#need-img-"+elId).css('display', 'inline');
+                $jq(this).hide();
+                self._deleteNeed(need_id,event_id, elId);
+	            }
+          });  
+          
+          $el.find('.complete_need').change(function(){
+            var complete = $jq(this).attr('checked');
+            var need_id = $jq(this).attr("need_id");
+            self._completeNeed(need_id, complete);  
+          });
         
     }, _show: function(show){
       var newMargin = '15px';
       if(show == 'comments'){    
-        newMargin = '85px';
-      }
-      else if(show == 'pics'){
         newMargin = '180px';
+      }
+      else if(show == 'needs'){
+        newMargin = '80px';
+      }  
+      else if(show == 'pics'){
+        newMargin = '270px';
       }      
       else if (show == 'assistants'){
-        newMargin = '270px';
+        newMargin = '360px';
       }  
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       if (show == "all" ){
@@ -193,23 +209,32 @@ $jq.widget("ui.eventAdmin", {
               }
         }, "text" );
     },
-    _toTwitter: function(comment, url){
-        $jq.getJSON("http://api.bit.ly/v3/shorten?login=carloshlopez&apiKey=R_0eb20408ca41a161a5e5d6ee90d11801&longUrl="+url+"&format=json",
-          {},
-          function(data) {
-            if(data.status_code == "200"){
-                //Trim coment to 110 characters
-                if (comment.length > 110)
-                {
-                    comment = comment.substr(0, 110);
-                }
-                comment = comment + " ... " + data.data.url
-            }
-            else
-            {
+    _deleteNeed: function(need_id, event_id, elId){
+        $jq.post( "/events/"+event_id+"/needs/"+ need_id+".json", { "_method": "delete" },
+            function(data, textStatus, XMLHttpRequest){
+              var obj = $jq.parseJSON(data);
+              if(obj.resp == "ok"){ 
+                $jq("#need-"+elId).fadeOut("slow", function(){
+                  $jq("#need-"+elId).remove();
+                });
+
+              }
+              else{
                 alert(data);
-            }
-        });
+              }
+        }, "text" );
+    },
+    _completeNeed: function(need_id, complete){
+        $jq.post( "/needs/complete/"+ need_id+".json",{"completed" : complete},
+            function(data, textStatus, XMLHttpRequest){
+              var obj = $jq.parseJSON(data);
+              if(obj.resp == "ok"){ 
+                alert('Muy bien una necesidad satisfecha!');
+              }
+              else{
+                alert(data);
+              }
+        }, "text" );
     }
 });
 

@@ -1,6 +1,10 @@
 Prueba::Application.routes.draw do
   
   
+  get "need/create"
+
+  get "need/destroy"
+
   resources :news
 
   get "search/find"
@@ -68,7 +72,11 @@ Prueba::Application.routes.draw do
   
   resources :events do
     resources :comments
+    resources :needs do
+        post "complete"
+    end
   end
+  match 'needs/complete/:id' => 'needs#complete'
 
   get "/facilitators/list" => "facilitators#list"  
   resources :facilitators

@@ -16,8 +16,28 @@
     <%= I18n.t('facilitator.welcome_message').html_safe  %>
   <% end %>
   <div class="field">
+    <%= f.label I18n.t("isCompany") %>
+    <%= f.check_box :isCompany%>
+  </div>
+  <div id="company_info" style="display:none">
+    <div class="field">
+      <%= f.label I18n.t("companyAddress") %><br />
+      <%= f.text_field :companyAddress, :class=>"input_dialog" %>    
+    </div>
+    <div class="field">
+      <%= f.label I18n.t("companyPhone") %><br />
+      <%= f.text_field :companyPhone, :class=>"input_dialog" %>    
+    </div>     
+  </div>
+  
+  <div class="field">
     <%= f.label I18n.t("name") %><br />
     <%= f.text_field :name, :class=>"input_dialog" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t("website") %><br />
+    <%= f.text_field :website, :class=>"input_dialog" %>
   </div>
 
   <div class="field">
@@ -72,20 +92,13 @@
     <%= f.label I18n.t("picture") %><br />
     <%= f.file_field :pic %>
   </div>
-  <% unless @facilitator.member.facebook_id %>
-    <div id="fbConnect" class="facebook_connect" member_id="<%= current_member.id  %>">
-      <div id="fb-root"></div>
-        <script src="http://connect.facebook.net/es_CO/all.js"></script>
-        <script src="/javascripts/ui.fbConnect.js" type="text/javascript"></script>
-        <div class="fblogginButton">
-          <fb:login-button>Con&eacute;ctate con Facebook</fb:login-button>
-        </div>
-        <input type="button" class="fbPermissions" value="Dar Permisos a Facebook" onClick="addPermissions()" style="display: none"/>
-      <noscript>Activa JavaScript para conectanrte con facebook!</noscript>
-    </div>
-
-  <% end %>
+  
   <div class="actions">
     <%= f.submit I18n.t("facilitator.submit_edit") %>
+  </div>
+  
+  <div class="profile_authentications">
+    <% @authentications = current_member.authentications %>
+    <%= render :partial => "authentications/all" %>
   </div>
 <% end %>

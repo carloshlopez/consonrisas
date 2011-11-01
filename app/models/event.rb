@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :shows, :join_table => :events_shows, :uniq => true  
   has_many :event_admins, :dependent =>:destroy
   has_many :members, :through => :event_admins, :dependent => :destroy  
-  
+  has_many :needs, :dependent => :destroy
 
   attr_accessible :photos_attributes, :videos_attributes, :date, :name, :city, :place, :pic, :isRaiser, :isClosed
   has_many :photos

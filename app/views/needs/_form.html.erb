@@ -1,0 +1,14 @@
+<%= form_for([@event, @event.needs.build]) do |f| %>
+  <div class="field">
+    <%= f.label I18n.t('name') %><br />
+    <%= f.text_field :name %>
+  </div>
+  <!--div class="field">
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </div-->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

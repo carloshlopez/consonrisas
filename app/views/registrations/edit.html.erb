@@ -1,3 +1,5 @@
+<%= javascript_include_tag "new_layout/ui.account" %>
+<div id="account">
 <h2><%= I18n.t('account.edit') %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -24,6 +26,11 @@
 </div>
 
 
+<a href="#" id="cancel_account" ><%=I18n.t('account.cancel')%></a>
+<div style="display:none" id="remove_account"><%= link_to "Click aquí para #{I18n.t('account.cancel')}", registration_path(resource_name), :id=>"click_cancel_account"%>
+<br/>
+<a href="#" id="no_cancel_account" >Mentira, mejor no la quiera cerrar</a>
+</div>
 
-<p><%= link_to I18n.t('account.cancel'), registration_path(resource_name), :confirm => I18n.t('account.cancel_confirm'), :method => :delete %></p>
 
+</div>

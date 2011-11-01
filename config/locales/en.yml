@@ -2,6 +2,10 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  companyAddress: "Company Address"
+  companyPhone: "company phone"
+  website: "got a web page"
+  isCompany: "Is this a profile for a company?"
   see_public_profile: "See public profile"
   profile_text: "profile"
   invites: "invites"

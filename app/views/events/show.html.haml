@@ -46,6 +46,8 @@
       .my-profile-menu
         %a.all{:href=>"#menu", :show=>"all"} todo
         |    
+        %a.needs{:href=>"#menu", :show=>"needs"} necesidades
+        |    
         %a.comments{:href=>"#menu", :show=>"comments"} comentarios
         |
         %a.pics{:href=>"#menu", :show=>"pics"} fotos y videos
@@ -55,8 +57,10 @@
         .arrow-up-profile.arrow-all    
       .share_fb
         = render :partial => "share_fb"
-      - if @event.isRaiser
-        %b #{I18n.t('events.isRaiser')}        
+        - if @event.isRaiser
+          %b #{I18n.t('events.isRaiser')}
+      .mine.my-needs
+        = render :partial => "event_needs"        
       .mine.my-pics           
         = render :partial=>"photo_gallery"
         - if can_edit

@@ -8,21 +8,17 @@ jQuery(document).ready(function($) {
         }
     });
     
-    var cities = [
-			"Bogotá",
-			"Medellín",
-			"Cali",
-			"Cartagena",
-			"Chia",
-			"Cota",
-			"Barranquilla",
-			"Santa Marta",
-			"Envigado",
-			"Guasca",
-			"Bucaramanga"
-		];
-		$( "#facilitator_city" ).autocomplete({
-			source: cities
-		});
+    $('#facilitator_isCompany').bind('change', function() {
+        if($(this).attr('checked')){
+            $('#company_info').slideDown();
+        }
+        else{
+            $('#company_info').slideUp();
+        }
+    });
     
+    if($('#facilitator_isCompany').attr('checked')){
+            $('#company_info').show();
+    }
+       
 });

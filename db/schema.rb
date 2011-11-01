@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014054515) do
+ActiveRecord::Schema.define(:version => 20111101024311) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20111014054515) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "secret"
+    t.string   "token"
   end
 
   create_table "comments", :force => true do |t|
@@ -112,6 +114,10 @@ ActiveRecord::Schema.define(:version => 20111014054515) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.string   "city"
+    t.boolean  "isCompany",        :default => false
+    t.string   "companyAddress"
+    t.string   "companyPhone"
+    t.string   "website"
   end
 
   create_table "facilitators_facilitators", :id => false, :force => true do |t|
@@ -180,6 +186,14 @@ ActiveRecord::Schema.define(:version => 20111014054515) do
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
   add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
+
+  create_table "needs", :force => true do |t|
+    t.string   "name"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
 
   create_table "news", :force => true do |t|
     t.integer  "news_type"

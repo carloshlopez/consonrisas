@@ -16,14 +16,19 @@
             %input{:type=>"hidden", :value=>"#{current_member.id}" ,:id=>"member-from"}                      
           %span.loading{:style=>"display:none", :id=>"prov-img-0"}
             = image_tag "mini-loader-yellow-on-yellow.gif"                    
-          - if current_member.facilitator.providers.select{|p| p.id == @provider.id}.empty?          
-            %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:provider_id=>"#{@provider.id}", :href=>"#", :id=>"prov-0"}
-              = I18n.t('follow')
+          - if !can_current_member_edit_provider(@provider.id) 
+            - if current_member.facilitator.providers.select{|p| p.id == @provider.id}.empty?          
+              %a.follow{:facilitator_id=>"#{current_member.facilitator.id}",:provider_id=>"#{@provider.id}", :href=>"#", :id=>"prov-0"}
+                = I18n.t('follow')
+            - else
+              %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:provider_id=>"#{@provider.id}", :href=>"#",:id=>"prov-0"}
+                =I18n.t('unfollow')
+          - if can_current_member_edit_provider(@provider.id)
+            %br
+            = link_to I18n.t('edit'), edit_provider_path(@provider)
           - else
-            %a.unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:provider_id=>"#{@provider.id}", :href=>"#",:id=>"prov-0"}
-              =I18n.t('unfollow')    
-          %br
-          %a.send-msg{:href=>"#"}Enviar un mensaje
+            %br
+            %a.send-msg{:href=>"#"}Enviar un mensaje
   #profile-content-provider
     .my-profile-title
       %h1 
@@ -45,6 +50,9 @@
           = @provider.name
         %p
           = @provider.description
+        - if can_current_member_edit_provider(@provider.id)
+          %br
+          = link_to I18n.t('edit'), edit_provider_path(@provider)
     .mine.my-events{:style=>"display:none"}
       = render :partial => "events"  
     .mine.my-contact{:style=>"display:none"}

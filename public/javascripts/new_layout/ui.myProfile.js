@@ -258,9 +258,22 @@ $jq(document).ready(function($) {
     showEdit();
   }
   
+	$jq(".auth-remove").click(function(e){
+	  e.preventDefault();
+	  if (confirm("Ya no podrás ingresar con este servicio, y no nos ayudarás a regar la voz por medio de este medio :(.\n Seguro que deseas continuar?")){
+  	  var url = $jq(this).attr("href");
+      $jq.post( url, { "_method": "delete" },
+          function(data, textStatus, XMLHttpRequest){
+              window.location.reload(); 
+      }, "text" );
+    }
+	}); 
+  
 });
 
 function showEdit(e){
-  e.preventDefault();
+  if (e != undefined){
+    e.preventDefault();
+  }
   $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 400, closeText:"X", show:"slide"});
 }
