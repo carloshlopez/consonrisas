@@ -2,16 +2,12 @@
 %html
   %head
     %title ..::Conectando Sonrisas::..  
-    %link{:href=>"www.conectandosonrisas.org/stylesheets/new.css?1314853731", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
     %a{:href=>"www.conectandosonrisas.org"}
       %img{:src => "www.conectandosonrisas.org/images/conectando_sonrisas.png",:height=>"125px"}
-    .one-item
-      = link_to image_tag(@member_from.facilitator.pic.url(:thumb)), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador"
-      %span
-        .one-item-name
-          #{@message}
-        #{link_to I18n.t('go_to_profile'), facilitator_url(@member_to.facilitator), :title=>"Ver Perfil"}
-    .profile{:style=>"backgroud-color:rgb(90,180,70);"}
-      = link_to image_tag("SacarRisas.png"), member_url(@member_to)
+    %p
+      %b
+        =I18n.t('events.mail_comment_made_subject')
+    %p
+      #{@message}
