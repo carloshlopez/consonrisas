@@ -1,5 +1,6 @@
 .one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
   #{@member_from.facilitator.name.blank? ? @member_from.facilitator.member.email : @member_from.facilitator.name}, envi&oacute; el siguiente mensaje:
+  %br
   - unless @member_from.facilitator.pic.url(:thumb).include? "missing"
     = link_to image_tag(@member_from.facilitator.pic.url(:thumb), :style=>"border-color: rgb(90, 180, 70);"), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
   - else
