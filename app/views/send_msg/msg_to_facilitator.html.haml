@@ -1,6 +1,11 @@
-.one-item{:style=>"padding: 10px 10px 10px; font-size: medium; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
-  = link_to image_tag(@member_from.facilitator.pic.url(:thumb)), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70); font-size: 13px;"
+.one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+  - unless @member_from.facilitator.pic.url(:thumb).include? "missing"
+    = link_to image_tag(@member_from.facilitator.pic.url(:thumb)), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+  - else
+    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png"), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
   %span{:style=>"position: absolute; margin-top: 8px; margin-left: 10px;"}
     .one-item-name
       #{@message}
-    #{link_to I18n.t('go_to_profile'), facilitator_url(@member_to.facilitator), :title=>"Ver Perfil", :style=>"color: rgb(90, 180, 70); font-size: 18px; font-weight: bold;"}
+    #{link_to I18n.t('go_to_profile'), facilitator_url(@member_to.facilitator), :title=>"Ver Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
+%br
+%br
