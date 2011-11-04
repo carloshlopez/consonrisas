@@ -20,13 +20,12 @@ Prueba::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
 ActionMailer::Base.smtp_settings = {
-  :enable_starttls_auto => true,
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => "www.conectandosonrisas.org",
+  :address        => "smtp.sendgrid.net",
+  :port           => "25",
   :authentication => :plain,
-  :user_name => "noreply@conectandosonrisas.org",
-  :password => "Conectando!123*"
+  :user_name      => ENV['app366774@heroku.com'],
+  :password       => ENV['94418ccb8c1b86975f'],
+  :domain         => ENV['conectandosonrisas.org']
 }
 
   # Print deprecation notices to the Rails logger
