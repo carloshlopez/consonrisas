@@ -1,11 +1,10 @@
-#{@member_from.facilitator.name.blank? ? @member_from.facilitator.member.email : @member_from.facilitator.name}, envió el siguiente mensaje:
+#{@member_from.facilitator.name.blank? ? @member_from.facilitator.member.email : @member_from.facilitator.name}, envi&oacute; el siguiente mensaje:
 .one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
   - unless @member_from.facilitator.pic.url(:thumb).include? "missing"
-    = link_to image_tag(@member_from.facilitator.pic.url(:thumb)), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+    = link_to image_tag(@member_from.facilitator.pic.url(:thumb), :style=>"border-color: rgb(90, 180, 70);"), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
   - else
-    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png"), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png", :style=>"border-color: rgb(90, 180, 70);"), facilitator_url(@member_from.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
   %span{:style=>"position: absolute; margin-top: 8px; margin-left: 10px;"}
     .one-item-name
       #{@message}
-%br
-#{link_to "Míralo en tu perfil", member_url(@member_to), :title=>"Ver Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
+    #{link_to "M&iacute;ralo en tu perfil", member_url(@member_to), :title=>"Ver Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
