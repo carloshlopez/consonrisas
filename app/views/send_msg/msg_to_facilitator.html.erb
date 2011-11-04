@@ -1,11 +1,11 @@
 <div class="one-item" style="padding: 10px 10px 10px; font-size: medium; border-width: 0 0 1px; border-style: dotted; color: rgb(90,180,70);">
-  <a href="http://www.conectandosonrisas.org/facilitators/<%=@member_from.facilitator.id%>">
-  <img src="<%=member_thumb(@member_from.facilitator)%>"/>
+  <a href="http://www.conectandosonrisas.org/facilitators/#{@member_from.facilitator.id}">
+  <img src="#{member_thumb(@member_from.facilitator)}"/>
   </a>
   <span style="position: absolute; margin-top: 8px; margin-left: 10px;">
     <div class="one-item-name">
       <%= @message %>
-      <a href="http://www.conectandosonrisas.org/members/<%= @member_to.id %>" style="color: rgb(90, 180,70); font-size: 18px; font-weight: bold;">
+      <a href="http://www.conectandosonrisas.org/members/#{@member_to.id}" style="color: rgb(90, 180,70); font-size: 18px; font-weight: bold;">
         <%= I18n.t('go_to_profile') %>
       </a>
     </div>
