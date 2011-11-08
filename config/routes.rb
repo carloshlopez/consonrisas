@@ -63,6 +63,7 @@ Prueba::Application.routes.draw do
   #root :to => "home#index"
   
   get "/info" =>"home#info"
+  get "/touch" =>"home#touch"
   get "/donate" =>"home#donate"  
   get "/allies" =>"home#allies"
   get "home/new_index"

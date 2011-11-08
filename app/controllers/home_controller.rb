@@ -54,6 +54,8 @@ class HomeController < ApplicationController
   def info
     
   end
+  def touch
+  end
   
   def feedback
     Feedback.create(:message=> params[:men])
