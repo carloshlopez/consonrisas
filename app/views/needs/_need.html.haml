@@ -3,7 +3,7 @@
   - if need.completed
     %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed", :checked=>"checked" }
   - else
-    %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed", }  
+    %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed"}  
   - if member_signed_in? and can_current_member_edit_event(need.event.id)
     %a.delete_need{:need_id => need.id, :href => "#",:id=>"delete-need-#{need.id}", :title=>"Eliminar"} #{I18n.t('destroy')}
     .loading{:style=>"display:none", :id=>"need-img-#{need.id}"}
