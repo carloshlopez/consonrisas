@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
                     :path => "events/:attachment/:id/:style/:filename"
 
 #  validates_attachment_presence :pic
-  validates_attachment_size :pic, :less_than => 5.megabytes
+  validates_attachment_size :pic, :less_than => 10.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
 
