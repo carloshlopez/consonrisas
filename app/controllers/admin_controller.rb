@@ -1,3 +1,4 @@
+require 'csv'
 class AdminController < ApplicationController
   layout "admin"
   before_filter :authenticate_member!
@@ -99,4 +100,23 @@ class AdminController < ApplicationController
     end
   end
   
+  def members_to_csv 
+    @users = Member.find(:all) 
+    csv_string = CSV.generate do |csv| 
+      # header row 
+      csv << ["email", "name"] 
+   
+      # data rows 
+      @users.each do |user| 
+        name = 'Sin Nombre'
+        name = user.facilitator.name if user.facilitator
+        csv << [user.email, name] 
+      end 
+    end 
+   
+    # send it to the browsah
+    send_data csv_string, 
+              :type => 'text/csv; charset=iso-8859-1; header=present', 
+              :disposition => "attachment; filename=users.csv" 
+  end  
 end
