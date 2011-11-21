@@ -20,7 +20,7 @@ module ApplicationHelper
   
   def can_current_member_edit_event(event_id)
     can_he = true
-    can_he = false if current_member.event_admins.select{|e| e.event.id == event_id}.empty?
+    can_he = false if current_member.event_admins.select{|e| e.event.id == event_id and e.active}.empty?
     can_he
   end
   
