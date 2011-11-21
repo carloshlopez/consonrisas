@@ -1,7 +1,7 @@
 .photo_upload{:style=>"display:none"}
   %a{:href=>"#", :class=>"cancel_admin_photos"}
     Cerrar Admin Fotos
-  - 5.times {@event.photos.build}
+  - 3.times {@event.photos.build}
   = form_for(@event, :html =>{:multipart=>true}, :id=>"upload_photos_form") do |f|
     .field_photos
       Agrega fotos al evento
