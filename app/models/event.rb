@@ -7,7 +7,6 @@ class Event < ActiveRecord::Base
   has_many :event_admins, :dependent =>:destroy
   has_many :members, :through => :event_admins, :dependent => :destroy  
   has_many :needs, :dependent => :destroy
-
   attr_accessible :photos_attributes, :videos_attributes, :date, :name, :city, :place, :pic, :isRaiser, :isClosed
   has_many :photos
   accepts_nested_attributes_for :photos, :allow_destroy=> true
@@ -20,7 +19,7 @@ class Event < ActiveRecord::Base
                     :path => "events/:attachment/:id/:style/:filename"
 
 #  validates_attachment_presence :pic
-  validates_attachment_size :pic, :less_than => 10.megabytes
+  validates_attachment_size :pic, :less_than => 4.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
   
 
