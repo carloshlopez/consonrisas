@@ -1,7 +1,7 @@
 require 'csv'
 class AdminController < ApplicationController
   layout "admin"
-  before_filter :authenticate_member!
+  before_filter :authenticate_member!, :except => [:members_to_csv]
 
   def index
     flash[:notice] = ""
