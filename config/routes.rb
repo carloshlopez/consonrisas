@@ -25,7 +25,7 @@ Prueba::Application.routes.draw do
   match 'admin/db/:table_name/:id', :controller => 'admin', :action => 'update_table_data', :conditions => {:method => :put }  
   match 'admin/db/:table_name', :controller => 'admin', :action => 'create_table_data', :conditions => {:method => :post}
   match 'admin/db/delete/:table_name/:id', :controller => 'admin', :action => 'delete_table_data', :conditions => {:method => :delete }    
-
+  get "admin/members_to_csv" =>"admin#members_to_csv"
 
   get "events/gallery"
 

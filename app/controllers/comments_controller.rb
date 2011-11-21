@@ -16,9 +16,10 @@ class CommentsController < ApplicationController
       begin
         current_member.facebook.feed!(
         :message => comment, 
-        :caption => "Comentario en un evento de Conectando Sonrisas",
-        :picture => CGI::escape("http://www.conectandosonrisas.org/pics/thumb/missing.png"),
-        :link => CGI::escape("http://www.conectandosonrisas.org/events/#{@event.id}")
+        :description => "Comentario en un evento de Conectando Sonrisas",
+        :picture => 'http://www.conectandosonrisas.org/pics/thumb/missing.png',
+        :link => 'http://www.conectandosonrisas.org/events/',
+        :name => 'comentario'
         )
       rescue
         
