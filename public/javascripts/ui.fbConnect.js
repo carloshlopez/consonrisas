@@ -46,7 +46,7 @@ $jq.widget("ui.fbConnect", {
 		    link: 'http://www.conectandosonrisas.org', 
 		    picture:'http://www.conectandosonrisas.org/images/conectando_sonrisas.png',
 		    name:'Conectando Sonrisas',
-		    description:'Una comunidad de todos para todos',
+		    description:'Tu puedes generar momentos mágicos',
 		    message:'Me acabo de registrar en Conectando Sonrisas!',
 		    caption:'Somos todos!'
 		    }, function(response) {
