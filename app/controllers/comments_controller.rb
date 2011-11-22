@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
         current_member.facebook.feed!(
         :message => comment, 
         :description => "Averigua como puedes ayuar",
+        :picture => "http://www.conectandosonrisas.org/pics/profile/missing.png",
         :icon => "http://www.conectandosonrisas.org/pics/thumb/missing.png",
         :link => "http://www.conectandosonrisas.org/events/#{@event.id}",
         :name => "Comentario en un evento de Conectando Sonrisas"
