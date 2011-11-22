@@ -113,8 +113,6 @@ class AdminController < ApplicationController
         csv << [user.email, name] 
       end 
     end 
-   
-    # send it to the browsah
     send_data csv_string, 
               :type => 'text/csv; charset=iso-8859-1; header=present', 
               :disposition => "attachment; filename=users.csv" 
