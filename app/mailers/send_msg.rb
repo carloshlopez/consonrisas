@@ -1,5 +1,5 @@
 class SendMsg < ActionMailer::Base
-  default :from => "noreply@conectandosonrisas.org"
+  default :from => "\"Conectando Sonrisas\" <noreply@conectandosonrisas.org>"
   
   def msg_to_facilitator(member_from, member_to, message)
     @member_to = member_to
