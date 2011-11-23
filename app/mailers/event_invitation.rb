@@ -1,5 +1,5 @@
 class EventInvitation < ActionMailer::Base
-  default :from => "noreply@conectandosonrisas.org"
+  default :from => "\"Conectando Sonrisas\" <noreply@conectandosonrisas.org>"
   
   def invite_facilitator(member, event)
     @member = member

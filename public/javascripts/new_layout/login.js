@@ -18,4 +18,9 @@ $jq(document).ready(function($) {
       $jq("#register-form").dialog({modal:true, title:"Registrate", width: 345, closeText:"X", show:"clip"});
     });
     
+//    $jq(".register_wizzard").live('click', function(e){
+//      e.preventDefault();
+//      $jq("#register-wizzard").dialog({modal:true, title:"Registrate", width: 345, closeText:"X", show:"clip"});
+//    });
+    
 });
