@@ -1,6 +1,6 @@
 .event-needs.bordered_box
   - if @event.needs.size > 0
-    %b Nececidades del evento. Puedes ayudar con alguna?
+    %b Necesidades del evento. ¿Puedes ayudar con alguna?
     = render :partial => "needs/need", :collection=> @event.needs
   - if member_signed_in? and can_current_member_edit_event(@event.id)
     %b Crea una necesidad que tenga el evento, entre todos las intentaremos solucionar
