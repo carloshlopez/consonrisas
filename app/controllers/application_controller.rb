@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :authenticate_http
   
   def facebook_logout
-    split_token = session[:fb_token].split("|")
-    fb_api_key = split_token[0]
-    fb_session_key = split_token[1]
+#    split_token = session[:fb_token].split("|")
+#    fb_api_key = split_token[0]
+#    fb_session_key = split_token[1]
     puts "session[:fb_token] #{session[:fb_token]}"
     session[:fb_token] = nil
 #    redirect_to "http://www.facebook.com/logout.php?api_key=#{fb_api_key}&session_key=#{fb_session_key}&confirm=1&next=#{destroy_member_session_url}";
-    redirect_to "http://www.facebook.com/logout.php?access_token=#{fb_api_key}&session_key=a90fc797ce1572a3e4952b4d8172f228&confirm=1&next=#{destroy_member_session_url}";
+    redirect_to "https://www.facebook.com/logout.php?access_token=#{session[:fb_token]}&next=#{destroy_member_session_url}";
   end
   
   private
