@@ -61,9 +61,11 @@ class ProvidersController < ApplicationController
       if @provider.update_attributes(params[:provider])
         format.html { redirect_to(@provider, :notice => 'Provider was successfully updated.') }
         format.xml  { head :ok }
+        format.json { render :json => { :resp=> "ok" }}
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @provider.errors, :status => :unprocessable_entity }
+        format.json { render :json => { :resp=> "error" }}
       end
     end
   end
@@ -122,6 +124,20 @@ class ProvidersController < ApplicationController
     end
     respond_to do |format|
       format.json {render :json=>resp}
+    end
+  end
+  
+  def get_pic
+    @provider = Provider.find(params[:provider_id])
+    render :json=>{ :pic_path => @provider.pic.url(:thumb).to_s , :name => @provider.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'  
+  end
+  
+  def change_pic
+    @provider = Provider.find(params[:provider_id])
+    if @provider.update_attributes(params[:provider])    
+      render :json => { :pic_path_big => @provider.pic.url(:profile).to_s, :pic_path => @provider.pic.url(:thumb).to_s , :name => @provider.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'    
+    else
+      render :json => { :result => 'error'}, :content_type => 'text/html'
     end
   end
   

@@ -6,6 +6,9 @@
     = stylesheet_link_tag "jquery-ui-1.8.10.custom"
     = stylesheet_link_tag "prettyPhoto"
     = stylesheet_link_tag "new"
+    = stylesheet_link_tag "smart_wizard"
+    = stylesheet_link_tag "smart_wizard_big"    
+    = stylesheet_link_tag "jsUpload/jquery.fileupload-ui"
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon"}/
     = javascript_include_tag "jquery-1.4.4.min"
     = javascript_include_tag "jquery-ui-1.8.10.custom.min"        
@@ -14,6 +17,8 @@
     %link{:href => "", :media => "all", :rel => "stylesheet"}/
     = javascript_include_tag "gooAnalytics"
   %body
+    #alert-msg{:style=>"display:none"}
+      %p
     #left_div_top
       %form#searchform{:action => "/search/find", :method => "get"}
         %input#search-text.default{:name => "find", :type => "text"}
@@ -58,7 +63,7 @@
               %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
           - else
             %li
-              %a.info.register{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
+              %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
     = yield
     #footer
       #follow-us
@@ -78,6 +83,7 @@
       #{" - "}
       %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
   - unless member_signed_in?
+    = render :partial => "/home/register_steps"
     #register-form{:style=>"display:none"}
       = render :partial => "/registrations/new"        
   :javascript
@@ -90,3 +96,7 @@
   = javascript_include_tag "new_layout/search"
   = javascript_include_tag "jquery.prettyPhoto"
   = javascript_include_tag "jquery-ui-timepicker-addon"  
+  = javascript_include_tag "jquery.smartWizard"    
+  = javascript_include_tag "new_layout/register"     
+  = javascript_include_tag "ui.cities"
+  = javascript_include_tag "ui.profilePics"  

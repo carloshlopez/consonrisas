@@ -5,13 +5,9 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @event.comments.create(params[:comment])
     comment = params[:comment][:comment]
-    if !current_member.authentications.select{|a| a.provider == "twitter"}.empty?
-      begin
-        current_member.twitter.update(comment[0, 85] << " ... http://www.conectandosonrisas.org/events/#{@event.id}")
-      rescue 
-        
-      end
-    end
+    
+ 
+    
     if !current_member.authentications.select{|a| a.provider == "facebook"}.empty?
       begin
         current_member.facebook.feed!(
@@ -25,7 +21,17 @@ class CommentsController < ApplicationController
       rescue
         
       end
+    end   
+    
+    if !current_member.authentications.select{|a| a.provider == "twitter"}.empty?
+      begin
+        current_member.twitter.update(comment[0, 85] << " http://consonrisas.co/events/#{@event.id}")
+      rescue 
+        
+      end
     end
+
+    
     redirect_to event_path(@event)
   end
   

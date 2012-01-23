@@ -1,3 +1,9 @@
+require 'simple_worker'
+
+SimpleWorker.configure do |config|
+  config.token = 'tSNJz33ZkkKdBWvUhvYBNIEmhbQ'
+  config.project_id = '4ed7ace3b786c80144000060'
+end
 Prueba::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -33,5 +39,9 @@ ActionMailer::Base.smtp_settings = {
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+#  config.load_paths += %W( #{RAILS_ROOT}/app/workers )
+
+  config.autoload_paths += %W( #{::Rails.root.to_s}/app/workers )
 end
 

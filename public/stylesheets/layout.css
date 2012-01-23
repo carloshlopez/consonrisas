@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$site-color".
-        on line 25 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss
+        on line 42 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss
 
-20: margin-bottom: 15px;
-21:  
-22: }
-23: 
-24: #left_div_top{
-25:   background: $site-color;
-26:   color: $main-background;
-27:   height: 25px;
-28:   width: $left-div-width;
-29:   margin-top: -10px;
-30:   input.home-color{
+37: margin-bottom: 15px;
+38:  
+39: }
+40: 
+41: #left_div_top{
+42:   background: $site-color;
+43:   color: $main-background;
+44:   height: 25px;
+45:   width: $left-div-width;
+46:   margin-top: -10px;
+47:   input.home-color{
 
 Backtrace:
-/home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss:25
+/home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss:42
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -96,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 25 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 20: margin-bottom: 15px;\A 21:  \A 22: }\A 23: \A 24: #left_div_top{\A 25:   background: $site-color;\A 26:   color: $main-background;\A 27:   height: 25px;\A 28:   width: $left-div-width;\A 29:   margin-top: -10px;\A 30:   input.home-color{"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 42 of /home/carlos/Projects/prueba/public/stylesheets/sass/layout.scss\A \A 37: margin-bottom: 15px;\A 38:  \A 39: }\A 40: \A 41: #left_div_top{\A 42:   background: $site-color;\A 43:   color: $main-background;\A 44:   height: 25px;\A 45:   width: $left-div-width;\A 46:   margin-top: -10px;\A 47:   input.home-color{"; }

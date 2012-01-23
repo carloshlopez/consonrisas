@@ -21,6 +21,9 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+.warning {
+  color: red; }
+
 .bordered_box {
   margin: 3px;
   border: 1px solid gray;
@@ -40,6 +43,21 @@ body {
 
 .alert {
   color: red; }
+
+#alert-msg {
+  background-color: #668014;
+  border-radius: 0 0 10px 10px;
+  color: white;
+  left: 50%;
+  margin: auto;
+  margin-left: -130px;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  width: 260px;
+  z-index: 1020; }
+  #alert-msg p {
+    text-align: center; }
 
 .logo {
   margin-top: 15px;
@@ -955,10 +973,6 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
-    #left-div-profile .profile-info img.img-profile {
-      margin-top: 15px;
-      margin-left: 30px;
-      max-height: 150px; }
     #left-div-profile .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }
@@ -1241,10 +1255,6 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
-    #left-div-profile-fundation .profile-info img.img-profile {
-      margin-top: 15px;
-      margin-left: 30px;
-      max-height: 150px; }
     #left-div-profile-fundation .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }
@@ -1366,10 +1376,6 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
-    #left-div-profile-provider .profile-info img.img-profile {
-      margin-top: 15px;
-      margin-left: 30px;
-      max-height: 150px; }
     #left-div-profile-provider .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }
@@ -1433,6 +1439,33 @@ div.arrow-down {
       margin-left: 15px; }
   #profile-content-provider .prov-desc p {
     text-align: justify; }
+
+.profile-picture-div {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  max-width: 150px;
+  padding-left: 35px;
+  padding-top: 10px; }
+
+.change_pic {
+  background: none repeat scroll 0 0 #000000;
+  color: #FFFFFF;
+  height: 20px;
+  opacity: 0.7;
+  padding: 6px 7px 0 23px;
+  position: absolute;
+  right: 0;
+  top: 10px; }
+
+span.edit_profilepicture_icon {
+  background: url("http://static.ak.fbcdn.net/rsrc.php/v1/yA/r/QbfalTL4SQ2.png") no-repeat scroll left 4px transparent;
+  height: 18px;
+  left: 7px;
+  opacity: 0.95;
+  position: absolute;
+  top: 4px;
+  width: 18px; }
 
 .news-item {
   height: 50px;

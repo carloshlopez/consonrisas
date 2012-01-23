@@ -7,17 +7,23 @@
         = @fundation.name
       .type
         proyecto social
-      = image_tag @fundation.pic.url(:profile), :class=>"img-profile"  
+      .profile-picture-div
+        - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)
+          %a{:href=>"#", :class=>"change_pic"}
+            Cambia tu foto
+            %span.edit_profilepicture_icon                
+        = image_tag @fundation.pic.url(:profile), :class=>"img-profile"  
       .about-me
         .about-me-text
-          - if !@fundation.website.empty?
+          - if @fundation.website and !@fundation.website.empty?
             %b
               www:
             = @fundation.website
           %br
-          %b
-            Población que atienden:
-          = population_name(@fundation.population_id)
+          - if @fundation.population_id
+            %b
+              Población que atienden:
+            = population_name(@fundation.population_id)
           %br
           %b
             = I18n.t('address')
@@ -111,4 +117,7 @@
           %a.ask_admin{:href => "#", :name => "ask_admin"}Ask To Admin   
   - @num = 0
   = render :partial=>"send_msg"
+  #change_pic{:style=>"display:none"}
+    - @model = @fundation
+    = render :partial=>"shared/just_pic"  
   = javascript_include_tag "new_layout/ui.profileFundation"          

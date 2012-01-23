@@ -15,7 +15,8 @@
       %span
         .one-item-name
           = link_to fundation.name, fundation
-        %a.www{:href=>"#{convert_url_for_href(fundation.website)}", :target=>"_blank", :title=>"#{fundation.website}"}www          
+        - if fundation.website
+          %a.www{:href=>"#{convert_url_for_href(fundation.website)}", :target=>"_blank", :title=>"#{fundation.website}"}www          
         - if member_signed_in?
           = link_to I18n.t('fundation.show'), fundation
           |
@@ -31,7 +32,8 @@
             %a.fund-unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#",:id=>"fund-#{i}"}
               =I18n.t('unfollow')          
       .one-item-populations.one-item-fundations
-        = population_name(fundation.population_id)
+        - if fundation.population_id
+          = population_name(fundation.population_id)
       - if member_signed_in?
         - @num = i
         - @fundation = fundation

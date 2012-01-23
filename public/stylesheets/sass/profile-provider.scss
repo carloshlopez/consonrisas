@@ -20,9 +20,6 @@
       margin-left: -30px;      
     }
     img.img-profile{
-      margin-top: 15px;
-      margin-left: 30px;     
-      max-height: 150px; 
     }
     h2{
       padding-top: 25px;
@@ -109,6 +106,37 @@
       text-align:justify;
     }
   }  
+}
+
+.profile-picture-div {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    max-width: 150px;
+    padding-left: 35px;
+    padding-top: 10px;    
+}
+
+.change_pic{
+  background: none repeat scroll 0 0 #000000;
+  color: #FFFFFF;
+  height: 20px;
+  opacity: 0.7;
+  padding: 6px 7px 0 23px;
+  position: absolute;
+  right: 0;
+  top: 10px;  
+}
+
+
+span.edit_profilepicture_icon {
+    background: url("http://static.ak.fbcdn.net/rsrc.php/v1/yA/r/QbfalTL4SQ2.png") no-repeat scroll left 4px transparent;
+    height: 18px;
+    left: 7px;
+    opacity: 0.95;
+    position: absolute;
+    top: 4px;
+    width: 18px;
 }
 
 .news-item{

@@ -38,7 +38,12 @@ $jq(document).ready(function($) {
 			"Tobia"
 		];
 		$jq( ".cities" ).autocomplete({
-			source: cities
+			source: cities,
+			open: function(event, ui) { 
+			  $jq('.ui-autocomplete').css('z-index', 5010);
+			 }
 		});
+		
+	
     
 });

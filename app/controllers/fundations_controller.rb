@@ -62,9 +62,11 @@ class FundationsController < ApplicationController
       if @fundation.update_attributes(params[:fundation])
         format.html { redirect_to(@fundation, :notice => 'Fundation was successfully updated.') }
         format.xml  { head :ok }
+        format.json { render :json => {:resp => "ok"} }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @fundation.errors, :status => :unprocessable_entity }
+        format.json { render :json => {:resp => "error"} }        
       end
     end
   end
@@ -122,6 +124,16 @@ class FundationsController < ApplicationController
     end
     respond_to do |format|
       format.json {render :json=>resp}
+    end
+  end  
+  
+ 
+  def change_pic
+    @fund = Fundation.find(params[:fundation_id])
+    if @fund.update_attributes(params[:fundation])    
+      render :json => { :pic_path_big => @fund.pic.url(:profile).to_s, :pic_path => @fund.pic.url(:thumb).to_s , :name => @fund.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'    
+    else
+      render :json => { :result => 'error'}, :content_type => 'text/html'
     end
   end  
   

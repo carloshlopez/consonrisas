@@ -4,7 +4,7 @@ class FacilitatorsController < ApplicationController
   # GET /facilitators.xml
   def index
     #@facilitators = Facilitator.all
-    @facilitators = Facilitator.order("name").page(params[:page]).per(8)
+    @facilitators = Facilitator.where("name IS NOT NULL AND name != ''").order("name").page(params[:page]).per(8)
   end
   
   def list
@@ -69,9 +69,11 @@ class FacilitatorsController < ApplicationController
 #        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
         format.html { redirect_to member_path(@facilitator.member) }
         format.xml  { head :ok }
+        format.json { render :json=>{:resp =>"ok"} }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @facilitator.errors, :status => :unprocessable_entity }
+        format.json { render :json=>{:resp =>"error"} }
       end
     end
   end
@@ -109,16 +111,12 @@ class FacilitatorsController < ApplicationController
   
   def send_msg
     resp = {"resp" => "ok"}
-    begin
-      facilitator = Facilitator.find(params[:alert]["member_id"])
-      facilitator.send_msg(params[:alert])
-    rescue => e
-      resp = {"resp" => "error", "message" => e.message}
-    end
-
+    facilitator = Member.find(params[:alert]["member_id"]).facilitator
+    facilitator.send_msg(params[:alert])   
     respond_to do |format|
       format.json { render :json => resp }
     end
   end
+  
   
 end

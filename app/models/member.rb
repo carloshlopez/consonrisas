@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic, :emailNotifications
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic, :emailNotifications, :name
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator, :dependent => :destroy 
@@ -23,6 +23,7 @@ class Member < ActiveRecord::Base
 
   def create_facilitator
     @facilitator = Facilitator.create(:member_id => id)
+    @facilitator.update_attribute(:name,  name) if name
   end
     
   def is_fundation?

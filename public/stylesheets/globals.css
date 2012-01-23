@@ -21,6 +21,9 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+.warning {
+  color: red; }
+
 .bordered_box {
   margin: 3px;
   border: 1px solid gray;

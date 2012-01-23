@@ -29,5 +29,6 @@ class Facilitator < ActiveRecord::Base
       puts "Error facilittor send_msg: #{e.inspect}"
     end
   end
+  handle_asynchronously :send_msg
 
 end
