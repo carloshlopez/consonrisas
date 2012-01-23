@@ -17,6 +17,11 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @event }
     end
   end
+  
+  def show_gallery
+    @event = Event.find(params[:event_id])
+    render :partial => "photo_gallery", :layout => false
+  end
 
   # GET /events/new
   # GET /events/new.xml

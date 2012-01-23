@@ -70,13 +70,19 @@ Prueba::Application.routes.draw do
   get "home/event_comments"
   get "/social" => "home#social"
   post "home/feedback"
+  post "/cleanInitialSession" => "members#cleanInitialSession"
+  
+  get 'photos/poll'
   
   resources :events do
+    get 'show_gallery'
+    resources :photos
     resources :comments
     resources :needs do
         post "complete"
     end
   end
+  
   match 'needs/complete/:id' => 'needs#complete'
 
   get "/facilitators/list" => "facilitators#list"  
@@ -87,16 +93,21 @@ Prueba::Application.routes.draw do
 
   resources :members do
     post "update_facebook_id"
+    put "change_pic"  
   end
+  post "/members_register" => "members#register"
 
   resources :populations
 
   resources :providers do
+    get "get_pic"
+    put "change_pic"
     resources :shows
     resources :contact_informations
   end
 
   resources :fundations do
+    put "change_pic"    
     resources :contact_informations
   end
 

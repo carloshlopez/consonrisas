@@ -16,14 +16,14 @@
   <% end %>
 
   <%= f.label :email %>:<br />
-  <%= f.text_field :email %>
+  <%= f.text_field :email , :class=>"member_email"%>
   <br/>
   <% if @member.nil? %>
     <%= f.label I18n.t('account.password') %>:<br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :class=>"member_password" %>
   <br />
     <%= f.label I18n.t('account.password_confirmation') %>:<br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class=>"member_password_confirmation" %>
   <br />
   <% elsif @member.password_required? %>
     <%= f.label I18n.t('account.password') %>:<br />
@@ -32,7 +32,7 @@
     <%= f.label I18n.t('account.password_confirmation') %>:<br />
     <%= f.password_field :password_confirmation %>
   <% end %>
-  <p><%= f.submit I18n.t('account.sign_up'), :title=> "Cónectate para sacrle sonrisas al país" %></p>
+  <p><%= f.submit I18n.t('account.sign_up'), :title=> "Cónectate para sacrle sonrisas al país", :class=>"register_wizzard" %></p>
   
   <% unless @member and !@member.password_required? %>
   <div class="supported_services">

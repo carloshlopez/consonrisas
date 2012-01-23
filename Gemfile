@@ -32,6 +32,12 @@ gem 'twitter'
 
 gem 'fb_graph'
 
+gem 'simple_worker'
+
+gem 'delayed_job'
+gem 'delayed_paperclip'
+
+
 #gem "oauth-plugin", ">= 0.4.0.pre5"
 #gem "oauth-plugin", :git => "https://github.com/pelle/oauth-plugin.git", :branch => "0_4-branch" 
 # Use unicorn as the web server

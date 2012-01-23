@@ -2,7 +2,7 @@ var $jq = jQuery.noConflict();
 $jq.widget("ui.profileProvider", {
     _init: function() {
     	var self= this;
-    	var $el= this.element;
+    	var $el= this.element;          
     	
     	$el.find(".unfollow").live('click', function(e) {
     	    e.preventDefault();

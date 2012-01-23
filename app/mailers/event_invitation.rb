@@ -16,6 +16,14 @@ class EventInvitation < ActionMailer::Base
          :subject => I18n.t('events.mail_created_subjet'))
   end
   
+  def event_created_async(subject, message, event_name, event_url, email)
+    @subject = subject
+    @message  = message
+    @event_name = event_name
+    @event_url = event_url
+    mail(:to => email, :subject => subject)
+  end
+  
   def event_comment(comment, email, event)
     @comment  = comment.comment
     @comment_by = comment_name(comment)
@@ -23,6 +31,16 @@ class EventInvitation < ActionMailer::Base
     @event = event
     mail(:to => email,
          :subject => I18n.t('events.mail_comment_made_subject'))    
+  end
+  
+  def event_comment_async(subject, comment_by, msg, comment, event_name, event_url, email)
+    @subject = subject
+    @comment_by = comment_by
+    @msg = msg
+    @comment = comment
+    @event_name = event_name
+    @event_url = event_url
+    mail(:to => email, :subject => subject)    
   end
   
   private 

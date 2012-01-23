@@ -19,6 +19,5 @@ jQuery(document).ready(function($) {
     
     if($('#facilitator_isCompany').attr('checked')){
             $('#company_info').show();
-    }
-       
+    }       
 });

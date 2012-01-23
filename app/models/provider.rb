@@ -11,12 +11,14 @@ class Provider < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
                     :path => "providers/:attachment/:id/:style/:filename"
+                    
+#  process_in_background :pic
   
   validates_attachment_size :pic, :less_than => 5.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']
   
   validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 250 }
-  validates :city, :presence => true, :length => { :maximum => 100 }  
+  validates :city, :length => { :maximum => 100 }  
   
   def ask_admin member_id
     ProviderAdmin.create(:member_id =>member_id, :provider_id => self.id, :active=>false)
@@ -28,13 +30,6 @@ class Provider < ActiveRecord::Base
   end
   
   def send_msg_to_admins(member_from, message)
-#    Thread.new{send_msg_to_admins_t(member_from, message)}
-    send_msg_to_admins_t(member_from, message)
-  end
-  
-  private 
-  
-  def send_msg_to_admins_t(member_from, message)
     provider_admins.each do |admin|
       if admin.active
         Alert.create(:member_id=> admin.member.id, :news=> message, :member_from=>member_from.id, :alert_type=>2)
@@ -46,5 +41,6 @@ class Provider < ActiveRecord::Base
       end
     end 
   end
+  handle_asynchronously :send_msg_to_admins
   
 end

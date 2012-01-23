@@ -5,13 +5,60 @@ class MembersController < ApplicationController
   # GET /members/1.xml
   def show
     @member = Member.find(params[:id])
+    @fac = @member.facilitator
     @invites = current_member.alerts.where("alert_type=1").order("created_at DESC")
     @msgs = current_member.alerts.where("alert_type = 2").order("created_at DESC")
+    @show_welcome = false
+    @show_facilitator = false
+    @show_fundation = false
+    @show_provider = false   
+    @facilitator_step = 0;
+    @fundation_step = 0;
+    @provider_step = 0;        
+    @num_steps = 0;
+    if session[:isFacilitator]
+      @show_welcome = true
+      @show_facilitator = true
+#      session[:isFacilitator] = nil
+      @facilitator_step = 1;
+      @num_steps = @num_steps + 1
+    end
+    
+    if session[:isFundation]
+      @fundation = Fundation.find(session[:fundation])
+#      session[:fundation] = nil
+#      session[:isFundation] = nil
+      @show_welcome = true
+      @show_fundation = true
+      @fundation_step = @facilitator_step + 1
+      @num_steps = @num_steps + 1      
+    end
+    
+    if session[:isProvider] 
+      @provider = Provider.find(session[:provider])
+#      session[:provider] = nil
+#      session[:isProvider] = nil
+      @show_welcome = true  
+      @show_provider = true          
+      @provider_step = @fundation_step + 1
+      @num_steps = @num_steps + 1      
+    end
     if member_signed_in? and current_member.id == @member.id
       @contact_informations = @member.contact_informations
     else
       redirect_to facilitator_path(@member.facilitator)
     end
+  end
+
+  def cleanInitialSession
+      session[:provider] = nil
+      session[:isProvider] = nil
+      session[:fundation] = nil
+      session[:isFundation] = nil      
+      session[:isFacilitator] = nil
+    respond_to do |format|
+      format.json { render :json => {:resp => "ok"} }
+    end      
   end
 
   # GET /members/new
@@ -122,5 +169,15 @@ class MembersController < ApplicationController
       format.js {head :ok}
     end
   end  
+  
+  def change_pic
+    @member = Member.find(params[:member_id])
+    @fac = @member.facilitator
+    if @fac.update_attributes(params[:facilitator])    
+      render :json => { :pic_path_big => @fac.pic.url(:profile).to_s, :pic_path => @fac.pic.url(:thumb).to_s , :name => @fac.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'    
+    else
+      render :json => { :result => 'error'}, :content_type => 'text/html'
+    end
+  end 
   
 end

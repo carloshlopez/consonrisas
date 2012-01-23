@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101024311) do
+ActiveRecord::Schema.define(:version => 20111204195150) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -53,6 +53,21 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.integer  "provider_id"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "event_admins", :force => true do |t|
     t.integer  "member_id"
     t.integer  "event_id"
@@ -76,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.string   "place"
     t.boolean  "isRaiser",         :default => false
     t.boolean  "isClosed",         :default => false
+    t.boolean  "pic_processing"
   end
 
   create_table "events_facilitators", :id => false, :force => true do |t|
@@ -118,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.string   "companyAddress"
     t.string   "companyPhone"
     t.string   "website"
+    t.boolean  "pic_processing"
   end
 
   create_table "facilitators_facilitators", :id => false, :force => true do |t|
@@ -157,6 +174,8 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.boolean  "pic_processing"
+    t.string   "email"
   end
 
   create_table "fundations_facilitators", :id => false, :force => true do |t|
@@ -182,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.boolean  "use_facebook_pic",                    :default => false
     t.boolean  "admin",                               :default => false
     t.boolean  "emailNotifications",                  :default => true
+    t.string   "name"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -219,6 +239,7 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "photo_processing"
   end
 
   create_table "populations", :force => true do |t|
@@ -252,6 +273,7 @@ ActiveRecord::Schema.define(:version => 20111101024311) do
     t.datetime "pic_updated_at"
     t.string   "city"
     t.text     "description"
+    t.boolean  "pic_processing"
   end
 
   create_table "providers_facilitators", :id => false, :force => true do |t|

@@ -1,18 +1,18 @@
 .create-buttons
   .create-provider-div
-    %a{:class => "create-provider create-button #{'register' unless member_signed_in?}", :title=>"Registrate como Proveedor de Entretenimiento", :href=>"/providers/new"}          
+    %a{:class => "create-provider create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Registrate como Proveedor de Entretenimiento", :href=>"/providers/new", :create=>"provider"}          
       = image_tag("CrearProveedorBoton.png", :class=>"create-provider-img")
       %span.desc-new-provider
         .desc-create-triangle    
         Registrate como proveedor de entretenimiento
   .create-fundation-div
-    %a{:class => "create-fundation create-button #{'register' unless member_signed_in?}", :title=>"Registra un nuevo Proyecto Social", :href=>"/fundations/new"}
+    %a{:class => "create-fundation create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Registra un nuevo Proyecto Social", :href=>"/fundations/new", :create=>"fundation"}
       = image_tag("CrearProyectosBoton.png", :class=>"create-fundation-img")
       %span.desc-new-fundation
         .desc-create-triangle
         Registra un proyecto social
   .create-event-div
-    %a{:class => "create-event create-button #{'register' unless member_signed_in?}", :title=>"Crea un nuevo Evento", :href=>"/events/new"}      
+    %a{:class => "create-event create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Crea un nuevo Evento", :href=>"/events/new", :create=>"event"}      
       = image_tag("CrearEventosBoton.png", :class=>"create-event-img")
       %span.desc-new-event
         .desc-create-triangle    

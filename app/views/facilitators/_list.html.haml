@@ -10,7 +10,7 @@
     %input{:type=>"hidden", :name=>"alert[member_from]", :value=>"#{current_member.id}", :id=>"member-from"}
   - i = 0
   - @facilitators.each do |facilitator|
-    - if facilitator.member   
+    - if facilitator.member and facilitator.name and !facilitator.name.empty?
       .one-item.one-item-facilitators
         = link_to image_tag(member_thumb(facilitator), :class=>"img-facilitators"), facilitator_path(facilitator), :title=>I18n.t('go_to_profile')
         %span

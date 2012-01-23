@@ -252,5 +252,47 @@ jQuery(document).ready(function($) {
         show_title: false,
         allow_resize: true,
         keyboard_shortcuts: true
-    });    
+    }); 
+    
+  jQuery('.upload').fileUploadUI({
+        uploadTable: jQuery('.upload_files'),
+        downloadTable: jQuery('.download_files'),
+        buildUploadRow: function (files, index) {
+            var file = files[index];
+            return jQuery('<tr><td>' + file.name + '<\/td>' +
+                    '<td class="file_upload_progress"><div><\/div><\/td>' +
+                    '<td class="file_upload_cancel">' +
+                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                    '<\/button><\/td><\/tr>');
+        },
+        buildDownloadRow: function (file) {
+            return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+        },
+        onCompleteAll: onCompleteAllCallback
+    });       
 });
+
+function onCompleteAllCallback (event, files, index, xhr, handler) {
+  jQuery('.download_files').fadeOut();
+  var t = setTimeout(showGallery, 15000);
+
+}
+
+function showGallery(){
+  var eventId = jQuery('#theEventId').val();
+  jQuery('#the_photo_gallery').load('/events/' + eventId + '/show_gallery', function(){
+        jQuery('#the_photo_gallery').effect("highlight", {}, 3000);
+        jQuery("a[rel^='prettyPhoto']").prettyPhoto({
+          animation_speed:'normal',
+          theme:'light_rounded',
+          slideshow:3000, 
+          autoplay_slideshow: false,
+          opacity: 0.5,
+          show_title: false,
+          allow_resize: true,
+          keyboard_shortcuts: true
+      });
+
+  });
+}

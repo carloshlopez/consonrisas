@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
                     :path => "events/:attachment/:id/:style/:filename"
-
+  process_in_background :pic
 #  validates_attachment_presence :pic
   validates_attachment_size :pic, :less_than => 4.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
@@ -27,16 +27,12 @@ class Event < ActiveRecord::Base
   validates :city, :presence => true, :length => { :maximum => 100 }  
   validates :place, :presence => true, :length => { :maximum => 200 }  
   validates :date, :presence => true
+  validates :name, :uniqueness => {:scope => :date}
   #validate :at_least_one_fundation  
   #validates :fundations, :uniqueness => {:scope => :event_id}
   
   after_create :generate_alerts
-  
-  def generate_alerts
-#    Thread.new{generate_alerts_t}
-    generate_alerts_t
-  end
-    
+      
   def ask_admin member_id
     EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
   end
@@ -52,7 +48,7 @@ class Event < ActiveRecord::Base
     errors.add_to_base I18n.t('events.one_fundation_error') if self.fundations.blank?
   end
   
-  def generate_alerts_t
+  def generate_alerts
     
     already_created = []
     self.fundations.each do |fundation|
@@ -62,7 +58,16 @@ class Event < ActiveRecord::Base
         show.provider.provider_admins.each do |admin|
           Alert.create(:member_id=> admin.member.id, :news=> message, :link=>self.id)
           begin
-            EventInvitation.event_created(admin.member.email, message, self).deliver if admin.member.emailNotifications 
+            if(admin.active and admin.member.emailNotifications) then
+            
+              worker = MailEventCreatedWorker.new
+              worker.subject = I18n.t('events.mail_created_subjet')
+              worker.message = message
+              worker.event_name = name
+              worker.event_url = "http://consonrisas.co/events/#{id}"
+              worker.to = admin.member.email
+              worker.queue(:priority=>0)
+            end
           rescue => e
             puts("Error enviando mail en generate_alerts: #{e.message}")
           end
@@ -76,7 +81,15 @@ class Event < ActiveRecord::Base
             message = I18n.t('events.facilitator_alert')
             Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
             begin
-              EventInvitation.event_created(facilitator.member.email, message, self).deliver if facilitator.member.emailNotifications
+              if(facilitator.member.emailNotifications) then
+                worker = MailEventCreatedWorker.new
+                worker.subject = I18n.t('events.mail_created_subjet')
+                worker.message = message
+                worker.event_name = name
+                worker.event_url = "http://consonrisas.co/events/#{id}"
+                worker.to = facilitator.member.email
+                worker.queue(:priority=>0)
+              end
             rescue => e
                 puts ("Error enviando mail en generate_alerts: #{e.inspect}")
             end 
@@ -86,6 +99,7 @@ class Event < ActiveRecord::Base
       end      
     end
   end
+  handle_asynchronously :generate_alerts
   
   
 end

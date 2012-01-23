@@ -13,6 +13,23 @@
   color: red;
 }
 
+#alert-msg{
+    background-color: #668014;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    left: 50%;
+    margin: auto;
+    margin-left: -130px;
+    padding: 8px;
+    position: fixed;
+    top: 0;
+    width: 260px;
+    z-index: 1020;
+    p{
+      text-align: center;
+    }
+}
+
 .logo
 {
 //height: 125px;
