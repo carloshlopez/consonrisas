@@ -1,0 +1,22 @@
+<%= javascript_include_tag "new_layout/ui.providerFormPopUp" %>
+<%= form_for(@provider, :html => {:multipart=> true}) do |f| %>
+  <div class="field">
+    <%= f.label I18n.t('name') %><br />
+    <%= f.text_field :name %>
+    <input type="hidden" name="member_id" value="<%= current_member.id %>"/>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t("city") %><br />
+    <%= f.text_field :city, :class=>"cities" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t('description') %><br />
+    <%= f.text_area :description , :class=>"textarea_dialog" %>
+  </div>    
+  
+  <div class="actions">
+    <%= f.submit I18n.t('provider.create') %>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+#complete_register{:style => "display:none"}
+  %div{:style => "margin:0;padding:0;display:inline"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}
+      %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
+  #complete_register_wizard.swMainBig
+    %ul
+      - if @show_facilitator
+        %li
+          %a{:href => "#step-#{@facilitator_step}"}
+            %label.stepNumber #{@facilitator_step}
+            %span.stepDesc
+              Facilitador
+              %br
+              %small Tu información
+      - if @show_fundation
+        %li
+          %a{:href => "#step-#{@fundation_step}"}
+            %label.stepNumber #{@fundation_step}
+            %span.stepDesc
+              Proy Social
+              %br
+              %small Su información
+      - if @show_provider
+        %li
+          %a{:href => "#step-#{@provider_step}"}
+            %label.stepNumber #{@provider_step}
+            %span.stepDesc
+              Proveedor
+              %br
+              %small Su información              
+    #step-1
+      %h2.StepTitle Completa la información
+      - if @facilitator_step == 1
+        = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"
+        = render :partial => "facilitators/pop_up_form"        
+      - elsif @fundation_step == 1
+        = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"
+        = render :partial => "fundations/pop_up_form"        
+      - elsif @provider_step == 1
+        = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"
+        = render :partial => "providers/pop_up_form"
+    - if @num_steps > 1    
+      #step-2
+        %h2.StepTitle Completa la información
+        - if @facilitator_step == 2
+          = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"          
+          = render :partial => "facilitators/pop_up_form"        
+        - elsif @fundation_step == 2
+          = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"          
+          = render :partial => "fundations/pop_up_form"        
+        - elsif @provider_step == 2
+          = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"       
+          = render :partial => "providers/pop_up_form"
+    - if @num_steps > 2      
+      #step-3
+        %h2.StepTitle Completa la información
+        - if @facilitator_step == 3
+          = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"          
+          = render :partial => "facilitators/pop_up_form"        
+        - elsif @fundation_step == 3
+          = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"          
+          = render :partial => "fundations/pop_up_form"        
+        - elsif @provider_step == 3
+          = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"           
+          = render :partial => "providers/pop_up_form"
+  %span.loader_login{:style => "display:none"}
+    = image_tag "gray-loader.gif"

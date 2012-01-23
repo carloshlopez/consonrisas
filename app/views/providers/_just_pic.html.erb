@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'jsUpload/jquery.fileupload', 'jsUpload/jquery.fileupload-ui' %>
+<%= image_tag @provider.pic.url(:profile), :id=>"this_profile_pic" %>
+<%= form_for(@provider, :url=> request.path + "/change_pic", :html => { :class => "upload2", :multipart=> true}) do |f| %>
+<input type="hidden" id="this_provider_id" value="<%= @provider.id %>"/>
+<input type="hidden" name="just_pic" value="yes"/>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+   
+  jQuery('.upload2').fileUploadUI({
+        uploadTable: jQuery('.upload_files2'),
+        buildUploadRow: function (files, index) {
+            var file = files[index];
+            return jQuery('<tr><td>' + file.name + '<\/td>' +
+                    '<td class="file_upload_progress"><div><\/div><\/td>' +
+                    '<td class="file_upload_cancel">' +
+                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                    '<\/button><\/td><\/tr>');
+        },
+        buildDownloadRow: function (file) {
+            return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+        },
+        onComplete: onCompleteCallback
+    });       
+});
+function onCompleteCallback (event, files, index, xhr, handler) {
+    var json = handler.response;
+    jQuery("#this_profile_pic").attr("src", json.pic_path_big);
+    jQuery("#this_profile_pic_big").attr("src", json.pic_path_big);
+    setTimeout(jQuery('.upload_files2').html(""), 2000);
+    
+}
+</script>
+
+  <%= f.file_field :pic %>
+  <div>Sube una foto (5MB max)</div>
+
+<% end %>
+  <table class="upload_files2"></table>
+  <table class="download_files2"></table>
