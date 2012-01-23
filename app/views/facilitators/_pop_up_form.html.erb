@@ -1,0 +1,60 @@
+<%= javascript_include_tag "new_layout/ui.facilitatorFormPopUp" %>
+<%= form_for(@facilitator, :html => {:multipart=> true}, :class=>"pop_up_form_facilitator") do |f| %>
+  <div class="field">
+    <%= f.label I18n.t("name") %><br />
+    <%= f.text_field :name, :class=>"input_dialog" %>
+  </div>
+ 
+  <div class="field">
+    <%= I18n.t("contribution").html_safe %><br />
+    <%= f.text_area :contribution, :class=>"textarea_dialog" %>
+    <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t("city") %><br />
+    <%= f.text_field :city, :class=>"cities input_dialog" %>
+  </div>
+  
+    <div class="field">
+    <%= f.label I18n.t("profile.population_of_interest") %>
+    <br/>
+    <% 
+      size = Population.count - 1
+      Population.find(:all).each_with_index do |population, i|
+    %>
+      <%= check_box_tag 'population_ids[]', population.id, @facilitator.populations.include?(population) %>
+      <% if I18n.locale.to_s == "en" %>
+        <%= population.name_en %>
+        <% if i <= size - 1 %> 
+        ,
+        <% end %>
+      <% else %>
+        <%= population.name_es %>
+        <% if i <= size - 1 %> 
+        ,
+        <% end %>
+      <% end %>
+    <% end %>
+  </div> 
+  <div class="field">
+    <%= f.label I18n.t("emailNotifications") %> &nbsp;
+    <% if @facilitator.member.emailNotifications %>
+      <%= check_box_tag 'emailNotifications', 1, true%>
+    <% else %>
+      <%= check_box_tag 'emailNotifications', 1, false%>
+    <% end %>
+  </div>  
+  <div class="field">
+    <%= f.label I18n.t("use_facebook_pic") %> &nbsp;
+    <% if @facilitator.member.use_facebook_pic %>
+      <%= check_box_tag 'use_facebook_pic', 1, true, :class => 'use_facebook_pic' %>
+    <% else %>
+      <%= check_box_tag 'use_facebook_pic', 1, false, :class => 'use_facebook_pic' %>
+    <% end %>
+  </div>  
+  
+  <div class="actions">
+    <%= f.submit I18n.t("facilitator.submit_edit"), :class=>"facilitator_form_button" %>
+  </div>
+<% end %>

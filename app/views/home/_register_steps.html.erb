@@ -1,0 +1,104 @@
+<div id="register_steps" style="display:none">
+  <form id="wizzard_form" action="/members" method="POST">
+  <div style="margin:0;padding:0;display:inline">
+    <input type="hidden" value="✓" name="utf8">
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token">
+  </div>  
+  
+    <div id="wizard" class="swMain">
+      <ul>
+        <li><a href="#step-1">
+              <label class="stepNumber">1</label>
+              <span class="stepDesc">
+                 Login<br />
+                 <small>Email y clave</small>
+              </span>
+          </a></li>
+        <li><a href="#step-2">
+              <label class="stepNumber">2</label>
+              <span class="stepDesc">
+                 Datos<br />
+                 <small>Para generar sonrisas</small>
+              </span>
+          </a></li>
+      </ul>
+      <div id="step-1">   
+          <h2 class="StepTitle">Datos de Registro</h2>
+           <!-- step content -->
+          <table>
+          <tr>
+          <td>
+          <br />
+          Email:<br />
+          <input type="text" size="30" name="member[email]" id="email_reg">
+          <span id="email_warning" class="warning" style="display:none"></span>
+          <br/>
+          <%= I18n.t('account.password') %>:<br />
+          <input type="password" size="30" id="pass_reg" name="member[password]"/>
+          <span id="pass_warning" class="warning" style="display:none"></span>
+          <br />
+          <%= I18n.t('account.password_confirmation') %>:<br />
+          <input type="password" size="30" id="pass_confirm_reg" name="member[password_confirmation]"/>
+          <span id="pass_confirm_warning" class="warning" style="display:none"></span>        
+          </td>
+          <td style="text-align:left">
+          
+          <h3 style="text-align:center">
+            ¿Cómo quieres conectar sonrisas?
+          </h3>
+            <div class="type_divs">
+            <%= image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <input type="checkbox" id="reg_facilitator" value="true" name="isFacilitator" /> <%= I18n.t('facilitator_name') %> - Si tu o tu empresa tienes ganas de ayudar
+            </div>
+            <div class="type_divs">
+            <%= image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <input type="checkbox" id="reg_fundation" value="true" name="isFundation" /> <%= I18n.t('fundation_name')%> - Si trabajas para mejorar la calidad de vida de las personas
+            </div>
+            <div class="type_divs">
+            <%= image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;" %>            
+            <input type="checkbox" id="reg_provider" value="true" name="isProvider" /> <%= I18n.t('provider_name') %> - Si tienes algún producto o servicio que genere sonrisas
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" style="text-align:center">
+          <!--  <p>
+          Puedes ingresar con estos servicios:
+              </p>
+          <a href="/auth/facebook">
+            <%= image_tag "signin_facebook_small.png", :alt => "Facebook", :title=>"Sign in with facebook" %>  </a>
+             &nbsp;&nbsp;
+             <a href="/auth/twitter">
+            <%= image_tag "sign-in-with-twitter-small.png", :alt => "Twitter", :title=>"Sign in with twitter" %>
+          </a> -->
+          </td>
+          </tr>
+          </table>
+      </div>
+      <div id="step-2">
+          <h2 class="StepTitle">Completa estos datos importantes</h2> 
+           <!-- step content -->
+           <div id="reg_facilitator_info" style="display:none;" class="type_divs">
+           <%= image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <%= I18n.t('name') %>:
+            <input type="text" id="reg_facilitator_name" name="member[name]" size="25"/> - Tu nombre
+          <span id="reg_facilitator_info_warning" class="warning" style="display:none"></span>                    
+           </div>
+           <div id="reg_fundation_info"  style="display:none;" class="type_divs">
+           <%= image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <%= I18n.t('name') %>:
+            <input type="text" id="reg_fundation_name" name="fundation[name]" size="25"/> - El nombre de fundación o proyecto
+          <span id="reg_fundation_info_warning" class="warning" style="display:none"></span>                    
+           </div>
+           <div id="reg_provider_info" style="display:none;" class="type_divs">
+           <%= image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;" %>           
+            <%= I18n.t('name') %>:
+            <input type="text" id="reg_provider_name" name="provider[name]" size="25"/> - El nombre del generador de sonrisas
+            
+          <span id="reg_provider_info_warning" class="warning" style="display:none"></span>                    
+           </div>           
+      </div>                      
+    </div>
+  </form>
+  <span class="loader_login" style="display:none"> <%= image_tag "gray-loader.gif" %>  </span>
+</div>

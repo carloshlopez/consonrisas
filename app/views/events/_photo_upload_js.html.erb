@@ -1,0 +1,12 @@
+<div class="photo_upload_js">
+<%= javascript_include_tag 'jsUpload/jquery.fileupload', 'jsUpload/jquery.fileupload-ui' %>
+<div class="files"> 
+<%= form_for [@event, @event.photos.build], :html => { :class => "upload", :multipart => true } do |f| %>
+  <%= f.file_field :photo %>
+  <div>Sube Fotos</div>
+  <input type="hidden" id="theEventId" name="event_id" value="<%= @event.id %>"/>
+<% end %>
+<table class="upload_files"></table>
+<table class="download_files"></table>
+</div>
+</div>
