@@ -275,7 +275,7 @@ jQuery(document).ready(function($) {
 
 function onCompleteAllCallback (event, files, index, xhr, handler) {
   jQuery('.download_files').fadeOut();
-  var t = setTimeout(showGallery, 15000);
+  var t = setTimeout(showGallery, 5000);
 
 }
 
