@@ -31,7 +31,7 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :user_name      => ENV['app366774@heroku.com'],
   :password       => ENV['94418ccb8c1b86975f'],
-  :domain         => ENV['conectandosonrisas.org']
+  :domain         => 'heroku.com'
 }
 
   # Print deprecation notices to the Rails logger

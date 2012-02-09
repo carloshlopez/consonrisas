@@ -27,4 +27,12 @@ class SendMsg < ActionMailer::Base
     mail(:to => member_admin.email,
          :subject => I18n.t('events.mail_msg_admin_fundation_subject'))        
   end
+  
+  def welcome_msg(member)
+    @member = member
+    @message = "Bienvenido a esta comunidad virtual, donde podr&aacute;s ayudar a generar momentos llenos de magia y alegr&iacutea.<br/> Recuerda llenar los detalles de tu perfil como Facilitador, Proveedor, o Proyecto Social.<br/> Gracias por conectarte para sacarle sonrisas al pa&iacutes".html_safe
+    mail(:to => @member.email,
+         :subject => 'Bienvenido :)')        
+  end
+  
 end

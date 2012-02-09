@@ -98,7 +98,7 @@ es:
     register: "Registrate"    
     edit: "Editar mi cuenta"    
     logged_in_as: "Ingresaste como"
-    sign_up: "Conéctate"
+    sign_up: "Registrate"
     password: "Contraseña"
     password_new_explain: "(dejar en blanco si NO la quieres cambiar)"        
     password_confirmation: "Confirmar contraseña"
