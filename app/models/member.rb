@@ -24,6 +24,7 @@ class Member < ActiveRecord::Base
   def create_facilitator
     @facilitator = Facilitator.create(:member_id => id)
     @facilitator.update_attribute(:name,  name) if name
+    send_welcome_msg
   end
     
   def is_fundation?
@@ -112,6 +113,14 @@ class Member < ActiveRecord::Base
     @twitter_user
   end
 
+  def send_welcome_msg
+    begin
+      SendMsg.welcome_msg(self).deliver
+    rescue => e
+      puts "Error member send_welcome_msg: #{e.inspect}"
+    end
+  end
+  handle_asynchronously :send_welcome_msg
 
   protected
 
