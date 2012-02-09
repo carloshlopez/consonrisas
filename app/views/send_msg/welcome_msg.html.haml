@@ -1,0 +1,11 @@
+.one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+  #{@member.facilitator.name.blank? ? @member.facilitator.member.email : @member.facilitator.name}, Bienvenido a Conectando Sonrisas
+  %br
+  - unless @member.facilitator.pic.url(:thumb).include? "missing"
+    = link_to image_tag(@member.facilitator.pic.url(:thumb), :style=>"border-color: rgb(90, 180, 70);"), facilitator_url(@member.facilitator), :title=>"Click para ver tu Perfil", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+  - else
+    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png", :style=>"border-color: rgb(90, 180, 70);"), facilitator_url(@member.facilitator), :title=>"Click para ver el Facilitador", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+  %span{:style=>"position: absolute; margin-top: 8px; margin-left: 10px;"}
+    .one-item-name
+      #{@message}
+    #{link_to "Mira tu perfil", member_url(@member), :title=>"Ver tu Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
