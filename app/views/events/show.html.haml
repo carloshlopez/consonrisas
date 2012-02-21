@@ -1,6 +1,7 @@
 - can_edit = false
 - can_edit = can_current_member_edit_event(@event.id) if member_signed_in?
 #eventAdmin
+  %input#can_edit{:type=>"hidden", :value=>"#{can_edit}"}  
   %input#event-id{:type=>"hidden", :value=>"#{@event.id}"}
   #event-profile
     #left-div-profile-event
@@ -65,7 +66,6 @@
         #the_photo_gallery     
           = render :partial=>"photo_gallery"
         - if can_edit
-          = javascript_include_tag 'jsUpload/jquery.fileupload', 'jsUpload/jquery.fileupload-ui'
           = render :partial=>"photo_upload_js" 
           %a.admin_photos{:href => "#"} Elimina Fotos
           %a.admin_videos{:href => "#"} Sube Videos

@@ -254,23 +254,26 @@ jQuery(document).ready(function($) {
         keyboard_shortcuts: true
     }); 
     
-  jQuery('.upload').fileUploadUI({
-        uploadTable: jQuery('.upload_files'),
-        downloadTable: jQuery('.download_files'),
-        buildUploadRow: function (files, index) {
-            var file = files[index];
-            return jQuery('<tr><td>' + file.name + '<\/td>' +
-                    '<td class="file_upload_progress"><div><\/div><\/td>' +
-                    '<td class="file_upload_cancel">' +
-                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
-                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
-                    '<\/button><\/td><\/tr>');
-        },
-        buildDownloadRow: function (file) {
-            return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
-        },
-        onCompleteAll: onCompleteAllCallback
-    });       
+    if ($jq("#can_edit").val() == "true")
+    {
+      jQuery('.upload').fileUploadUI({
+            uploadTable: jQuery('.upload_files'),
+            downloadTable: jQuery('.download_files'),
+            buildUploadRow: function (files, index) {
+                var file = files[index];
+                return jQuery('<tr><td>' + file.name + '<\/td>' +
+                        '<td class="file_upload_progress"><div><\/div><\/td>' +
+                        '<td class="file_upload_cancel">' +
+                        '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+                        '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                        '<\/button><\/td><\/tr>');
+            },
+            buildDownloadRow: function (file) {
+                return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+            },
+            onCompleteAll: onCompleteAllCallback
+      });       
+    }
 });
 
 function onCompleteAllCallback (event, files, index, xhr, handler) {
