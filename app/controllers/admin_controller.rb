@@ -38,10 +38,14 @@ class AdminController < ApplicationController
         Authentication.all
       end
       
-      ActiveRecord::Base.send(:subclasses).each do |c|
-        model= Object.const_get(c.name)
-        @models[c.name] = {:columns=>model.column_names}
-        @tables[c.name] = c.name.tableize.singularize
+      ActiveRecord::Base.send(:descendants).each do |c|
+        begin
+          model= Object.const_get(c.name)
+          @models[c.name] = {:columns=>model.column_names}
+          @tables[c.name] = c.name.tableize.singularize
+        rescue Exception=>e
+            puts "Error #{e}"
+        end
       end
     end
   end
