@@ -937,7 +937,7 @@ div.arrow-down {
   border-top: 10px solid #5ab446;
   height: 0px;
   width: 0px;
-  margin-top: 50px;
+  margin-top: 65px;
   margin-right: 60px; }
 
 .create-buttons {
@@ -954,10 +954,14 @@ div.arrow-down {
   display: block;
   position: absolute;
   background: #5ab446;
-  height: 50px;
+  height: 60px;
   width: 150px;
-  margin-right: 150px;
-  margin-top: -112px; }
+  margin-right: 155px;
+  margin-top: -125px;
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
 
 #left-div-profile {
   color: white;
@@ -1261,6 +1265,8 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
+    #left-div-profile-fundation .profile-info img.img-profile {
+      max-height: 150px; }
     #left-div-profile-fundation .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }

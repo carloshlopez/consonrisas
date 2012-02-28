@@ -58,7 +58,7 @@
   border-top: 10px solid $site-color;
   height: 0px;
   width: 0px;
-  margin-top: 50px;
+  margin-top: 65px;
   margin-right: 60px;
 }
 
@@ -77,8 +77,12 @@
   display: block;
   position: absolute;
   background: $site-color;
-  height: 50px;
+  height: 60px;
   width: $left-div-width/2;
-  margin-right: 150px;
-  margin-top: -112px;
+  margin-right: 155px;
+  margin-top: -125px;
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
