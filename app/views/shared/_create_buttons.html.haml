@@ -1,20 +1,20 @@
 .create-buttons
   .create-provider-div
-    %a{:class => "create-provider create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Registrate como Proveedor de Entretenimiento", :href=>"/providers/new", :create=>"provider"}          
+    %a{:class => "create-provider create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Si eres artista y estás dispuesto a generar momentos mágicos llenos de sonrisas", :href=>"/providers/new", :create=>"provider"}          
       = image_tag("CrearProveedorBoton.png", :class=>"create-provider-img")
       %span.desc-new-provider
         .desc-create-triangle    
-        Registrate como proveedor de entretenimiento
+        Si eres artista y estás dispuesto a generar momentos mágicos llenos de sonrisas
   .create-fundation-div
-    %a{:class => "create-fundation create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Registra un nuevo Proyecto Social", :href=>"/fundations/new", :create=>"fundation"}
+    %a{:class => "create-fundation create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Si trabajas para mejorar la calidad de vida de los demás", :href=>"/fundations/new", :create=>"fundation"}
       = image_tag("CrearProyectosBoton.png", :class=>"create-fundation-img")
       %span.desc-new-fundation
         .desc-create-triangle
-        Registra un proyecto social
+        Si trabajas para mejorar la calidad de vida de los demás
   .create-event-div
-    %a{:class => "create-event create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Crea un nuevo Evento", :href=>"/events/new", :create=>"event"}      
+    %a{:class => "create-event create-button #{'register_wizzard' unless member_signed_in?}", :title=>"Crea un espacio donde se reúnen los proveedores y los proyectos sociales gracias a la ayuda de los facilitadores", :href=>"/events/new", :create=>"event"}      
       = image_tag("CrearEventosBoton.png", :class=>"create-event-img")
       %span.desc-new-event
         .desc-create-triangle    
-        Crea un nuevo evento
+        Crea un evento para que un proyecto social sonria
 

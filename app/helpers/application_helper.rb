@@ -51,7 +51,7 @@ module ApplicationHelper
   
   def convert_url_for_href(url)
     href = url
-    unless url.starts_with? 'http://'
+    unless url.starts_with? 'http://' or url.starts_with? 'https://'
       href = 'http://' << url
     end
     href

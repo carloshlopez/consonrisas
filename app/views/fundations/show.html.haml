@@ -16,9 +16,7 @@
       .about-me
         .about-me-text
           - if @fundation.website and !@fundation.website.empty?
-            %b
-              www:
-            = @fundation.website
+            = link_to @fundation.website, convert_url_for_href(@fundation.website), :target=>"_blank"
           %br
           - if @fundation.population_id
             %b
