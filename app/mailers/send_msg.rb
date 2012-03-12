@@ -1,3 +1,4 @@
+# coding: utf-8
 class SendMsg < ActionMailer::Base
   default :from => "\"Conectando Sonrisas\" <noreply@conectandosonrisas.org>"
   
