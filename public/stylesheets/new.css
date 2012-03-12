@@ -983,6 +983,8 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
+    #left-div-profile .profile-info img.img-profile {
+      max-height: 150px; }
     #left-div-profile .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }
@@ -1388,6 +1390,8 @@ div.arrow-down {
       position: absolute;
       margin-top: 5px;
       margin-left: -30px; }
+    #left-div-profile-provider .profile-info img.img-profile {
+      max-height: 150px; }
     #left-div-profile-provider .profile-info h2 {
       padding-top: 25px;
       padding-left: 35px; }

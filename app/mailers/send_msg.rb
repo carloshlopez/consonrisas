@@ -30,7 +30,7 @@ class SendMsg < ActionMailer::Base
   
   def welcome_msg(member)
     @member = member
-    @message = "Bienvenido a esta comunidad virtual, donde podr&aacute;s ayudar a generar momentos llenos de magia y alegr&iacutea.<br/> Recuerda llenar los detalles de tu perfil como Facilitador, Proveedor, o Proyecto Social.<br/> Gracias por conectarte para sacarle sonrisas al pa&iacutes".html_safe
+    @message = "Bienvenido a esta comunidad virtual, donde podrás ayudar a generar momentos llenos de magia y alegría.<br/> Recuerda llenar los detalles de tu perfil como Facilitador, Proveedor, o Proyecto Social.<br/> Gracias por conectarte para sacarle sonrisas al país".html_safe
     mail(:to => @member.email,
          :subject => 'Bienvenido :)')        
   end
