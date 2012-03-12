@@ -120,11 +120,11 @@ es:
     comment_on: "en "    
   application:
     menu_home: "Inicio"        
-    menu_facilitators: "Facilitadores"            
-    menu_providers: "Proveedores"            
-    menu_fundations: "Proyectos Sociales"            
+    menu_facilitators: "Somos todas las personas, empresas o entidades dispuestas a sacarle sonrisas al país"
+    menu_providers: "Expertos en entretenimiento, dispuestos a ayudar a generar sonrisas"
+    menu_fundations: "Una población vulnerable con quien te puedes conectar"
     menu_events: "Eventos"   
-    menu_profile: "mi sonrisa" 
+    menu_profile: "Mi Perfil" 
     menu_info: "¿Qué es esto?"   
   events:
     isClosed: "Este evento es cerrado, por lo tanto solo el administrador de este evento podrá hacer invitaciones"  
