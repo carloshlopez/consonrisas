@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   #validate :at_least_one_fundation  
   #validates :fundations, :uniqueness => {:scope => :event_id}
   
-  after_create :generate_alerts
+  #after_create :generate_alerts
       
   def ask_admin member_id
     EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
@@ -48,58 +48,58 @@ class Event < ActiveRecord::Base
     errors.add_to_base I18n.t('events.one_fundation_error') if self.fundations.blank?
   end
   
-  def generate_alerts
+#  def generate_alerts
     
-    already_created = []
-    self.fundations.each do |fundation|
-      Show.find_all_by_population_id(fundation.population.id).each do |show|
-        #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
-        message = I18n.t('events.provider_alert')
-        show.provider.provider_admins.each do |admin|
-          Alert.create(:member_id=> admin.member.id, :news=> message, :link=>self.id)
-          begin
-            if(admin.active and admin.member.emailNotifications) then
-            
-              worker = MailEventCreatedWorker.new
-              worker.subject = I18n.t('events.mail_created_subjet')
-              worker.message = message
-              worker.event_name = name
-              worker.event_url = "http://consonrisas.co/events/#{id}"
-              worker.to = admin.member.email
-              worker.queue(:priority=>0)
-            end
-          rescue => e
-            puts("Error enviando mail en generate_alerts: #{e.message}")
-          end
-          already_created << admin.member.id
-        end
-      end
-      Population.all.each do |pop|
-        #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
-        pop.facilitators.each do |facilitator|
-          unless already_created.include?(facilitator.member.id)
-            message = I18n.t('events.facilitator_alert')
-            Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
-            begin
-              if(facilitator.member.emailNotifications) then
-                worker = MailEventCreatedWorker.new
-                worker.subject = I18n.t('events.mail_created_subjet')
-                worker.message = message
-                worker.event_name = name
-                worker.event_url = "http://consonrisas.co/events/#{id}"
-                worker.to = facilitator.member.email
-                worker.queue(:priority=>0)
-              end
-            rescue => e
-                puts ("Error enviando mail en generate_alerts: #{e.inspect}")
-            end 
-          end          
-        end
+#    already_created = []
+#    self.fundations.each do |fundation|
+#      Show.find_all_by_population_id(fundation.population.id).each do |show|
+#        #puts "UHU NOTICIA PARA PROVEEDOR!!!!! #{show.inspect}"
+#        message = I18n.t('events.provider_alert')
+#        show.provider.provider_admins.each do |admin|
+#          Alert.create(:member_id=> admin.member.id, :news=> message, :link=>self.id)
+#          begin
+#            if(admin.active and admin.member.emailNotifications) then
+#            
+#              worker = MailEventCreatedWorker.new
+#              worker.subject = I18n.t('events.mail_created_subjet')
+#              worker.message = message
+#              worker.event_name = name
+#              worker.event_url = "http://consonrisas.co/events/#{id}"
+#              worker.to = admin.member.email
+#              worker.queue(:priority=>0)
+#            end
+#          rescue => e
+#            puts("Error enviando mail en generate_alerts: #{e.message}")
+#          end
+#          already_created << admin.member.id
+#        end
+#      end
+#      Population.all.each do |pop|
+#        #puts "UHU NOTICIA PARA ESTE FACILITADOR!!!!! #{facilitator.inspect}"
+#        pop.facilitators.each do |facilitator|
+#          unless already_created.include?(facilitator.member.id)
+#            message = I18n.t('events.facilitator_alert')
+#            Alert.create(:member_id=> facilitator.member.id, :news=> message, :link=>self.id)
+#            begin
+#              if(facilitator.member.emailNotifications) then
+#                worker = MailEventCreatedWorker.new
+#                worker.subject = I18n.t('events.mail_created_subjet')
+#                worker.message = message
+#                worker.event_name = name
+#                worker.event_url = "http://consonrisas.co/events/#{id}"
+#                worker.to = facilitator.member.email
+#                worker.queue(:priority=>0)
+#              end
+#            rescue => e
+#                puts ("Error enviando mail en generate_alerts: #{e.inspect}")
+#            end 
+#          end          
+#        end
 
-      end      
-    end
-  end
-  handle_asynchronously :generate_alerts
+#      end      
+#    end
+#  end
+#  handle_asynchronously :generate_alerts
   
   
 end
