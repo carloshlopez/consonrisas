@@ -75,9 +75,11 @@ body {
  
 .rotate:hover
 {
-  -webkit-transform:rotate(180deg);
-  -moz-transform:rotate(180deg);
-  -o-transform:rotate(180deg);
+  -webkit-transform:rotate(360deg);
+  -moz-transform:rotate(360deg);
+  -o-transform:rotate(360deg);
+  transform:rotate(360deg);
+  -ms-transform:rotate(360deg); /* IE 9 */
 }
 
 @mixin bk-image($url, $position){
