@@ -47,9 +47,9 @@ body {
   overflow: hidden; }
 
 .rotate:hover {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg); }
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg); }
 
 .bordered_box {
   margin: 3px;
