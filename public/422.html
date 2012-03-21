@@ -1,26 +1,120 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+<title>..::Conectando Sonrisas::..  ::Beta::</title>
+<link href="/stylesheets/scaffold_min.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/jquery-ui-1.8.10.custom.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/prettyPhoto.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/new.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/smart_wizard.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/smart_wizard_big.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/jsUpload/jquery.fileupload-ui.css?1331745289" media="screen" rel="stylesheet" type="text/css" />
+<link href='/images/favicon.ico' rel='shortcut icon'>
+<script src="/javascripts/jquery-1.4.4.min.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui-1.8.10.custom.min.js?1331745289" type="text/javascript"></script>
+<meta name="csrf-param" content="authenticity_token"/>
+<meta name="csrf-token" content="xGDgSpkfKD8E4IMxhvGNn0vfszeluC9p9YPXxtwlBp0="/>
+<meta charset='utf-8'>
+<link href='' media='all' rel='stylesheet'>
+<script src="/javascripts/gooAnalytics.js?1331745289" type="text/javascript"></script>
 </head>
-
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
-  </div>
+<div id='alert-msg' style='display:none'>
+<p></p>
+</div>
+<div id='left_div_top'>
+<form action='/search/find' id='searchform' method='get'>
+<input class='default' id='search-text' name='find' type='text'>
+<a href='#' title='Buscar'>
+<div class='search-triangle-button'></div>
+</a>
+</form>
+</div>
+<div id='right_div_top'>
+<span class='application_messages'>
+<span class='notice'>
+
+</span>
+<span class='alert'>
+
+</span>
+</span>
+<div class='account'>
+Carlos López
+<a href="/members/edit?locale=es">Editar mi cuenta</a>
+|
+<a href="/members/sign_out?locale=es">Salir</a>
+</div>
+</div>
+<div id='header'>
+<div id='logo'>
+<a href='/'>
+<img class='logo' src='/images/conectando_sonrisas.png' title='Inicio'>
+</a>
+</div>
+<div id='menu'>
+<ul>
+<li>
+<a class='facilitators' href='/facilitators' title='Somos todas las personas, empresas o entidades dispuestas a sacarle sonrisas al país'></a>
+</li>
+<li>
+<a class='providers' href='/providers' title='Expertos en entretenimiento, dispuestos a ayudar a generar sonrisas'></a>
+</li>
+<li>
+<a class='fundations' href='/fundations' title='Una población vulnerable con quien te puedes conectar'></a>
+</li>
+<li>
+<a class='events' href='/events' title='Eventos'></a>
+</li>
+<li>
+<a class='info' href='/members/2?locale=es' title='Mi Perfil'></a>
+</li>
+</ul>
+</div>
+</div>
+<h2 class='social-title'>El cambio que querías hacer no se pudo efectura, depronto no tienes permiso para hacer eso :S</h2>
+
+<div id='footer'>
+<div id='follow-us'>
+<a class='follow-text' href='/social' title='Conéctate en nuestras redes sociales'>
+Síguenos
+</a>
+<a class='footernostyle' href='http://www.twitter.com/consonrisas' target='_blank'>
+<img alt='Follow consonrisas on Twitter' src='/images/TwitterBtn.png' title='Follow consonrisas on Twitter'>
+</a>
+<a class='footernostyle' href='http://www.facebook.com/consonrisas' target='_blank'>
+<img alt='Follow Conectando Sonrisas on Facebook' src='/images/FacebookBtn.png' title='Follow Conectando Sonrisas on Facebook'>
+</a>
+<a class='footernostyle' href='http://vimeo.com/consonrisas' target='_blank'>
+<img alt='Vimeo' src='/images/VimeoBtn.png' title='Follow Conectando Sonrisas on Vimeo'>
+</a>
+</div>
+<a href='/donate'>Apoyar la causa</a>
+ - 
+<a href='/allies'>Aliados</a>
+ - 
+<a href='#'>Terminos y Condiciones</a>
+ - 
+<a href='mailto:info@conectandosonrisas.org?Subject=Contacto Home'>info@conectandosonrisas.org</a>
+</div>
 </body>
+<script>
+  //<![CDATA[
+    var is_ssl = ("https:" == document.location.protocol);
+    var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+    document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+  //]]>
+</script>
+<script src="/javascripts/usersvoice.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/new_layout/ui.homeMenu.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/new_layout/login.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/new_layout/search.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/jquery.prettyPhoto.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui-timepicker-addon.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/jquery.smartWizard.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/new_layout/register.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/ui.cities.js?1331745289" type="text/javascript"></script>
+<script src="/javascripts/ui.profilePics.js?1331745289" type="text/javascript"></script>
 </html>
+
