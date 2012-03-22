@@ -422,10 +422,10 @@ input.info-color:focus {
     background-color: #AAAFFF; }
   .left_div_content .supported_services {
     text-align: center; }
-    .left_div_content .supported_services a.auth_provider {
+    .left_div_content .supported_services a.auth_provider_link {
       text-decoration: none;
       font-weight: normal; }
-    .left_div_content .supported_services a.auth_provider:hover {
+    .left_div_content .supported_services a.auth_provider_link:hover {
       color: blue;
       text-decoration: none;
       font-weight: normal; }

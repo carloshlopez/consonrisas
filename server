@@ -31,7 +31,9 @@ Script started on Tue 09 Nov 2010 07:04:51 PM COT
 	from /usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.1/lib/rails/commands.rb:27:in `<top (required)>'
 	from script/rails:6:in `require'
 	from script/rails:6:in `<main>'
-]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [H[2J]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ ^C
+]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [H[2J]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ ^C
 ]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [H[2J]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ rails s
 => Booting WEBrick
 => Rails 3.0.1 application starting in development on http://0.0.0.0:3000
@@ -4950,7 +4952,10 @@ Completed 200 OK in 33ms (Views: 19.3ms | ActiveRecord: 1.0ms)
 ^C[2010-11-21 20:48:02] INFO  going to shutdown ...
 [2010-11-21 20:48:02] INFO  WEBrick::HTTPServer#start done.
 Exiting
-]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [H[2J]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ srails s
+]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [H[2J]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ srails s
 => Booting WEBrick
 => Rails 3.0.1 application starting in development on http://0.0.0.0:3000
 => Call with -d to detach
@@ -5433,7 +5438,8 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:0 
           RX bytes:74984151 (74.9 MB)  TX bytes:74984151 (74.9 MB)
 
-]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ [K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ ifconfig
+]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ 
+[K]0;carlos@carlos-ubuntu1010: ~/Projects/pruebacarlos@carlos-ubuntu1010:~/Projects/prueba$ ifconfig
 eth1      Link encap:Ethernet  HWaddr 08:00:27:59:3e:9a  
           inet6 addr: fe80::a00:27ff:fe59:3e9a/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
