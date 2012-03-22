@@ -4,7 +4,7 @@
   color: $main-background;
   height: 610px;
   width: $left-div-width;
-  clear: left; 
+  clear: left;
   ul{
    color: $home-link-yellow;
    list-style-type: square;
@@ -41,11 +41,11 @@
   }  
   .supported_services{
     text-align: center;
-    a.auth_provider{
+    a.auth_provider_link{
      text-decoration: none;
      font-weight: normal;     
      }
-    a.auth_provider:hover{
+    a.auth_provider_link:hover{
      color: blue;
      text-decoration: none;
      font-weight: normal;

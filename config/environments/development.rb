@@ -4,7 +4,7 @@ SimpleWorker.configure do |config|
   config.token = 'tSNJz33ZkkKdBWvUhvYBNIEmhbQ'
   config.project_id = '4ed7ace3b786c80144000060'
 end
-Prueba::Application.configure do
+Consonrisas::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   # In the development environment your application's code is reloaded on
