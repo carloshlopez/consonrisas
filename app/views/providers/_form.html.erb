@@ -29,10 +29,11 @@
   </div>
   
   <div class="field">
+    <%= f.label I18n.t("picture") %><br />
     <%= f.file_field :pic %>
   </div>  
   
   <div class="actions">
-    <%= f.submit I18n.t('provider.create') %>
+    <%= f.submit %>
   </div>
 <% end %>

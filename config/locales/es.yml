@@ -1,5 +1,9 @@
 # coding: utf-8
 es:
+  category: "Categoría"
+  recurrence: "Periodicidad"
+  other: "Otra"
+  needs: "necesidades"
   companyAddress: "Dirección de la empresa"
   companyPhone: "Teléfono de la empresa"
   website: "Si tienes página web"
@@ -225,6 +229,14 @@ es:
       not_saved: "No se puede continuar"
 
 #defaults needed
+
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Confirmar los cambios a %{model}"
+      edit: "Modificar %{model}"
+
+     
   first: "Primero"
 
   activemodel:
@@ -264,6 +276,18 @@ es:
 
     models:
       user: ""
+      project_need: "necesidad"
+      provider: "proveedor"
+      fundation: "projecto Social"
+      event: "evento"
+      need: "necesidad"
+      alert: "alerta"
+      comment: "comentario"
+      facilitator: "facilitador"
+      fundation: "proyecto social"
+      news: "noticia"
+      population: "población"
+           
 
     attributes:
       admins:

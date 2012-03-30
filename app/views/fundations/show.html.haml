@@ -62,6 +62,9 @@
               =I18n.t('unfollow')          
           %br
           %a.send-msg{:href=>"#"}Enviar un mensaje
+          - if can_current_member_edit_fundation(@fundation.id)
+            %br
+            = link_to I18n.t('edit'), edit_fundation_path(@fundation)          
   #profile-content-fundation
     .my-profile-title
       %h1 
@@ -69,7 +72,9 @@
         = image_tag '/images/FundacionesTransparenteMedio.png'
     .my-profile-menu
       %a.desc{:href=>"#menu", :show=>"desc"} #{I18n.t('description')}
-      |    
+      |
+      %a.needs{:href=>"#needs", :show=>"needs"} #{I18n.t('needs')}
+      |          
       %a.events{:href=>"#menu", :show=>"events"} eventos
       |
       %a.contact{:href=>"#menu", :show=>"contact"} información de contacto
@@ -81,6 +86,14 @@
           = @fundation.name
         %p
           = @fundation.description
+    .mine.my-needs
+      %p
+        - if @fundation.project_needs.size > 0
+          %b Necesidades de la fundación. ¿Puedes ayudar con alguna?
+          = render :partial => "project_needs/need", :collection=> @fundation.project_needs    
+        - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)        
+          %b Crea una necesidad que tenga tu fundación, entre todos las intentaremos solucionar
+          = render :partial => "project_needs/form"                 
     .mine.my-events{:style=>"display:none"}
       = render :partial => "events"  
     .mine.my-contact{:style=>"display:none"}

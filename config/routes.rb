@@ -1,9 +1,15 @@
 Consonrisas::Application.routes.draw do
   
   
+  resources :need_categories
+
   get "need/create"
 
   get "need/destroy"
+  
+  get "project_need/create"
+
+  get "project_need/destroy"
 
   resources :news
 
@@ -109,7 +115,9 @@ Consonrisas::Application.routes.draw do
   resources :fundations do
     put "change_pic"    
     resources :contact_informations
+    resources :project_needs    
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

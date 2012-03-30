@@ -7,7 +7,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-
 ["Fundación", "Proveedor", "Facilitador", "Eventos"].each do |r|
     Role.find_or_create_by_name(r)
 end
@@ -38,11 +37,13 @@ Population.create(:name_es=>"Tercera Edad", :description_es=>"Los abuelitos", :n
 puts "-----------"
 puts "Added Populations"
 puts "-----------"
-  
-Member.all.each do |member|
-  member.update_attribute :emailNotifications, false
-end
+
+NeedCategory.create(:name_es=>"Alimentación", :name_en=>"Nutrition") unless NeedCategory.find_by_name_en("Nutrition")
+NeedCategory.create(:name_es=>"Educación", :name_en=>"Education") unless NeedCategory.find_by_name_en("Education")
+NeedCategory.create(:name_es=>"Ropa", :name_en=>"Clothing") unless NeedCategory.find_by_name_en("Clothing")
+NeedCategory.create(:name_es=>"Vivienda", :name_en=>"Housing") unless NeedCategory.find_by_name_en("Housing")
 
 puts "-----------"
-puts "Added Email notifications to members"
+puts "Added Need Categories"
 puts "-----------"
+

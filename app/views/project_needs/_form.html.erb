@@ -1,0 +1,20 @@
+<%= form_for([@fundation, @fundation.project_needs.build]) do |f| %>
+  <div class="field">
+    <%= f.label I18n.t('name') %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label I18n.t('recurrence') %><br />
+    <%= f.text_field :recurrence %>
+    Ej: (Mensual, Anual, Una vez)
+  </div>  
+  
+  <%= f.label I18n.t('category') %><br />
+  <%= select_tag("project_need[need_categories_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category.id), category.id]}, @fundation.id), :include_blank => I18n.t('other')) %>
+  <div class="field" id="other_need_category" style="display:none">
+    <%= f.text_field :category %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

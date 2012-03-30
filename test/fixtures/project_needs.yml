@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  recurence: MyString
+  category: MyString
+  state: MyString
+
+two:
+  name: MyString
+  recurence: MyString
+  category: MyString
+  state: MyString
