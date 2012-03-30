@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Name es</th>
+    <th>Name en</th>    
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +11,8 @@
 
 <% @need_categories.each do |need_category| %>
   <tr>
-    <td><%= need_category.name %></td>
+    <td><%= need_category.name_es %></td>
+    <td><%= need_category.name_en %></td>    
     <td><%= link_to 'Show', need_category %></td>
     <td><%= link_to 'Edit', edit_need_category_path(need_category) %></td>
     <td><%= link_to 'Destroy', need_category, :confirm => 'Are you sure?', :method => :delete %></td>
