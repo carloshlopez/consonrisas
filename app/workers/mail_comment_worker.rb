@@ -1,4 +1,4 @@
-class MailCommentWorker < SimpleWorker::Base
+class MailCommentWorker < IronWorker::Base
 
   merge_gem 'actionmailer',{:require=>'action_mailer'}
   merge_mailer '../mailers/event_invitation'
