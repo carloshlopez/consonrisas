@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   has_many :event_admins, :dependent =>:destroy
   has_many :members, :through => :event_admins, :dependent => :destroy  
   has_many :needs, :dependent => :destroy
-  attr_accessible :photos_attributes, :videos_attributes, :date, :name, :city, :place, :pic, :isRaiser, :isClosed
+  attr_accessible :photos_attributes, :videos_attributes, :date, :name, :city, :place, :pic, :isRaiser, :isClosed, :desc
   has_many :photos
   accepts_nested_attributes_for :photos, :allow_destroy=> true
   

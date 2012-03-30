@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204195150) do
+ActiveRecord::Schema.define(:version => 20120330034651) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20111204195150) do
     t.boolean  "isRaiser",         :default => false
     t.boolean  "isClosed",         :default => false
     t.boolean  "pic_processing"
+    t.text     "desc"
   end
 
   create_table "events_facilitators", :id => false, :force => true do |t|
@@ -207,6 +208,13 @@ ActiveRecord::Schema.define(:version => 20111204195150) do
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
   add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
+  create_table "need_categories", :force => true do |t|
+    t.string   "name_es"
+    t.string   "name_en"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "needs", :force => true do |t|
     t.string   "name"
     t.boolean  "completed"
@@ -251,6 +259,17 @@ ActiveRecord::Schema.define(:version => 20111204195150) do
     t.datetime "updated_at"
     t.string   "name_en"
     t.string   "description_en"
+  end
+
+  create_table "project_needs", :force => true do |t|
+    t.string   "name"
+    t.string   "recurrence"
+    t.string   "category"
+    t.string   "state"
+    t.integer  "fundation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "need_categories_id"
   end
 
   create_table "provider_admins", :force => true do |t|

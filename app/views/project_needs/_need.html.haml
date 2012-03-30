@@ -1,0 +1,15 @@
+.a_need{:id=>"need-#{need.id}"}
+  %b #{need.name}
+  |
+  #{need.recurrence}  
+  |
+  - if need.need_categories_id
+    #{need_category_name(need.need_categories_id)}
+  - else
+    #{need.category}  
+  |
+  - if member_signed_in? and can_current_member_edit_fundation(need.fundation.id)
+    %a.delete_need{:need_id => need.id, :href => "#",:fundation_id=>"#{need.fundation.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} #{I18n.t('destroy')}
+    .loading{:style=>"display:none", :id=>"need-img-#{need.id}"}
+      = image_tag "mini-loader.gif"   
+    

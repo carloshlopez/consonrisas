@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label I18n.t('description') %><br />
+    <%= f.text_area :desc %>
+  </div>  
+
+  <div class="field">
     <%= f.label I18n.t('date_name') %><br />
     <%= f.text_field :date , :class=>"calendar"%>
   </div>

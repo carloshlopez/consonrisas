@@ -29,13 +29,45 @@ $jq.widget("ui.profileFundation", {
     	    var to_show = $jq(this).attr("show");
           self._show(to_show);
         });
+        
+       $el.find('.delete_need').click(function(e) {
+            e.preventDefault();
+            var answer = confirm("¿Seguro que desea eliminar está necesidad?")
+            if (answer){
+              var need_id = $jq(this).attr("need_id");
+              var fundation_id = $jq(this).attr("fundation_id");                
+              var elId = $jq(this).attr("id").split("-")[2];
+              $jq("#need-img-"+elId).css('display', 'inline');
+              $jq(this).hide();
+              self._deleteNeed(need_id,fundation_id, elId);
+            }
+        });          
+        
+        
+    },_deleteNeed: function(need_id, fundation_id, elId){
+        $jq.post( "/fundations/"+fundation_id+"/project_needs/"+ need_id+".json", { "_method": "delete" },
+            function(data, textStatus, XMLHttpRequest){
+              var obj = $jq.parseJSON(data);
+              if(obj.resp == "ok"){ 
+                $jq("#need-"+elId).fadeOut("slow", function(){
+                  $jq("#need-"+elId).remove();
+                });
+
+              }
+              else{
+                alert(data);
+              }
+        }, "text" );
     }, _show: function(show){
       var newMargin = '35px';
-      if(show == 'events'){    
-        newMargin = '112px';
+      if(show == 'needs'){    
+        newMargin = '122px';
+      }      
+      else if(show == 'events'){    
+        newMargin = '208px';
       }
       else if(show == 'contact'){
-        newMargin = '230px';
+        newMargin = '326px';
       }      
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
