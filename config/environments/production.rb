@@ -1,6 +1,6 @@
-require 'simple_worker'
+require 'iron_worker'
 
-SimpleWorker.configure do |config|
+IronWorker.configure do |config|
   config.token = 'tSNJz33ZkkKdBWvUhvYBNIEmhbQ'
   config.project_id = '4ed7ace3b786c80144000060'
 end

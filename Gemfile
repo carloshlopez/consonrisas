@@ -32,7 +32,7 @@ gem 'twitter'
 
 gem 'fb_graph'
 
-gem 'simple_worker'
+gem 'iron_worker'
 
 gem 'delayed_job'
 gem 'delayed_paperclip'
