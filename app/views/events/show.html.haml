@@ -59,7 +59,8 @@
       .share_fb
         = render :partial => "share_fb"
         - if @event.isRaiser
-          %b #{I18n.t('events.isRaiser')}
+          %p
+            %b #{I18n.t('events.isRaiser')}
       .description
         - if @event.desc
           %p #{@event.desc}          
