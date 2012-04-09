@@ -1,6 +1,10 @@
 - if current_member.try(:admin?)
+  .admin-jobs
+    %p Admin Delayed Jobs  
+    %a{:href=>"/admin/dj_all"}
+      All Delayed Jobs      
   .admin-table-list
-    %p Tables
+    %p Admin DB tables (rails models)
     %ul
       - @models.each do |model|
         %li

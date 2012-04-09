@@ -1,6 +1,5 @@
 Consonrisas::Application.routes.draw do
   
-  
   resources :need_categories
 
   get "need/create"
@@ -32,6 +31,13 @@ Consonrisas::Application.routes.draw do
   match 'admin/db/:table_name', :controller => 'admin', :action => 'create_table_data', :conditions => {:method => :post}
   match 'admin/db/delete/:table_name/:id', :controller => 'admin', :action => 'delete_table_data', :conditions => {:method => :delete }    
   get "admin/members_to_csv" =>"admin#members_to_csv"
+  
+  get "admin/dj_all", :as => :dj_all
+
+  get "admin/dj_show/:id"=> "admin#dj_show"
+
+  get "admin/dj_destroy/:id" => "admin#dj_destroy"
+  
 
   get "events/gallery"
 

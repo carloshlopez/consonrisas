@@ -1,0 +1,31 @@
+- if current_member.try(:admin?)
+  ="ID: #{@job.id}"  
+  %br
+  ="Priority: #{@job.priority}"    
+  %br
+  ="Attempts: #{@job.attempts}"    
+  %br
+  ="Handler: #{@job.handler}"    
+  %br
+  ="Last Error: #{@job.last_error}"    
+  %br
+  ="Rut at: #{@job.run_at}"    
+  %br
+  ="Locked at: #{@job.locked_at}"    
+  %br
+  ="Failed at: #{@job.failed_at}"    
+  %br
+  ="Locked by: #{@job.locked_by}"    
+  %br
+  ="Created at: #{@job.created_at}"
+  %br
+  ="Updated at: #{@job.updated_at}"
+  %br
+  %a{:href=>"/admin/dj_destroy/#{@job.id}"}
+    Destroy 
+  %p
+    %a{:href=>"admin/dj_all"}
+      View all  
+- else
+  %p YOU HAVE TO BE AN ADMIN TO VIEW THIS
+    
