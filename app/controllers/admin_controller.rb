@@ -121,4 +121,38 @@ class AdminController < ApplicationController
               :type => 'text/csv; charset=iso-8859-1; header=present', 
               :disposition => "attachment; filename=users.csv" 
   end  
+  
+  def dj_all
+    if current_member.try(:admin?)    
+      @jobs = Delayed::Job.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+      end  
+    end
+  end
+  
+  def dj_show
+    if current_member.try(:admin?)    
+      begin
+        @job = Delayed::Job.find(params[:id])
+      rescue
+        redirect_to [:admin_dj_all], :notice => 'That specific job has finished processing'
+      end
+    end
+  end
+
+  def dj_destroy
+    if current_member.try(:admin?)
+      @job = Delayed::Job.find(params[:id])
+      @job.destroy
+      
+      respond_to do |format|
+        format.html {redirect_to(dj_all_path, :notice => 'Job destroyed')}
+      end
+    end
+  end  
+  
+  
+  
 end

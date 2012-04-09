@@ -1,0 +1,9 @@
+- if current_member.try(:admin?)
+  %h2 DelayedJobs
+  .all_jobs
+    - @jobs.each do |j|
+      %p
+        %a{:href=>"/admin/dj_show/#{j.id}"}
+          ="ID: #{j.id}"
+- else
+  %p YOU HAVE TO BE AN ADMIN TO VIEW THIS

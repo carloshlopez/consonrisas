@@ -22,9 +22,20 @@
     = javascript_include_tag 'admin/admin'
 
   %body
+    .application_messages
+      %p.notice{:id=>"notice"}
+        = notice
+      %p.alert{:id=>"alert"}
+        = alert
     %h1 Administration Panel
-    %a{:href=>"/"}
-      Home
+    .admin-menu
+      %ul
+        %li
+          %a{:href=>"/admin"}
+            Admin Home
+        %li
+          %a{:href=>"/"}
+            Consonrisas Home      
     = yield :layout
     = yield :javascripts
 
