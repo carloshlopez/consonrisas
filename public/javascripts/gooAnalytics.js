@@ -1,5 +1,7 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-24889585-1']);
+_gaq.push(['_setDomainName', 'conectandosonrisas.org']);
+_gaq.push(['_setAllowLinker', true]);
 _gaq.push(['_trackPageview']);
 
 (function() {
