@@ -64,6 +64,8 @@ GEM
     hashie (1.0.0)
     httpclient (2.2.3)
     i18n (0.4.2)
+    i18n_routing (0.6.1)
+      i18n (> 0.3.5)
     iron_worker (2.3.13)
       bundler
       bundler
@@ -203,6 +205,7 @@ DEPENDENCIES
   devise
   fb_graph
   haml
+  i18n_routing
   iron_worker
   kaminari
   multi_json

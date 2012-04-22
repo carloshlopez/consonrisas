@@ -228,6 +228,11 @@ es:
     messages:
       not_saved: "No se puede continuar"
 
+  resources:
+    fundations: "proyectos"
+    providers: "proveedores"
+    facilitators: "facilitadores"
+    events: "eventos"
 #defaults needed
 
   helpers:

@@ -86,19 +86,12 @@ Consonrisas::Application.routes.draw do
   
   get 'photos/poll'
   
-  resources :events do
-    get 'show_gallery'
-    resources :photos
-    resources :comments
-    resources :needs do
-        post "complete"
-    end
-  end
+
   
   match 'needs/complete/:id' => 'needs#complete'
 
   get "/facilitators/list" => "facilitators#list"  
-  resources :facilitators
+ 
 
   
   resources :roles
@@ -111,17 +104,29 @@ Consonrisas::Application.routes.draw do
 
   resources :populations
 
-  resources :providers do
-    get "get_pic"
-    put "change_pic"
-    resources :shows
-    resources :contact_informations
-  end
 
-  resources :fundations do
-    put "change_pic"    
-    resources :contact_informations
-    resources :project_needs    
+
+  localized(['es', 'en'], :verbose => true) do
+    resources :events do
+      get 'show_gallery'
+      resources :photos
+      resources :comments
+      resources :needs do
+          post "complete"
+      end
+    end  
+    resources :facilitators
+    resources :providers do
+      get "get_pic"
+      put "change_pic"
+      resources :shows
+      resources :contact_informations
+    end
+    resources :fundations do
+      put "change_pic"    
+      resources :contact_informations
+      resources :project_needs    
+    end
   end
 
 

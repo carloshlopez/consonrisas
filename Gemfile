@@ -38,6 +38,7 @@ gem 'delayed_job'
 gem 'delayed_paperclip'
 
 gem 'newrelic_rpm'
+gem 'i18n_routing'
 
 
 #gem "oauth-plugin", ">= 0.4.0.pre5"
