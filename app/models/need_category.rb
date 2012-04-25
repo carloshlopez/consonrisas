@@ -1,3 +1,3 @@
 class NeedCategory < ActiveRecord::Base
-  belongs_to :project_need
+  has_many :project_needs
 end

@@ -10,7 +10,7 @@
   </div>  
   
   <%= f.label I18n.t('category') %><br />
-  <%= select_tag("project_need[need_categories_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category.id), category.id]}, @fundation.id), :include_blank => I18n.t('other')) %>
+  <%= select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, @fundation.id), :include_blank => I18n.t('other')) %>
   <div class="field" id="other_need_category" style="display:none">
     <%= f.text_field :category %>
   </div>  

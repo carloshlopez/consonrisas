@@ -15,4 +15,13 @@ class ProjectNeedsController < ApplicationController
       format.json {render :json=>'{"resp":"ok"}'}
     end
   end
+  
+  def all_needs
+    @need_categories = NeedCategory.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @need_categories }
+    end
+  end
+    
 end

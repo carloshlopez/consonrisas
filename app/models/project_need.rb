@@ -1,4 +1,4 @@
 class ProjectNeed < ActiveRecord::Base
   belongs_to :fundation  
-  has_one :need_category
+  belongs_to :need_category
 end
