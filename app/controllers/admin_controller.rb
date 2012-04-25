@@ -1,4 +1,5 @@
 require 'csv'
+require 'heroku-api'
 class AdminController < ApplicationController
   layout "admin"
   before_filter :authenticate_member!, :except => [:members_to_csv]
@@ -154,37 +155,17 @@ class AdminController < ApplicationController
   end  
   
   def set_workers
-    user = ENV['HEROKU_U'] | 'carloshlopez@gmail.com'
-    pass = ENV['HEROKU_P'] | 'pelafo23'
-    app = ENV['APP_NAME'] | 'conectandosonrisas'
     if current_member.try(:admin?)
-      heroku = Heroku::Client.new(user, pass)
-      heroku.list_stacks(app).inject("") do |current,stack|
-        my_stack = stack["current"] ? stack["name"] : current
-      end
-      if stack == "cedar"
-        heroku.ps_scale(app, :type => 'worker', :qty => params[:count])
-      else
-        heroku.set_workers(app, param[:count])
-      end    
+      heroku = Heroku::API.new()
+      @res = heroku.put_workers('conectandosonrisas', params[:count])    
     end
-    redirect_to 'admin/workers'
+    redirect_to [:admin_workers], :notice => "Resultado: #{@res.inspect}"
   end
   
   def see_workers
     if current_member.try(:admin?)  
-      user = ENV['HEROKU_U'] | 'carloshlopez@gmail.com'
-      pass = ENV['HEROKU_P'] | 'pelafo23'
-      app = ENV['APP_NAME'] | 'conectandosonrisas'
-      heroku = Heroku::Client.new(user, pass)
-      heroku.list_stacks().inject("") do |current,stack|
-        my_stack = stack["current"] ? stack["name"] : current
-      end  
-      if stack == "cedar"
-        @num_workers = heroku.ps(app).count { |p| p["process"] =~ /worker\.\d?/ }
-      else
-        @num_workers = heroku.info(app)[:workers].to_i
-      end    
+      heroku = Heroku::API.new()
+      @num_workers = heroku.get_ps('conectandosonrisas')
     end
   end
   

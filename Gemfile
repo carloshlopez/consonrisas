@@ -40,6 +40,8 @@ gem 'delayed_paperclip'
 gem 'newrelic_rpm'
 gem 'i18n_routing'
 
+gem 'heroku-api', '~> 0.1.2'
+
 group :test, :development do
   gem 'cucumber-rails'
   gem 'database_cleaner'
@@ -47,6 +49,8 @@ group :test, :development do
   gem 'spork'
   gem "activesupport", '~> 3.0.1'
 end
+
+
 
 
 #gem "oauth-plugin", ">= 0.4.0.pre5"
