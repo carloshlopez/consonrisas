@@ -14,8 +14,7 @@ Worker Dynos:
 <%= @worker %>
 </p>
 <%= form_tag('/admin/set_workers') do |f|%>
-  <b>Set # of workers</b>
-  # of workers:
+  <b>Set new # of workers:</b>
   <input name="count" maxlength="2" size="3"/>
   <input name="commit" type="submit" value="Update Workers"/>
 <% end %>
