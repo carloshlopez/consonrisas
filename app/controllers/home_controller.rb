@@ -73,4 +73,7 @@ class HomeController < ApplicationController
   def donate
   end  
   
+  def landing
+  end
+  
 end 

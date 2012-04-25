@@ -1,0 +1,18 @@
+<div id="wrapper">
+   <div class="slider-wrapper theme-default">
+        <div class="ribbon"></div>
+        <div id="slider" class="nivoSlider">
+          <img src="https://s3.amazonaws.com/conectandosonrisas/home/1.JPG" alt=""/>
+          <img src="https://s3.amazonaws.com/conectandosonrisas/home/2.JPG" alt="" data-transition="slideInLeft" />
+          <img src="https://s3.amazonaws.com/conectandosonrisas/home/3.jpg" alt="" />        
+          <img src="https://s3.amazonaws.com/conectandosonrisas/home/4.jpg" alt="" />        
+        </div>     
+</div>
+
+<%= javascript_include_tag "nivo-slider/jquery.nivo.slider.pack.js"%>
+<script type="text/javascript">
+var $jq = jQuery.noConflict();
+$jq(document).ready(function($) {    
+    $jq('#slider').nivoSlider();        
+});
+</script>

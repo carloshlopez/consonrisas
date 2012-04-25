@@ -27,5 +27,5 @@ $jq.widget("ui.home", {
 
 $jq(document).ready(function($) {    
     var fb = $jq("#pics").home();
-    $jq('#home_event_comments').load('/home/event_comments', function() {});
+    $jq('#home_event_comments').load('/home/event_comments', function() {});    
 });
