@@ -1,5 +1,8 @@
 - if current_member.try(:admin?)
   %h2 DelayedJobs
+  .manage_workers
+    %a{:href=>"workers"}
+      Manage Heroku Workers  
   .all_jobs
     - @jobs.each do |j|
       %p

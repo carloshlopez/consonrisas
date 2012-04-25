@@ -1,4 +1,7 @@
 - if current_member.try(:admin?)
+  .manage_workers
+    %a{:href=>"workers"}
+      Manage Heroku Workers
   ="ID: #{@job.id}"  
   %br
   ="Priority: #{@job.priority}"    

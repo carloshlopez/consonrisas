@@ -6,4 +6,4 @@
   .scrollWrapper
     .scrollableArea
       - @photos.each do |p|
-        = image_tag(p.photo.url(:original), :class=>"home_pic")
+        = image_tag(p.photo.url(:big), :class=>"home_pic")
