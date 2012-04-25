@@ -104,7 +104,7 @@ Consonrisas::Application.routes.draw do
 
   resources :populations
 
-
+  get "/landing" => "home#landing"
   match "project_needs/all_needs", :as => "all_needs"
 
   localized(['es', 'en'], :verbose => true) do
