@@ -1,10 +1,21 @@
-<h2>Number of workers runningn in heroku 
-<%= "#{@num_workers.inspect}" %>
-</h2>
-
+<h2>Number of workers runningn in heroku </h2>
+<p>
+<%
+@web = 0
+@worker = 0
+@num_workers.body.each do |proc| 
+  @web = @web + 1 if proc['process'].starts_with("web")
+  @worker = @worker + 1 if proc['process'].starts_with("worker")
+end%>
+Web Dynos:
+<%= @web %>
+<br/>
+Worker Dynos:
+<%= @worker %>
+</p>
 <%= form_tag('/admin/set_workers') do |f|%>
-  Add workers
-  Number of new workers
-  <input name="count"/>
-  <input name="commit" type="submit" value="Save changes"/>
+  <b>Add workers</b>
+  # of workers:
+  <input name="count" maxlength="2" size="3"/>
+  <input name="commit" type="submit" value="Update Workers"/>
 <% end %>
