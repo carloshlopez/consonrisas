@@ -1,0 +1,10 @@
+<h2>Number of workers runningn in heroku 
+<%= "#{@num_workers.inspect}" %>
+</h2>
+
+<%= form_tag('/admin/set_workers') do |f|%>
+  Add workers
+  Number of new workers
+  <input name="count"/>
+  <input name="commit" type="submit" value="Save changes"/>
+<% end %>
