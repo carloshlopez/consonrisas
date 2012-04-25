@@ -105,6 +105,7 @@ Consonrisas::Application.routes.draw do
   resources :populations
 
 
+  match "project_needs/all_needs", :as => "all_needs"
 
   localized(['es', 'en'], :verbose => true) do
     resources :events do

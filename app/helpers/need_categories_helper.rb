@@ -1,9 +1,8 @@
 module NeedCategoriesHelper
-  def need_category_name(id)
+  def need_category_name(need)
     name = ""
-    p = NeedCategory.find(id)
-    name = p.name_es if "#{I18n.locale}" == "es"
-    name = p.name_en if "#{I18n.locale}" == "en"
+    name = need.name_es if "#{I18n.locale}" == "es"
+    name = need.name_en if "#{I18n.locale}" == "en"
     name
   end
 end

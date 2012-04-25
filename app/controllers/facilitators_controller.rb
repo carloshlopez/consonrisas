@@ -116,7 +116,6 @@ class FacilitatorsController < ApplicationController
     respond_to do |format|
       format.json { render :json => resp }
     end
-  end
-  
+  end  
   
 end

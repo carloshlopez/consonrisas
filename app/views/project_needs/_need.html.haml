@@ -3,8 +3,8 @@
   |
   #{need.recurrence}  
   |
-  - if need.need_categories_id
-    #{need_category_name(need.need_categories_id)}
+  - if need.need_category_id
+    #{need_category_name(need.need_category)}
   - else
     #{need.category}  
   |
