@@ -38,6 +38,10 @@ Consonrisas::Application.routes.draw do
 
   get "admin/dj_destroy/:id" => "admin#dj_destroy"
   
+  get "admin/workers" => "admin#see_workers"
+  
+  post "admin/set_workers" => "admin#set_workers"
+  
 
   get "events/gallery"
 

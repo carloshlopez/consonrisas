@@ -1,0 +1,10 @@
+%h2
+  = "Number of workers runningn in heroku = #{@num_workers}"
+
+%form{:action=>"/admin/set_workers", :method=>"POST"}
+  Add workers
+  %p
+    Number of new workers: 
+    %input{:name=>"count"} 
+  %input{:type=>"submit"}
+
