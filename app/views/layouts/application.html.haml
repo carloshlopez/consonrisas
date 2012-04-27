@@ -55,13 +55,13 @@
       #menu
         %ul
           %li
-            %a.facilitators{:href => "/facilitators", :title=> I18n.t('application.menu_facilitators')}
+            %a.facilitators{:href => "/facilitadores", :title=> I18n.t('application.menu_facilitators')}
           %li
-            %a.providers{:href => "/providers", :title=> I18n.t('application.menu_providers')}
+            %a.providers{:href => "/proveedores", :title=> I18n.t('application.menu_providers')}
           %li
-            %a.fundations{:href => "/fundations", :title=> I18n.t('application.menu_fundations')}
+            %a.fundations{:href => "/proyectos", :title=> I18n.t('application.menu_fundations')}
           %li
-            %a.events{:href => "/events", :title=> I18n.t('application.menu_events')}
+            %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
           - if member_signed_in?
             %li
               %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
@@ -79,9 +79,11 @@
           %img{:src=>"/images/FacebookBtn.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
         %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
           %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
-      %a{:href=>"/donate"} Apoyar la causa
+      %a{:href=>"/servicios"} Servicios
       #{" - "}          
-      %a{:href=>"/allies"} Aliados
+      %a{:href=>"/apoyo"} Apoyo
+      #{" - "}
+      %a{:href=>"/aliados"} Aliados
       #{" - "}
       %a{:href=>"#"} Terminos y Condiciones
       #{" - "}

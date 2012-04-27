@@ -79,9 +79,7 @@ Consonrisas::Application.routes.draw do
   #root :to => "home#index"
   
   get "/info" =>"home#info"
-  get "/touch" =>"home#touch"
-  get "/donate" =>"home#donate"  
-  get "/allies" =>"home#allies"
+
   get "home/new_index"
   get "home/event_comments"
   get "/social" => "home#social"
@@ -112,6 +110,11 @@ Consonrisas::Application.routes.draw do
   match "project_needs/all_needs", :as => "all_needs"
 
   localized(['es', 'en'], :verbose => true) do
+    get "/touch" =>"home#touch", :as => :touch
+    get "/donate" =>"home#donate", :as => :donate
+    get "/allies" =>"home#allies",  :as => :allies
+    get "/services" => "home#services", :as => :services
+    
     resources :events do
       get 'show_gallery'
       resources :photos

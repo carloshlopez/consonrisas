@@ -1,7 +1,3 @@
 %h2
   Necesidades con las que puedes ayudar
-.all_categories
-  - @need_categories.each do |cat|
-    = "#{need_category_name(cat)} (#{cat.project_needs.count})"
-    - @need_category = cat
-    = render "needs_from_cat"
+= render "show_all_needs"

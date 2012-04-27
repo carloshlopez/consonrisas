@@ -45,18 +45,17 @@
   </div>
   
   <div class="field">
-    <%= f.label I18n.t("isRaiser") %><br />
     <%= f.check_box :isRaiser %>
+    <%= f.label I18n.t("isRaiser") %>
   </div>  
   
   <div class="field">
-    <%= f.label I18n.t("isClosed") %><br />
-    <%= f.check_box :isClosed %>
+    <%= f.check_box :isClosed %>  
+    <%= f.label I18n.t("isClosed") %>
   </div>    
   
   <div class="field">
-    <%= I18n.t('events.pic') %><br/>
-    <%= f.file_field :pic %>
+    <%= I18n.t('events.pic') %>:&nbsp;&nbsp;<%= f.file_field :pic %>
   </div>    
   <div class="actions">
     <%= f.submit %>

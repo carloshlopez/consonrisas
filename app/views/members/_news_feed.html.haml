@@ -1,0 +1,38 @@
+#needs-div{:style=>"display:none"}
+  = render "project_needs/show_all_needs"
+#msgs-div{:style=>"display:none"}
+  = render :partial => "msgs"
+#invites-div{:style=>"display:none"}
+  = render :partial => "invites"  
+.sub_menu
+  %a.needs{:href=>"#needs", :show=>"needs",:style=>"display:none"} #{I18n.t('help_with_needs')} 
+  %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
+  .num-invites
+    = @invites.size
+  | 
+  %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
+  .num-invites
+    = @msgs.size 
+- if member_signed_in? and !@news_feed.empty?
+  %h2 #{I18n.t('news')}
+  .all-items
+    - i = 0
+    - @news_feed.each do |alert|
+      - obj = alert.model.constantize.find(alert.model_id)
+      .one-item{:id=>"global-alert-item-#{i}"}
+        = link_to image_tag(obj.pic(:thumb)), send("#{alert.model.downcase}_path", obj), :title=>"Click para ver más"
+        %span
+          .one-item-name.invite-news
+            = alert.news
+            = link_to alert.name_link, send("#{alert.model.downcase}_path", obj), :title=>"Click para ver más"
+          #{link_to 'Click para ver más', send("#{alert.model.downcase}_path", obj), :title=>"Click para ver más"} 
+          - if is_current_member_this_member @member.id 
+            |
+            .loading{:style=>"display:none", :id=>"glbal-alert-img-#{i}"}
+              = image_tag "mini-loader.gif"                      
+            .msg-date
+              = I18n.l(alert.created_at, :format=>:long)
+      - i = i + 1
+- else
+  %p
+    No hay noticias en este momento

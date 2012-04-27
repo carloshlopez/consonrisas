@@ -106,26 +106,22 @@ $jq.widget("ui.myProfile", {
 	          }
         });                                 	
     	
-    	$el.find(".my-profile-menu span a").click(function(e) {
-    	    e.preventDefault();
+    	$el.find(".my-profile-menu span a").click(function() {
     	    var to_show = $jq(this).attr("show");
           self._show(to_show);
         });
         
     }, 
     _show: function(show){
-      var newMargin = '45px';
-      if(show == 'msgs'){
-        newMargin = '155px';
-      }    
-      else if( show == 'events'){
-        newMargin = '255px';
+      var newMargin = '60px';
+      if( show == 'events'){
+        newMargin = '160px';
       }
       else if( show == 'fundations'){
-        newMargin = '350px';
+        newMargin = '260px';
       }
       else if(show == 'providers'){
-        newMargin = '460px';
+        newMargin = '370px';
       } 
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
@@ -244,6 +240,42 @@ $jq.widget("ui.myProfile", {
     }    
 });
 
+
+function showInvites(){
+  $jq("#invites-div").dialog({modal:true, title:"Invitaciones a eventos de tu interés", width: 600, height: 500, closeText:"x", show:"slide"});
+}
+
+function showMsgs(){
+  $jq("#msgs-div").dialog({modal:true, title:"Mensajes enviados a ti", width: 600, height: 500, closeText:"X", show:"slide"});
+}
+
+function showNeeds(){
+  $jq("#needs-div").dialog({modal:true, title:"Ayuda con las necesidades de los proyectos sociales", width: 650, height: 550, closeText:"X", show:"slide"});
+}
+
+function showEdit(e){
+  if (e != undefined){
+    e.preventDefault();
+  }
+  $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 400, closeText:"X", show:"slide"});
+}
+
+function showMenu(show){
+  var newMargin = '60px';
+  if( show == 'events'){
+    newMargin = '160px';
+  }
+  else if( show == 'fundations'){
+    newMargin = '260px';
+  }
+  else if(show == 'providers'){
+    newMargin = '370px';
+  } 
+  $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
+  $jq(".mine").hide();
+  $jq(".my-"+ show).show(); 
+}
+
 $jq(document).ready(function($) {    
   $jq("#my-profile").myProfile();
   
@@ -258,6 +290,11 @@ $jq(document).ready(function($) {
     showEdit();
   }
   
+  $jq(".invites").click(showInvites);
+  $jq(".msgs").click(showMsgs);
+  $jq(".needs").click(showNeeds);
+  
+
 	$jq(".auth-remove").click(function(e){
 	  e.preventDefault();
 	  if (confirm("Ya no podrás ingresar con este servicio, y no nos ayudarás a regar la voz por medio de este medio :(.\n Seguro que deseas continuar?")){
@@ -268,12 +305,22 @@ $jq(document).ready(function($) {
       }, "text" );
     }
 	}); 
+	
+	if(window.location.hash){
+   var hash = window.location.hash.substring(1); 
+   if(hash == "msgs"){
+    showMsgs();
+   }
+   else if(hash == "invites"){
+    showInvites();
+   }
+   else if(hash == "needs"){
+    showNeeds();
+   }
+   else{
+    showMenu(hash);
+   }
+	}
   
 });
 
-function showEdit(e){
-  if (e != undefined){
-    e.preventDefault();
-  }
-  $jq("#edit-facilitator").dialog({modal:true, title:"Ingresa tu información", width: 400, closeText:"X", show:"slide"});
-}

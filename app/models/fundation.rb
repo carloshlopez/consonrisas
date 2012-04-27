@@ -1,3 +1,4 @@
+# coding: utf-8
 class Fundation < ActiveRecord::Base
   belongs_to :population
   has_and_belongs_to_many :events, :join_table => :events_fundations, :uniq => true
@@ -17,6 +18,8 @@ class Fundation < ActiveRecord::Base
   
   validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 250 }
   
+  after_create :generate_alerts
+    
   def ask_admin member_id
     FundationAdmin.create(:member_id =>member_id, :fundation_id => self.id, :active=>false)
   end
@@ -31,6 +34,10 @@ class Fundation < ActiveRecord::Base
   end
   
   private
+  
+  def generate_alerts
+    GlobalAlert.create(:news=>"Se creó el proyecto social: ", :model=>"Fundation", :model_id=>id, :name_link=>name)
+  end
   
   def send_msg_to_admins_t(member_from, message)
     fundation_admins.each do |admin|

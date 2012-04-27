@@ -95,7 +95,7 @@
 
     }
     .my-personal{	
-      margin-left: 100px;
+      margin-left: 150px;
     }
   }
   .my-profile-menu{
@@ -135,10 +135,29 @@
       border-bottom:15px solid $main-background;
       width: 0;
       float: left;
+      margin-left: 60px;
     }
-    .arrow-invites{
-      margin-left: 45px;
-    }     
+  }
+}
+
+.sub_menu{
+  margin-left: 390px;
+  position: absolute;
+  a{
+    color:$site-color;
+    text-decoration:none;    
+  }
+  a:hover{
+    text-decoration: underline;
+    color: darken($site-color, 10%);
+  }
+  .num-invites{
+      display: inline;
+      background-color: $site-color;
+      border-radius: 15px;
+      color: white;
+      padding: 0 5px;
+      margin-right: 3px;
   }
 }
 
@@ -198,6 +217,8 @@
 .input_dialog{
     width: 300px;
 }
+
+
 //Para volver el jquery ui dialog más oscuro
 //.ui-widget-overlay
 //{
