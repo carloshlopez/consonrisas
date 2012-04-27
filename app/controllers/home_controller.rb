@@ -73,6 +73,9 @@ class HomeController < ApplicationController
   def donate
   end  
   
+  def services
+  end
+  
   def landing
   end
   

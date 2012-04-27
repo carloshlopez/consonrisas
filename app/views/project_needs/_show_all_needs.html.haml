@@ -1,0 +1,5 @@
+.all_categories
+  - @need_categories.each do |cat|
+    = "#{need_category_name(cat)} (#{cat.project_needs.count})"
+    - @need_category = cat
+    = render "project_needs/needs_from_cat"

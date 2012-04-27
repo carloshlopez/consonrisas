@@ -45,19 +45,11 @@
         = I18n.t('application.menu_profile')
         = image_tag '/images/SonrisaTransparenteMedio.png'
     .my-profile-menu-top
-      %span.my-news
-        = I18n.t('news')
       %span.my-personal      
         = I18n.t('personal')
     .my-profile-menu
       %span.news
-        %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
-        .num-invites
-          = @invites.size
-        | 
-        %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
-        .num-invites
-          = @msgs.size        
+        %a.news_feed{:href=>"#news_feed", :show=>"news_feed"} #{I18n.t('news_feed')}
       %span.personal
         %a.events{:href=>"#events", :show=>"events"} #{I18n.t('events_name')}
         | 
@@ -68,10 +60,8 @@
       .arrow-up-profile.arrow-invites
     .mine.my-complete-register
       =render :partial =>"complete_register"         
-    .mine.my-invites{:style=>"display:none"}
-      = render :partial => "invites"
-    .mine.my-msgs{:style=>"display:none"}
-      = render :partial => "msgs"  
+    .mine.my-news_feed{:style=>"display:block"}
+      = render :partial => "news_feed"      
     .mine.my-events{:style=>"display:none"}
       = render :partial => "admin_events"  
     .mine.my-fundations{:style=>"display:none"}

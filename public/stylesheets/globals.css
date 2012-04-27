@@ -21,6 +21,22 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+input[type=checkbox] {
+  display: inline-block;
+  clear: left;
+  float: left;
+  border: 2px dotted #5ab446; }
+
+input[type=checkbox] + label {
+  background: white;
+  display: inline-block;
+  padding: 0 0 0 0px; }
+
+input[type=checkbox]:checked + label {
+  background: #5ab446;
+  display: inline-block;
+  padding: 0 0 0 0px; }
+
 .warning {
   color: red; }
 

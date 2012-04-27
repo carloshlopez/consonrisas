@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423062522) do
+ActiveRecord::Schema.define(:version => 20120425200129) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -182,6 +182,15 @@ ActiveRecord::Schema.define(:version => 20120423062522) do
   create_table "fundations_facilitators", :id => false, :force => true do |t|
     t.integer "fundation_id"
     t.integer "facilitator_id"
+  end
+
+  create_table "global_alerts", :force => true do |t|
+    t.string   "news"
+    t.string   "model"
+    t.string   "model_id"
+    t.string   "name_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "members", :force => true do |t|

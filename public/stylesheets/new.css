@@ -21,6 +21,22 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+input[type=checkbox] {
+  display: inline-block;
+  clear: left;
+  float: left;
+  border: 2px dotted #5ab446; }
+
+input[type=checkbox] + label {
+  background: white;
+  display: inline-block;
+  padding: 0 0 0 0px; }
+
+input[type=checkbox]:checked + label {
+  background: #5ab446;
+  display: inline-block;
+  padding: 0 0 0 0px; }
+
 .warning {
   color: red; }
 
@@ -1075,7 +1091,7 @@ div.arrow-down {
     position: absolute;
     color: #1a3314; }
     #profile-content .my-profile-menu-top .my-personal {
-      margin-left: 100px; }
+      margin-left: 150px; }
   #profile-content .my-profile-menu {
     color: white;
     margin-left: 15px;
@@ -1106,9 +1122,25 @@ div.arrow-down {
       border-right: 15px solid transparent;
       border-bottom: 15px solid white;
       width: 0;
-      float: left; }
-    #profile-content .my-profile-arrows .arrow-invites {
-      margin-left: 45px; }
+      float: left;
+      margin-left: 60px; }
+
+.sub_menu {
+  margin-left: 390px;
+  position: absolute; }
+  .sub_menu a {
+    color: #5ab446;
+    text-decoration: none; }
+  .sub_menu a:hover {
+    text-decoration: underline;
+    color: #488f38; }
+  .sub_menu .num-invites {
+    display: inline;
+    background-color: #5ab446;
+    border-radius: 15px;
+    color: white;
+    padding: 0 5px;
+    margin-right: 3px; }
 
 .news {
   margin-left: auto;

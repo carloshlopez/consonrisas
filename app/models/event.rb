@@ -1,3 +1,4 @@
+# coding: utf-8
 class Event < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :facilitators, :join_table => :events_facilitators, :uniq => true
@@ -17,7 +18,7 @@ class Event < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
                     :path => "events/:attachment/:id/:style/:filename"
-  process_in_background :pic
+#  process_in_background :pic
 #  validates_attachment_presence :pic
   validates_attachment_size :pic, :less_than => 4.megabytes
   validates_attachment_content_type :pic, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/x-png']  
@@ -31,7 +32,7 @@ class Event < ActiveRecord::Base
   #validate :at_least_one_fundation  
   #validates :fundations, :uniqueness => {:scope => :event_id}
   
-  #after_create :generate_alerts
+  after_create :generate_alerts
       
   def ask_admin member_id
     EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
@@ -48,7 +49,11 @@ class Event < ActiveRecord::Base
     errors.add_to_base I18n.t('events.one_fundation_error') if self.fundations.blank?
   end
   
-#  def generate_alerts
+  def generate_alerts
+    GlobalAlert.create(:news=>"Se creó el evento: ", :model=>"Event", :model_id=>id, :name_link=>name)
+  end
+  
+#  def generate_invites
     
 #    already_created = []
 #    self.fundations.each do |fundation|

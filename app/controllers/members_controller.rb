@@ -4,6 +4,8 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.xml
   def show
+    @need_categories = NeedCategory.all
+    @news_feed = GlobalAlert.all(:order=>"id DESC", :limit => 15)
     @member = Member.find(params[:id])
     @fac = @member.facilitator
     @invites = current_member.alerts.where("alert_type=1").order("created_at DESC")

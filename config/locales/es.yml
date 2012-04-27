@@ -1,5 +1,7 @@
 # coding: utf-8
 es:
+  help_with_needs: "Ayuda a suplir necesidades"
+  news_feed: "Últimas Noticias"
   category: "Categoría"
   recurrence: "Periodicidad"
   other: "Otra"
@@ -16,8 +18,8 @@ es:
   personal: "personal"
   see_all: "ver todas"
   connections: "Conexiones"
-  isRaiser: "Este va a ser un evento para recolctar fondos?"
-  isClosed: "Este va a ser un evento cerrado? (Solo tú podrás hacer invitaciones a asistir)"  
+  isRaiser: "Evento para recolctar fondos"
+  isClosed: "Evento cerrado (Solo tú podrás hacer invitaciones a asistir)"  
   search: "Buscar"
   share: "Compártelo"
   use_facebook_pic: "Utilizar la misma foto de perfil que Facebook?"
@@ -228,6 +230,15 @@ es:
     messages:
       not_saved: "No se puede continuar"
 
+  path_names: 
+    new: nuevo
+    edit: editar
+  named_routes_path: 
+    allies: aliados
+    donate: apoyo
+    touch: ipad
+    services: servicios
+    
   resources:
     fundations: "proyectos"
     providers: "proveedores"
