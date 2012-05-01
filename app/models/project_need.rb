@@ -14,7 +14,8 @@ class ProjectNeed < ActiveRecord::Base
   def send_help_found member_id
     begin
       fundation.fundation_admins.each do |admin|
-        NeedsMailer.help_found(member_id, admin.id, fundation.id, self).deliver  
+        NeedsMailer.help_found(member_id, admin.id, fundation.id, self).deliver if admin.active and admin.member.emailNotifications
+        Alert.create(:news=>"Un Facilitador quiere ayudar con una necesidad", :link=>Member.find(member_id).facilitator.id, :member_id=> admin.member.id, :alert_type=>2, :member_from=>"member_id")
       end
       
       NeedsMailer.help_found_fundation(member_id, fundation.id, self, fundation.email).deliver if fundation.email
