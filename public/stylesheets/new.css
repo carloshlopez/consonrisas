@@ -1126,7 +1126,7 @@ div.arrow-down {
       margin-left: 60px; }
 
 .sub_menu {
-  margin-left: 390px;
+  margin-left: 210px;
   margin-top: 3px;
   position: absolute; }
   .sub_menu a {
@@ -1822,3 +1822,91 @@ img.img-events {
 
 .pop_up a:visited {
   text-decoration: none; }
+
+.need_field {
+  float: left;
+  height: 40px;
+  padding: 10px; }
+  .need_field input {
+    border: 1px solid #973b8c;
+    width: 170px; }
+
+.need_form_actions {
+  width: 60%;
+  margin: 0px auto; }
+
+.need_button {
+  margin: 0 auto;
+  clear: left;
+  cursor: pointer;
+  background-color: #973b8c;
+  width: 350px;
+  height: 35px;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: bold;
+  font-size: large;
+  color: white; }
+
+.need-title {
+  padding: 3px;
+  color: white;
+  background-color: #973b8c; }
+
+/*Need list*/
+.a_need {
+  padding: 5px;
+  height: 120px;
+  clear: both;
+  border-width: 0 0 1px;
+  border-style: dashed;
+  color: #973b8c; }
+  .a_need .need_name {
+    color: #973b8c; }
+  .a_need .need_item {
+    min-width: 110px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 0;
+    float: left;
+    color: black; }
+    .a_need .need_item p {
+      font-weight: bold; }
+  .a_need .need_middle {
+    min-width: 100px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 15px 0 15px;
+    height: 50px;
+    border-width: 0 1px 0 1px;
+    border-color: lightgray;
+    border-style: solid; }
+    .a_need .need_middle a {
+      color: #973b8c;
+      text-decoration: none; }
+    .a_need .need_middle a:hover {
+      color: #291026; }
+  .a_need .need_actions {
+    text-align: center; }
+    .a_need .need_actions .need_action {
+      margin-top: -15px;
+      float: right;
+      height: 60px;
+      padding-right: 15px;
+      padding-left: 15px; }
+      .a_need .need_actions .need_action .help_need img {
+        height: 40px; }
+      .a_need .need_actions .need_action .delete_need {
+        font-size: 35px;
+        color: #973b8c;
+        text-decoration: none; }
+      .a_need .need_actions .need_action p {
+        margin-top: -5px;
+        color: black; }
+
+/*All Needs by category*/
+.need-cat-title {
+  padding: 3px;
+  color: white;
+  background-color: #973b8c;
+  width: 30%; }

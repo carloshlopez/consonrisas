@@ -44,6 +44,10 @@
     <%= f.label I18n.t('website') %><br />
     <%= f.text_field :website %>
   </div>
+  <div class="field">
+    <%= f.label "Email" %><br />
+    <%= f.text_field :email %>
+  </div>  
   
   <div class="field">
     <%= f.label I18n.t('fundation.population') %><br />
@@ -51,7 +55,7 @@
   </div>
   
   <div class="field">
-    <%= f.label I18n.t("picture") %><br />  
+    <%= f.label I18n.t("picture") %>: 
     <%= f.file_field :pic %>
   </div>  
   

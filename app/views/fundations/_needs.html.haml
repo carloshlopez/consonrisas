@@ -1,0 +1,11 @@
+#the-needs
+  - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)        
+    %p.need-title
+      Crea una necesidad
+    = render :partial => "project_needs/form"
+  - if @fundation.project_needs.size > 0
+    %p.need-title
+      Necesidades Actuales
+      - unless member_signed_in? and can_current_member_edit_fundation(@fundation.id)
+        ¿Puedes ayudar con alguna?
+    = render :partial => "project_needs/need", :collection=> @fundation.project_needs

@@ -1,8 +1,0 @@
-.all_needs_from_category
-  %ul
-    - @need_category.project_needs.each do |need|
-      %li
-        = "#{need.name}, #{need.recurrence}, #{I18n.t('fundation_name')}:"
-        = link_to(need.fundation.name, fundation_path(need.fundation)) + "."
-        %a.help_now{:href=>"#", :style=>"cursor:pointer;background-color: #BBE1B2;border-radius:6px;border: 1px solid #EAFF00;"}
-          Ayuda ya

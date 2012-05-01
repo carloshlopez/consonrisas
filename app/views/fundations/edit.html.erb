@@ -2,6 +2,3 @@
 <% if can_current_member_edit_fundation(@fundation.id) %>
 <%= render 'form' %>
 <% end %>
-
-<%= link_to I18n.t('show_name'), @fundation %> |
-<%= link_to I18n.t('back'), fundations_path %>
