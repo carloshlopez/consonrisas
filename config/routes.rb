@@ -133,7 +133,10 @@ Consonrisas::Application.routes.draw do
     resources :fundations do
       put "change_pic"    
       resources :contact_informations
-      resources :project_needs    
+      resources :project_needs do
+        post 'help'
+      end
+         
     end
   end
 

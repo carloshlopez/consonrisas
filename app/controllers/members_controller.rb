@@ -4,6 +4,8 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.xml
   def show
+    @total_needs = ProjectNeed.all.count
+    @no_cat_needs = ProjectNeed.where("need_category_id IS NULL")
     @need_categories = NeedCategory.all
     @news_feed = GlobalAlert.all(:order=>"id DESC", :limit => 15)
     @member = Member.find(params[:id])

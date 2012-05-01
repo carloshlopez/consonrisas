@@ -5,7 +5,8 @@
 #invites-div{:style=>"display:none"}
   = render :partial => "invites"  
 .sub_menu
-  %a.needs{:href=>"#needs", :show=>"needs",:style=>"display:none"} #{I18n.t('help_with_needs')} 
+  %a.needs{:href=>"#needs", :show=>"needs"} #{I18n.t('help_with_needs')} 
+  |
   %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
   .num-invites
     = @invites.size

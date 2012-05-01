@@ -1,5 +1,14 @@
-.all_categories
+#the-needs.all_categories
+  %p.need-title
+    Necesidades con las que puedes ayudar (#{@total_needs})
+  - num_needs = 0
   - @need_categories.each do |cat|
-    = "#{need_category_name(cat)} (#{cat.project_needs.count})"
+    %p.need-cat-title
+      = "#{need_category_name(cat)} (#{cat.project_needs.count})"
     - @need_category = cat
-    = render "project_needs/needs_from_cat"
+    - num_needs = num_needs + cat.project_needs.count
+    = render "project_needs/needs_by_cat"
+  %p.need-cat-title
+    = "Otras (#{@total_needs - num_needs})"
+    = render "project_needs/needs_no_cat"
+

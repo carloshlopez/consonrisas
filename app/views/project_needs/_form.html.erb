@@ -1,20 +1,21 @@
 <%= form_for([@fundation, @fundation.project_needs.build]) do |f| %>
-  <div class="field">
+  <div class="field need_field">
     <%= f.label I18n.t('name') %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :maxlength=>"20" %>
   </div>
-  <div class="field">
+  <div class="field need_field">
     <%= f.label I18n.t('recurrence') %><br />
-    <%= f.text_field :recurrence %>
-    Ej: (Mensual, Anual, Una vez)
+    <%= f.text_field :recurrence, :maxlength=>"20" %>
   </div>  
-  
+  <div class="field need_field">
   <%= f.label I18n.t('category') %><br />
-  <%= select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, @fundation.id), :include_blank => I18n.t('other')) %>
-  <div class="field" id="other_need_category" style="display:none">
-    <%= f.text_field :category %>
+  <%= select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, @fundation.id), :id=>"need_cat_select", :include_blank => I18n.t('other')) %>
+  </div>
+  <div class="field" id="other_need_category" style="display:none; clear:both;">
+    <%= f.label I18n.t('category') %>:
+    <%= f.text_field :category, :maxlength=>"20" %>
   </div>  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="need_form_actions">
+    <%= f.submit :class=>"need_button" %>
   </div>
 <% end %>

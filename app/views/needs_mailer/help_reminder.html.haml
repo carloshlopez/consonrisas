@@ -1,0 +1,12 @@
+.one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+  En nombre del proyecto social #{@fundation.name} te damos las gracias por tu interés de ayudar con la necesidad
+  %b #{@need.name}
+  %br
+  - unless @fundation.pic.url(:thumb).include? "missing"
+    = link_to image_tag(@fundation.pic.url(:thumb), :style=>"border-color: rgb(90, 180, 70);"), fundation_url(@fundation), :title=>"Click para ver el Proyecto social", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+  - else
+    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png", :style=>"border-color: rgb(90, 180, 70);"), fundation_url(@fundation), :title=>"Click para ver el Proyecto Social", :style=>"text-decoration: none; color: rgb(90, 180, 70);"
+  %span{:style=>"position: absolute; margin-top: 8px; margin-left: 10px;"}
+    .one-item-name
+      #{@message}
+    #{link_to "Ve a tu perfil en Conectando Sonrisas", member_url(@member), :title=>"Ver Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}      

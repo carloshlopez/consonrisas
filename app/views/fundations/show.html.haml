@@ -23,6 +23,12 @@
               Población que atienden:
             = population_name(@fundation.population_id)
           %br
+          - if @fundation.email
+            %b
+              Email
+              \:
+            = @fundation.email
+            %br/          
           %b
             = I18n.t('address')
             \:
@@ -87,13 +93,7 @@
         %p
           = @fundation.description
     .mine.my-needs
-      %p
-        - if @fundation.project_needs.size > 0
-          %b Necesidades de la fundación. ¿Puedes ayudar con alguna?
-          = render :partial => "project_needs/need", :collection=> @fundation.project_needs    
-        - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)        
-          %b Crea una necesidad que tenga tu fundación, entre todos las intentaremos solucionar
-          = render :partial => "project_needs/form"                 
+      = render :partial => "needs"                   
     .mine.my-events{:style=>"display:none"}
       = render :partial => "events"  
     .mine.my-contact{:style=>"display:none"}
