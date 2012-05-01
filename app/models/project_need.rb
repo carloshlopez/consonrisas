@@ -17,7 +17,7 @@ class ProjectNeed < ActiveRecord::Base
         NeedsMailer.help_found(member_id, admin.id, fundation.id, self).deliver  
       end
       
-      NeedsMailer.help_found_fundation(member_id, fundation.id, self).deliver
+      NeedsMailer.help_found_fundation(member_id, fundation.id, self, fundation.email).deliver if fundation.email
       NeedsMailer.help_reminder(member_id, fundation.id, self).deliver
       
     rescue => e
