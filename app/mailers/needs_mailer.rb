@@ -23,7 +23,7 @@ class NeedsMailer < ActionMailer::Base
          :subject => I18n.t('Conectando Sonrisas encontró alguien interesado en ayudarte'))
   end  
   
-  def help_reminder(member_id,fundation_id, need)
+  def help_reminder(member_id, fundation_id, need)
     @member = Member.find(member_id)
     @need = need
     @fundation = Fundation.find(fundation_id)
