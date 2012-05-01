@@ -21,7 +21,7 @@ class ProjectNeed < ActiveRecord::Base
       NeedsMailer.help_reminder(member_id, fundation.id, self).deliver
       
     rescue => e
-      puts "Error sending mails on project_need send_help_found: #{e.message}"
+      puts "Error sending mails on project_need send_help_found: #{e.backtrace.join('\n')"
     end
   end
   handle_asynchronously :send_help_found
