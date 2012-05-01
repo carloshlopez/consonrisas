@@ -27,7 +27,7 @@ class NeedsMailer < ActionMailer::Base
     @member = Member.find(member_id)
     @need = need
     @fundation = Fundation.find(fundation_id)
-    @message = "Este mail es para recordarte tu interés en ayudar al proyecto social #{@fundation.name}con su necesidad: #{@need.name} la cual tiene una recurrencia de: #{need.recurrence}. Le hemos enviado un mail al proyecto social, pero recomendamos ponerse en contacto, el mail del proyecto es: #{fundation.email}.</br>Los correos de los administradores del proyecto social son:" 
+    @message = "Este mail es para recordarte tu interés en ayudar al proyecto social #{@fundation.name}con su necesidad: #{@need.name} la cual tiene una recurrencia de: #{@need.recurrence}. Le hemos enviado un mail al proyecto social, pero recomendamos ponerse en contacto, el mail del proyecto es: #{@fundation.email}.<br/>Los correos de los administradores del proyecto social son:" 
     @fundation.fundation_admins.each do |admin|
       @message << "<br/>#{admin.member.email}</br>"
     end
