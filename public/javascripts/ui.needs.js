@@ -29,8 +29,7 @@ $jq.widget("ui.needs", {
           if($jq(this).val() == ""){
             $jq("#other_need_category").show();
           }
-          else
-          {
+          else{
             $jq("#other_need_category").hide();
           }
         });
