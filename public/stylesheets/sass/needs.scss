@@ -35,7 +35,7 @@
 /*Need list*/
 .a_need{
  padding: 5px;
- height: 120px;
+ min-height: 120px;
  clear: both;
  border-width: 0 0 1px;
  border-style: dashed;
@@ -94,6 +94,38 @@
     }
   }
  }
+}
+
+.need_facilitators{
+  clear: left;
+  min-height: 100px;
+  .a_facilitator{
+    float: left;
+    img{
+      float: left;
+      margin-right: 5px;
+      border: solid;
+      border-color: $facilitators-color;
+    }
+    span{
+      float: left;
+      font-size: small;
+      padding-right: 5px;
+      padding-top: 10px;      
+      .fac-name{
+        font-size: medium;
+        font-weight: bold;
+      }
+      a{
+        color: $facilitators-color;
+        text-decoration: none;
+      }
+      a:hover{
+        color: $facilitators-color;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /*All Needs by category*/
