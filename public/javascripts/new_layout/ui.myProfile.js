@@ -122,7 +122,10 @@ $jq.widget("ui.myProfile", {
       }
       else if(show == 'providers'){
         newMargin = '370px';
-      } 
+      }
+      else{
+        show = 'news_feed';
+      }
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
@@ -271,6 +274,9 @@ function showMenu(show){
   else if(show == 'providers'){
     newMargin = '370px';
   } 
+  else{
+    show = 'news_feed';
+  }
   $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
   $jq(".mine").hide();
   $jq(".my-"+ show).show(); 
