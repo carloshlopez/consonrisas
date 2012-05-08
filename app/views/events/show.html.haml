@@ -63,7 +63,8 @@
             %b #{I18n.t('events.isRaiser')}
       .description
         - if @event.desc
-          %p #{@event.desc}          
+          %p
+            = simple_format(@event.desc)
       .mine.my-needs
         = render :partial => "event_needs"        
       .mine.my-pics
