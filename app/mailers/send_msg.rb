@@ -36,4 +36,11 @@ class SendMsg < ActionMailer::Base
          :subject => 'Bienvenido :)')        
   end
   
+  def global_alert_msg(member, global_alert)
+    @member = member
+    @alert = global_alert
+    mail(:to => member.email,
+         :subject => 'Nueva noticia de Conectando Sonrisas')        
+  end  
+  
 end

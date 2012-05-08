@@ -1,0 +1,13 @@
+- obj = @alert.model.constantize.find(@alert.model_id)
+.one-item{:style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+  - if obj.pic(:thumb).include? "missing"
+    = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png",:style=>"border: 2px solid rgb(90, 180, 70);"), send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+  - else
+    = link_to image_tag(obj.pic(:thumb),:style=>"border: 2px solid rgb(90, 180, 70);"), send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+  %span{:style=>"position: absolute; margin-top: 8px; margin-left: 10px;"}
+    .one-item-name.invite-news
+      = @alert.news
+      = link_to @alert.name_link, send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+    Mira esta noticia 
+    #{link_to "en tu perfil", member_url(@member), :title=>"Ver tu Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
+    

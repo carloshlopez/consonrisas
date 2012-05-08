@@ -1,6 +1,6 @@
 - if current_member.try(:admin?)
   .manage_workers
-    %a{:href=>"workers"}
+    %a{:href=>"/admin/workers"}
       Manage Heroku Workers
   ="ID: #{@job.id}"  
   %br
