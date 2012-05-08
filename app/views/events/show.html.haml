@@ -61,7 +61,7 @@
         - if @event.isRaiser
           %p
             %b #{I18n.t('events.isRaiser')}.
-      .description
+      .mine.my-description
         - if @event.desc
           %p
             = simple_format(@event.desc)
