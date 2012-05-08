@@ -15,7 +15,7 @@
       %span{:id =>"need-state-#{need.id}"} #{need.state}
     - if member_signed_in?
       .need_actions
-        -if can_current_member_edit_fundation(need.fundation.id)
+        -if can_current_member_edit_fundation(need.fundation_id)
           .need_action
             %a.delete_need{:need_id => need.id, :href => "#delete_need",:fundation_id=>"#{need.fundation.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} X
             %p #{I18n.t('destroy')}
@@ -26,4 +26,17 @@
             = image_tag "IconNeed_Help.png"
           %p Ayudar
           .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
-            = image_tag "mini-loader.gif"                       
+            = image_tag "mini-loader.gif"   
+      - unless need.facilitators.empty?
+        .need_facilitators.all-facilitators
+          %p
+            Facilitadores interesados en ayudarte:
+            - i = 0
+            - need.facilitators.each do |fac|
+              .a_facilitator
+                = link_to image_tag(fac.pic.url(:thumb)), facilitator_path(fac)
+                %span
+                  .fac-name
+                    = link_to facilitator_name(fac), facilitator_path(fac)
+                  = link_to I18n.t('go_to_profile'), facilitator_path(fac)               
+                           

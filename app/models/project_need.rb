@@ -1,16 +1,22 @@
 class ProjectNeed < ActiveRecord::Base
   belongs_to :fundation  
   belongs_to :need_category
+  has_and_belongs_to_many :facilitators, :join_table => :project_need_facilitators, :uniq => true
   after_create :generate_alerts
   after_initialize :init
   
   def help member_id
-    self.state = "Suplida"
-    self.save!
-    send_help_found member_id
+    fac = Member.find(member_id).facilitator
+    unless self.facilitators.map(&:id).include?(fac.id)
+      self.state = "Suplida"   
+      self.facilitators << fac
+      self.save!
+      send_help_found member_id
+    end
   end
   
   private
+  
   def send_help_found member_id
     begin
       fundation.fundation_admins.each do |admin|
