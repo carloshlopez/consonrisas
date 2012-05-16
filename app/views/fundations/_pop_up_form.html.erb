@@ -1,10 +1,11 @@
 <%= javascript_include_tag "new_layout/ui.fundationFormPopUp" %>
 <%= form_for(@fundation, :html => {:multipart=> true}) do |f| %>
+  <% unless @fundation.name? %> 
   <div class="field">
     <%= f.label I18n.t('name') %><br />
     <%= f.text_field :name %>
   </div>
-
+  <% end %>
   <div class="field">
     <%= f.label I18n.t('address') %><br />
     <%= f.text_field :address %>
@@ -18,25 +19,29 @@
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label I18n.t('email') %><br />
+    <%= f.label 'Email' %><br />
     <%= f.text_field :email %>
   </div>  
   <div class="field">
     <%= f.label I18n.t('website') %><br />
     <%= f.text_field :website %>
   </div>  
+  <% unless @fundation.city? %> 
   <div class="field">
     <%= f.label I18n.t('city') %><br />
     <%= f.text_field :city, :class=>"cities" %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.label I18n.t('country') %><br />
     <%= f.text_field :country %>
   </div>
+  <% unless @fundation.description? %> 
   <div class="field">
     <%= f.label I18n.t('description') %><br />
     <%= f.text_area :description , :class=>"textarea_dialog"%>
   </div>
+  <% end %>
   <div class="field">
     <%= f.label I18n.t('fundation.population') %><br />
     <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
@@ -47,6 +52,6 @@
   
   
   <div class="actions">
-    <%= f.submit I18n.t('fundation.create') %>
+    <%= f.submit %>
   </div>
 <% end %>

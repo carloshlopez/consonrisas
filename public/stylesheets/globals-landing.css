@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'contitulos';
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot");
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.woff") format("woff"), url("/fonts/chapenettoer_8_thin_update_0-webfont.ttf") format("truetype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.svg#Chapenettoer8THIN") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'consonrisas';
+  src: url("/fonts/consr-regular-webfont.eot");
+  src: url("/fonts/consr-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/consr-regular-webfont.woff") format("woff"), url("/fonts/consr-regular-webfont.ttf") format("truetype"), url("/fonts/consr-regular-webfont.svg#MyriadProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "consonrisas";
+  -webkit-text-size-adjust: 100%;
+  /* Stops Mobile Safari from auto-adjusting font-sizes */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#DFE0E0');
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#dfe0e0));
+  background: -moz-linear-gradient(top, white, #dfe0e0);
+  background-repeat: no-repeat;
+  background-attachment: fixed; }

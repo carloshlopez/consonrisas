@@ -1,0 +1,56 @@
+.landing-background
+  .landing-logo
+    = image_tag "/logos/LogoConUrl.png"
+  .landing-header.fundation
+    =image_tag "/images/FundacionesTransparenteMedio.png"
+    .text
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id arcu non lectus dictum pellentesque eget quis diam. Suspendisse in semper sem. Nullam tortor arcu, sodales ut cursus a, lacinia sed felis. Nullam justo dui, consectetur porta auctor vel, luctus id ligula. Suspendisse iaculis dapibus dictum. Etiam fringilla lorem in felis dictum ultricies. Suspendisse eleifend orcimagna. Morbi hen
+
+  .steps
+    .step.step1
+      %p.number-title
+        1
+      %p.step-title
+        Datos de Registro
+      = render "registrations/new_landing"
+    .step.step2
+      %p.number-title
+        2  
+      %p.step-title
+        Datos Proyecto Social
+      .step2-form
+        = render "fundations/form_landing"
+    .step.step3
+      %p.number-title
+        3  
+      #step3-form          
+        %p.step-title
+          Crea una necesidad      
+        = form_for :project_need do |f|
+          .field.need_field
+            = f.label I18n.t('name')
+            %br/
+            = f.text_field :name, :maxlength=>"20", :class=>"input-landing"
+          .field.need_field
+            = f.label I18n.t('recurrence')
+            %br/
+            = f.text_field :recurrence, :maxlength=>"20", :class=>"input-landing"
+          .field.need_field
+            = f.label I18n.t('category')
+            %br/
+            = select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, @fundation.id), :id=>"need_cat_select", :include_blank => I18n.t('other'))
+          #other_need_category.field{:style => "display:none; clear:both;"}
+            = f.label I18n.t('category')
+            \:
+            \#{f.text_field :category, :maxlength=>"20", :class=>"input-landing"}
+          .need_form_actions
+            = f.submit :value=>"Crea una necesidad", :class=>"need_button add_need", :fundation_id=>"#{@fundation.id}"
+      .done-container{:style=>"display:none"}  
+        %a{:href=>"/soyproyecto", :class=>"done-button"} LISTO
+= image_tag "/images/loaders/fundations-loader-big.gif", :class=>"big-loader", :style=>"display:none"
+
+ 
+  
+
+
+

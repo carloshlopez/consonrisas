@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
     super
+    puts "*******!!!! Llegamos a registrarnos!!"
     session[:omniauth] = nil unless @member.new_record?
 
     if params[:isFacilitator] and params[:isFacilitator] == "true"
@@ -11,10 +12,11 @@ class RegistrationsController < Devise::RegistrationsController
       fund = Fundation.new(params[:fundation])
       if fund.save
         FundationAdmin.create(:member_id =>@member.id, :fundation_id => fund.id, :active=>true)
+        puts "************** Se creo la Fundation #{params[:fundation]}"
       end
-      puts "************** Creando la Fundation #{params[:fundation]}"
       session[:isFundation] = true
       session[:fundation] = fund.id
+      puts "*************** Datos metidos en la session por registrations #{session[:isFundation]} o #{session[:fundation]}"
     end    
   
     if params[:isProvider] and params[:isProvider] == "true"

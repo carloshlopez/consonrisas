@@ -4,7 +4,7 @@ $jq.widget("ui.needs", {
     	var self= this;
     	var $el= this.element;
     	
-       $el.find('.delete_need').click(function(e) {
+       $el.find('.delete_need').live('click', function(e) {
             var answer = confirm("¿Seguro que desea eliminar está necesidad?")
             if (answer){
               var need_id = $jq(this).attr("need_id");
@@ -16,14 +16,21 @@ $jq.widget("ui.needs", {
             }
         });     
         
-       $el.find('.help_need').click(function(e) {
+       $el.find('.help_need').live('click', function(e) {
             var need_id = $jq(this).attr("need_id");
             var fundation_id = $jq(this).attr("fundation_id");
             var member_id = $jq(this).attr("member_id");    
             $jq("#need-help-img-"+need_id).css('display', 'inline');
-            //$jq(this).hide();        
+            $jq(this).hide();        
             self._helpNeed(need_id,fundation_id, member_id);
-        });               
+        });  
+        
+       $el.find('.add_need').click(function(e) {
+            e.preventDefault();
+            $jq('body').css('cursor', 'wait');
+            var fundation_id = $jq(this).attr("fundation_id");
+            self._addNeed(fundation_id);
+        });                       
         
         $el.find("#need_cat_select").change(function(){
           if($jq(this).val() == ""){
@@ -64,7 +71,17 @@ $jq.widget("ui.needs", {
                 alert(data);
               }
         }, "text" );
-    }    
+    }
+    ,_addNeed: function(fundation_id){
+      $jq.post("/proyectos/"+fundation_id+"/project_needs.json",$jq("#new_project_need").serialize(), function(data){
+          $jq.get("/proyectos/"+fundation_id+"/project_needs/"+data.project_need.id, function(resp){
+              $jq("#the-needs").append(resp);
+              $jq('html, body').animate({ scrollTop: $jq('#need-'+data.project_need.id).offset().top }, '1500');
+              $jq("#need-"+data.project_need.id).effect("highlight", {color:'#973B8C'}, 3000);
+              $jq('body').css('cursor', 'auto');
+          });
+      });
+    }
 });
 
 $jq(document).ready(function($jq) {

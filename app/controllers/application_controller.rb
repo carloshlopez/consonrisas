@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   
   #After registration or login go to the right place
   def after_sign_in_path_for(resource)
+    puts "*************** Datos en la session app controller #{session[:isFundation]} o #{session[:fundation]}"
     member_path resource.id
   end
   

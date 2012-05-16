@@ -74,6 +74,8 @@ Consonrisas::Application.routes.draw do
   post "members/respond_provider_admin"
   post "members/respond_event_admin"    
   post "members/delete_alert"      
+  get "members/:id/get_fundations" => "members#get_fundations" 
+  post "members/check_email" => "members#check_email"   
 
   root :to => "home#new_index"
   #root :to => "home#index"
@@ -108,6 +110,7 @@ Consonrisas::Application.routes.draw do
 
   get "/landing" => "home#landing"
   match "project_needs/all_needs", :as => "all_needs"
+  get "/soyproyecto" => "home#landing_fundations"
 
   localized(['es', 'en'], :verbose => true) do
     get "/touch" =>"home#touch", :as => :touch
@@ -132,8 +135,10 @@ Consonrisas::Application.routes.draw do
     end
     resources :fundations do
       put "change_pic"    
+      get "needs"
       resources :contact_informations
       resources :project_needs do
+        get 'need'
         post 'help'
       end
          

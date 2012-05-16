@@ -1,0 +1,114 @@
+.landing-logo{
+  text-align: center;
+  img{
+    width: 250px;
+  }
+}
+
+.landing-header{
+  height: 160px;
+  color: white;
+  img{
+    float: left;
+    width: 150px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .text{
+    padding: 20px;
+    font-size: 20px;
+  }
+}
+
+.steps{
+  margin-left: 20px;
+  padding: 5px;
+  margin-top: 30px;
+}
+.step{
+  float: left;
+  min-height: 300px;
+  min-width: 200px;
+  padding: 5px;
+}
+.step1{
+}
+.step2{
+  padding-left: 10px;
+  border-left: 1px dashed $fundations-color;  
+  border-right: 1px dashed $fundations-color;
+}
+.step3{
+  margin-left: 10px;
+  min-width: 560px;
+}
+
+.step-title{
+  padding: 3px;
+  color: white;
+  background-color: $fundations-color;
+  width: $step-input-width;
+}
+
+.input-landing{
+  padding: 3px;
+  width: $step-input-width;
+  border: 1px solid $fundations-color;
+  max-height: 120px;
+}
+
+.number-title{
+  margin: 0 auto;
+  border-radius: 45px;
+  font-size: 75px;
+  background: $fundations-color;
+  color: white;
+  width: 90px;
+  height: 90px;  
+  text-align: center;
+  font-weight: bold;
+}
+
+.next-steps-links{
+  text-align: right;
+}
+
+.next-step-landing{
+  color: $fundations-color;
+  text-decoration: none;
+}
+.next-step-landing:hover{
+  color: $fundations-color;
+  text-decoration: underline;
+}
+
+.fundation{
+  background-color: $fundations-color;
+}
+
+.facilitator{
+  background-color: $facilitators-color;
+}
+
+.big-loader{
+   position: absolute;
+   left: 50%;
+   margin-left: -74px; /* Half the width */
+}
+.done-container{
+  padding-top: 10px;
+}
+
+.done-button {
+  background-color: #973B8C;
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  height: 35px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2;
+  margin: 0 auto;
+}

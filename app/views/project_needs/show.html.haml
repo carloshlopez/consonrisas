@@ -1,0 +1,42 @@
+- if @need.name
+  .a_need{:id=>"need-#{@need.id}"}
+    %p.need_name Necesidad: #{@need.name}
+    .need_item
+      %p Categoria:
+      - if @need.need_category_id
+        #{need_category_name(@need.need_category)}
+      - else
+        #{@need.category}  
+    .need_item.need_middle
+      %p Recurrencia:
+      #{@need.recurrence}  
+    .need_item
+      %p Estado:
+      %span{:id =>"need-state-#{@need.id}"} #{@need.state}
+    - if member_signed_in?
+      .need_actions
+        -if can_current_member_edit_fundation(@need.fundation_id)
+          .need_action
+            %a.delete_need{:need_id => @need.id, :href => "#delete_need",:fundation_id=>"#{@need.fundation.id}", :id=>"delete-need-#{@need.id}", :title=>"Eliminar"} X
+            %p #{I18n.t('destroy')}
+            .loading{:style=>"display:none", :id=>"need-img-#{@need.id}"}
+              = image_tag "mini-loader.gif"   
+        .need_action
+          %a.help_need{:need_id => @need.id, :href => "#help_need",:fundation_id=>"#{@need.fundation.id}", :id=>"help-need-#{@need.id}", :title=>"Tu puedes ayudar ya", :member_id=>"#{current_member.id}"}
+            = image_tag "IconNeed_Help.png"
+          %p Ayudar
+          .loading{:style=>"display:none", :id=>"need-help-img-#{@need.id}"}
+            = image_tag "mini-loader.gif"   
+      - unless @need.facilitators.empty?
+        .need_facilitators.all-facilitators
+          %p
+            Facilitadores interesados en ayudarte:
+            - i = 0
+            - @need.facilitators.each do |fac|
+              .a_facilitator
+                = link_to image_tag(fac.pic.url(:thumb)), facilitator_path(fac)
+                %span
+                  .fac-name
+                    = link_to facilitator_name(fac), facilitator_path(fac)
+                  = link_to I18n.t('go_to_profile'), facilitator_path(fac)               
+                           

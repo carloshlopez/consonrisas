@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'contitulos';
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot");
+  src: url("/fonts/chapenettoer_8_thin_update_0-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.woff") format("woff"), url("/fonts/chapenettoer_8_thin_update_0-webfont.ttf") format("truetype"), url("/fonts/chapenettoer_8_thin_update_0-webfont.svg#Chapenettoer8THIN") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'consonrisas';
+  src: url("/fonts/consr-regular-webfont.eot");
+  src: url("/fonts/consr-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/consr-regular-webfont.woff") format("woff"), url("/fonts/consr-regular-webfont.ttf") format("truetype"), url("/fonts/consr-regular-webfont.svg#MyriadProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "consonrisas";
+  -webkit-text-size-adjust: 100%;
+  /* Stops Mobile Safari from auto-adjusting font-sizes */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#DFE0E0');
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#dfe0e0));
+  background: -moz-linear-gradient(top, white, #dfe0e0);
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.landing-logo {
+  text-align: center; }
+  .landing-logo img {
+    width: 250px; }
+
+.landing-header {
+  height: 160px;
+  color: white; }
+  .landing-header img {
+    float: left;
+    width: 150px;
+    padding-right: 10px;
+    padding-left: 10px; }
+  .landing-header .text {
+    padding: 20px;
+    font-size: 20px; }
+
+.steps {
+  margin-left: 20px;
+  padding: 5px;
+  margin-top: 30px; }
+
+.step {
+  float: left;
+  min-height: 300px;
+  min-width: 200px;
+  padding: 5px; }
+
+.step2 {
+  padding-left: 10px;
+  border-left: 1px dashed #973b8c;
+  border-right: 1px dashed #973b8c; }
+
+.step3 {
+  margin-left: 10px;
+  min-width: 560px; }
+
+.step-title {
+  padding: 3px;
+  color: white;
+  background-color: #973b8c;
+  width: 220px; }
+
+.input-landing {
+  padding: 3px;
+  width: 220px;
+  border: 1px solid #973b8c;
+  max-height: 120px; }
+
+.number-title {
+  margin: 0 auto;
+  border-radius: 45px;
+  font-size: 75px;
+  background: #973b8c;
+  color: white;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  font-weight: bold; }
+
+.next-steps-links {
+  text-align: right; }
+
+.next-step-landing {
+  color: #973b8c;
+  text-decoration: none; }
+
+.next-step-landing:hover {
+  color: #973b8c;
+  text-decoration: underline; }
+
+.fundation {
+  background-color: #973b8c; }
+
+.facilitator {
+  background-color: red; }
+
+.big-loader {
+  position: absolute;
+  left: 50%;
+  margin-left: -74px;
+  /* Half the width */ }
+
+.done-container {
+  padding-top: 10px; }
+
+.done-button {
+  background-color: #973B8C;
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  height: 35px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2;
+  margin: 0 auto; }
+
+.need_field {
+  float: left;
+  height: 40px;
+  padding: 10px; }
+  .need_field input {
+    border: 1px solid #973b8c;
+    width: 170px; }
+
+.need_form_actions {
+  width: 60%;
+  margin: 0px auto; }
+
+.need_button {
+  margin: 0 auto;
+  clear: left;
+  cursor: pointer;
+  background-color: #973b8c;
+  width: 350px;
+  height: 35px;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: bold;
+  font-size: large;
+  color: white; }
+
+.need-title {
+  padding: 3px;
+  color: white;
+  background-color: #973b8c; }
+
+/*Need list*/
+.a_need {
+  padding: 5px;
+  min-height: 120px;
+  clear: both;
+  border-width: 0 0 1px;
+  border-style: dashed;
+  color: #973b8c; }
+  .a_need .need_name {
+    color: #973b8c; }
+  .a_need .need_item {
+    min-width: 110px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 0;
+    float: left;
+    color: black; }
+    .a_need .need_item p {
+      font-weight: bold; }
+  .a_need .need_middle {
+    min-width: 100px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 15px 0 15px;
+    height: 50px;
+    border-width: 0 1px 0 1px;
+    border-color: lightgray;
+    border-style: solid; }
+    .a_need .need_middle a {
+      color: #973b8c;
+      text-decoration: none; }
+    .a_need .need_middle a:hover {
+      color: #291026; }
+  .a_need .need_actions {
+    text-align: center; }
+    .a_need .need_actions .need_action {
+      margin-top: -15px;
+      float: right;
+      height: 60px;
+      padding-right: 15px;
+      padding-left: 15px; }
+      .a_need .need_actions .need_action .help_need img {
+        height: 40px; }
+      .a_need .need_actions .need_action .delete_need {
+        font-size: 35px;
+        color: #973b8c;
+        text-decoration: none; }
+      .a_need .need_actions .need_action p {
+        margin-top: -5px;
+        color: black; }
+
+.need_facilitators {
+  clear: left;
+  min-height: 100px; }
+  .need_facilitators .a_facilitator {
+    float: left; }
+    .need_facilitators .a_facilitator img {
+      float: left;
+      margin-right: 5px;
+      border: solid;
+      border-color: red; }
+    .need_facilitators .a_facilitator span {
+      float: left;
+      font-size: small;
+      padding-right: 5px;
+      padding-top: 10px; }
+      .need_facilitators .a_facilitator span .fac-name {
+        font-size: medium;
+        font-weight: bold; }
+      .need_facilitators .a_facilitator span a {
+        color: red;
+        text-decoration: none; }
+      .need_facilitators .a_facilitator span a:hover {
+        color: red;
+        text-decoration: underline; }
+
+/*All Needs by category*/
+.need-cat-title {
+  padding: 3px;
+  color: white;
+  background-color: #973b8c;
+  width: 30%; }
