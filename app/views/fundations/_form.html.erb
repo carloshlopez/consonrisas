@@ -58,11 +58,11 @@
     <%= f.label I18n.t("picture") %>: 
     <%= f.file_field :pic %>
   </div>  
-  
+  <% if member_signed_in? %>
   <div class="hiddens">
       <input type="hidden" name="member_id" value="<%= current_member.id %>"/>
   </div>
-  
+  <% end %>
   
   <div class="actions">
     <%= f.submit %>

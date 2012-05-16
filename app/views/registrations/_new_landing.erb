@@ -1,0 +1,16 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+  <%= f.label :email %>:<br />
+  <%= f.text_field :email , :class=>"input-landing"%>
+  <br/>
+    <%= f.label I18n.t('account.password') %>:<br />
+    <%= f.password_field :password, :class=>"input-landing" %>
+  <br />
+    <%= f.label I18n.t('account.password_confirmation') %>:<br />
+    <%= f.password_field :password_confirmation, :class=>"input-landing" %>
+  <br/>
+  <div class="next-steps-links">
+    <a href="#step2" class="next-step-landing" step_number="1"> Siguiente paso >> </a>
+  </div>
+
+<% end %>

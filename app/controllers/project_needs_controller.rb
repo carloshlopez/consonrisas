@@ -4,8 +4,11 @@ class ProjectNeedsController < ApplicationController
   
   def create
     @fundation = Fundation.find(params[:fundation_id])
-    @fundation.project_needs.create(params[:project_need])
-    redirect_to fundation_path(@fundation)
+    @need = @fundation.project_needs.create(params[:project_need])
+    respond_to do |format|
+      format.html {redirect_to(fundation_path(@fundation))}
+      format.json {render :json=>@need}
+    end
   end
   
   def destroy
@@ -41,6 +44,11 @@ class ProjectNeedsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @need_categories }
     end
+  end  
+  
+  def show
+    @need = ProjectNeed.find(params[:id])
+    render :layout=>false
   end
     
 end

@@ -16,6 +16,6 @@
     <%= f.text_field :category, :maxlength=>"20" %>
   </div>  
   <div class="need_form_actions">
-    <%= f.submit :class=>"need_button" %>
+    <%= f.submit :class=>"need_button add_need", :fundation_id=>"#{@fundation.id}" %>
   </div>
 <% end %>

@@ -137,5 +137,13 @@ class FundationsController < ApplicationController
     end
   end  
   
+  def needs
+    @fundation = Fundation.find(params[:fundation_id])
+    respond_to do |format|
+      format.html {render :layout=> false}
+      format.json {render :json=>@fundation}
+    end
+  end
+  
   
 end

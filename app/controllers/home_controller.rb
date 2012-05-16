@@ -79,4 +79,13 @@ class HomeController < ApplicationController
   def landing
   end
   
+  def landing_fundations
+    if member_signed_in?
+      redirect_to member_path current_member
+    else
+      @fundation = Fundation.new
+      render :layout => "landing"
+    end
+  end
+  
 end 

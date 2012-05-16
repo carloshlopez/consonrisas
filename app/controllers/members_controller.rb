@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_filter :authenticate_member!
+  before_filter :authenticate_member!, :except => :check_email
 
   # GET /members/1
   # GET /members/1.xml
@@ -27,8 +27,7 @@ class MembersController < ApplicationController
       @facilitator_step = 1;
       @num_steps = @num_steps + 1
     end
-    
-    if session[:isFundation]
+    if session[:isFundation] and session[:fundation]
       @fundation = Fundation.find(session[:fundation])
 #      session[:fundation] = nil
 #      session[:isFundation] = nil
@@ -50,7 +49,16 @@ class MembersController < ApplicationController
     if member_signed_in? and current_member.id == @member.id
       @contact_informations = @member.contact_informations
     else
-      redirect_to facilitator_path(@member.facilitator)
+      respond_to do |format|
+        format.json do 
+          if @fundation
+            render :json=>{:member=>@member, :fundation=>@fundation}          
+          else
+            render :json=>{:member=>@member}          
+          end
+        end
+        format.html {redirect_to facilitator_path(@member.facilitator)}
+      end      
     end
   end
 
@@ -183,5 +191,21 @@ class MembersController < ApplicationController
       render :json => { :result => 'error'}, :content_type => 'text/html'
     end
   end 
+  
+  
+  def get_fundations
+    @member = Member.find(params[:id])
+    @fundation_admins = @member.fundation_admins
+    respond_to do |format|
+      format.json {render :json=>@fundation_admins}
+    end
+  end
+  
+  def check_email
+    @member = Member.find_by_email(params[:email])
+    respond_to do |format|
+      format.json {render :json=>@member}
+    end
+  end
   
 end

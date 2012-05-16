@@ -20,13 +20,14 @@
             %a.delete_need{:need_id => need.id, :href => "#delete_need",:fundation_id=>"#{need.fundation.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} X
             %p #{I18n.t('destroy')}
             .loading{:style=>"display:none", :id=>"need-img-#{need.id}"}
+              = image_tag "mini-loader.gif"
+        - else   
+          .need_action
+            %a.help_need{:need_id => need.id, :href => "#help_need",:fundation_id=>"#{need.fundation.id}", :id=>"help-need-#{need.id}", :title=>"Tu puedes ayudar ya", :member_id=>"#{current_member.id}"}
+              = image_tag "IconNeed_Help.png"
+            %p Ayudar
+            .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
               = image_tag "mini-loader.gif"   
-        .need_action
-          %a.help_need{:need_id => need.id, :href => "#help_need",:fundation_id=>"#{need.fundation.id}", :id=>"help-need-#{need.id}", :title=>"Tu puedes ayudar ya", :member_id=>"#{current_member.id}"}
-            = image_tag "IconNeed_Help.png"
-          %p Ayudar
-          .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
-            = image_tag "mini-loader.gif"   
       - unless need.facilitators.empty?
         .need_facilitators.all-facilitators
           %p
