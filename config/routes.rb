@@ -85,7 +85,9 @@ Consonrisas::Application.routes.draw do
   get "home/new_index"
   get "home/event_comments"
   get "/social" => "home#social"
+  get "/mobile" => "home#mobile"
   post "home/feedback"
+  
   post "/cleanInitialSession" => "members#cleanInitialSession"
   
   get 'photos/poll'
