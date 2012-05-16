@@ -89,6 +89,7 @@ class HomeController < ApplicationController
   end
   
   def mobile
+    render :layout => false
   end
   
 end 

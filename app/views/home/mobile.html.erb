@@ -1,4 +1,56 @@
-<%= javascript_include_tag "http://api.mobile.conduit-services.com/MobileAppApi/MobileAppAPI_latest.js" %>
-<h1>
-Este es el sitio movil de Conectando sonrisas
-</h1>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+        <script type="text/javascript" charset="utf-8" src="http://api.mobile.conduit-services.com/MobileAppApi/MobileAppAPI_latest.js">
+        </script>
+    </head>
+    <body>
+        <h1> Dialog box example</h1>
+        <script type="text/javascript">
+            
+            var cbSuccess = function(){
+              
+            };
+            
+            // UI  failure 
+            function cbFail(){
+                alert("failed");
+                
+            }
+            
+                        
+            
+            // Init Conduit API
+            conduitApi.init(function(){
+                if (conduitApi.UI.isSupported()) {
+                
+                    var options = {
+                        title: 'Title',
+                        message: 'This is the message of the dialog box.\nYou can put what you want here.',
+                        buttons: [{
+                            text: 'OK',
+                            cb: function(){
+                                alert('OK pressed');
+                            }
+                        }, {
+                            text: 'Cancel',
+                            cb: function(){
+                                alert('Cancel pressed');
+                            }
+                        }]
+                    };
+                    conduitApi.UI.showDialogBox(cbSuccess, cbFail, options);
+                    
+                }
+                else {
+                    alert("UI not supported");
+                }
+            });
+                        
+            
+        </script>
+    </body>
+</html>
+                    
