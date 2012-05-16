@@ -89,6 +89,7 @@ class HomeController < ApplicationController
   end
   
   def mobile
+    @events = Event.all
     render :layout => false
   end
   
