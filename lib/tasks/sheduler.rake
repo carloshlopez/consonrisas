@@ -14,7 +14,7 @@ task :send_daily_alerts => :environment do
 end
 
 task :send_weekly_alerts => :environment do
-  if Time.now.thursday?
+  if Time.now.friday?
     num = WeeklyAlert.count
     if num > 0
       puts "Number of Feeds to send at the end of the week : #{num}"
