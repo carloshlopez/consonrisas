@@ -79,6 +79,27 @@
     <% else %>
       <%= check_box_tag 'emailNotifications', 1, false%>
     <% end %>
+    <br/>
+    <%= f.label I18n.t("emailInstantly") %> &nbsp;
+    <% if @facilitator.member.emailInstantly %>
+      <%= check_box_tag 'emailInstantly', 1, true%>
+    <% else %>
+      <%= check_box_tag 'emailInstantly', 1, false%>
+    <% end %>
+    <br/>    
+    <%= f.label I18n.t("emailDaily") %> &nbsp;
+    <% if @facilitator.member.emailDaily %>
+      <%= check_box_tag 'emailDaily', 1, true%>
+    <% else %>
+      <%= check_box_tag 'emailDaily', 1, false%>
+    <% end %>
+    <br/>    
+    <%= f.label I18n.t("emailWeekly") %> &nbsp;
+    <% if @facilitator.member.emailWeekly %>
+      <%= check_box_tag 'emailWeekly', 1, true%>
+    <% else %>
+      <%= check_box_tag 'emailWeekly', 1, false%>
+    <% end %>            
   </div>  
   <div class="field">
     <%= f.label I18n.t("use_facebook_pic") %> &nbsp;

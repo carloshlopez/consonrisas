@@ -27,7 +27,7 @@
             %br
             = @facilitator.contribution.slice(0..100) + " ..." if @facilitator.contribution
           - if is_current_member_this_member @member.id
-            %a.edit-me{:href=>"#"}#{I18n.t('edit')} #{I18n.t('profile_text')} 
+            %a.editt-me{:href=>"/facilitators/#{@facilitator.id}/edit"} #{I18n.t('edit')} #{I18n.t('profile_text')} 
             %br
             = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
     .my-connections

@@ -65,6 +65,16 @@ class FacilitatorsController < ApplicationController
         
         @facilitator.member.update_attributes(:emailNotifications=>false) unless params[:emailNotifications] == "1"        
         
+        @facilitator.member.update_attributes(:emailInstantly=>true) if params[:emailInstantly] == "1"
+        
+        @facilitator.member.update_attributes(:emailInstantly=>false) unless params[:emailInstantly] == "1"                
+        
+        @facilitator.member.update_attributes(:emailDaily=>true) if params[:emailDaily] == "1"
+        @facilitator.member.update_attributes(:emailDaily=>false) unless params[:emailDaily] == "1"                
+
+        @facilitator.member.update_attributes(:emailWeekly=>true) if params[:emailWeekly] == "1"
+        @facilitator.member.update_attributes(:emailWeekly=>false) unless params[:emailWeekly] == "1"                        
+               
         
 #        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
         format.html { redirect_to member_path(@facilitator.member) }

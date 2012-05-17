@@ -37,6 +37,15 @@ class AdminController < ApplicationController
         Role.all
         Show.all
         Authentication.all
+        GlobalAlert.all
+        DailyAlert.all
+        WeeklyAlert.all
+        Authentication.all
+        Need.all
+        NeedCategory.all
+        News.all
+        ProjectNeed.all
+        
       end
       
       ActiveRecord::Base.send(:descendants).each do |c|

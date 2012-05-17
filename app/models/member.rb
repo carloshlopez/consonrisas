@@ -5,7 +5,9 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :use_facebook_pic, :emailNotifications, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+    :facebook_id, :use_facebook_pic, :emailNotifications, :name, :emailDaily, 
+    :emailWeekly, :emailInstantly
   
   has_many :contact_informations, :dependent => :destroy 
   has_one :facilitator, :dependent => :destroy 
@@ -20,6 +22,10 @@ class Member < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy 
 
   after_create :create_facilitator
+  
+  scope :instantly_mails, where(:emailNotifications => true, :emailInstantly => true)
+  scope :daily_mails, where(:emailNotifications => true, :emailDaily => true)
+  scope :weekly_mails, where(:emailNotifications => true, :emailWeekly => true)    
 
   def create_facilitator
     @facilitator = Facilitator.create(:member_id => id)
