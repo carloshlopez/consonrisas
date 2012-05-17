@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508203706) do
+ActiveRecord::Schema.define(:version => 20120517002545) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(:version => 20120508203706) do
     t.integer  "member_id"
     t.integer  "fundation_id"
     t.integer  "provider_id"
+  end
+
+  create_table "daily_alerts", :force => true do |t|
+    t.integer  "global_alert_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -212,6 +218,9 @@ ActiveRecord::Schema.define(:version => 20120508203706) do
     t.boolean  "admin",                               :default => false
     t.boolean  "emailNotifications",                  :default => true
     t.string   "name"
+    t.boolean  "emailDaily",                          :default => true
+    t.boolean  "emailWeekly",                         :default => false
+    t.boolean  "emailInstantly",                      :default => false
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -337,6 +346,12 @@ ActiveRecord::Schema.define(:version => 20120508203706) do
   create_table "videos", :force => true do |t|
     t.string   "url"
     t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weekly_alerts", :force => true do |t|
+    t.integer  "global_alert_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

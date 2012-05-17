@@ -14,4 +14,17 @@ module MembersHelper
       facilitator.pic.url(:profile)
     end
   end  
+  
+  def member_name (member)
+    if member.facilitator.name
+      member.facilitator.name
+    elsif !member.fundation_admins.empty?
+      member.fundation_admins[0].fundation.name
+    elsif !member.provider_admins.empty?
+      member.provider_admins[0].provider.name      
+    else
+      member.email
+    end
+  end
+  
 end
