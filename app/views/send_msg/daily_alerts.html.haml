@@ -1,0 +1,24 @@
+%table{:width=>"100%"}
+  %tr
+    %td{:colspan=>"2"}
+      Hola #{@member_name} hoy en el resumen diario de Conectando Sonrisas hay #{@alerts.count} noticias:
+  - @alerts.each do |alert| 
+    - @alert = alert.global_alert
+    - obj = @alert.model.constantize.find(@alert.model_id)
+    %tr
+      %td{:style=>"width:55px;border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+        - if obj.pic(:thumb).include? "missing"
+          = link_to image_tag("http://www.conectandosonrisas.org/pics/thumb/missing.png",:style=>"border: 2px solid rgb(90, 180, 70);"), send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+        - else
+          = link_to image_tag(obj.pic(:thumb),:style=>"border: 2px solid rgb(90, 180, 70);"), send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+      %td{:style=>"border-width: 0 0 1px; border-style: dotted; color: rgb(90, 180, 70);"}
+        = @alert.news
+        %br
+        = link_to @alert.name_link, send("#{@alert.model.downcase}_url", obj), :title=>"Click para ver más"
+  %tr
+    %td{:colspan=>"2"}
+      Mira esta y más noticias 
+      #{link_to "en tu perfil", member_url(@member), :title=>"Ver tu Perfil", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
+      %br
+      Si quieres cambiar la forma como recibes estos correos haz
+      #{link_to "click aquí", edit_member_registration_url, :title=>"Cambiar notificaciones", :style=>"color: rgb(90, 180, 70); font-weight: bold;"}
