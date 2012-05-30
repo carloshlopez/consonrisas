@@ -82,6 +82,8 @@ class AdminController < ApplicationController
       value = params[:value]
       
       model = Object.const_get(table_name.camelize)
+      puts "column_name: #{column_name}"
+      puts "value: #{value}"
       model.find(id).update_attributes({column_name=>value})
     end
   end
