@@ -1,0 +1,15 @@
+= javascript_include_tag "new_layout/ui.editSettings"
+.edit-settings-background
+.editSettings
+  #tabs
+    %ul
+      %li
+        %a{:href => "#my-account"} Editar mi cuenta    
+      %li
+        %a{:href => "#my-profile"} Editar mi perfil
+    #my-account
+      %p 
+        = render :partial =>"registrations/edit", :locals => { :resource => current_member }        
+    #my-profile
+      %p
+        = render :partial =>"facilitators/form_edit_settings", :locals => { :facilitator => current_member.facilitator }

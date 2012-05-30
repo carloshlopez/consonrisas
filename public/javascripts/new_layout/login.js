@@ -18,4 +18,19 @@ $jq(document).ready(function($) {
       $jq("#register-form").dialog({modal:true, title:"Registrate", width: 345, closeText:"X", show:"clip"});
     });
     
+    $jq(".edit-my-account-container").mouseenter(function(){
+        $jq("#edit-my-account-options").stop(true, true);
+        $jq("#edit-my-account-options").slideDown();
+    });
+    
+    $jq(".edit-my-account-container").mouseleave(function(){
+        $jq("#edit-my-account-options").stop(true, true);    
+        $jq("#edit-my-account-options").slideUp();
+    });   
+    
+    $jq(".edit-me-menu").click(function(){
+        var dir = $(this).attr("href");
+        window.location = location.protocol+"//"+location.host + "/members/edit_settings#" + dir;
+    });   
+    
 });

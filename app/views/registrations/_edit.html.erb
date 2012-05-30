@@ -1,0 +1,46 @@
+<%= javascript_include_tag "new_layout/ui.account" %>
+<div id="account" class="editSettings">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <div class="my-account-info">
+  <p class="account-title" >Tu información de cuenta</p>
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label I18n.t('account.password') %> <i><%= I18n.t('account.password_new_explain') %></i><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label I18n.t('account.password_confirmation') %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.label I18n.t('account.password_current') %> <i><%= I18n.t('account.password_current_explain') %></i><br />
+  <%= f.password_field :current_password %></p>
+  <p class="account-submit"><%= f.submit I18n.t('account.update') %></p>  
+  </div>
+  <div class="notifications">
+    <p class="account-title" >Recibir Notificaciones</p>
+    <%= fields_for resource, @member do |ff| %>
+      <%= ff.check_box :emailNotifications %> <%= ff.label I18n.t("emailNotifications")%> <br/>
+      <div class="mail-settings">
+      <%= ff.check_box :emailInstantly %> <%= ff.label I18n.t("emailInstantly") %><br/>
+      <%= ff.check_box :emailDaily %> <%= ff.label I18n.t("emailDaily") %><br/>
+      <%= ff.check_box :emailWeekly %> <%= ff.label I18n.t("emailWeekly") %> <br/>
+      </div>
+    <% end %>
+    <div>
+      <% @authentications = current_member.authentications %>
+      <%= render :partial => "authentications/all" %>
+    </div>
+
+  </div>  
+<% end %>
+
+
+
+<a href="#" id="cancel_account" ><%=I18n.t('account.cancel')%></a>
+<div style="display:none" id="remove_account"><%= link_to "Click aquí para #{I18n.t('account.cancel')}", registration_path(resource_name), :id=>"click_cancel_account"%>
+<br/>
+<a href="#" id="no_cancel_account" >Mentira, mejor no la quiera cerrar</a>
+</div>
+
+
+</div>

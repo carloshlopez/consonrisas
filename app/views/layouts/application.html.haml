@@ -37,7 +37,13 @@
       .account
         - if member_signed_in?
           = current_member.facilitator.name.blank? ? current_member.email : current_member.facilitator.name
-          = link_to I18n.t('account.edit'), edit_member_registration_path  
+          %span.edit-my-account-container
+            %span.edit-place
+              = link_to I18n.t('edit'), "#", :style=>"color:white", :class=>"edit-my-account"
+              #edit-my-account-options{:style=>"display:none"}
+                %input.edit-me-menu{:type=>"button", :href=>"my-profile", :value=>"Mi Perfil"}
+                %br              
+                %input.edit-me-menu{:type=>"button", :href=>"my-account", :value=>"Mi Cuenta"}
           |        
           - if session[:fb_token].nil?
             = link_to I18n.t('account.logout'), destroy_member_session_path

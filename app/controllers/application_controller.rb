@@ -24,17 +24,24 @@ class ApplicationController < ActionController::Base
   
   def set_locale
   # if params[:locale] is nil then I18n.default_locale will be used
-    I18n.locale = params[:locale]
+    if params[:locale]
+      I18n.locale = params[:locale] 
+    else
+      I18n.locale = 'es'
+    end
   end
   
   #After registration or login go to the right place
   def after_sign_in_path_for(resource)
-    puts "*************** Datos en la session app controller #{session[:isFundation]} o #{session[:fundation]}"
     member_path resource.id
   end
   
   def self.default_url_options(options={})
     options.merge({ :locale => I18n.locale })
   end  
-    
+  
+  def after_update_path_for(resource)
+    edit_settings_path
+  end
+  
 end

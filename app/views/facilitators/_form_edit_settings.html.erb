@@ -1,21 +1,8 @@
 <%= javascript_include_tag "ui.facilitatorForm" %>
 <%= javascript_include_tag "ui.cities" %>
-<%= form_for(@facilitator, :html => {:multipart=> true}) do |f| %>
-  <% if @facilitator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@facilitator.errors.count, "error") %> prohibited this facilitator from being saved:</h2>
-
-      <ul>
-      <% @facilitator.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% unless @facilitator.name%>
-    <%= I18n.t('facilitator.welcome_message').html_safe  %>
-  <% end %>
-  <div class="field">
+<%= form_for(facilitator, :html => {:multipart=> true}) do |f| %>
+<div class="profile-settings-left">
+  <div class="field" style="display:none;">
     <%= f.label I18n.t("isCompany") %>
     <%= f.check_box :isCompany%>
   </div>
@@ -45,47 +32,45 @@
     <%= f.text_area :contribution, :class=>"textarea_dialog" %>
     <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
   </div>
-  
+</div>
+<div class="profile-settings-right">
   <div class="field">
     <%= f.label I18n.t("city") %><br />
-    <%= f.text_field :city, :class=>"cities input_dialog" %>
+    <%= f.text_field :city, :class=>"cities" %>
   </div>
   
-    <div class="field">
     <%= f.label I18n.t("profile.population_of_interest") %>
     <br/>
-    <% 
-      size = Population.count - 1
-      Population.find(:all).each_with_index do |population, i|
-    %>
-      <%= check_box_tag 'population_ids[]', population.id, @facilitator.populations.include?(population) %>
-      <% if I18n.locale.to_s == "en" %>
-        <%= population.name_en %>
-        <% if i <= size - 1 %> 
-        ,
-        <% end %>
-      <% else %>
-        <%= population.name_es %>
-        <% if i <= size - 1 %> 
-        ,
-        <% end %>
+    <% Population.find(:all).each_with_index do |population, i| %>
+      <% if i % 2 == 0 && i > 1 %>
+        <br/>
       <% end %>
+      <%= check_box_tag 'population_ids[]', population.id, facilitator.populations.include?(population)%>
+      <div class="population-label">
+      <% if I18n.locale.to_s == "en" %>
+        <%= population.name_en%>
+      <% else %>
+        <%= population.name_es%>
+      <% end %>
+      </div>
     <% end %>
-  </div> 
+    <br/>
+     <br/>
   <div class="field">
     <%= f.label I18n.t("use_facebook_pic") %> &nbsp;
-    <% if @facilitator.member.use_facebook_pic %>
+    <% if facilitator.member.use_facebook_pic %>
       <%= check_box_tag 'use_facebook_pic', 1, true, :class => 'use_facebook_pic' %>
     <% else %>
       <%= check_box_tag 'use_facebook_pic', 1, false, :class => 'use_facebook_pic' %>
     <% end %>
   </div>  
+  
   <div class="field custom_pic">
     <%= f.label I18n.t("picture") %><br />
     <%= f.file_field :pic %>
   </div>
-  
-  <div class="actions">
+</div>  
+  <div class="profile-settings-button">
     <%= f.submit %>
   </div>
 <% end %>
