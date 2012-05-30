@@ -37,6 +37,8 @@ $jq.widget("ui.account", {
         }
     	});    	
     	
+    	$el.find("#member_emailNotifications").change(mailSettings);
+    	
  }, _showDelete: function(){
       $jq("#cancel_account").hide();
       $jq('#remove_account').show();      
@@ -45,4 +47,16 @@ $jq.widget("ui.account", {
 
 $jq(document).ready(function($) {
     $jq("#account").account();
+    mailSettings();
 });
+
+function mailSettings(){
+  if($jq("#member_emailNotifications").is(":checked")){
+    $jq(".mail-settings :input").attr('disabled', false);
+    $jq(".mail-settings").fadeTo(500, 1);
+   }
+   else{
+    $jq(".mail-settings :input").attr('disabled', true);
+    $jq(".mail-settings").fadeTo(500, 0.4);
+   }
+}

@@ -208,4 +208,8 @@ class MembersController < ApplicationController
     end
   end
   
+  def edit_settings
+    @member = current_member
+  end
+  
 end

@@ -4,7 +4,7 @@
   if @authentications 
 %>
   <% unless @authentications.empty? %>
-    <p><strong><%= I18n.t('account.login_services') %></strong></p>
+    <p class="account-title"><%= I18n.t('account.login_services') %></p>
     <div class="authentications">
       <% 
         i = 0
@@ -24,13 +24,13 @@
   <% end %>
   <br/>
   <% unless !show_facebook && !show_twitter %>
-  <p><strong><%= I18n.t('account.add_login_service') %></strong></p>
+  <p class="account-title"><%= I18n.t('account.add_login_service') %></p>
   <% end %>
   <p>
-  <div class="pop_up"><a href="#"><span><div class="pop_up_triangle"></div> Para poder ingresar sin usuario ni clave, solamente haciendo click.<br/> Pero lo más importante es para poder ayudarnos a regar la voz con tu conocimiento en redes sociales. </span>¿Para qué?</a></div>
+  <div class="pop_up"><a href="#" class="account-title"><span><div class="pop_up_triangle"></div> Para poder ingresar sin usuario ni clave, solamente haciendo click.<br/> Pero lo más importante es para poder ayudarnos a regar la voz con tu conocimiento en redes sociales. </span>¿Para qué?</a></div>
   </p>
 <% else %>
-  <p><strong><%= I18n.t('account.login_services') %></strong></p>
+  <p class="account-title"><%= I18n.t('account.login_services') %></p>
 <% end %>
 <div class="supported_services">
 <% if show_twitter %>

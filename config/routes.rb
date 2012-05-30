@@ -73,6 +73,7 @@ Consonrisas::Application.routes.draw do
   post "members/respond_fundation_admin"
   post "members/respond_provider_admin"
   post "members/respond_event_admin"    
+  match "members/edit_settings"  => "members#edit_settings", :as => :edit_settings
   post "members/delete_alert"      
   get "members/:id/get_fundations" => "members#get_fundations" 
   post "members/check_email" => "members#check_email"   

@@ -77,7 +77,7 @@ class FacilitatorsController < ApplicationController
                
         
 #        format.html { redirect_to(@facilitator, :notice => 'Facilitator was successfully updated.') }
-        format.html { redirect_to member_path(@facilitator.member) }
+        format.html { redirect_to member_path(@facilitator.member), :notice => 'Tus cambios han sido guardados' }
         format.xml  { head :ok }
         format.json { render :json=>{:resp =>"ok"} }
       else

@@ -1,0 +1,145 @@
+.edit-settings-background{
+  position: absolute;
+  background-color: $site-color;
+  width: 100%;
+  height: 100%;  
+  z-index: -4;
+  left: 0;
+  margin-top: 25px;
+  
+}
+#tabs {
+	padding: 0px;
+	background: none;
+	border-width: 0px;
+	width: $footer-width + 40;
+}
+#tabs .ui-tabs-nav {
+	padding-left: 0px;
+	background: transparent;
+	border-width: 0px 0px 1px 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+#tabs .ui-tabs-panel {
+	background-color: white;
+	border: 0px;
+}
+
+#tabs .ui-state-default {
+  border: 0px;
+}
+
+#tabs .ui-state-active {
+  border: 0px;
+}
+
+#tabs .ui-state-default a {
+	color: white;
+	background-color: $site-color;
+}
+#tabs .ui-state-active a {
+	color: $site-color;
+	background-color: white;
+}
+
+
+.editSettings{
+  font-size: small;
+  input[type="text"]{
+    border: 1px solid $site-color;
+    width: 250px;
+  }
+  
+  input[type="password"]{
+    border: 1px solid $site-color;
+    width: 250px;
+  }  
+  
+  input[type="submit"]{
+    border-radius: 15px;
+    color: white;
+    background-color: $site-color;
+    padding: 5px;
+    width: 250px;
+    cursor: pointer;
+  }  
+  textarea{
+    width: 250px;
+    border: 1px solid $site-color;
+  } 
+    
+  .my-account-info{
+    float: left;
+    margin-right: 70px;
+    min-height: 300px;
+  }
+  
+  .notifications{
+    padding-top: 5px;
+  }
+   
+  .account-title{
+    color: $site-color;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+    color: darken($site-color, 30%);
+  }  
+}
+
+.edit-place{
+  display: inline-block;
+  width: 80px;
+  background-color: $site-color;
+}
+.edit-my-account{
+  margin: 25px;
+}
+.edit-my-account:hover{
+  font-weight: normal;
+}
+
+#edit-my-account-options{
+  position: absolute;
+  z-index: 10;
+  background-color: $site-color;
+  width: 80px;
+  color: white;
+  padding-bottom: 5px;
+  .edit-me-menu{
+    background-color: lightgray;
+    color: $site-color;
+    width: 65px;
+    padding: 2px;
+    margin-left: 6px;
+    margin-top: 5px;    
+    border-radius: 5px;
+    font-weight: normal;    
+    border: none;
+    font-size: small;
+    cursor: pointer;
+  }
+}
+
+.profile-settings-left{
+  float: left;
+  margin-right: 40px;
+}
+.profile-settings-right{
+}
+.profile-settings-button{
+  clear: left;
+  margin: 0 auto;
+}
+.population-label{
+  display: inline-block;
+  min-width: 105px;
+}
+
+.ui-autocomplete-loading { background: white url("/images/autocomplete_loading.gif") right center no-repeat; }

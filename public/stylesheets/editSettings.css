@@ -1,21 +1,18 @@
 /*
 Syntax error: Undefined variable: "$site-color".
-        on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss
+        on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/editSettings.scss
 
-37: margin-bottom: 15px;
-38:  
-39: }
-40: 
-41: #left_div_top{
-42:   background: $site-color;
-43:   color: $main-background;
-44:   height: 25px;
-45:   width: $left-div-width;
-46:   margin-top: -10px;
-47:   input.home-color{
+1: .edit-settings-background{
+2:   position: absolute;
+3:   background-color: $site-color;
+4:   width: 100%;
+5:   height: 100%;  
+6:   z-index: -4;
+7:   left: 0;
+8:   margin-top: 25px;
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss:42
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/editSettings.scss:3
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -96,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss\A \A 37: margin-bottom: 15px;\A 38:  \A 39: }\A 40: \A 41: #left_div_top{\A 42:   background: $site-color;\A 43:   color: $main-background;\A 44:   height: 25px;\A 45:   width: $left-div-width;\A 46:   margin-top: -10px;\A 47:   input.home-color{"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/editSettings.scss\A \A 1: .edit-settings-background{\A 2:   position: absolute;\A 3:   background-color: $site-color;\A 4:   width: 100%;\A 5:   height: 100%;  \A 6:   z-index: -4;\A 7:   left: 0;\A 8:   margin-top: 25px;"; }
