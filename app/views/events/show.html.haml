@@ -30,6 +30,10 @@
             = @event.city           
             .share_this
               = render :partial => "share_event"            
+            - unless @event.event_admins.owners.empty?
+              %p
+                Evento creado por 
+                = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)
             - if member_signed_in?
               - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
                 %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
