@@ -1,7 +1,8 @@
 #left-div-profile-fundation{
   color: $main-background;
   width: $left-div-width;
-  clear: left;
+  float: left;
+  margin-top: -20px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -44,7 +45,6 @@
 #profile-content-fundation{
   width: $main-width + 100px;
 	margin-left: 320px;
-	margin-top: -730px;
 	min-height: 780px;
   .my-profile-title{
     @include fundations-gradient();

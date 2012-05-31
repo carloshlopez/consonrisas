@@ -631,7 +631,7 @@ div.arrow-down {
 #left-div-lists {
   color: white;
   width: 300px;
-  clear: left; }
+  float: left; }
   #left-div-lists a {
     text-decoration: none; }
   #left-div-lists a:hover {
@@ -693,9 +693,7 @@ div.arrow-down {
 
 #list-content {
   width: 600px;
-  margin-left: 320px;
-  margin-top: -715px;
-  min-height: 700px; }
+  margin-left: 320px; }
 
 /*lists as divs*/
 .list-facilitators {
@@ -971,7 +969,8 @@ div.arrow-down {
   margin-right: 60px; }
 
 .create-buttons {
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+  padding-top: 10px; }
 
 .create-buttons a span {
   display: none;
@@ -996,7 +995,8 @@ div.arrow-down {
 #left-div-profile {
   color: white;
   width: 300px;
-  clear: left; }
+  float: left;
+  margin-top: -20px; }
   #left-div-profile a {
     color: #eaff00;
     text-decoration: none; }
@@ -1053,7 +1053,6 @@ div.arrow-down {
 #profile-content {
   width: 600px;
   margin-left: 320px;
-  margin-top: -790px;
   min-height: 780px; }
   #profile-content .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
@@ -1174,7 +1173,8 @@ div.arrow-down {
 #left-div-profile-facilitator {
   color: white;
   width: 300px;
-  clear: left; }
+  float: left;
+  margin-top: -20px; }
   #left-div-profile-facilitator a {
     color: #eaff00;
     text-decoration: none; }
@@ -1211,7 +1211,6 @@ div.arrow-down {
 #profile-content-facilitator {
   width: 600px;
   margin-left: 320px;
-  margin-top: -790px;
   min-height: 780px; }
   #profile-content-facilitator .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
@@ -1297,7 +1296,8 @@ div.arrow-down {
 #left-div-profile-fundation {
   color: white;
   width: 300px;
-  clear: left; }
+  float: left;
+  margin-top: -20px; }
   #left-div-profile-fundation a {
     color: #eaff00;
     text-decoration: none; }
@@ -1332,7 +1332,6 @@ div.arrow-down {
 #profile-content-fundation {
   width: 600px;
   margin-left: 320px;
-  margin-top: -730px;
   min-height: 780px; }
   #profile-content-fundation .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BA43AA', endColorstr='#8C3681');
@@ -1420,7 +1419,8 @@ div.arrow-down {
 #left-div-profile-provider {
   color: white;
   width: 300px;
-  clear: left; }
+  float: left;
+  margin-top: -20px; }
   #left-div-profile-provider a {
     color: #eaff00;
     text-decoration: none; }
@@ -1455,7 +1455,6 @@ div.arrow-down {
 #profile-content-provider {
   width: 600px;
   margin-left: 320px;
-  margin-top: -730px;
   min-height: 780px; }
   #profile-content-provider .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD200', endColorstr='#C9AD30');
@@ -2005,7 +2004,7 @@ img.img-events {
     color: white;
     background-color: #5ab446;
     padding: 5px;
-    width: 250px;
+    width: 265px;
     cursor: pointer; }
   .editSettings textarea {
     width: 250px;
@@ -2042,18 +2041,17 @@ img.img-events {
   width: 80px;
   color: white;
   padding-bottom: 5px; }
-  #edit-my-account-options .edit-me-menu {
+  #edit-my-account-options a.edit-me-menu {
     background-color: lightgray;
     color: #5ab446;
-    width: 65px;
     padding: 2px;
-    margin-left: 6px;
-    margin-top: 5px;
     border-radius: 5px;
     font-weight: normal;
-    border: none;
+    text-decoration: none;
     font-size: small;
-    cursor: pointer; }
+    margin-left: 5px; }
+  #edit-my-account-options a.edit-me-menu:hover {
+    text-decoration: underline; }
 
 .profile-settings-left {
   float: left;

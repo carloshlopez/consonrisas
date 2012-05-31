@@ -28,9 +28,4 @@ $jq(document).ready(function($) {
         $jq("#edit-my-account-options").slideUp();
     });   
     
-    $jq(".edit-me-menu").click(function(){
-        var dir = $(this).attr("href");
-        window.location = location.protocol+"//"+location.host + "/members/edit_settings#" + dir;
-    });   
-    
 });

@@ -9,7 +9,7 @@
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
-        = @member.facilitator.name.nil? ? "DEBES INGRESAR TU NOMBRE!" : @member.facilitator.name
+        = member_name(@member)
       .type
         #{I18n.t('facilitator_name')}
       .profile-picture-div

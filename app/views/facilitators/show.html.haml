@@ -4,7 +4,7 @@
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
-        = @facilitator.name.nil? ? @facilitator.member.email : @facilitator.name
+        = member_name(@facilitator.member)
       .type
         facilitador
         - if @facilitator.isCompany

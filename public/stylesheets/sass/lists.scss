@@ -1,7 +1,7 @@
 #left-div-lists{
   color: $main-background;
   width: $left-div-width;
-  clear: left;
+  float: left;
   a{
    text-decoration: none;
   }
@@ -75,8 +75,6 @@
 #list-content{
   width: $main-width + 100px;
 	margin-left: 320px;
-	margin-top: -715px;
-	min-height: 700px;
 }
 
 /*lists as divs*/
