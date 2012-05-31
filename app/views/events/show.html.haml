@@ -32,7 +32,10 @@
           - unless @event.event_admins.owners.empty?
             %br
             Evento creado por 
-            = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)
+            - if @event.event_admins.owners.empty?
+              = link_to member_name(@event.event_admins[0].member), facilitator_path(@event.event_admins.member.facilitator)
+            - else
+              = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)            
           - if member_signed_in?
             - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
               %br
