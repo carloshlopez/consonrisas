@@ -1,4 +1,4 @@
-.a_need{:id=>"need-#{need.id}", :style=>"height:100%;"}
+.a_event_need{:id=>"need-#{need.id}"}
   %b #{need.name}
   - if need.completed
     %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed", :checked=>"checked" }

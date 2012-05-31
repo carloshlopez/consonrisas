@@ -65,7 +65,7 @@ $jq(document).ready(function(){
           $jq(".step3 :input").attr('disabled', false);          
           $jq(".step3 a").attr('style', 'display:block');  
           $jq('#member_new :input').not(':submit, :hidden').clone().hide().appendTo('#new_fundation');
-          //doRegistration();
+          doRegistration();
         break;
         
         case 3:

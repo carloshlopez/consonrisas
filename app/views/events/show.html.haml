@@ -5,44 +5,54 @@
   %input#event-id{:type=>"hidden", :value=>"#{@event.id}"}
   #event-profile
     #left-div-profile-event
-      .profile-info
-        = image_tag 'EventoTransparenteChiqui.png', :class=>"transparent"
-        %h2
-          = @event.name
-        .type
-          evento
-        = image_tag @event.pic.url(:profile), :class=>"img-profile"  
-        .about-me
-          .about-me-text
-            %b
-              = I18n.t("date_name")
-            \:
-            = I18n.l(@event.date, :format=>:long)
+      = image_tag 'EventoTransparenteChiqui.png', :class=>"transparent"
+      %h2
+        = @event.name
+      .type
+        evento
+      = image_tag @event.pic.url(:profile), :class=>"img-profile"  
+      .about-me
+        .about-me-text
+          %b
+            = I18n.t("date_name")
+          \:
+          = I18n.l(@event.date, :format=>:long)
+          %br
+          %b
+            = I18n.t("place")
+          \:
+          = @event.place
+          %br
+          %b
+            = I18n.t("city")
+          \:
+          = @event.city           
+          .share_this
+            = render :partial => "share_event"            
+          - unless @event.event_admins.owners.empty?
             %br
-            %b
-              = I18n.t("place")
-            \:
-            = @event.place
-            %br
-            %b
-              = I18n.t("city")
-            \:
-            = @event.city           
-            .share_this
-              = render :partial => "share_event"            
-            - unless @event.event_admins.owners.empty?
-              %p
-                Evento creado por 
-                = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)
-            - if member_signed_in?
-              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
-                %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
-              - if can_edit
-                %br
-                %a.edit-me{:href=>"#"}
-                  = I18n.t('edit')
-                #event-edit{:style=>"display:none"}
-                  = render :partial=>"form"
+            Evento creado por 
+            = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)
+          - if member_signed_in?
+            - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
+              %br
+              %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
+            - if can_edit
+              %br
+              %a.edit-me{:href=>"#"}
+                = I18n.t('edit')
+              #event-edit{:style=>"display:none"}
+                = render :partial=>"form"      
+          .going-all
+            - if @event.isClosed
+              %b #{I18n.t('events.isClosed')}
+            ASISTENTES  
+            %p
+              = render :partial => "event_facilitators"
+            %p
+              = render :partial => "event_fundations"
+            %p
+              = render :partial => "event_providers"
     #profile-content-event
       .my-profile-title
         %h1 
@@ -56,51 +66,70 @@
         %a.comments{:href=>"#menu", :show=>"comments"} comentarios
         |
         %a.pics{:href=>"#menu", :show=>"pics"} fotos y videos
-        |
-        %a.assistants{:href=>"#", :show=>"assistants"} asistentes
       .my-profile-arrows
         .arrow-up-profile.arrow-all    
       .share_fb
         = render :partial => "share_fb"
-        - if @event.isRaiser
-          %p
-            %b #{I18n.t('events.isRaiser')}.
       .mine.my-description
-        - if @event.desc
-          %p
-            = simple_format(@event.desc)
+        .event-sub-title
+          Descripción del evento
+        - if @event.isRaiser
+          .event-extra-desc
+            #{I18n.t('events.isRaiser')}.            
+        - if @event.desc            
+          #event-description
+            = simple_format(auto_link(@event.desc))
+          .show-more-container
+            %a{:href=>"#", :class=>"show-more", :target_div=>"event-description", :initial_height=>"200px", :label=>"show_desc"}
+              %span{:id=>"show_desc_more"}
+                = I18n.t('show_more')
+              %span{:id=>"show_desc_less", :style=>"display:none"}
+                = I18n.t('show_less')
       .mine.my-needs
-        = render :partial => "event_needs"        
+        .event-sub-title
+          Necesidades del evento      
+        = render :partial => "event_needs"
+        .show-more-container
+          %a{:href=>"#", :class=>"show-more", :target_div=>"event-needs-container", :initial_height=>"70px", :label=>"show_needs"}
+            %span{:id=>"show_needs_more"}
+              = I18n.t('show_more')
+            %span{:id=>"show_needs_less", :style=>"display:none"}
+              = I18n.t('show_less')                  
       .mine.my-pics
-        #the_photo_gallery     
+        .event-sub-title
+          Fotos
+        #the_photo_gallery
           = render :partial=>"photo_gallery"
+        .show-more-container
+          %a{:href=>"#", :class=>"show-more", :target_div=>"the_photo_gallery", :initial_height=>"45px", :label=>"show_pics"}
+            %span{:id=>"show_pics_more"}
+              = I18n.t('show_more')
+            %span{:id=>"show_pics_less", :style=>"display:none"}
+              = I18n.t('show_less')          
         - if can_edit
           = render :partial=>"photo_upload_js" 
           %a.admin_photos{:href => "#"} Elimina Fotos
           %a.admin_videos{:href => "#"} Sube Videos
           = render :partial=>"photo_upload"                    
           = render :partial=>"video_upload"
-      .mine.my-assistants
-        - if @event.isClosed
-          %b #{I18n.t('events.isClosed')}
-        %p
-          = render :partial => "event_facilitators"
-        %p
-          = render :partial => "event_fundations"
-        %p
-          = render :partial => "event_providers"
       .mine.my-comments
-        %h2
+        .event-sub-title
           = I18n.t("events.comments")
-          \:
-        .all-items
+        #all-event-comments.all-items
           %h3
-            = I18n.t("events.add_comment")
-            \:
+            = "#{I18n.t("events.add_comment")}:"
           - if member_signed_in?
             = image_tag member_thumb(current_member.facilitator), :class=>"new_comment_img"
-          = render :partial => "comments/form"                
+            = render :partial => "comments/form"                
+          - else
+            Registrate o Ingresa para comentar
           = render :partial => "comments/comment", :collection=> @event.comments.order("id DESC")
+        .show-more-container
+          %a{:href=>"#", :class=>"show-more", :target_div=>"all-event-comments", :initial_height=>"250px", :label=>"show_comments"}
+            %span{:id=>"show_comments_more"}
+              = I18n.t('show_more')
+            %span{:id=>"show_comments_less", :style=>"display:none"}
+              = I18n.t('show_less')                       
       .add-admins{:style=>"display:none"}
         - if can_edit
           .bordered_box{:event_id => @event.id}
