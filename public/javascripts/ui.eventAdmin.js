@@ -104,6 +104,32 @@ $jq.widget("ui.eventAdmin", {
             var need_id = $jq(this).attr("need_id");
             self._completeNeed(need_id, complete);  
           });
+          
+          $el.find(".show-more").live('click', function(e){
+            e.preventDefault();
+
+            var targetDiv = $jq(this).attr("target_div");
+            var height = $jq("#"+targetDiv).attr('scrollHeight');            
+            $jq("#"+targetDiv).animate({"height":height},"slow");
+            
+            $jq(this).removeClass('show-more');
+            $jq(this).addClass('show-less');
+            var label = $jq(this).attr("label");
+            $jq("#"+label+"_less").show();
+            $jq("#"+label+"_more").hide();            
+          });
+          
+          $el.find(".show-less").live('click', function(e){
+            e.preventDefault();
+            var targetDiv = $jq(this).attr("target_div");
+            var initialHeight = $jq(this).attr("initial_height");            
+            $jq("#"+targetDiv).animate({'height':initialHeight}, "slow");
+            $jq(this).removeClass('show-less');
+            $jq(this).addClass('show-more');            
+            var label = $jq(this).attr("label");
+            $jq("#"+label+"_less").hide();
+            $jq("#"+label+"_more").show();                        
+          });          
         
     }, _show: function(show){
       var newMargin = '15px';

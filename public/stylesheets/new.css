@@ -1564,46 +1564,41 @@ span.edit_profilepicture_icon {
     font-weight: bold; }
 
 #left-div-profile-event {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C3FF', endColorstr='#008CFF');
+  background: -webkit-gradient(linear, left top, left bottom, from(#00c3ff), to(#008cff));
+  background: -moz-linear-gradient(top, #00c3ff, #008cff);
   color: white;
   width: 300px;
-  clear: left; }
+  float: left;
+  margin-bottom: 10px; }
   #left-div-profile-event a {
     color: #eaff00;
     text-decoration: none; }
   #left-div-profile-event a:hover {
     color: #bbcc00;
     font-weight: bold; }
-  #left-div-profile-event .profile-info {
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C3FF', endColorstr='#008CFF');
-    background: -webkit-gradient(linear, left top, left bottom, from(#00c3ff), to(#008cff));
-    background: -moz-linear-gradient(top, #00c3ff, #008cff);
-    height: 500px; }
-    #left-div-profile-event .profile-info img.transparent {
-      position: absolute;
-      margin-top: 5px;
-      margin-left: -30px; }
-    #left-div-profile-event .profile-info img.img-profile {
-      margin-top: 15px;
-      margin-left: 30px;
-      max-height: 150px; }
-    #left-div-profile-event .profile-info h2 {
-      padding-top: 25px;
-      padding-left: 35px; }
-    #left-div-profile-event .profile-info .type {
-      padding-left: 40px;
-      margin-top: -20px; }
-    #left-div-profile-event .profile-info .about-me {
-      height: 300px; }
-      #left-div-profile-event .profile-info .about-me .about-me-text {
-        padding: 0 25px 25px;
-        font-size: 14px;
-        min-height: 150px; }
+  #left-div-profile-event img.transparent {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: -30px; }
+  #left-div-profile-event img.img-profile {
+    margin-top: 15px;
+    margin-left: 25px;
+    max-width: 250px; }
+  #left-div-profile-event h2 {
+    padding-top: 25px;
+    padding-left: 35px; }
+  #left-div-profile-event .type {
+    padding-left: 40px;
+    margin-top: -20px; }
+  #left-div-profile-event .about-me .about-me-text {
+    padding: 0 25px 25px;
+    font-size: 14px;
+    min-height: 150px; }
 
 #profile-content-event {
   width: 600px;
-  margin-left: 320px;
-  margin-top: -520px;
-  min-height: 780px; }
+  margin-left: 320px; }
   #profile-content-event .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C3FF', endColorstr='#008CFF');
     background: -webkit-gradient(linear, left top, left bottom, from(#00c3ff), to(#008cff));
@@ -1655,8 +1650,44 @@ span.edit_profilepicture_icon {
     height: 50px; }
   #profile-content-event .mine.my-comments input[type="submit"] {
     margin-left: 65px; }
+  #profile-content-event .event-sub-title {
+    margin-top: 10px;
+    padding: 2px 0px 2px 15px;
+    width: 98%;
+    background-color: #00bcfa;
+    color: white; }
+  #profile-content-event .event-extra-desc {
+    padding-top: 7px;
+    color: #008cff; }
+  #profile-content-event #event-description {
+    overflow: hidden;
+    height: 200px; }
+  #profile-content-event .show-more-container {
+    direction: rtl; }
+  #profile-content-event #all-event-comments {
+    overflow: hidden;
+    height: 250px; }
+  #profile-content-event #event-needs-container {
+    overflow: hidden;
+    height: 70px; }
+  #profile-content-event #the_photo_gallery {
+    padding: 10px;
+    overflow: hidden;
+    height: 45px; }
   #profile-content-event .share_fb {
     margin-top: 25px; }
+  #profile-content-event .a_event_need {
+    border-bottom: 1px dashed #00bcfa; }
+  #profile-content-event a {
+    text-decoration: none;
+    color: #008cff; }
+  #profile-content-event a:hover {
+    text-decoration: underline; }
+
+.going-all {
+  border-top: 1px dotted white;
+  margin-top: 6px;
+  padding-top: 10px; }
 
 .going-div {
   overflow-x: auto;

@@ -1,5 +1,7 @@
 # coding: utf-8
 es:
+  show_more: "Ver más"
+  show_less: "Ver menos"
   help_with_needs: "Ayuda a suplir necesidades"
   news_feed: "Últimas Noticias"
   category: "Categoría"

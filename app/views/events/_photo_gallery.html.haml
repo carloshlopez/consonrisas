@@ -1,6 +1,4 @@
-%h2
-  Galería de Fotos del Evento
-.photo_gallery{:class=>"bordered_box"}
+.photo_gallery
   - unless @event.photos.empty?
     - @event.photos.each do |p|
       - if p.id

@@ -1,7 +1,9 @@
 #left-div-profile-event{
+  @include events-gradient();
   color: $main-background;
   width: $left-div-width;
-  clear: left;
+  float: left;
+  margin-bottom: 10px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -10,43 +12,36 @@
    color: darken($home-link-yellow, 10%);
    font-weight: bold;
   }
-  .profile-info{
-    @include events-gradient();
-    height: 500px;
-    img.transparent{
-      position: absolute;
-      margin-top: 5px;
-      margin-left: -30px;      
-    }
-    img.img-profile{
-      margin-top: 15px;
-      margin-left: 30px;     
-      max-height: 150px; 
-    }
-    h2{
-      padding-top: 25px;
-      padding-left: 35px;
-    }
-    .type{
-      padding-left: 40px;
-      margin-top: -20px;
-    }
-    .about-me{
-      height: 300px;
-      .about-me-text{
-        padding: 0 25px 25px;
-        font-size: 14px;
-        min-height: 150px;
-      }    
-    }    
+  img.transparent{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: -30px;      
   }
+  img.img-profile{
+    margin-top: 15px;
+    margin-left: 25px;     
+    max-width: 250px; 
+  }
+  h2{
+    padding-top: 25px;
+    padding-left: 35px;
+  }
+  .type{
+    padding-left: 40px;
+    margin-top: -20px;
+  }
+  .about-me{
+    .about-me-text{
+      padding: 0 25px 25px;
+      font-size: 14px;
+      min-height: 150px;
+    }    
+  }    
 }
 
 #profile-content-event{
   width: $main-width + 100px;
 	margin-left: 320px;
-	margin-top: -520px;
-	min-height: 780px;
   .my-profile-title{
     @include events-gradient();
     color: $main-background;
@@ -112,9 +107,56 @@
       margin-left: 65px;
     }
   }
+  .event-sub-title{
+    margin-top: 10px;
+    padding: 2px 0px 2px 15px;
+    width: 98%;
+    background-color: $events-color;
+    color: white;
+  }
+  .event-extra-desc{
+    padding-top: 7px;
+    color: $events-color-dark;
+  }
+  #event-description{
+    overflow: hidden;
+    height: 200px;
+  }
+  .show-more-container{
+    direction: rtl;
+  }
+  #all-event-comments{
+    overflow: hidden;
+    height: 250px;
+  }
+  #event-needs-container{
+    overflow: hidden;
+    height: 70px;
+  }  
+  #the_photo_gallery{
+    padding: 10px;
+    overflow: hidden;
+    height: 45px;  
+  }
   .share_fb{
     margin-top: 25px;
   }
+  .a_event_need{
+    border-bottom: 1px dashed $events-color;
+  }
+  a{
+    text-decoration: none;
+    color: $events-color-dark;
+  }
+  a:hover{
+    text-decoration: underline;
+  }  
+}
+
+.going-all{
+  border-top: 1px dotted white;
+  margin-top: 6px;
+  padding-top: 10px;
 }
 
 .going-div{
