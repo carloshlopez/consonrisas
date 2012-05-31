@@ -16,7 +16,7 @@ module MembersHelper
   end  
   
   def member_name (member)
-    if !member.facilitator.name.empty?
+    if member.facilitator.name and !member.facilitator.name.empty?
       member.facilitator.name
     elsif !member.fundation_admins.empty?
       member.fundation_admins[0].fundation.name
