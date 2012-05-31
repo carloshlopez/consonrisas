@@ -62,7 +62,7 @@
     color: white;
     background-color: $site-color;
     padding: 5px;
-    width: 250px;
+    width: 265px;
     cursor: pointer;
   }  
   textarea{
@@ -112,18 +112,18 @@
   width: 80px;
   color: white;
   padding-bottom: 5px;
-  .edit-me-menu{
+  a.edit-me-menu{
     background-color: lightgray;
     color: $site-color;
-    width: 65px;
-    padding: 2px;
-    margin-left: 6px;
-    margin-top: 5px;    
+    padding: 2px;  
     border-radius: 5px;
     font-weight: normal;    
-    border: none;
+    text-decoration: none;
     font-size: small;
-    cursor: pointer;
+    margin-left: 5px;
+  }
+  a.edit-me-menu:hover{
+    text-decoration: underline;
   }
 }
 

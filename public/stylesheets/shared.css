@@ -1,6 +1,6 @@
 /*
 Syntax error: Undefined variable: "$left-div-width".
-        on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/shared.scss
+        on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss
 
 1: .create-button{
 2:   height: 50px;
@@ -12,7 +12,7 @@ Syntax error: Undefined variable: "$left-div-width".
 8:   direction: rtl;
 
 Backtrace:
-/home/carlos/Projects/prueba/public/stylesheets/sass/shared.scss:3
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss:3
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/operation.rb:74:in `_perform'
@@ -95,4 +95,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$left-div-width\".\A         on line 3 of /home/carlos/Projects/prueba/public/stylesheets/sass/shared.scss\A \A 1: .create-button{\A 2:   height: 50px;\A 3:   width: $left-div-width - 4;\A 4:   margin-top: 10px;\A 5:   padding-top: 2px;\A 6:   background-repeat: no-repeat;\A 7:   display: inline-block;\A 8:   direction: rtl;"; }
+  content: "Syntax error: Undefined variable: \"$left-div-width\".\A         on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss\A \A 1: .create-button{\A 2:   height: 50px;\A 3:   width: $left-div-width - 4;\A 4:   margin-top: 10px;\A 5:   padding-top: 2px;\A 6:   background-repeat: no-repeat;\A 7:   display: inline-block;\A 8:   direction: rtl;"; }

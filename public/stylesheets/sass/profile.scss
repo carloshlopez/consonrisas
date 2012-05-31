@@ -1,7 +1,8 @@
 #left-div-profile{
   color: $main-background;
   width: $left-div-width;
-  clear: left;
+  float: left;
+  margin-top: -20px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -69,7 +70,6 @@
 #profile-content{
   width: $main-width + 100px;
 	margin-left: 320px;
-	margin-top: -790px;
 	min-height: 780px;
   .my-profile-title{
     @include site-gradient();
