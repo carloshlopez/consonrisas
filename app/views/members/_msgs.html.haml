@@ -5,20 +5,22 @@
       .one-item{:id=>"msg-item-#{i}"}
         - alert_member = Member.find(alert.member_from)
         = link_to image_tag(alert_member.facilitator.pic.url(:thumb)), facilitator_path(alert_member.facilitator), :title=>"Click para ver el Facilitador"
-        %span
-          .one-item-name.invite-news
-            = alert.news
-          #{link_to I18n.t('go_to_profile'), facilitator_path(alert_member.facilitator), :title=>"Ver Perfil"} 
-          - if is_current_member_this_member @member.id 
-            |
-            .loading{:style=>"display:none", :id=>"msg-img-#{i}"}
-              = image_tag "mini-loader.gif"                                  
-            %a.delete_msg{:alert_id => alert.id, :href => "#",:id=>"delete-msg-#{i}", :title=>"Eliminar esta noticia"} Eliminar
-            &nbsp;                 
-            #{"-"}
-            &nbsp;   
-            .msg-date
-              = I18n.l(alert.created_at, :format=>:long)            
+        = link_to member_name(alert_member), facilitator_path(alert_member.facilitator), :title=>I18n.t('go_to_profile')        
+        %span{:style=>"color:black; font-size:small"}
+          te envió el siguiente mensaje:
+        .one-item-name.invite-news
+          = simple_format(auto_link(alert.news), :style=>"comment_paragraph")
+        #{link_to I18n.t('go_to_profile'), facilitator_path(alert_member.facilitator), :title=>"Ver Perfil"} 
+        - if is_current_member_this_member @member.id 
+          |
+          .loading{:style=>"display:none", :id=>"msg-img-#{i}"}
+            = image_tag "mini-loader.gif"                                  
+          %a.delete_msg{:alert_id => alert.id, :href => "#",:id=>"delete-msg-#{i}", :title=>"Eliminar esta noticia"} Eliminar
+          &nbsp;                 
+          #{"-"}
+          &nbsp;   
+          .msg-date
+            = I18n.l(alert.created_at, :format=>:long)            
       - i = i + 1
 -else              
   %p

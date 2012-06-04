@@ -6,7 +6,7 @@
         = link_to image_tag(Event.find(alert.link).pic.url(:thumb)), event_path(alert.link), :title=>"Click para ver el evento"
         %span
           .one-item-name.invite-news
-            = alert.news
+            = simple_format(auto_link(alert.news), :style=>"comment_paragraph")
           #{link_to I18n.t('events.show'), event_path(alert.link), :title=>"Click para ir al evento"} 
           - if is_current_member_this_member @member.id 
             |

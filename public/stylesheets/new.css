@@ -21,6 +21,13 @@ body {
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
 
+p.comment_paragraph {
+  margin-top: -2px;
+  margin-left: 5px;
+  width: 550px;
+  word-wrap: break-word;
+  font-size: small; }
+
 .warning {
   color: red; }
 
@@ -762,9 +769,9 @@ div.arrow-down {
   font-size: medium;
   border-width: 0 0 1px;
   border-style: dotted;
-  color: #5ab446; }
+  color: #5ab446;
+  min-height: 52px; }
   .one-item span {
-    position: absolute;
     margin-top: 8px;
     margin-left: 10px; }
   .one-item a {
@@ -775,7 +782,9 @@ div.arrow-down {
     font-weight: bold;
     text-decoration: underline; }
   .one-item img {
-    border: solid; }
+    border: solid;
+    float: left;
+    margin-right: 5px; }
   .one-item img.img-facilitators {
     border-color: red; }
   .one-item img.img-providers {
@@ -794,7 +803,14 @@ div.arrow-down {
     font-weight: normal;
     font-size: 11px; }
   .one-item .invite-news {
-    color: black; }
+    color: black;
+    min-height: 30px; }
+    .one-item .invite-news p {
+      margin-top: -2px;
+      margin-left: 5px;
+      width: 550px;
+      word-wrap: break-word;
+      font-size: small; }
 
 .one-item-populations {
   color: black;
@@ -2042,7 +2058,7 @@ img.img-events {
   color: white;
   padding-bottom: 5px; }
   #edit-my-account-options a.edit-me-menu {
-    background-color: lightgray;
+    background-color: white;
     color: #5ab446;
     padding: 2px;
     border-radius: 5px;
