@@ -2083,3 +2083,77 @@ img.img-events {
 
 .ui-autocomplete-loading {
   background: white url("/images/autocomplete_loading.gif") right center no-repeat; }
+
+.edit-settings-background-provider {
+  position: absolute;
+  background-color: #e3bb00;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  left: 0;
+  margin-top: 25px; }
+
+#tabs-provider {
+  padding: 0px;
+  background: none;
+  border-width: 0px;
+  width: 880px; }
+
+#tabs-provider .ui-tabs-nav {
+  padding-left: 0px;
+  background: transparent;
+  border-width: 0px 0px 1px 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px; }
+
+#tabs-provider .ui-tabs-panel {
+  background-color: white;
+  border: 0px; }
+
+#tabs-provider .ui-state-default {
+  border: 0px; }
+
+#tabs-provider .ui-state-active {
+  border: 0px; }
+
+#tabs-provider .ui-state-default a {
+  color: white;
+  background-color: #e3bb00; }
+
+#tabs-provider .ui-state-active a {
+  color: #e3bb00;
+  background-color: white; }
+
+.editSettingsProvider {
+  font-size: small; }
+  .editSettingsProvider input[type="text"] {
+    border: 1px solid #e3bb00;
+    width: 250px; }
+  .editSettingsProvider input[type="password"] {
+    border: 1px solid #e3bb00;
+    width: 250px; }
+  .editSettingsProvider input[type="submit"] {
+    border-radius: 15px;
+    color: white;
+    background-color: #e3bb00;
+    padding: 5px;
+    width: 265px;
+    cursor: pointer; }
+  .editSettingsProvider textarea {
+    width: 250px;
+    border: 1px solid #e3bb00;
+    height: 150px; }
+  .editSettingsProvider .my-account-info {
+    float: left;
+    margin-right: 70px;
+    min-height: 300px; }
+  .editSettingsProvider .notifications {
+    padding-top: 5px; }
+  .editSettingsProvider .account-title {
+    color: #e3bb00; }
+  .editSettingsProvider a {
+    text-decoration: none; }
+  .editSettingsProvider a:hover {
+    text-decoration: underline;
+    color: #4a3d00; }
