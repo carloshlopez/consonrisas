@@ -148,8 +148,8 @@
    border-width: 0 0 1px;
    border-style: dotted;
    color: $site-color;
+   min-height: 52px;   
   span{
-    position: absolute;
     margin-top: 8px;
     margin-left: 10px;
   }
@@ -164,6 +164,8 @@
   }  
   img{
     border: solid;
+    float: left;
+    margin-right: 5px;
   }
   img.img-facilitators{
     border-color: $facilitators-color;
@@ -190,6 +192,14 @@
   }
   .invite-news{
     color: black;
+    min-height: 30px;
+    p{
+      margin-top:-2px; 
+      margin-left: 5px; 
+      width: 550px;
+      word-wrap: break-word;
+      font-size:small;
+    }
   }
 }
 

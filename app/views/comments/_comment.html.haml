@@ -4,8 +4,8 @@
   .msg-date
     = I18n.l(comment.created_at, :format=>:long)
   \:     
-  .one-item-name.invite-news
-    = simple_format(auto_link(comment.comment))
+  %span.one-item-name.invite-news
+    = simple_format(auto_link(comment.comment), :class=>"comment_paragraph")
   - if member_signed_in? and can_current_member_edit_event(comment.event.id)
     .loading{:style=>"display:none", :id=>"comment-img-#{comment.id}"}
       = image_tag "mini-loader.gif"                                  
