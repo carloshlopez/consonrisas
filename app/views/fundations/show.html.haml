@@ -91,7 +91,7 @@
         %h2
           = @fundation.name
         %p
-          = @fundation.description
+          = simple_format(auto_link(@fundation.description))
     .mine.my-needs
       = render :partial => "needs"                   
     .mine.my-events{:style=>"display:none"}

@@ -1,0 +1,40 @@
+= javascript_include_tag "new_layout/ui.editSettingsProvider"
+.edit-settings-background-provider
+.editSettingsProvider
+  #tabs-provider
+    %ul
+      %li
+        %a{:href => "#profile"} Editar mi perfil    
+      %li
+        %a{:href => "#contact-info"} Info de Contacto
+      %li
+        %a{:href => "#shows"} Espectáculos        
+    #profile
+      %p 
+        = render :partial =>"form"
+    #contact-info
+      %p
+      -  @member =  @provider
+      -  @member_type = ApplicationHelper::ROLES[:provider]      
+      - unless @provider.contact_informations.empty?
+        %h2
+          = I18n.t('contact_informations')
+          \:
+        = render :partial => "contact_informations/contact_information", :collection=> @provider.contact_informations
+      - if member_signed_in? and can_current_member_edit_provider(@provider.id)
+        %h2
+          = I18n.t('contact_information.add')
+          \:
+        = render :partial => "contact_informations/form"
+    #shows
+      - unless @provider.shows.empty?
+        %h2
+          = I18n.t('show.list')
+        = render :partial => "shows/show", :collection=> @provider.shows
+      - if member_signed_in? and can_current_member_edit_provider(@provider.id)
+        %h2
+          = I18n.t('show.add')
+        = render :partial => "shows/form"
+      - else
+        %p
+          Este proveedor no tiene registrado ningún espectáculo      

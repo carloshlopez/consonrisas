@@ -54,7 +54,7 @@
         %h2
           = @provider.name
         %p
-          = @provider.description
+          = simple_format(auto_link(@provider.description))
         - if can_current_member_edit_provider(@provider.id)
           %br
           = link_to I18n.t('edit'), edit_provider_path(@provider)
