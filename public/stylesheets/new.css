@@ -2264,7 +2264,8 @@ img.img-events {
     text-decoration: none; }
   .editSettingsProvider .link_to_profile:hover {
     background-color: #e3bb00;
-    color: white; }
+    color: white;
+    text-decoration: none; }
   .editSettingsProvider .profile-content {
     width: 100%;
     text-align: center; }
@@ -2303,7 +2304,9 @@ img.img-events {
     color: #4a3d00; }
   .editSettingsProvider .provider-shows {
     float: left;
-    margin-right: 50px; }
+    margin-right: 50px;
+    max-width: 200px;
+    word-wrap: break-word; }
     .editSettingsProvider .provider-shows p.profile-content-title {
       color: #c9ad30; }
   .editSettingsProvider .provider-settings-left {
@@ -2382,7 +2385,8 @@ img.img-events {
     text-decoration: none; }
   .editSettingsFundation .link_to_profile:hover {
     background-color: #973b8c;
-    color: white; }
+    color: white;
+    text-decoration: none; }
   .editSettingsFundation .profile-content {
     width: 100%;
     text-align: center; }
@@ -2400,7 +2404,7 @@ img.img-events {
     color: white;
     background-color: #8c3681;
     padding: 5px;
-    width: 265px;
+    width: 280px;
     cursor: pointer; }
   .editSettingsFundation textarea {
     width: 250px;
