@@ -1,8 +1,4 @@
 %table{:width=>"100%"}
   %tr 
     %td{:style=>"text-align:center; width:55px; border-width: 0 0 1px; border-style: dotted; border-color: rgb(90, 180, 70);"}
-      En nombre del proyecto social: 
-      %b #{@fundation.name} 
-      te damos las gracias por tu interés de ayudar con la necesidad:
-      %b #{@need.name}
       = simple_format(auto_link(@message))

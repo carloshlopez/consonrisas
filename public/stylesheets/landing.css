@@ -160,7 +160,6 @@ body {
 .a_need {
   padding: 5px;
   min-height: 120px;
-  clear: both;
   border-width: 0 0 1px;
   border-style: dashed;
   color: #973b8c; }
@@ -208,8 +207,9 @@ body {
         color: black; }
 
 .need_facilitators {
-  clear: left;
-  min-height: 100px; }
+  clear: right;
+  min-height: 100px;
+  margin-top: 72px; }
   .need_facilitators .a_facilitator {
     float: left; }
     .need_facilitators .a_facilitator img {

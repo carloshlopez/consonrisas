@@ -18,9 +18,9 @@ class NeedsController < ApplicationController
   
   def complete
     @need = Need.find(params[:id])
-    @need.update_attributes :completed => params[:completed]
+    @need.help params[:member_id]
     respond_to do |format|
-      format.json {render :json=>'{"resp":"ok"}'}
+      format.json {render :json=>'{"resp":"ok", "new_state":"Suplida"}'}
     end
   end
   

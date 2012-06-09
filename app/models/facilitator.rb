@@ -7,6 +7,7 @@ class Facilitator < ActiveRecord::Base
   has_and_belongs_to_many :facilitators, :join_table => :facilitators_facilitators, :association_foreign_key=> "followed_id", :uniq => true
   
   has_and_belongs_to_many :project_needs, :join_table => :project_need_facilitators, :uniq => true
+  has_and_belongs_to_many :needs, :join_table => :need_facilitators, :uniq => true  
   
   has_attached_file :pic, :styles => {:profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,

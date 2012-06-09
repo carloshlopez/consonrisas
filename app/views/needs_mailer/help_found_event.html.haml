@@ -1,13 +1,13 @@
 %table{:width=>"100%"}
   %tr
-    %td{:colspan=>"2", :style=>"padding: 10px 10px 10px; border-width: 0 0 1px; border-style: dotted; border-color: rgb(90, 180, 70); text-align:center"}
-      #{@member.facilitator.name.blank? ? @member.facilitator.member.email : @member.facilitator.name}, quiere ayudarte 
+    %td{:colspan=>"2", :style=>"text-align:center;" }
+      #{@member.facilitator.name.blank? ? @member.facilitator.member.email : @member.facilitator.name}, quiere ayudarte
       %br
       A suplir la necesidad:
       %b #{@need.name}
-      %br 
-      En el proyecto social:
-      %b #{@fundation.name}
+      %br
+      En el Evento: 
+      %b #{@event.name}
   %tr
     %td{:style=>"width:55px;border-width: 0 0 1px; border-style: dotted; border-color: rgb(90, 180, 70);"}
       - unless @member.facilitator.pic.url(:thumb).include? "missing"

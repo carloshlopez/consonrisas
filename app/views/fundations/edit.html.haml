@@ -1,0 +1,43 @@
+= javascript_include_tag "new_layout/ui.editSettingsFundation"
+= javascript_include_tag "new_layout/ui.fundationFormPopUp"
+= javascript_include_tag "contactInformation"
+.edit-settings-background-fundation
+.editSettingsFundation
+  #tabs-fundation
+    %ul
+      %li
+        %a{:href => "#profile"} Editar mi perfil
+      %li
+        %a{:href => "#needs"} Necesidades
+      %li
+        %a{:href => "#contact"} Info de Contacto (#{@fundation.contact_informations.count})       
+    = link_to "Vuelve al perfil del Proyecto Social", fundation_path(@fundation), :class=>"link_to_profile"        
+    #profile
+      .profile-form-fundation
+        = render :partial =>"form"
+    #needs
+      #the-needs.profile-need-fundation
+        - if member_signed_in? and can_current_member_edit_fundation(@fundation.id)        
+          %p.need-title
+            Crea una necesidad
+          = render :partial => "project_needs/form"
+        - if @fundation.project_needs.size > 0
+          %p.need-title
+            Necesidades Actuales
+            - unless member_signed_in? and can_current_member_edit_fundation(@fundation.id)
+              ¿Puedes ayudar con alguna?
+          = render :partial => "project_needs/need", :collection=> @fundation.project_needs
+    #contact
+      .profile-contact-fundation
+        -  @member =  @fundation
+        -  @member_type = ApplicationHelper::ROLES[:fundation]      
+        - unless @fundation.contact_informations.empty?
+          %p.profile-content-title
+            = I18n.t('contact_informations')
+            \:
+          = render :partial => "contact_informations/contact_information", :collection=> @fundation.contact_informations
+        - unless member_signed_in? and can_current_member_edit_provider(@fundation.id)
+          %p.profile-content-title
+            = I18n.t('contact_information.add')
+            \:
+          = render :partial => "contact_informations/form"

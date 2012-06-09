@@ -1,6 +1,6 @@
-.edit-settings-background-provider{
+.edit-settings-background-fundation{
   position: absolute;
-  background-color: $providers-color;
+  background-color: $fundations-color;
   width: 100%;
   height: 100%;  
   z-index: -4;
@@ -8,13 +8,13 @@
   margin-top: 25px;
   
 }
-#tabs-provider {
+#tabs-fundation {
 	padding: 0px;
 	background: none;
 	border-width: 0px;
 	width: $footer-width + 40;
 }
-#tabs-provider .ui-tabs-nav {
+#tabs-fundation .ui-tabs-nav {
 	padding-left: 0px;
 	background: transparent;
 	border-width: 0px 0px 1px 0px;
@@ -22,41 +22,41 @@
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 }
-#tabs-provider .ui-tabs-panel {
+#tabs-fundation .ui-tabs-panel {
 	background-color: white;
 	border: 0px;
 }
 
-#tabs-provider .ui-state-default {
+#tabs-fundation .ui-state-default {
   border: 0px;
 }
 
-#tabs-provider .ui-state-active {
+#tabs-fundation .ui-state-active {
   border: 0px;
 }
 
-#tabs-provider .ui-state-default a {
+#tabs-fundation .ui-state-default a {
 	color: white;
-	background-color: $providers-color;
+	background-color: $fundations-color;
 	border-radius: 5px 5px 0 0;
 }
-#tabs-provider .ui-state-active a {
-	color: $providers-color-dark;
+#tabs-fundation .ui-state-active a {
+	color: $fundations-color-dark;
   @include tabs-gradient();
   border-radius: 5px 5px 0 0;
 }
 
 
-.editSettingsProvider{
+.editSettingsFundation{
   font-size: small;
   .link_to_profile{
     position: absolute;
-    background-color: lighten($providers-color, 10%);
-    border: 2px solid darken($providers-color-dark, 10%);
+    background-color: lighten($fundations-color, 10%);
+    border: 2px solid darken($fundations-color-dark, 10%);
     color: white;
     margin-left: 455px;
     margin-top: -25px;
-    width: 250px;
+    width: 275px;
     height: 40px;
     border-radius: 15px;
     line-height: 3;
@@ -66,15 +66,15 @@
   }
   .link_to_profile:hover{
     text-decoration: underline;
-    background-color: $providers-color;
+    background-color: $fundations-color;
     font-weight: bold;
     color: white;
-  }
+  }  
   .profile-content{
     width: 100%;
     text-align: center;
     p.profile-content-title{
-      color: $providers-color-dark;
+      color: $fundations-color-dark;
     }
     .profile-content-child{
       width: 280px;
@@ -83,7 +83,7 @@
     }
   }
   input[type="text"]{
-    border: 1px solid $providers-color-dark;
+    border: 1px solid $fundations-color-dark;
     width: 250px;
   }
   
@@ -91,14 +91,14 @@
   input[type="submit"]{
     border-radius: 15px;
     color: white;
-    background-color: $providers-color-dark;
+    background-color: $fundations-color-dark;
     padding: 5px;
     width: 265px;
     cursor: pointer;
   }  
   textarea{
     width: 250px;
-    border: 1px solid $providers-color-dark;
+    border: 1px solid $fundations-color-dark;
     height: 150px;
   } 
     
@@ -113,7 +113,7 @@
   }
    
   .account-title{
-    color: $providers-color;
+    color: $fundations-color;
   }
   
   a{
@@ -121,32 +121,32 @@
   }
   a:hover{
     text-decoration: underline;
-    color: darken($providers-color, 30%);
+    color: darken($fundations-color, 30%);
   }  
-  .provider-shows{
+  .fundation-shows{
     float: left;
     margin-right: 50px;
     p.profile-content-title{
-      color: $providers-color-dark;
+      color: $fundations-color-dark;
     }
   }
-  .provider-settings-left{
+  .fundation-settings-left{
     float: left;
     min-height: 350px;
     margin-right: 50px;
   }
-  .provider-settings-right{
+  .fundation-settings-right{
   }
-  .provider-settings-center{
+  .fundation-settings-center{
     width: 100%;
     text-align: center;
-    .provider-settings-center-child{
+    .fundation-settings-center-child{
       width: 280px;
       margin: 0px auto;
       text-align: left;
     }
   }
  p.profile-content-title{
-      color: $providers-color-dark;
+      color: $fundations-color-dark;
  } 
 }
