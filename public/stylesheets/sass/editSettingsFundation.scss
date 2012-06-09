@@ -57,18 +57,16 @@
     margin-left: 455px;
     margin-top: -25px;
     width: 275px;
-    height: 40px;
+    height: 30px;
     border-radius: 15px;
-    line-height: 3;
+    line-height: 2;
     text-align: center;  
     text-decoration: none;
-    font-weight: bold;
   }
   .link_to_profile:hover{
-    text-decoration: underline;
     background-color: $fundations-color;
-    font-weight: bold;
     color: white;
+    text-decoration: none;    
   }  
   .profile-content{
     width: 100%;

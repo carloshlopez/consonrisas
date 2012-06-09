@@ -2254,19 +2254,16 @@ img.img-events {
     background-color: #ffd617;
     border: 2px solid #a08a26;
     color: white;
-    margin-left: 455px;
+    margin-left: 475px;
     margin-top: -25px;
     width: 250px;
-    height: 40px;
+    height: 30px;
     border-radius: 15px;
-    line-height: 3;
+    line-height: 2;
     text-align: center;
-    text-decoration: none;
-    font-weight: bold; }
+    text-decoration: none; }
   .editSettingsProvider .link_to_profile:hover {
-    text-decoration: underline;
     background-color: #e3bb00;
-    font-weight: bold;
     color: white; }
   .editSettingsProvider .profile-content {
     width: 100%;
@@ -2378,16 +2375,13 @@ img.img-events {
     margin-left: 455px;
     margin-top: -25px;
     width: 275px;
-    height: 40px;
+    height: 30px;
     border-radius: 15px;
-    line-height: 3;
+    line-height: 2;
     text-align: center;
-    text-decoration: none;
-    font-weight: bold; }
+    text-decoration: none; }
   .editSettingsFundation .link_to_profile:hover {
-    text-decoration: underline;
     background-color: #973b8c;
-    font-weight: bold;
     color: white; }
   .editSettingsFundation .profile-content {
     width: 100%;

@@ -35,7 +35,7 @@
             - i = 0
             - need.facilitators.each do |fac|
               .a_facilitator
-                = link_to image_tag(fac.pic.url(:thumb)), facilitator_path(fac)
+                = link_to image_tag(member_thumb(fac)), facilitator_path(fac)
                 %span
                   .fac-name
                     = link_to facilitator_name(fac), facilitator_path(fac)
