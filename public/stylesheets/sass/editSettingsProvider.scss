@@ -54,21 +54,19 @@
     background-color: lighten($providers-color, 10%);
     border: 2px solid darken($providers-color-dark, 10%);
     color: white;
-    margin-left: 455px;
+    margin-left: 475px;
     margin-top: -25px;
     width: 250px;
-    height: 40px;
+    height: 30px;
     border-radius: 15px;
-    line-height: 3;
+    line-height: 2;
     text-align: center;  
     text-decoration: none;
-    font-weight: bold;
   }
   .link_to_profile:hover{
-    text-decoration: underline;
     background-color: $providers-color;
-    font-weight: bold;
     color: white;
+    text-decoration: none;    
   }
   .profile-content{
     width: 100%;
@@ -126,6 +124,8 @@
   .provider-shows{
     float: left;
     margin-right: 50px;
+    max-width: 200px;
+    word-wrap: break-word;
     p.profile-content-title{
       color: $providers-color-dark;
     }
