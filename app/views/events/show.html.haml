@@ -90,7 +90,7 @@
                 = I18n.t('show_less')
       .mine.my-needs
         .event-sub-title
-          Necesidades del evento      
+          Necesidades del evento (#{@event.needs.size})
         = render :partial => "event_needs"
         .show-more-container
           %a{:href=>"#", :class=>"show-more", :target_div=>"event-needs-container", :initial_height=>"70px", :label=>"show_needs"}

@@ -38,10 +38,12 @@
 #tabs .ui-state-default a {
 	color: white;
 	background-color: $site-color;
+	border-radius: 5px 5px 0 0;
 }
 #tabs .ui-state-active a {
 	color: $site-color;
-	background-color: white;
+  @include tabs-gradient();
+  border-radius: 5px 5px 0 0;
 }
 
 

@@ -1,13 +1,15 @@
 <%= form_for([@provider, @provider.shows.build]) do |f| %>
-  <div class="field">
-    <%= f.label I18n.t('name') %><br />
-    <%= f.text_field :name %>
+  <div class="provider-settings-left">
+    <div class="field">
+      <%= f.label I18n.t('name') %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label I18n.t('description') %><br />
+      <%= f.text_area :description %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label I18n.t('description') %><br />
-    <%= f.text_area :description %>
-  </div>
-  
+  <div class="provider-settings-right">
   <div class="field">
     <%= f.label I18n.t('show.offering') %><br />
     <%= f.text_field :offering %>
@@ -26,10 +28,10 @@
     <%= f.label I18n.t('show.population') %><br />
     <%=   select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
   </div>    
-  
-
-  
-  <div class="actions">
+  </div>
+  <div class="provider-settings-center">
+  <div class="actions provider-settings-center-child">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>

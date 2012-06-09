@@ -1,4 +1,5 @@
 = javascript_include_tag "new_layout/ui.editSettingsProvider"
+= javascript_include_tag "contactInformation"
 .edit-settings-background-provider
 .editSettingsProvider
   #tabs-provider
@@ -6,35 +7,40 @@
       %li
         %a{:href => "#profile"} Editar mi perfil    
       %li
-        %a{:href => "#contact-info"} Info de Contacto
+        %a{:href => "#contact-info"} Info de Contacto (#{@provider.contact_informations.count})
       %li
-        %a{:href => "#shows"} Espectáculos        
+        %a{:href => "#shows"} Espectáculos (#{@provider.shows.count})
+    = link_to "Vuelve al perfil del proveedor", provider_path(@provider), :class=>"link_to_profile"
     #profile
-      %p 
-        = render :partial =>"form"
+      .profile-content
+        %p.profile-content-title Modifica la información de un Proveedor de Sonrisas      
+        .profile-content-child
+          = render :partial =>"form"
     #contact-info
-      %p
+      .profile-content-contact-info
       -  @member =  @provider
       -  @member_type = ApplicationHelper::ROLES[:provider]      
       - unless @provider.contact_informations.empty?
-        %h2
+        %p.profile-content-title
           = I18n.t('contact_informations')
           \:
         = render :partial => "contact_informations/contact_information", :collection=> @provider.contact_informations
       - if member_signed_in? and can_current_member_edit_provider(@provider.id)
-        %h2
+        %p.profile-content-title
           = I18n.t('contact_information.add')
           \:
         = render :partial => "contact_informations/form"
     #shows
       - unless @provider.shows.empty?
-        %h2
-          = I18n.t('show.list')
-        = render :partial => "shows/show", :collection=> @provider.shows
+        .provider-shows
+          %p.profile-content-title
+            = I18n.t('show.list')
+            (#{@provider.shows.count})
+          = render :partial => "shows/show", :collection=> @provider.shows
       - if member_signed_in? and can_current_member_edit_provider(@provider.id)
-        %h2
+        %p.profile-content-title
           = I18n.t('show.add')
         = render :partial => "shows/form"
       - else
-        %p
-          Este proveedor no tiene registrado ningún espectáculo      
+        %p.profile-content-title
+          No existen espectáculos registrados

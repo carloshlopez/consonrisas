@@ -1,11 +1,33 @@
-.a_event_need{:id=>"need-#{need.id}"}
-  %b #{need.name}
-  - if need.completed
-    %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed", :checked=>"checked" }
-  - else
-    %input.complete_need{:need_id => need.id, :id=>"complete-need-#{need.id}", :type=>"checkbox", :name=>"completed"}  
-  - if member_signed_in? and can_current_member_edit_event(need.event.id)
-    %a.delete_need{:need_id => need.id, :href => "#",:id=>"delete-need-#{need.id}", :title=>"Eliminar"} #{I18n.t('destroy')}
-    .loading{:style=>"display:none", :id=>"need-img-#{need.id}"}
-      = image_tag "mini-loader.gif"   
-    
+- if need.name
+  .a_need-event{:id=>"need-#{need.id}"}
+    %p.need-event_name Necesidad: #{need.name}
+    .need-event_item
+      %p Estado:
+      %span{:id =>"need-state-#{need.id}"} #{if need.completed then "Suplida" else "Pendiente" end}
+    - if member_signed_in?
+      .need-event_actions
+        -if can_current_member_edit_event(need.event.id)
+          .need-event_action
+            %a.delete_need-event.delete_need{:need_id => need.id, :href => "#delete_need",:event_id=>"#{need.event.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} X
+            %p #{I18n.t('destroy')}
+            .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
+              = image_tag "mini-loader.gif"
+        - else   
+          .need-event_action
+            %a.help_need-event{:need_id => need.id, :href => "#help_need",:event_id=>"#{need.event.id}", :id=>"help-need-#{need.id}", :title=>"Tu puedes ayudar ya", :member_id=>"#{current_member.id}"}
+              = image_tag "IconNeed_Help_Event.png"
+            %p Ayudar
+            .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
+              = image_tag "mini-loader.gif"   
+      - if need.facilitators and !need.facilitators.empty?
+        .need-event_facilitators.all-facilitators
+          %p
+            Facilitadores interesados en ayudar:
+            - i = 0
+            - need.facilitators.each do |fac|
+              .a_facilitator
+                = link_to image_tag(fac.pic.url(:thumb)), facilitator_path(fac)
+                %span
+                  .fac-name
+                    = link_to facilitator_name(fac), facilitator_path(fac)
+                  = link_to I18n.t('go_to_profile'), facilitator_path(fac)    

@@ -1887,7 +1887,6 @@ img.img-events {
 .a_need {
   padding: 5px;
   min-height: 120px;
-  clear: both;
   border-width: 0 0 1px;
   border-style: dashed;
   color: #973b8c; }
@@ -1935,8 +1934,9 @@ img.img-events {
         color: black; }
 
 .need_facilitators {
-  clear: left;
-  min-height: 100px; }
+  clear: right;
+  min-height: 100px;
+  margin-top: 72px; }
   .need_facilitators .a_facilitator {
     float: left; }
     .need_facilitators .a_facilitator img {
@@ -1964,6 +1964,120 @@ img.img-events {
   padding: 3px;
   color: white;
   background-color: #973b8c;
+  width: 30%; }
+
+.need-event_field {
+  float: left;
+  height: 40px;
+  padding: 10px; }
+  .need-event_field input {
+    border: 1px solid #00bcfa;
+    width: 170px; }
+
+.need-event_form_actions {
+  width: 60%;
+  margin: 0px auto; }
+
+.need-event_button {
+  margin: 0 auto;
+  clear: left;
+  cursor: pointer;
+  background-color: #00bcfa;
+  width: 350px;
+  height: 35px;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: bold;
+  font-size: large;
+  color: white; }
+
+.need-event-title {
+  padding: 3px;
+  color: white;
+  background-color: #00bcfa; }
+
+/*need-event list*/
+.a_need-event {
+  padding-bottom: 5px;
+  min-height: 70px;
+  border-width: 0 0 1px;
+  border-style: dashed;
+  color: #00bcfa; }
+  .a_need-event .need-event_name {
+    color: #00bcfa;
+    margin-top: 5px; }
+  .a_need-event .need-event_item {
+    min-width: 110px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 0;
+    float: left;
+    color: black;
+    margin-top: -10px; }
+    .a_need-event .need-event_item p {
+      font-weight: bold; }
+  .a_need-event .need-event_middle {
+    min-width: 100px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 15px 0 15px;
+    height: 50px;
+    border-width: 0 1px 0 1px;
+    border-color: lightgray;
+    border-style: solid; }
+    .a_need-event .need-event_middle a {
+      color: #00bcfa;
+      text-decoration: none; }
+    .a_need-event .need-event_middle a:hover {
+      color: #004961; }
+  .a_need-event .need-event_actions {
+    text-align: center; }
+    .a_need-event .need-event_actions .need-event_action {
+      margin-top: -25px;
+      float: right;
+      height: 60px;
+      padding-right: 15px;
+      padding-left: 15px; }
+      .a_need-event .need-event_actions .need-event_action .help_need-event img {
+        height: 40px; }
+      .a_need-event .need-event_actions .need-event_action .delete_need-event {
+        font-size: 35px;
+        color: #00bcfa;
+        text-decoration: none; }
+      .a_need-event .need-event_actions .need-event_action p {
+        margin-top: -5px;
+        color: black; }
+
+.need-event_facilitators {
+  clear: right;
+  min-height: 100px; }
+  .need-event_facilitators .a_facilitator {
+    float: left; }
+    .need-event_facilitators .a_facilitator img {
+      float: left;
+      margin-right: 5px;
+      border: solid;
+      border-color: #00bcfa; }
+    .need-event_facilitators .a_facilitator span {
+      float: left;
+      font-size: small;
+      padding-right: 5px;
+      padding-top: 10px; }
+      .need-event_facilitators .a_facilitator span .fac-name {
+        font-size: medium;
+        font-weight: bold; }
+      .need-event_facilitators .a_facilitator span a {
+        color: #00bcfa;
+        text-decoration: none; }
+      .need-event_facilitators .a_facilitator span a:hover {
+        color: #00bcfa;
+        text-decoration: underline; }
+
+/*All need-events by category*/
+.need-event-cat-title {
+  padding: 3px;
+  color: white;
+  background-color: #00bcfa;
   width: 30%; }
 
 .edit-settings-background {
@@ -2001,11 +2115,15 @@ img.img-events {
 
 #tabs .ui-state-default a {
   color: white;
-  background-color: #5ab446; }
+  background-color: #5ab446;
+  border-radius: 5px 5px 0 0; }
 
 #tabs .ui-state-active a {
   color: #5ab446;
-  background-color: white; }
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6E6E6', endColorstr='white');
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(white));
+  background: -moz-linear-gradient(top, #e6e6e6, white);
+  border-radius: 5px 5px 0 0; }
 
 .editSettings {
   font-size: small; }
@@ -2119,30 +2237,59 @@ img.img-events {
 
 #tabs-provider .ui-state-default a {
   color: white;
-  background-color: #e3bb00; }
+  background-color: #e3bb00;
+  border-radius: 5px 5px 0 0; }
 
 #tabs-provider .ui-state-active a {
-  color: #e3bb00;
-  background-color: white; }
+  color: #c9ad30;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6E6E6', endColorstr='white');
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(white));
+  background: -moz-linear-gradient(top, #e6e6e6, white);
+  border-radius: 5px 5px 0 0; }
 
 .editSettingsProvider {
   font-size: small; }
+  .editSettingsProvider .link_to_profile {
+    position: absolute;
+    background-color: #ffd617;
+    border: 2px solid #a08a26;
+    color: white;
+    margin-left: 455px;
+    margin-top: -25px;
+    width: 250px;
+    height: 40px;
+    border-radius: 15px;
+    line-height: 3;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold; }
+  .editSettingsProvider .link_to_profile:hover {
+    text-decoration: underline;
+    background-color: #e3bb00;
+    font-weight: bold;
+    color: white; }
+  .editSettingsProvider .profile-content {
+    width: 100%;
+    text-align: center; }
+    .editSettingsProvider .profile-content p.profile-content-title {
+      color: #c9ad30; }
+    .editSettingsProvider .profile-content .profile-content-child {
+      width: 280px;
+      margin: 0px auto;
+      text-align: left; }
   .editSettingsProvider input[type="text"] {
-    border: 1px solid #e3bb00;
-    width: 250px; }
-  .editSettingsProvider input[type="password"] {
-    border: 1px solid #e3bb00;
+    border: 1px solid #c9ad30;
     width: 250px; }
   .editSettingsProvider input[type="submit"] {
     border-radius: 15px;
     color: white;
-    background-color: #e3bb00;
+    background-color: #c9ad30;
     padding: 5px;
     width: 265px;
     cursor: pointer; }
   .editSettingsProvider textarea {
     width: 250px;
-    border: 1px solid #e3bb00;
+    border: 1px solid #c9ad30;
     height: 150px; }
   .editSettingsProvider .my-account-info {
     float: left;
@@ -2157,3 +2304,142 @@ img.img-events {
   .editSettingsProvider a:hover {
     text-decoration: underline;
     color: #4a3d00; }
+  .editSettingsProvider .provider-shows {
+    float: left;
+    margin-right: 50px; }
+    .editSettingsProvider .provider-shows p.profile-content-title {
+      color: #c9ad30; }
+  .editSettingsProvider .provider-settings-left {
+    float: left;
+    min-height: 350px;
+    margin-right: 50px; }
+  .editSettingsProvider .provider-settings-center {
+    width: 100%;
+    text-align: center; }
+    .editSettingsProvider .provider-settings-center .provider-settings-center-child {
+      width: 280px;
+      margin: 0px auto;
+      text-align: left; }
+  .editSettingsProvider p.profile-content-title {
+    color: #c9ad30; }
+
+.edit-settings-background-fundation {
+  position: absolute;
+  background-color: #973b8c;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  left: 0;
+  margin-top: 25px; }
+
+#tabs-fundation {
+  padding: 0px;
+  background: none;
+  border-width: 0px;
+  width: 880px; }
+
+#tabs-fundation .ui-tabs-nav {
+  padding-left: 0px;
+  background: transparent;
+  border-width: 0px 0px 1px 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px; }
+
+#tabs-fundation .ui-tabs-panel {
+  background-color: white;
+  border: 0px; }
+
+#tabs-fundation .ui-state-default {
+  border: 0px; }
+
+#tabs-fundation .ui-state-active {
+  border: 0px; }
+
+#tabs-fundation .ui-state-default a {
+  color: white;
+  background-color: #973b8c;
+  border-radius: 5px 5px 0 0; }
+
+#tabs-fundation .ui-state-active a {
+  color: #8c3681;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6E6E6', endColorstr='white');
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(white));
+  background: -moz-linear-gradient(top, #e6e6e6, white);
+  border-radius: 5px 5px 0 0; }
+
+.editSettingsFundation {
+  font-size: small; }
+  .editSettingsFundation .link_to_profile {
+    position: absolute;
+    background-color: #b94cac;
+    border: 2px solid #67285f;
+    color: white;
+    margin-left: 455px;
+    margin-top: -25px;
+    width: 275px;
+    height: 40px;
+    border-radius: 15px;
+    line-height: 3;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold; }
+  .editSettingsFundation .link_to_profile:hover {
+    text-decoration: underline;
+    background-color: #973b8c;
+    font-weight: bold;
+    color: white; }
+  .editSettingsFundation .profile-content {
+    width: 100%;
+    text-align: center; }
+    .editSettingsFundation .profile-content p.profile-content-title {
+      color: #8c3681; }
+    .editSettingsFundation .profile-content .profile-content-child {
+      width: 280px;
+      margin: 0px auto;
+      text-align: left; }
+  .editSettingsFundation input[type="text"] {
+    border: 1px solid #8c3681;
+    width: 250px; }
+  .editSettingsFundation input[type="submit"] {
+    border-radius: 15px;
+    color: white;
+    background-color: #8c3681;
+    padding: 5px;
+    width: 265px;
+    cursor: pointer; }
+  .editSettingsFundation textarea {
+    width: 250px;
+    border: 1px solid #8c3681;
+    height: 150px; }
+  .editSettingsFundation .my-account-info {
+    float: left;
+    margin-right: 70px;
+    min-height: 300px; }
+  .editSettingsFundation .notifications {
+    padding-top: 5px; }
+  .editSettingsFundation .account-title {
+    color: #973b8c; }
+  .editSettingsFundation a {
+    text-decoration: none; }
+  .editSettingsFundation a:hover {
+    text-decoration: underline;
+    color: #291026; }
+  .editSettingsFundation .fundation-shows {
+    float: left;
+    margin-right: 50px; }
+    .editSettingsFundation .fundation-shows p.profile-content-title {
+      color: #8c3681; }
+  .editSettingsFundation .fundation-settings-left {
+    float: left;
+    min-height: 350px;
+    margin-right: 50px; }
+  .editSettingsFundation .fundation-settings-center {
+    width: 100%;
+    text-align: center; }
+    .editSettingsFundation .fundation-settings-center .fundation-settings-center-child {
+      width: 280px;
+      margin: 0px auto;
+      text-align: left; }
+  .editSettingsFundation p.profile-content-title {
+    color: #8c3681; }

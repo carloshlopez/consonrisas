@@ -77,7 +77,7 @@ $jq(document).ready(function($) {
     var elId = $jq(this).attr("id").split("-")[2];
     $jq("#prov-send-msg-0").dialog({modal:true, title:"Mensaje", width: 500, closeText:"X", show:"slide"});
   });        
-      
+         
   $jq(".prov-send-msg-button").click(function(e){
     e.preventDefault();
     var elId = $jq(this).attr("id").split("-")[4];

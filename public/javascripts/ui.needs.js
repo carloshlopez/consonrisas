@@ -27,9 +27,17 @@ $jq.widget("ui.needs", {
         
        $el.find('.add_need').click(function(e) {
             e.preventDefault();
-            $jq('body').css('cursor', 'wait');
-            var fundation_id = $jq(this).attr("fundation_id");
-            self._addNeed(fundation_id);
+            if($jq("#project_need_name").val() == ""){
+              alert("Debes agregar un nombre, antes de crear una necesidad");
+            }
+            else if($jq("#project_need_recurrence").val() == ""){
+              alert("Genera una recurrencia para la necesidad. \nEjemplo: Una vez\n Cada quince días \n Mensual");
+            }            
+            else{
+              $jq('body').css('cursor', 'wait');
+              var fundation_id = $jq(this).attr("fundation_id");
+              self._addNeed(fundation_id);
+            }
         });                       
         
         $el.find("#need_cat_select").change(function(){

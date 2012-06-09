@@ -20,7 +20,7 @@ class ProjectNeed < ActiveRecord::Base
   def send_help_found member_id
     begin
       fundation.fundation_admins.each do |admin|
-        NeedsMailer.help_found(member_id, admin.id, fundation.id, self).deliver 
+        NeedsMailer.help_found(member_id, admin.member_id, fundation.id, self).deliver 
         Alert.create(:news=>"Un Facilitador quiere ayudar con una necesidad", :link=>Member.find(member_id).facilitator.id, :member_id=> admin.member.id, :alert_type=>2, :member_from=>member_id)
       end
       
@@ -28,7 +28,7 @@ class ProjectNeed < ActiveRecord::Base
       NeedsMailer.help_reminder(member_id, fundation.id, self).deliver
       
     rescue => e
-      puts "Error sending mails on project_need send_help_found: #{e.backtrace}"
+      puts "Error sending mails on project_need send_help_found: #{e.message}"
     end
   end
   handle_asynchronously :send_help_found

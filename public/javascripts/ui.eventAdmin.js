@@ -99,10 +99,12 @@ $jq.widget("ui.eventAdmin", {
 	            }
           });  
           
-          $el.find('.complete_need').change(function(){
-            var complete = $jq(this).attr('checked');
+          $el.find('.help_need-event').click(function(){
             var need_id = $jq(this).attr("need_id");
-            self._completeNeed(need_id, complete);  
+            $jq(this).hide();
+            $jq("#need-help-img-"+need_id).css('display', 'inline');
+            var member_id = $jq(this).attr("member_id");    
+            self._completeNeed(need_id, member_id);  
           });
           
           $el.find(".show-more").live('click', function(e){
@@ -250,12 +252,16 @@ $jq.widget("ui.eventAdmin", {
               }
         }, "text" );
     },
-    _completeNeed: function(need_id, complete){
-        $jq.post( "/needs/complete/"+ need_id+".json",{"completed" : complete},
+    _completeNeed: function(need_id, memberId){
+        $jq.post( "/needs/complete/"+ need_id+".json",{member_id:memberId},
             function(data, textStatus, XMLHttpRequest){
               var obj = $jq.parseJSON(data);
               if(obj.resp == "ok"){ 
-                alert('Muy bien una necesidad satisfecha!');
+                $jq("#need-help-img-"+need_id).css("display", "none");
+                $jq("#need-state-"+need_id).html(obj.new_state);
+                $jq("#need-state-"+need_id).effect("highlight", {color:'#00BCFA'}, 3500);
+                $jq("#alert-msg p").html("Te hemos conectado con el creador del Evento para que le puedas ayudar a suplir esta necesidad");
+                $jq("#alert-msg").slideDown().delay(3250).slideUp();
               }
               else{
                 alert(data);

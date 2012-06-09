@@ -56,26 +56,6 @@ p.comment_paragraph{
   word-wrap: break-word;
   font-size:small;
 }
-//  input[type=checkbox] {
-//    display:inline-block;
-//    clear: left;
-//    float: left;
-//    border:2px dotted $site-color;
-//  }
-
-//  input[type=checkbox] + label
-//   {
-//       background: white;
-//       display:inline-block;
-//       padding: 0 0 0 0px;
-//   }
-//   
-//   input[type=checkbox]:checked + label
-//    {
-//        background: $site-color;
-//        display:inline-block;
-//        padding: 0 0 0 0px;
-//    }
 .warning{
   color: red;
 }
@@ -124,6 +104,12 @@ p.comment_paragraph{
   font-family: "consonrisas";
   font-size: 13px;
   width: 80%;
+}
+
+@mixin tabs-gradient(){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6E6E6', endColorstr='white');
+  background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), to(white));
+  background: -moz-linear-gradient(top, #E6E6E6, white);
 }
 
 @mixin facilitators-gradient(){

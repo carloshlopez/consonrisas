@@ -44,9 +44,9 @@
       |    
       %a.events{:href=>"#menu", :show=>"events"} eventos
       |
-      %a.contact{:href=>"#menu", :show=>"contact"} información de contacto
+      %a.contact{:href=>"#menu", :show=>"contact"} información de contacto (#{@provider.contact_informations.count})
       |
-      %a.contact{:href=>"#menu", :show=>"shows"} espectáculos      
+      %a.contact{:href=>"#menu", :show=>"shows"} espectáculos (#{@provider.shows.count})    
     .my-profile-arrows
       .arrow-up-profile.arrow-desc
     .mine.my-desc

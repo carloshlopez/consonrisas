@@ -13,14 +13,21 @@ class ContactInformationsController < ApplicationController
     
     @contact_information = @member.contact_informations.create(params[:contact_information])
     @member.contact_informations.push(@contact_information)
-    
-    if params[:member_type].to_i == ApplicationHelper::ROLES[:fundation]
-       redirect_to fundation_path(@member) and return
-  elsif params[:member_type].to_i == ApplicationHelper::ROLES[:provider]
-      redirect_to provider_path(@member) and return
-    else
-      redirect_to member_path(@member) and return
+  
+    respond_to do |format|
+        format.html { 
+          if params[:member_type].to_i == ApplicationHelper::ROLES[:fundation]
+             redirect_to fundation_path(@member) and return
+          elsif params[:member_type].to_i == ApplicationHelper::ROLES[:provider]
+            redirect_to provider_path(@member) and return
+          else
+            redirect_to member_path(@member) and return
+          end
+        }
+        format.xml  { head :ok }
+        format.json { render :json => { :resp=> "ok" }}
     end
+    
   end
   
   def destroy
@@ -33,14 +40,25 @@ class ContactInformationsController < ApplicationController
     end
     
     @contact_information = @member.contact_informations.find(params[:id])
-    @contact_information.destroy
-    
-    if params[:member_type].to_i == ApplicationHelper::ROLES[:fundation]
-       redirect_to fundation_path(@member) and return
-    elsif params[:member_type].to_i == ApplicationHelper::ROLES[:provider]
-      redirect_to provider_path(@member) and return
-    else 
-      redirect_to member_path(@member) and return
+    success = @contact_information.destroy
+    respond_to do |format|
+      format.html { 
+        if params[:member_type].to_i == ApplicationHelper::ROLES[:fundation]
+           redirect_to fundation_path(@member) and return
+        elsif params[:member_type].to_i == ApplicationHelper::ROLES[:provider]
+          redirect_to provider_path(@member) and return
+        else 
+          redirect_to member_path(@member) and return
+        end
+      }
+      format.xml  { head :ok }
+      format.json { 
+        if success
+          render :json => { :resp=> "ok" }
+        else
+          render :json => { :resp=> "error" }
+        end
+      }
     end
   end
 end

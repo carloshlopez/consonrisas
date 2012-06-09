@@ -1,22 +1,22 @@
-.need_field{
+.need-event_field{
   float: left;
   height: 40px;
   padding: 10px;  
   input{
-    border: 1px solid $fundations-color;
+    border: 1px solid $events-color;
     width: 170px;
   }
 }
 
-.need_form_actions{
+.need-event_form_actions{
   width: 60%;
   margin: 0px auto;
 }
-.need_button{
+.need-event_button{
   margin: 0 auto;
   clear: left;	
   cursor: pointer;
-  background-color: $fundations-color;
+  background-color: $events-color;
   width: 350px;
   height: 35px;
   border-radius: 10px;
@@ -26,34 +26,36 @@
   color: white;
 }
 
-.need-title{
+.need-event-title{
  padding: 3px;
  color: white;
- background-color: $fundations-color;
+ background-color: $events-color;
 }
 
-/*Need list*/
-.a_need{
- padding: 5px;
- min-height: 120px;
+/*need-event list*/
+.a_need-event{
+ padding-bottom: 5px;
+ min-height: 70px;
  border-width: 0 0 1px;
  border-style: dashed;
- color: $fundations-color;
- .need_name{
-  color: $fundations-color;
+ color: $events-color;
+ .need-event_name{
+  color: $events-color;
+  margin-top: 5px;  
  }
- .need_item{
+ .need-event_item{
   min-width: 110px;  
   height: 40px;
   overflow: hidden;
   line-height: 0;
   float: left;
   color: black;
+  margin-top: -10px;
   p{
     font-weight: bold;
   }
  }
- .need_middle{
+ .need-event_middle{
   min-width: 100px;
   padding-right: 15px;
   padding-left: 15px;    
@@ -63,28 +65,28 @@
   border-color: lightgray;
   border-style: solid;
   a{
-    color: $fundations-color;
+    color: $events-color;
     text-decoration: none;
   }
   a:hover{
-    color: darken($fundations-color, 30%);
+    color: darken($events-color, 30%);
   }
   
  }
- .need_actions{
+ .need-event_actions{
    text-align: center;
-  .need_action{
-    margin-top: -15px;
+  .need-event_action{
+    margin-top: -25px;
     float: right;
     height: 60px;
     padding-right: 15px;
     padding-left: 15px;  
-    .help_need img{
+    .help_need-event img{
       height: 40px;
     }
-    .delete_need{
+    .delete_need-event{
       font-size: 35px;
-      color: $fundations-color;
+      color: $events-color;
       text-decoration: none;
     }
     p{
@@ -95,17 +97,16 @@
  }
 }
 
-.need_facilitators{
+.need-event_facilitators{
   clear: right;
   min-height: 100px;
-  margin-top: 72px;
   .a_facilitator{
     float: left;
     img{
       float: left;
       margin-right: 5px;
       border: solid;
-      border-color: $facilitators-color;
+      border-color: $events-color;
     }
     span{
       float: left;
@@ -117,23 +118,23 @@
         font-weight: bold;
       }
       a{
-        color: $facilitators-color;
+        color: $events-color;
         text-decoration: none;
       }
       a:hover{
-        color: $facilitators-color;
+        color: $events-color;
         text-decoration: underline;
       }
     }
   }
 }
 
-/*All Needs by category*/
+/*All need-events by category*/
 
-.need-cat-title{
+.need-event-cat-title{
  padding: 3px;
  color: white;
- background-color: $fundations-color;
+ background-color: $events-color;
  width: 30%;
 }
 

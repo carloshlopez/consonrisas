@@ -19,7 +19,7 @@
           .need_action
             %a.delete_need{:need_id => need.id, :href => "#delete_need",:fundation_id=>"#{need.fundation.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} X
             %p #{I18n.t('destroy')}
-            .loading{:style=>"display:none", :id=>"need-img-#{need.id}"}
+            .loading{:style=>"display:none", :id=>"need-help-img-#{need.id}"}
               = image_tag "mini-loader.gif"
         - else   
           .need_action
@@ -31,7 +31,7 @@
       - unless need.facilitators.empty?
         .need_facilitators.all-facilitators
           %p
-            Facilitadores interesados en ayudarte:
+            Facilitadores interesados en ayudar:
             - i = 0
             - need.facilitators.each do |fac|
               .a_facilitator
@@ -39,5 +39,4 @@
                 %span
                   .fac-name
                     = link_to facilitator_name(fac), facilitator_path(fac)
-                  = link_to I18n.t('go_to_profile'), facilitator_path(fac)               
-                           
+                  = link_to I18n.t('go_to_profile'), facilitator_path(fac)
