@@ -298,17 +298,16 @@ es:
     models:
       user: ""
       project_need: "necesidad"
-      provider: "proveedor"
-      fundation: "projecto Social"
-      event: "evento"
+      provider: "Proveedor"
+      event: "Evento"
       need: "necesidad"
       alert: "alerta"
       comment: "comentario"
       facilitator: "facilitador"
-      fundation: "proyecto social"
+      fundation: "Proyecto Social"
       news: "noticia"
       population: "población"
-           
+      contact_information: "Información de Contacto"     
 
     attributes:
       admins:
