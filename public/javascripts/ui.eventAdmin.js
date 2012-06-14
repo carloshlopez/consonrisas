@@ -42,9 +42,17 @@ $jq.widget("ui.eventAdmin", {
         
         $el.find('.add_facilitator').click(function(e){
             e.preventDefault();
-            var event_id = $jq(this).attr("event_id");
-            var fac_id = $jq(this).attr("facilitator_id");
-            self._addFacilitator(event_id, fac_id);
+            var going = $jq("#going_already").val();
+
+            if (going != undefined){
+              $jq("#alert-msg p").html("Para este evento tu ya haces parte de los asistentes");
+              $jq("#alert-msg").slideDown().delay(2500).slideUp();  
+            }
+            else{
+              var event_id = $jq(this).attr("event_id");
+              var fac_id = $jq(this).attr("facilitator_id");
+              self._addFacilitator(event_id, fac_id);
+            }
         });
         
         $el.find('.remove_fundation').click(function(e){
@@ -205,7 +213,8 @@ $jq.widget("ui.eventAdmin", {
                 alert("Ocurrió un error, intentar más tarde");
             }
             else{
-                alert("Esta fundación ya no va a ir a este evento");
+                $jq("#alert-msg p").html("Este Proyecto Social ya no hace parte de los asistentes a este evento");
+                $jq("#alert-msg").slideDown().delay(2500).slideUp();                  
                 $jq("#fundation-going-"+fund_id).remove();
             }
         });
@@ -217,7 +226,8 @@ $jq.widget("ui.eventAdmin", {
                 alert("Ocurrió un error, intentar más tarde");
             }
             else{
-                alert("Ya no vas a ir como proveedor a este evento");
+                $jq("#alert-msg p").html("Este Proveedor de Sonrisas ya no hará parte de este evento");
+                $jq("#alert-msg").slideDown().delay(2500).slideUp();  
                 $jq("#provider-going-"+prov_id).remove();
             }
         });
@@ -275,6 +285,99 @@ $jq.widget("ui.eventAdmin", {
 jQuery(document).ready(function($) {
     $jq("#ask_admin_message").hide();
     $jq("#eventAdmin").eventAdmin();
+    $jq(".invite-facilitators-button").click(function(){
+      $jq("#invite-facilitators").dialog({modal:true, title:"Invita Facilitadores", width: 550,         closeText:"X", show:"fadeIn",
+      open: function(){
+        $jq(".ui-dialog").addClass("event-dialog");
+      }
+      });    
+    });
+    
+    $jq(".invite-fundations-button").click(function(){
+      $jq("#invite-fundations").dialog({modal:true, title:"Asiste como Proyecto Social", width: 550,         closeText:"X", show:"fadeIn",
+      open: function(){
+        $jq(".ui-dialog").addClass("event-dialog");
+      }
+      });    
+    });
+    
+    $jq(".invite-providers-button").click(function(){
+      $jq("#invite-providers").dialog({modal:true, title:"Asiste como Proveedor de Sonrisas", width: 550,         closeText:"X", show:"fadeIn",
+      open: function(){
+        $jq(".ui-dialog").addClass("event-dialog");
+      }
+      });    
+    });        
+    
+    $jq(".invite_facilitators_send").click(function(e){
+      e.preventDefault();
+      var ids = new Array();
+      $jq(".check_invite_fac:checked").each(function(){
+        ids.push($jq(this).val());
+      });
+      var postData = {event_id:$jq(this).attr("event_id"), facilitators_ids:ids};
+      $jq.post("/events/add_facilitators.json", postData , function(data){
+          if(data.resp == "ok"){
+            $jq("#alert-msg p").html("Los facilitadores serán invitados");
+            $jq("#alert-msg").slideDown().delay(2500).slideUp(function(){
+              window.location.reload();
+            });
+          }
+          else{
+            $jq("#alert-msg p").html(data.message);
+            $jq("#alert-msg").slideDown().delay(2500).slideUp();          
+          }
+      });      
+      
+    });
+    
+    $jq(".invite_fundations_send").click(function(e){
+      e.preventDefault();
+      var ids = new Array();
+      $jq(".check_invite_fund:checked").each(function(){
+        ids.push($jq(this).val());
+      });
+
+      var postData = {event_id:$jq(this).attr("event_id"), fundations_ids:ids};
+      $jq.post("/events/add_fundations.json", postData , function(data){
+          if(data.resp == "ok"){
+            $jq("#alert-msg p").html("Los Poyectos Sociales escogidos hacen parte de los asistentes al evento");
+            $jq("#alert-msg").slideDown().delay(2500).slideUp(function(){
+              window.location.reload();
+            });
+          }
+          else{
+            $jq("#alert-msg p").html(data.message);
+            $jq("#alert-msg").slideDown().delay(2500).slideUp();          
+          }
+      });      
+      
+    });    
+
+    $jq(".invite_providers_send").click(function(e){
+      e.preventDefault();
+      var ids = new Array();
+      $jq(".check_invite_prov:checked").each(function(){
+        ids.push($jq(this).val());
+      });
+
+      var postData = {event_id:$jq(this).attr("event_id"), providers_ids:ids};
+      $jq.post("/events/add_providers.json", postData , function(data){
+          if(data.resp == "ok"){
+            $jq("#alert-msg p").html("Los Proveedores de Sonrisas escogidos ahora hacen parte de los asistentes al evento");
+            $jq("#alert-msg").slideDown().delay(2500).slideUp(function(){
+              window.location.reload();
+            });
+          }
+          else{
+            $jq("#alert-msg p").html(data.message);
+            $jq("#alert-msg").slideDown().delay(2500).slideUp();          
+          }
+      });      
+      
+    });    
+
+
     $jq("a[rel^='prettyPhoto']").prettyPhoto({
         animation_speed:'normal',
         theme:'light_rounded',

@@ -1,0 +1,11 @@
+- if member_signed_in? and !current_member.providers.empty?
+  .following
+    - current_member.providers.each do |prov|
+      .a_follower
+        = check_box_tag prov.id, prov.id, false, :class=> 'check_invite check_invite_prov'
+        = image_tag prov.pic(:thumb), :class=>"img-providers", :title=>prov.name
+        .a_follower_name
+          = prov.name
+    .invite-button
+      %a.invite_send.invite_providers_send{:href=>"#invite", :event_id=>@event.id}
+        Asistir

@@ -42,8 +42,45 @@ class Event < ActiveRecord::Base
     EventAdmin.create(:e_mail =>mail, :event_id => self.id, :active=>false)
     # TODO send mail with invitation if email not registered
   end
+
+  def add_facilitators facilitators_ids
+    facilitators_ids.each do |fac_id|
+      unless facilitators.exists?(fac_id)
+        facilitators.push(Facilitator.find(fac_id))
+      end
+    end
+    alert_facilitators facilitators_ids
+  end
   
+  def add_fundations fundations_ids
+    fundations_ids.each do |fund_id|
+      unless fundations.exists?(fund_id)
+        fundations.push(Fundation.find(fund_id))
+      end
+    end
+  end  
+  
+  def add_providers providers_ids
+    providers_ids.each do |prov_id|
+      unless providers.exists?(prov_id)
+        providers.push(Provider.find(prov_id))
+      end
+    end
+  end    
+    
   private 
+  
+  def alert_facilitators facilitators_ids
+    facilitators_ids.each do |fac_id|
+      unless facilitators.exists?(fac_id)
+        facilitator = Facilitator.find(fac_id)
+        Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id) 
+        EventInvitation.invite_facilitator(facilitator.member, self).deliver 
+        facilitators.push(facilitator)
+      end
+    end
+  end
+  handle_asynchronously :alert_facilitators  
   
   def at_least_one_fundation
     errors.add_to_base I18n.t('events.one_fundation_error') if self.fundations.blank?
