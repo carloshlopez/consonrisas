@@ -74,23 +74,34 @@
           %span{:style=>"color:#00BCFA;"} Asistir al evento:
           %br
           Como un: 
-          = check_box_tag "facilitator", "facilitator", false, :class=>"add_facilitator"
-          %span.fac_block.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}
-            = I18n.t('facilitator_name').capitalize
-          = check_box_tag "provider", "provider", false, :class=>"invite-providers-button"
-          %span.prov_block{:class=>"invite-providers-button"}
-            = I18n.t('provider_name').capitalize        
-          = check_box_tag "fundation", "fundation", false, :class=>"invite-fundations-button"
-          %span.fund_block{:class=>"invite-fundations-button"}
-            = I18n.t('fundation_name').capitalize  
-          .event-invitations-options
-            - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
-              %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')       
-            - else
-              %label.im-going Asistiras
-              %a.remove_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
-              %input#going_already{:type=>"hidden", :value=>"going"}
-            %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar Amigos  
+          - if member_signed_in?
+            = check_box_tag "facilitator", "facilitator", false, :class=>"add_facilitator"
+            %span.fac_block.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}
+              = I18n.t('facilitator_name').capitalize
+            = check_box_tag "provider", "provider", false, :class=>"invite-providers-button"
+            %span.prov_block.invite-providers-button
+              = I18n.t('provider_name').capitalize        
+            = check_box_tag "fundation", "fundation", false, :class=>"invite-fundations-button"
+            %span.fund_block.invite-fundations-button
+              = I18n.t('fundation_name').capitalize  
+            .event-invitations-options
+              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
+                %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')       
+              - else
+                %label.im-going Asistiras
+                %a.remove_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
+                %input#going_already{:type=>"hidden", :value=>"going"}
+              %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar Amigos  
+          - else
+            = check_box_tag "facilitator", "facilitator", false, :class=>"register_wizzard"
+            %span.fac_block.register_wizzard{:title => I18n.t('events.add_me_facilitator')}
+              = I18n.t('facilitator_name').capitalize
+            = check_box_tag "provider", "provider", false, :class=>"register_wizzard"
+            %span.prov_block.register_wizzard
+              = I18n.t('provider_name').capitalize        
+            = check_box_tag "fundation", "fundation", false, :class=>"register_wizzard"
+            %span.fund_block.register_wizzard
+              = I18n.t('fundation_name').capitalize
       .mine.my-description
         .event-sub-title
           Descripción del evento
