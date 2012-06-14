@@ -4,7 +4,7 @@ $jq(document).ready(function($) {
     	// Smart Wizard     	
   		$jq('#complete_register_wizard').smartWizard({
   		transitionEffect:'slideleft',
-      enableAllSteps: true,
+      enableAllSteps: false,
   		keyNavigation: false,
   		onLeaveStep:leaveAStepCallback2,
   		onShowStep:showAStepCallback2,  		
@@ -20,6 +20,7 @@ $jq(document).ready(function($) {
          $jq(".buttonFinish").show();
          $jq(".buttonPrevious").show();
          $jq(".loader_login").hide();
+
         if(step_num == 2){
      
         }
@@ -31,12 +32,11 @@ $jq(document).ready(function($) {
       }
       
       function onFinishCallback2(){    
-
-        if(validateAllSteps2()){
-          var val = true;// confirm("¿Está toda la información completa?");
+        var doNotShowMessage = true;
+        if(validateAllSteps2(doNotShowMessage)){
+          var val = true;
            if (val){
              $jq.post("/cleanInitialSession", function(data){
-                //console.log(data);
                 $jq("#complete_register").dialog('close');
              }); 
 
@@ -51,23 +51,23 @@ $jq(document).ready(function($) {
             
 		});
 	   
-    function validateAllSteps2(){
+    function validateAllSteps2(doNotShowMessage){
        var isStepValid = true;
        
-       if(valStep1() == false){
+       if(valStep1(doNotShowMessage) == false){
          isStepValid = false;
          $jq('#complete_register_wizard').smartWizard('setError',{stepnum:1,iserror:true});         
        }else{
          $jq('#complete_register_wizard').smartWizard('setError',{stepnum:1,iserror:false});
        }
        
-       if(valStep2() == false){
+       if(valStep2(doNotShowMessage) == false){
          isStepValid = false;
          $jq('#complete_register_wizard').smartWizard('setError',{stepnum:2,iserror:true});         
        }else{
          $jq('#complete_register_wizard').smartWizard('setError',{stepnum:2,iserror:false});
        }
-       if(valStep3() == false){
+       if(valStep3(doNotShowMessage) == false){
          isStepValid = false;
          $jq('#complete_register_wizard').smartWizard('setError',{stepnum:2,iserror:true});         
        }else{
@@ -121,21 +121,36 @@ $jq(document).ready(function($) {
       return isStepValid;
     }
 		
-		function valStep1(){
-       var isValid = true; 
-     
-       return isValid;
+		function valStep1(doNotShowMessage){
+      var isValid = true; 
+      var formToSend = $jq("#step1-info").val();     
+      sendForm(formToSend, doNotShowMessage);
+      return isValid;
     }
     
-    function valStep2(){
+    function valStep2(doNotShowMessage){
       var isValid = true;    
-   
+      var formToSend = $jq("#step2-info").val();     
+      sendForm(formToSend, doNotShowMessage);   
       return isValid;
     }
     
     
-    function valStep3(){
+    function valStep3(doNotShowMessage){
       var isValid = true;    
-   
+      var formToSend = $jq("#step3-info").val();     
+      sendForm(formToSend, doNotShowMessage);   
       return isValid;
     }    		
+    
+    function sendForm(formToSend, doNotShowMessage){
+      if(formToSend == "facilitator"){
+        sendFormFacilitator(doNotShowMessage);
+      }
+      else if(formToSend == "fundation"){
+        sendFormFundation(doNotShowMessage);
+      }
+      else if(formToSend == "provider"){
+        sendFormProvider(doNotShowMessage);
+      }
+    }

@@ -31,36 +31,45 @@
     #step-1
       %h2.StepTitle Completa la información
       - if @facilitator_step == 1
+        %input#step1-info{:type=>"hidden", :value=>"facilitator"}
         = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"
         = render :partial => "facilitators/pop_up_form"        
       - elsif @fundation_step == 1
+        %input#step1-info{:type=>"hidden", :value=>"fundation"}      
         = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"
         = render :partial => "fundations/pop_up_form"        
       - elsif @provider_step == 1
+        %input#step1-info{:type=>"hidden", :value=>"provider"}      
         = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"
         = render :partial => "providers/pop_up_form"
     - if @num_steps > 1    
       #step-2
         %h2.StepTitle Completa la información
         - if @facilitator_step == 2
+          %input#step2-info{:type=>"hidden", :value=>"facilitator"}        
           = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"          
           = render :partial => "facilitators/pop_up_form"        
         - elsif @fundation_step == 2
+          %input#step2-info{:type=>"hidden", :value=>"fundation"}                
           = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"          
           = render :partial => "fundations/pop_up_form"        
         - elsif @provider_step == 2
+          %input#step2-info{:type=>"hidden", :value=>"provider"}                
           = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"       
           = render :partial => "providers/pop_up_form"
     - if @num_steps > 2      
       #step-3
         %h2.StepTitle Completa la información
         - if @facilitator_step == 3
+          %input#step3-info{:type=>"hidden", :value=>"facilitator"}                
           = image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;"          
           = render :partial => "facilitators/pop_up_form"        
         - elsif @fundation_step == 3
+          %input#step3-info{:type=>"hidden", :value=>"fundation"}                
           = image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;"          
           = render :partial => "fundations/pop_up_form"        
         - elsif @provider_step == 3
+          %input#step3-info{:type=>"hidden", :value=>"provider"}
           = image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;"           
           = render :partial => "providers/pop_up_form"
   %span.loader_login{:style => "display:none"}

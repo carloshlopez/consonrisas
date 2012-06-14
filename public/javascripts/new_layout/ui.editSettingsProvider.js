@@ -15,8 +15,6 @@ jQuery(function() {
       var form = jQuery(this).closest("form");
       var action = form.attr("action");
       var serialized_form = form.serialize();
-      console.log(action);
-      console.log(serialized_form);      
       action = action.substr(0,action.indexOf('?'));
         jQuery.post(action+".json", serialized_form, function(data){
            if (data.resp == 'ok'){

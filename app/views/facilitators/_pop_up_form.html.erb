@@ -1,5 +1,6 @@
 <%= javascript_include_tag "new_layout/ui.facilitatorFormPopUp" %>
 <%= form_for(@facilitator, :html => {:multipart=> true}, :class=>"pop_up_form_facilitator") do |f| %>
+  <div style="float: left; margin-right:20px;">
   <div class="field">
     <%= f.label I18n.t("name") %><br />
     <%= f.text_field :name, :class=>"input_dialog" %>
@@ -10,12 +11,12 @@
     <%= f.text_area :contribution, :class=>"textarea_dialog" %>
     <input type="hidden" name="facilitator[member_id]" value="<%= current_member.id %>"/>
   </div>
-  
+  </div>  
   <div class="field">
     <%= f.label I18n.t("city") %><br />
     <%= f.text_field :city, :class=>"cities input_dialog" %>
   </div>
-  
+
     <div class="field">
     <%= f.label I18n.t("profile.population_of_interest") %>
     <br/>
@@ -36,23 +37,7 @@
         <% end %>
       <% end %>
     <% end %>
-  </div> 
-  <div class="field">
-    <%= f.label I18n.t("emailNotifications") %> &nbsp;
-    <% if @facilitator.member.emailNotifications %>
-      <%= check_box_tag 'emailNotifications', 1, true%>
-    <% else %>
-      <%= check_box_tag 'emailNotifications', 1, false%>
-    <% end %>
-  </div>  
-  <div class="field">
-    <%= f.label I18n.t("use_facebook_pic") %> &nbsp;
-    <% if @facilitator.member.use_facebook_pic %>
-      <%= check_box_tag 'use_facebook_pic', 1, true, :class => 'use_facebook_pic' %>
-    <% else %>
-      <%= check_box_tag 'use_facebook_pic', 1, false, :class => 'use_facebook_pic' %>
-    <% end %>
-  </div>  
+  </div>
   
   <div class="actions">
     <%= f.submit :class=>"facilitator_form_button" %>
