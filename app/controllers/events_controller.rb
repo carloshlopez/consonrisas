@@ -11,7 +11,13 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-
+    @meta_event_name = @event.name if @event.name
+    @meta_event_desc = @event.desc[0, 100] if @event.desc
+    if @event.pic(:thumb) and @event.pic(:thumb).include? "s3"
+      @meta_event_img = @event.pic(:thumb)
+    else
+      @meta_event_img = "http://www.consonrisas.co/" << @event.pic.url(:thumb)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }
@@ -96,6 +102,21 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)
   end
   
+  def add_providers
+    resp = {"resp" => "ok"}
+    if params[:providers_ids].empty?
+      resp = {"resp" => "error", "message" => "Debes escoger al menos un Proveedor"}
+    else
+      @event = Event.find(params[:event_id])
+      @event.add_providers params[:providers_ids]
+    end
+    respond_to do |format|
+      format.js {head:ok}
+      format.html {redirect_to event_path(@event)}
+      format.json { render :json=>resp}
+    end
+  end    
+    
   def add_facilitator
     @event = Event.find(params[:event_id])
     @facilitator = Facilitator.find(params[:facilitator_id])
@@ -114,7 +135,21 @@ class EventsController < ApplicationController
       format.js {head:ok}
       format.html {redirect_to event_path(@event)}
     end
-
+  end
+  
+  def add_facilitators
+    resp = {"resp" => "ok"}
+    if params[:facilitators_ids].empty?
+      resp = {"resp" => "error", "message" => "Debes escoger al menos un facilitador a invitar"}
+    else
+      @event = Event.find(params[:event_id])
+      @event.add_facilitators params[:facilitators_ids]
+    end
+    respond_to do |format|
+      format.js {head:ok}
+      format.html {redirect_to event_path(@event)}
+      format.json { render :json=>resp}
+    end
   end
   
   def add_fundation
@@ -122,6 +157,21 @@ class EventsController < ApplicationController
     @fundation = Fundation.find(params[:fundation_id])
     @event.fundations.push(@fundation)
     redirect_to event_path(@event)
+  end  
+  
+  def add_fundations
+    resp = {"resp" => "ok"}
+    if params[:fundations_ids].empty?
+      resp = {"resp" => "error", "message" => "Debes escoger al menos un Proyecto Social"}
+    else
+      @event = Event.find(params[:event_id])
+      @event.add_fundations params[:fundations_ids]
+    end
+    respond_to do |format|
+      format.js {head:ok}
+      format.html {redirect_to event_path(@event)}
+      format.json { render :json=>resp}
+    end
   end  
   
   def remove_provider 

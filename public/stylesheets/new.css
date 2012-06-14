@@ -1610,6 +1610,43 @@ span.edit_profilepicture_icon {
     padding: 0 25px 25px;
     font-size: 14px;
     min-height: 150px; }
+  #left-div-profile-event .fundations-invited-title-bar {
+    height: 10px;
+    background-color: #973b8c;
+    margin-top: -10px; }
+  #left-div-profile-event .facilitators-invited-title-bar {
+    height: 10px;
+    background-color: red;
+    margin-top: -10px; }
+  #left-div-profile-event .providers-invited-title-bar {
+    height: 10px;
+    background-color: #e3bb00;
+    margin-top: -10px; }
+  #left-div-profile-event .going-all {
+    border-top: 1px dotted white;
+    margin-top: 6px;
+    padding-top: 10px; }
+  #left-div-profile-event .going-div {
+    padding-top: 4px; }
+    #left-div-profile-event .going-div .remove_fundation {
+      font-size: larger;
+      font-weight: bold; }
+    #left-div-profile-event .going-div .element-going {
+      margin-right: 5px;
+      display: inline; }
+  #left-div-profile-event .going_pic {
+    width: 39px;
+    border: 2px solid #5ab446;
+    vertical-align: middle;
+    margin-bottom: 5px; }
+  #left-div-profile-event img.img-facilitators {
+    border-color: red; }
+  #left-div-profile-event img.img-providers {
+    border-color: #e3bb00; }
+  #left-div-profile-event img.img-fundations {
+    border-color: #973b8c; }
+  #left-div-profile-event img.img-events {
+    border-color: #00bcfa; }
 
 #profile-content-event {
   width: 600px;
@@ -1628,6 +1665,51 @@ span.edit_profilepicture_icon {
       position: absolute;
       margin-left: 390px;
       margin-top: 1px; }
+  #profile-content-event .event-send-invitations {
+    background-color: #E6E6E6;
+    margin-top: 5px;
+    padding: 8px; }
+    #profile-content-event .event-send-invitations .im-going {
+      background-color: #00bcfa;
+      border-radius: 5px;
+      padding: 2px 10px 2px 10px;
+      margin: 2px;
+      color: white; }
+    #profile-content-event .event-send-invitations .iwanna-go,
+    #profile-content-event .event-send-invitations .invite-friends {
+      background-color: #00bcfa;
+      border-radius: 5px;
+      padding: 2px 10px 2px 10px;
+      color: white;
+      text-decoration: none;
+      margin-left: 60px; }
+    #profile-content-event .event-send-invitations .iwanna-go:hover,
+    #profile-content-event .event-send-invitations .invite-friends:hover {
+      text-decoration: underline; }
+    #profile-content-event .event-send-invitations .prov_block {
+      background-color: #e3bb00;
+      color: white;
+      min-width: 120px;
+      display: inline-block;
+      cursor: pointer;
+      padding-left: 5px; }
+    #profile-content-event .event-send-invitations .fund_block {
+      background-color: #973b8c;
+      color: white;
+      min-width: 120px;
+      display: inline-block;
+      cursor: pointer;
+      padding-left: 5px; }
+    #profile-content-event .event-send-invitations .fac_block {
+      background-color: red;
+      color: white;
+      min-width: 120px;
+      display: inline-block;
+      cursor: pointer;
+      padding-left: 5px; }
+    #profile-content-event .event-send-invitations .event-invitations-options {
+      margin-top: 5px;
+      padding: 5px; }
   #profile-content-event .my-profile-menu-top {
     margin-top: -55px;
     margin-left: 10px;
@@ -1699,36 +1781,6 @@ span.edit_profilepicture_icon {
   #profile-content-event a:hover {
     text-decoration: underline; }
 
-.going-all {
-  border-top: 1px dotted white;
-  margin-top: 6px;
-  padding-top: 10px; }
-
-.going-div {
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 98%;
-  white-space: nowrap;
-  padding: 4px; }
-
-.going_pic {
-  height: 40px;
-  border: 2px solid #5ab446;
-  vertical-align: middle;
-  margin-right: 10px; }
-
-img.img-facilitators {
-  border-color: red; }
-
-img.img-providers {
-  border-color: #e3bb00; }
-
-img.img-fundations {
-  border-color: #973b8c; }
-
-img.img-events {
-  border-color: #00bcfa; }
-
 .news-item {
   height: 50px;
   padding: 10px 10px 20px;
@@ -1753,6 +1805,49 @@ img.img-events {
     background: #973b8c;
     color: white;
     font-weight: bold; }
+
+.following img {
+  border: 1px solid;
+  width: 35px; }
+.following img.img-facilitators {
+  border-color: red; }
+.following img.img-providers {
+  border-color: #e3bb00; }
+.following img.img-fundations {
+  border-color: #973b8c; }
+.following img.img-events {
+  border-color: #00bcfa; }
+.following .check_invite {
+  vertical-align: top; }
+.following .a_follower {
+  float: left; }
+  .following .a_follower .a_follower_name {
+    font-size: smaller;
+    display: inline-block;
+    word-wrap: break-word;
+    width: 95px;
+    vertical-align: top; }
+.following .invite-button {
+  padding-top: 20px;
+  clear: both; }
+  .following .invite-button .invite_send {
+    margin: 0 auto;
+    clear: left;
+    display: block;
+    background-color: #00bcfa;
+    color: white;
+    width: 150px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none; }
+  .following .invite-button .invite_send:hover {
+    text-decoration: underline; }
+
+.event-dialog .ui-dialog-titlebar {
+  background-color: white;
+  color: #00bcfa;
+  border: 0; }
 
 .search-results {
   width: 75%;

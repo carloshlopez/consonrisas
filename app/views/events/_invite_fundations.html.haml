@@ -1,0 +1,11 @@
+- if member_signed_in? and !current_member.fundations.empty?
+  .following
+    - current_member.fundations.each do |fund|
+      .a_follower
+        = check_box_tag fund.id, fund.id, false, :class=> 'check_invite check_invite_fund'
+        = image_tag fund.pic(:thumb), :class=>"img-fundations", :title=>fund.name
+        .a_follower_name
+          = fund.name
+    .invite-button
+      %a.invite_send.invite_fundations_send{:href=>"#invite", :event_id=>@event.id}
+        Asistir

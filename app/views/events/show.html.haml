@@ -36,16 +36,12 @@
               = link_to member_name(@event.event_admins[0].member), facilitator_path(@event.event_admins.member.facilitator)
             - else
               = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)            
-          - if member_signed_in?
-            - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty? and !@event.isClosed
-              %br
-              %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
-            - if can_edit
-              %br
-              %a.edit-me{:href=>"#"}
-                = I18n.t('edit')
-              #event-edit{:style=>"display:none"}
-                = render :partial=>"form"      
+          - if member_signed_in? and can_edit
+            %br
+            %a.edit-me{:href=>"#"}
+              = I18n.t('edit')
+            #event-edit{:style=>"display:none"}
+              = render :partial=>"form"      
           .going-all
             - if @event.isClosed
               %b #{I18n.t('events.isClosed')}
@@ -73,6 +69,28 @@
         .arrow-up-profile.arrow-all    
       .share_fb
         = render :partial => "share_fb"
+      .event-send-invitations
+        - unless @event.isClosed  
+          %span{:style=>"color:#00BCFA;"} Asistir al evento:
+          %br
+          Como un: 
+          = check_box_tag "facilitator", "facilitator", false, :class=>"add_facilitator"
+          %span.fac_block.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}
+            = I18n.t('facilitator_name').capitalize
+          = check_box_tag "provider", "provider", false, :class=>"invite-providers-button"
+          %span.prov_block{:class=>"invite-providers-button"}
+            = I18n.t('provider_name').capitalize        
+          = check_box_tag "fundation", "fundation", false, :class=>"invite-fundations-button"
+          %span.fund_block{:class=>"invite-fundations-button"}
+            = I18n.t('fundation_name').capitalize  
+          .event-invitations-options
+            - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
+              %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')       
+            - else
+              %label.im-going Asistiras
+              %a.remove_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
+              %input#going_already{:type=>"hidden", :value=>"going"}
+            %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar Amigos  
       .mine.my-description
         .event-sub-title
           Descripción del evento
@@ -100,7 +118,7 @@
               = I18n.t('show_less')                  
       .mine.my-pics
         .event-sub-title
-          Fotos
+          Fotos (#{@event.photos.count})
         #the_photo_gallery
           = render :partial=>"photo_gallery"
         .show-more-container
@@ -118,6 +136,7 @@
       .mine.my-comments
         .event-sub-title
           = I18n.t("events.comments")
+          = "(#{@event.comments.count})"
         #all-event-comments.all-items
           %h3
             = "#{I18n.t("events.add_comment")}:"
@@ -152,5 +171,13 @@
             %br
             #ask_admin_message Se envió la solicitud!
             %a.ask_admin{:href => "#", :name => "ask_admin"} 
-              Ask To Admin                       
+              Ask To Admin
+- if member_signed_in?
+  #invite-facilitators{:style=>"display:none"}
+    = render :partial=>"invite_facilitators"
+  #invite-fundations{:style=>"display:none"}
+    = render :partial=>"invite_fundations"
+  #invite-providers{:style=>"display:none"}
+    = render :partial=>"invite_providers"        
+    
 = javascript_include_tag "ui.eventAdmin"

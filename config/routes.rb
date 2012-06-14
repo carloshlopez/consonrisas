@@ -46,8 +46,11 @@ Consonrisas::Application.routes.draw do
   get "events/gallery"
 
   post "events/add_facilitator"
+  post "events/add_facilitators"  
   post "events/add_fundation"
+  post "events/add_fundations"  
   post "events/add_provider"
+  post "events/add_providers"  
   post "events/add_show"  
   
   post "events/remove_facilitator"

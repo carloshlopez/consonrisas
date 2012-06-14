@@ -1,20 +1,12 @@
-.bordered_box
-  %b
-    = I18n.t("events.attending_providers")
-    \: #{@event.providers.count}
+= I18n.t('providers').capitalize
+= "(#{(@event.providers.count)})"
+.providers-invited-title-bar
+.providers_invited
   - if @event.providers.count > 0
     .going-div
       - @event.providers.each do |provider|
-        .provider-going{:id=>"provider-going-#{provider.id}", :style=>"display:inline"}
+        .element-going{:id=>"provider-going-#{provider.id}", :style=>"display:inline"}
           = link_to image_tag(provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(provider), :title=>"#{provider.name}"
           - if member_signed_in?
             - unless current_member.providers.select{|p| p.id == provider.id}.empty?
-              %a{:href=>"#", :class=>"remove_provider", :event_id=>"#{@event.id}", :provider_id=>"#{provider.id}"}x
-  - if member_signed_in? and (!@event.isClosed or can_current_member_edit_event(@event.id) )
-    - unless current_member.providers.empty?
-      #new_provider
-        %form{:action => "/events/add_provider", :method => "post"}
-          %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
-            = select_tag "provider_id", options_from_collection_for_select(current_member.providers, "id", "name")
-            %input{:name => "event_id", :type => "hidden", :value => @event.id}/
-            %input{:name => "new_provider", :type => "submit", :value => I18n.t('events.add_me_provider')}/
+              %a{:href=>"#", :class=>"remove_provider", :event_id=>"#{@event.id}", :provider_id=>"#{provider.id}"}X

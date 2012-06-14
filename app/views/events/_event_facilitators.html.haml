@@ -1,0 +1,21 @@
+= I18n.t('facilitators').capitalize
+= "(#{(@event.facilitators.count)})"
+.facilitators-invited-title-bar
+.facilitators-invited
+  - if @event.facilitators.count > 0
+    .going-div
+      - @event.facilitators.each do |facilitator|
+        .element-going
+          - if facilitator.name
+            - name = facilitator.name
+          - else
+            - name = facilitator.member.email
+          - if facilitator.member
+            = link_to image_tag(member_thumb(facilitator), :class=>"going_pic img-facilitators"),  member_path(facilitator.member), :title=>"#{facilitator.name}"
+  - if member_signed_in? and (!@event.isClosed or can_current_member_edit_event(@event.id) )
+    - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
+      %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
+    - else
+      = I18n.t('events.attending_as_facilitator')
+      |
+      %a.remove_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
