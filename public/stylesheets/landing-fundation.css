@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$fundations-color".
-        on line 38 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss
+        on line 39 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss
 
-33: }
-34: .step1{
-35: }
-36: .step2{
-37:   padding-left: 10px;
-38:   border-left: 1px dashed $fundations-color;  
-39:   border-right: 1px dashed $fundations-color;
-40: }
-41: .step3{
-42:   margin-left: 10px;
-43:   min-width: 560px;
+34: }
+35: .step1{
+36: }
+37: .step2{
+38:   padding-left: 10px;
+39:   border-left: 1px dashed $fundations-color;  
+40:   border-right: 1px dashed $fundations-color;
+41: }
+42: .step3{
+43:   margin-left: 10px;
+44: }
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss:38
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss:39
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
@@ -100,4 +100,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 38 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss\A \A 33: }\A 34: .step1{\A 35: }\A 36: .step2{\A 37:   padding-left: 10px;\A 38:   border-left: 1px dashed $fundations-color;  \A 39:   border-right: 1px dashed $fundations-color;\A 40: }\A 41: .step3{\A 42:   margin-left: 10px;\A 43:   min-width: 560px;"; }
+  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 39 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss\A \A 34: }\A 35: .step1{\A 36: }\A 37: .step2{\A 38:   padding-left: 10px;\A 39:   border-left: 1px dashed $fundations-color;  \A 40:   border-right: 1px dashed $fundations-color;\A 41: }\A 42: .step3{\A 43:   margin-left: 10px;\A 44: }"; }

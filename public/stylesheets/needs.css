@@ -8,7 +8,7 @@ Syntax error: Undefined variable: "$fundations-color".
 4:   padding: 10px;  
 5:   input{
 6:     border: 1px solid $fundations-color;
-7:     width: 170px;
+7:     max-width: 170px;
 8:   }
 9: }
 10: 
@@ -110,4 +110,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss\A \A 1: .need_field{\A 2:   float: left;\A 3:   height: 40px;\A 4:   padding: 10px;  \A 5:   input{\A 6:     border: 1px solid $fundations-color;\A 7:     width: 170px;\A 8:   }\A 9: }\A 10: \A 11: .need_form_actions{"; }
+  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss\A \A 1: .need_field{\A 2:   float: left;\A 3:   height: 40px;\A 4:   padding: 10px;  \A 5:   input{\A 6:     border: 1px solid $fundations-color;\A 7:     max-width: 170px;\A 8:   }\A 9: }\A 10: \A 11: .need_form_actions{"; }
