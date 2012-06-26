@@ -15,8 +15,11 @@
     padding-left: 10px;
   }
   .text{
-    padding: 20px;
+    padding-left: 25px;
+    padding-top: 18px;
     font-size: 20px;
+    line-height: 130%;
+    font-size: 17px;
   }
 }
 
@@ -27,8 +30,6 @@
 }
 .step{
   float: left;
-  min-height: 300px;
-  min-width: 200px;
   padding: 5px;
 }
 .step1{
@@ -40,7 +41,6 @@
 }
 .step3{
   margin-left: 10px;
-  min-width: 560px;
 }
 
 .step-title{

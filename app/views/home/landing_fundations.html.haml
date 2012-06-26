@@ -4,8 +4,21 @@
   .landing-header.fundation
     =image_tag "/images/FundacionesTransparenteMedio.png"
     .text
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id arcu non lectus dictum pellentesque eget quis diam. Suspendisse in semper sem. Nullam tortor arcu, sodales ut cursus a, lacinia sed felis. Nullam justo dui, consectetur porta auctor vel, luctus id ligula. Suspendisse iaculis dapibus dictum. Etiam fringilla lorem in felis dictum ultricies. Suspendisse eleifend orcimagna. Morbi hen
-
+      Si trabajas en un 
+      %b Proyecto Social
+      que tiene necesidades, regístrate en Conectando Sonrisas.
+      %br
+      %li
+        Aquí encontrarás facilitadores que te pueden ayudar a suplirlas. 
+      %br
+      Si en tu
+      %b Proyecto Social
+      haces
+      %b Eventos
+      y quieres que estén llenos de sonrisas, regístrate en Conectando Sonrisas.
+      %br
+      %li
+        En esta comunidad virtual también podrás encontrar entretenimiento para estos.
   .steps
     .step.step1
       %p.number-title
@@ -38,7 +51,7 @@
           .field.need_field
             = f.label I18n.t('category')
             %br/
-            = select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, @fundation.id), :id=>"need_cat_select", :include_blank => I18n.t('other'))
+            = select_tag("project_need[need_category_id]", options_for_select(NeedCategory.all.map {|category| [need_category_name(category), category.id]}, "1"), :id=>"need_cat_select", :include_blank => I18n.t('other'))
           #other_need_category.field{:style => "display:none; clear:both;"}
             = f.label I18n.t('category')
             \:

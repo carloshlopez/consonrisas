@@ -41,8 +41,11 @@ body {
     padding-right: 10px;
     padding-left: 10px; }
   .landing-header .text {
-    padding: 20px;
-    font-size: 20px; }
+    padding-left: 25px;
+    padding-top: 18px;
+    font-size: 20px;
+    line-height: 130%;
+    font-size: 17px; }
 
 .steps {
   margin-left: 20px;
@@ -51,8 +54,6 @@ body {
 
 .step {
   float: left;
-  min-height: 300px;
-  min-width: 200px;
   padding: 5px; }
 
 .step2 {
@@ -61,18 +62,17 @@ body {
   border-right: 1px dashed #973b8c; }
 
 .step3 {
-  margin-left: 10px;
-  min-width: 560px; }
+  margin-left: 10px; }
 
 .step-title {
   padding: 3px;
   color: white;
   background-color: #973b8c;
-  width: 220px; }
+  width: 180px; }
 
 .input-landing {
   padding: 3px;
-  width: 220px;
+  width: 180px;
   border: 1px solid #973b8c;
   max-height: 120px; }
 
@@ -132,7 +132,7 @@ body {
   padding: 10px; }
   .need_field input {
     border: 1px solid #973b8c;
-    width: 170px; }
+    max-width: 170px; }
 
 .need_form_actions {
   width: 60%;

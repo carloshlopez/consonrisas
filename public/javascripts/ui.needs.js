@@ -84,6 +84,7 @@ $jq.widget("ui.needs", {
       $jq.post("/proyectos/"+fundation_id+"/project_needs.json",$jq("#new_project_need").serialize(), function(data){
           $jq.get("/proyectos/"+fundation_id+"/project_needs/"+data.project_need.id, function(resp){
               $jq("#the-needs").append(resp);
+              $jq(".help_need").closest(".need_action").hide();
               $jq('html, body').animate({ scrollTop: $jq('#need-'+data.project_need.id).offset().top }, '1500');
               $jq("#need-"+data.project_need.id).effect("highlight", {color:'#973B8C'}, 3000);
               $jq('body').css('cursor', 'auto');

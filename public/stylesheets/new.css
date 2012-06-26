@@ -1954,7 +1954,7 @@ span.edit_profilepicture_icon {
   padding: 10px; }
   .need_field input {
     border: 1px solid #973b8c;
-    width: 170px; }
+    max-width: 170px; }
 
 .need_form_actions {
   width: 60%;
