@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @meta_event_name = @event.name if @event.name
-    @meta_event_desc = @event.desc[0, 100] if @event.desc
+    @meta_event_desc = @event.desc[0, 350] if @event.desc
     if @event.pic(:thumb) and @event.pic(:thumb).include? "s3"
       @meta_event_img = @event.pic(:thumb)
     else
