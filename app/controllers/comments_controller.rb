@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         :description => "Averigua como puedes ayuar",
         :picture => "http://www.conectandosonrisas.org/pics/profile/missing.png",
         :icon => "http://www.conectandosonrisas.org/pics/thumb/missing.png",
-        :link => "http://www.conectandosonrisas.org/events/#{@event.id}",
+        :link => "http://www.conectandosonrisas.org/eventos/#{@event.id}",
         :name => "Comentario en un evento de Conectando Sonrisas"
         )
       rescue
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     
     if !current_member.authentications.select{|a| a.provider == "twitter"}.empty?
       begin
-        current_member.twitter.update(comment[0, 85] << " http://consonrisas.co/events/#{@event.id}")
+        current_member.twitter.update(comment[0, 89] << "... http://consonrisas.co/eventos/#{@event.id}  @consonrisas")
       rescue 
         
       end
