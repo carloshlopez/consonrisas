@@ -19,7 +19,8 @@ class Fundation < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 250 }
   
   after_create :generate_alerts
-    
+  before_destroy :destroy_fundation_dependencies
+  
   def ask_admin member_id
     FundationAdmin.create(:member_id =>member_id, :fundation_id => self.id, :active=>false)
   end
@@ -34,6 +35,10 @@ class Fundation < ActiveRecord::Base
   end
   
   private
+  
+  def destroy_fundation_dependencies
+    GlobalAlert.destroy_all "model_id = #{self.id} AND model = 'Fundation'"
+  end
   
   def generate_alerts
     GlobalAlert.create(:news=>"Se creó el proyecto social: ", :model=>"Fundation", :model_id=>id, :name_link=>name)

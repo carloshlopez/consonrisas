@@ -1,0 +1,47 @@
+%input{:id=>"soyfacilitador", :type=>"hidden", :value=>"true"}
+.landing-background
+  .landing-logo
+    = image_tag "/logos/LogoConUrl.png"
+  .landing-header-facilitator
+    =image_tag "/images/FacilitadorTransparenteMedio.png"
+    .text
+      Si tienes ganas de apoyar a un 
+      %b Proyecto Social
+      con sus necesidades, regístrate en Conectando Sonrisas.
+      %br
+      %li
+        En esta Red Social encontrarás más personas que tienen ganas de ayudar. 
+      %br
+      También puedes apoyarlos en los
+      %b Eventos
+      que ellos organizan.
+      %br
+      %li
+        En esta comunidad virtual trabajamos para que todos los
+        %b Eventos 
+        estén acompañados de sonrisas por medio de expresiones artísticas.
+  .steps
+    .step.step1
+      %p.number-title-facilitators
+        1
+      %p.step-title-facilitators
+        Datos de Registro
+      = render "registrations/new_landing"
+    .step.step2.step2-facilitators
+      %p.number-title-facilitators
+        2 
+      %p.step-title-facilitators
+        Datos Personales
+      .step2-form
+        = render "facilitators/form_landing"
+    .step.step3
+      %p.number-title-facilitators
+        3  
+      %p.step-title-facilitators-wide
+        Conectate y ayuda a suplir necesidades
+      #step3-form 
+        Registrate para apoyar a los proyectos sociales con sus necesidades
+      .done-container-facilitators{:style=>"display:none"}  
+        %a{:href=>"/soyfacilitador", :class=>"done-button-facilitators", :title=>"Ir a tu perfil en Conectando Sonrisas"} ¡LISTO!
+= image_tag "/images/loaders/facilitators-loader-big.gif", :class=>"big-loader", :style=>"display:none"
+= javascript_include_tag "landing/landingFacilitators"

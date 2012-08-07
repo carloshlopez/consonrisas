@@ -1,11 +1,11 @@
 <%= form_for([@fundation, @fundation.project_needs.build]) do |f| %>
   <div class="field need_field">
     <%= f.label I18n.t('name') %><br />
-    <%= f.text_field :name, :maxlength=>"20" %>
+    <%= f.text_field :name, :maxlength=>"100" %>
   </div>
   <div class="field need_field">
     <%= f.label I18n.t('recurrence') %><br />
-    <%= f.text_field :recurrence, :maxlength=>"20" %>
+    <%= f.text_field :recurrence, :maxlength=>"50" %>
   </div>  
   <div class="field need_field">
   <%= f.label I18n.t('category') %><br />

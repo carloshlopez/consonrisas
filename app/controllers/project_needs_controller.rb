@@ -46,6 +46,17 @@ class ProjectNeedsController < ApplicationController
     end
   end  
   
+  def all_needs_landing
+    @need_categories = NeedCategory.all
+    @total_needs = ProjectNeed.all.count
+    @no_cat_needs = ProjectNeed.where("need_category_id IS NULL")
+    respond_to do |format|
+      format.html {render :layout=> false}
+      format.json {render :json=>@fundation}
+    end
+  end    
+  
+  
   def show
     @need = ProjectNeed.find(params[:id])
     render :layout=>false

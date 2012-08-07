@@ -6,6 +6,12 @@ class RegistrationsController < Devise::RegistrationsController
 
     if params[:isFacilitator] and params[:isFacilitator] == "true"
       session[:isFacilitator] = true
+      if @member.facilitator 
+        @member.facilitator.update_attributes(params[:facilitator])
+        @member.facilitator.populations.clear
+        @member.facilitator.populations << Population.find(params[:population_ids]) if params[:population_ids]
+        puts "************** Se modifico al Facilitador #{params[:facilitator]}"
+      end
     end
 
     if params[:isFundation] and params[:isFundation] == "true"

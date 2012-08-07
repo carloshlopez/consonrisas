@@ -1,26 +1,20 @@
 /*
-Syntax error: Undefined variable: "$fundations-color".
-        on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss
+Syntax error: Undefined variable: "$providers-color".
+        on line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-providers.scss
 
-37: }
-38: .step1{
-39: }
-40: .step2{
-41:   padding-left: 10px;
-42:   border-left: 1px dashed $fundations-color;  
-43:   border-right: 1px dashed $fundations-color;
-44: }
-45: .step3{
-46:   margin-left: 10px;
-47: }
+1: .landing-header-provider{
+2:   height: 160px;
+3:   color: white;
+4:   background-color: $providers-color;
+5:   img{
+6:     float: left;
+7:     width: 110px;
+8:     padding-right: 25px;
+9:     padding-left: 10px;
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss:42
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-providers.scss:4
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -100,4 +94,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-fundation.scss\A \A 37: }\A 38: .step1{\A 39: }\A 40: .step2{\A 41:   padding-left: 10px;\A 42:   border-left: 1px dashed $fundations-color;  \A 43:   border-right: 1px dashed $fundations-color;\A 44: }\A 45: .step3{\A 46:   margin-left: 10px;\A 47: }"; }
+  content: "Syntax error: Undefined variable: \"$providers-color\".\A         on line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/landing-providers.scss\A \A 1: .landing-header-provider{\A 2:   height: 160px;\A 3:   color: white;\A 4:   background-color: $providers-color;\A 5:   img{\A 6:     float: left;\A 7:     width: 110px;\A 8:     padding-right: 25px;\A 9:     padding-left: 10px;"; }

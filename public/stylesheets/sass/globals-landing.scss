@@ -12,6 +12,13 @@ $site-color-dark: #458C36;
 $main-background: white;
 $body-width: 100%;
 $step-input-width: 180px;
+$home-link-yellow: #EAFF00;
+$body-width: 950px;
+$left-div-width: 300px;
+$main-width: 500px;
+$footer-color: #DCFFD5;
+$shadow-color: #605D5D;
+$footer-width: 840px;
 
 @font-face {
     font-family: 'contitulos';
@@ -34,6 +41,22 @@ $step-input-width: 180px;
     font-weight: normal;
     font-style: normal;
 
+}
+#alert-msg{
+    background-color: #668014;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    left: 50%;
+    margin: auto;
+    margin-left: -130px;
+    padding: 8px;
+    position: fixed;
+    top: 0;
+    width: 260px;
+    z-index: 1020;
+    p{
+      text-align: center;
+    }
 }
 
 html{

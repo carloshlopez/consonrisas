@@ -44,6 +44,8 @@ Consonrisas::Application.routes.draw do
   
 
   get "events/gallery"
+  
+  get "events/all_events"
 
   post "events/add_facilitator"
   post "events/add_facilitators"  
@@ -116,7 +118,10 @@ Consonrisas::Application.routes.draw do
 
   get "/landing" => "home#landing"
   match "project_needs/all_needs", :as => "all_needs"
+  match "project_needs/all_needs_landing", :as => "all_needs_landing"  
   get "/soyproyecto" => "home#landing_fundations"
+  get "/soyfacilitador" => "home#landing_facilitators"
+  get "/soyproveedor" => "home#landing_providers"    
 
   localized(['es', 'en'], :verbose => true) do
     get "/touch" =>"home#touch", :as => :touch

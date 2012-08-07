@@ -88,6 +88,28 @@ class HomeController < ApplicationController
     end
   end
   
+  def landing_facilitators
+    if member_signed_in?
+      redirect_to member_path current_member
+    else
+      @facilitator = Facilitator.new
+      @total_needs = ProjectNeed.all.count
+      @no_cat_needs = ProjectNeed.where("need_category_id IS NULL")
+      @need_categories = NeedCategory.all      
+      render :layout => "landing"
+    end
+  end
+  
+  def landing_providers
+    if member_signed_in?
+      redirect_to member_path current_member
+    else
+      @events = Event.order("date DESC").page(params[:page]).per(8)    
+      @provider = Provider.new
+      render :layout => "landing"
+    end
+  end    
+  
   def mobile
     @events = Event.all
     render :layout => false

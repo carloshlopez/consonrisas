@@ -1,0 +1,86 @@
+.landing-header-facilitator{
+  height: 160px;
+  color: white;
+  background-color: $facilitators-color;
+  img{
+    float: left;
+    width: 110px;
+    padding-right: 25px;
+    padding-left: 10px;
+    margin-top: 20px;
+  }
+  .text{
+    padding-left: 25px;
+    padding-top: 18px;
+    font-size: 20px;
+    line-height: 130%;
+    font-size: 17px;
+  }
+}
+
+.step2-facilitators{
+  padding-left: 10px;
+  border-left: 1px dashed $facilitators-color;  
+  border-right: 1px dashed $facilitators-color;
+}
+
+.step-title-facilitators{
+  padding: 3px;
+  color: white;
+  background-color: $facilitators-color;
+  width: $step-input-width;
+}
+.step-title-facilitators-wide{
+  padding: 3px;
+  color: white;
+  background-color: $facilitators-color;
+  width: 100%;
+}
+
+.input-landing-facilitators{
+  padding: 3px;
+  width: $step-input-width;
+  border: 1px solid $facilitators-color;
+  max-height: 120px;
+}
+
+.number-title-facilitators{
+  margin: 0 auto;
+  border-radius: 45px;
+  font-size: 75px;
+  background: $facilitators-color;
+  color: white;
+  width: 90px;
+  height: 90px;  
+  text-align: center;
+  font-weight: bold;
+}
+
+.next-step-landing-facilitators{
+  color: $facilitators-color;
+  text-decoration: none;
+}
+.next-step-landing-facilitators:hover{
+  color: $facilitators-color;
+  text-decoration: underline;
+}
+
+.done-container-facilitators{
+  position: fixed;
+  top: 60px;
+  right: 110px;
+}
+
+.done-button-facilitators {
+  background-color: $facilitators-color;
+  color: white;
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2;
+  margin: 0 auto;
+}
