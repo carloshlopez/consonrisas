@@ -1,5 +1,6 @@
 class GlobalAlert < ActiveRecord::Base
   after_create :send_mails, :add_to_daily_weekly
+  before_destroy :destroy_alert_dependencies
 
   def add_to_daily_weekly
     DailyAlert.create(:global_alert_id => self.id);
@@ -23,4 +24,11 @@ class GlobalAlert < ActiveRecord::Base
     end
   end
   handle_asynchronously :send_mails
+  
+  private
+  
+  def destroy_alert_dependencies
+    WeeklyAlert.destroy_all "global_alert_id = #{self.id}"
+    DailyAlert.destroy_all "global_alert_id = #{self.id}"    
+  end
 end

@@ -20,7 +20,7 @@ class MembersController < ApplicationController
     @fundation_step = 0;
     @provider_step = 0;        
     @num_steps = 0;
-    if session[:isFacilitator]
+    if session[:isFacilitator] and !@member.facilitator.city
       @show_welcome = true
       @show_facilitator = true
 #      session[:isFacilitator] = nil

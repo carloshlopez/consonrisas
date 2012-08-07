@@ -1,0 +1,39 @@
+<%= javascript_include_tag "ui.facilitatorForm" %>
+<%= javascript_include_tag "ui.cities" %>
+<%= form_for(@facilitator, :html => {:multipart=> true}) do |f| %>
+<div class="profile-settings-left">
+  
+  <div class="field">
+    <%= f.label I18n.t("name") %><br />
+    <%= f.text_field :name, :class=>"input-landing-facilitators" %>
+  </div>
+  <div class="field">
+    <%= I18n.t("contribution").html_safe %><br />
+    <%= f.text_area :contribution, :class=>"input-landing-facilitators" %>
+  </div>
+</div>
+<div class="profile-settings-right">
+  <div class="field">
+    <%= f.label I18n.t("city") %><br />
+    <%= f.text_field :city, :class=>"cities input-landing-facilitators" %>
+  </div>
+  
+    <%= f.label I18n.t("profile.population_of_interest") %>
+    <br/>
+    <% Population.find(:all).each_with_index do |population, i| %>
+      <%= check_box_tag 'population_ids[]', population.id, false%>
+      <% if I18n.locale.to_s == "en" %>
+        <%= population.name_en%>
+      <% else %>
+        <%= population.name_es%>
+      <% end %>
+      <br/>
+    <% end %>
+    <br/>  
+  
+</div>  
+  <input type="hidden" id="reg_facilitator" value="true" name="isFacilitator" /> 
+  <div class="next-steps-links">
+    <a href="#step3" class="next-step-landing" step_number="2"> Siguiente paso >> </a>
+  </div>
+<% end %>

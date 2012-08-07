@@ -1,0 +1,46 @@
+%input{:id=>"soyproveedor", :type=>"hidden", :value=>"true"}
+.landing-background
+  .landing-logo
+    = image_tag "/logos/LogoConUrl.png"
+  .landing-header-provider
+    =image_tag "/images/ProveedorTransparenteMedio.png"
+    .text
+      %li
+        En esta red social con tu talento podrás generar sonrisas en varios
+        %b Proyectos Sociales
+        por medio de tus expresiones artísticas.
+      %br        
+      %li
+        Aquí podrás crear tu portafolio de servicios en línea y ponerlo a disposición de 
+        %b Proyectos Sociales
+        y los
+        %b Eventos
+        que ellos organizan.
+      %br
+      %li
+        Si eres un artista y estás dispuesto a generar momentos mágicos y llenos de sonrisas, regístrate en Conectando Sonrisas.        
+  .steps
+    .step.step1
+      %p.number-title-providers
+        1
+      %p.step-title-providers
+        Datos de Registro
+      = render "registrations/new_landing"
+    .step.step2.step2-providers
+      %p.number-title-providers
+        2 
+      %p.step-title-providers
+        Datos Personales
+      .step2-form
+        = render "providers/form_landing"
+    .step.step3.step3-providers
+      %p.number-title-providers
+        3  
+      %p.step-title-providers-wide
+        Explora los eventos en los cuales puedes generar sonrisas
+      #step3-form 
+        = render "events/list"
+      .done-container-providers{:style=>"display:none"}  
+        %a{:href=>"/soyproveedor", :class=>"done-button-providers", :title=>"Ir a tu perfil en Conectando Sonrisas"} LISTO
+= image_tag "/images/loaders/providers-loader-big.gif", :class=>"big-loader", :style=>"display:none"
+= javascript_include_tag "landing/landingProviders"

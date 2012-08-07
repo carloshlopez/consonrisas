@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:index, :show, :gallery]
+  before_filter :authenticate_member!, :except => [:index, :show, :gallery, :all_events]
   # GET /events
   # GET /events.xml
   def index
@@ -93,6 +93,14 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
       format.json { render :json=>resp}
     end
+  end
+  
+  def all_events
+    @events = Event.order("date DESC").limit(30)
+    respond_to do |format|
+      format.html {render :layout=> false}
+      format.json {render :json=>@events}
+    end    
   end
   
   def add_provider 

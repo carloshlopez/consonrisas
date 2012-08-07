@@ -1,6 +1,6 @@
 /*
 Syntax error: Undefined variable: "$site-color".
-        on line 76 of /home/carlos/Projects/prueba/public/stylesheets/sass/account.scss
+        on line 76 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/account.scss
 
 71: }
 72: 
@@ -15,7 +15,7 @@ Syntax error: Undefined variable: "$site-color".
 81:   margin-left: -23px;
 
 Backtrace:
-/home/carlos/Projects/prueba/public/stylesheets/sass/account.scss:76
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/account.scss:76
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
@@ -100,4 +100,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 76 of /home/carlos/Projects/prueba/public/stylesheets/sass/account.scss\A \A 71: }\A 72: \A 73: \A 74: .pop_up_triangle{\A 75:   position: absolute;\A 76:   border-right: 15px solid $site-color;\A 77:   border-top: 15px solid transparent;\A 78:   border-bottom: 15px solid transparent;\A 79:   height: 0px;\A 80:   width: 0px;\A 81:   margin-left: -23px;"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 76 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/account.scss\A \A 71: }\A 72: \A 73: \A 74: .pop_up_triangle{\A 75:   position: absolute;\A 76:   border-right: 15px solid $site-color;\A 77:   border-top: 15px solid transparent;\A 78:   border-bottom: 15px solid transparent;\A 79:   height: 0px;\A 80:   width: 0px;\A 81:   margin-left: -23px;"; }
