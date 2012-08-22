@@ -105,9 +105,9 @@
       #{" - "}
       %a{:href=>"/aliados"} Aliados
       #{" - "}
-      %a{:href=>"#"} Terminos y Condiciones
+      %a{:href=>"/legal"} Términos y Condiciones
       #{" - "}
-      %a{:href=>"mailto:info@conectandosonrisas.org?Subject=Contacto Home"}info@conectandosonrisas.org
+      %a{:href=>"/contacto"}Contáctanos
   - unless member_signed_in?
     = render :partial => "/home/register_steps"
     #register-form{:style=>"display:none"}

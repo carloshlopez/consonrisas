@@ -57,6 +57,12 @@ class HomeController < ApplicationController
   def touch
   end
   
+  def legal
+  end
+  
+  def contact
+  end
+  
   def feedback
     Feedback.create(:message=> params[:men])
     respond_to do |format|

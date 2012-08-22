@@ -2535,3 +2535,29 @@ span.edit_profilepicture_icon {
       text-align: left; }
   .editSettingsFundation p.profile-content-title {
     color: #8c3681; }
+
+.legal-terms {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%; }
+  .legal-terms .legal-title {
+    color: #3e7d31;
+    font-size: 125%;
+    font-weight: bold; }
+  .legal-terms .legal-title-mini {
+    color: #51a23f;
+    font-size: 110%;
+    font-weight: bold; }
+  .legal-terms p {
+    text-align: justify; }
+
+.contact-info {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%; }
+  .contact-info .contact-title {
+    color: #3e7d31;
+    font-size: 115%;
+    font-weight: bold; }
+  .contact-info p {
+    text-align: justify; }
