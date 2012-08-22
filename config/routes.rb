@@ -122,8 +122,10 @@ Consonrisas::Application.routes.draw do
   get "/soyproyecto" => "home#landing_fundations"
   get "/soyfacilitador" => "home#landing_facilitators"
   get "/soyproveedor" => "home#landing_providers"    
+  get "/legal" => "home#legal"
 
   localized(['es', 'en'], :verbose => true) do
+    get "/contact" => "home#contact", :as => :contact
     get "/touch" =>"home#touch", :as => :touch
     get "/donate" =>"home#donate", :as => :donate
     get "/allies" =>"home#allies",  :as => :allies
