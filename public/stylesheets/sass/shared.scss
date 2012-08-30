@@ -1,6 +1,6 @@
 .create-button{
   height: 50px;
-  width: $left-div-width - 4;
+  width: 190px;
   margin-top: 10px;
   padding-top: 2px;
   background-repeat: no-repeat;
@@ -9,12 +9,18 @@
   -moz-box-shadow: 5px 5px 2px $shadow-color;
   -webkit-box-shadow: 5px 5px 2px $shadow-color;
   box-shadow: 5px 5px 2px $shadow-color;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+  line-height: 1em;   
+  text-align: right;
 }
 
 .create-fundation{
   background-image: url('/images/FundacionesTransparenteMedio.png');
   background-position: -20px -20px;  
-  background-color: $fundations-color;
+  background-color: $fundations-color; 
 }
 
 .create-provider{

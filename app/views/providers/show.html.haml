@@ -1,6 +1,5 @@
 #provider-profile
   #left-div-profile-provider
-    = render :partial => "shared/create_buttons"  
     .profile-info
       = image_tag 'ProveedorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -34,6 +33,8 @@
           - else
             %br
             %a.send-msg{:href=>"#"}Enviar un mensaje
+          %br
+          %a{:href=>"/proveedores"}Ver todos los proveedores de sonrisas
   #profile-content-provider
     .my-profile-title
       %h1 

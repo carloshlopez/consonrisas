@@ -1,11 +1,19 @@
 = javascript_include_tag "new_layout/completeRegister.js"
 #my-profile
   #left-div-profile
-    = render :partial => "shared/create_buttons"
     - if @num_steps > 0
       %input#showCompleteRegister{:type=>"hidden", :value=>"yes"}
     - else
       %input#showCompleteRegister{:type=>"hidden", :value=>"no"}
+    .my-connections
+      .my-connections-faces
+        - @member.facilitator.facilitators.each_with_index do |fac, i|
+          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
+          - break if i >= 2
+      .my-connections-link
+        = I18n.t('connections')
+        %br
+        %a.see-all{:href=>"#", :title=>"Ver las #{@member.facilitator.facilitators.count + @member.facilitator.fundations.count + @member.facilitator.providers.count} conexiones"}#{I18n.t('see_all')}
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -30,15 +38,6 @@
             %a.editt-me{:href=>"/members/edit_settings#my-profile"} #{I18n.t('edit')} #{I18n.t('profile_text')} 
             %br
             = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
-    .my-connections
-      .my-connections-faces
-        - @member.facilitator.facilitators.each_with_index do |fac, i|
-          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
-          - break if i >= 2
-      .my-connections-link
-        = I18n.t('connections')
-        %br
-        %a.see-all{:href=>"#"}#{I18n.t('see_all')}
   #profile-content
     .my-profile-title
       %h1

@@ -287,7 +287,7 @@ $jq(document).ready(function($) {
   
   $jq(".see-all").click(function(e){
     e.preventDefault();
-    $jq("#following").dialog({modal:true, title:"Conexiones", width: 600, closeText:"X", show:"slide"});
+    $jq("#following").dialog({modal:true, title:"Conexiones", width: 680, closeText:"X", show:"slide"});
   });
   
   $jq(".edit-me").click(showEdit); 

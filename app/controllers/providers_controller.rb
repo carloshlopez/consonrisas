@@ -6,6 +6,7 @@ class ProvidersController < ApplicationController
   def index
 #    @providers = Provider.all
       @providers = Provider.order("name").page(params[:page]).per(8)
+      @num_providers = Provider.count      
   end
 
   # GET /providers/1

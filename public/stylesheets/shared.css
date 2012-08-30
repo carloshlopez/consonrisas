@@ -1,21 +1,26 @@
 /*
-Syntax error: Undefined variable: "$left-div-width".
-        on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss
+Syntax error: Undefined variable: "$shadow-color".
+        on line 9 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss
 
-1: .create-button{
-2:   height: 50px;
-3:   width: $left-div-width - 4;
 4:   margin-top: 10px;
 5:   padding-top: 2px;
 6:   background-repeat: no-repeat;
 7:   display: inline-block;
 8:   direction: rtl;
+9:   -moz-box-shadow: 5px 5px 2px $shadow-color;
+10:   -webkit-box-shadow: 5px 5px 2px $shadow-color;
+11:   box-shadow: 5px 5px 2px $shadow-color;
+12:   color: white;
+13:   text-decoration: none;
+14:   font-weight: bold;
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss:3
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss:9
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/operation.rb:74:in `_perform'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `map'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -95,4 +100,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$left-div-width\".\A         on line 3 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss\A \A 1: .create-button{\A 2:   height: 50px;\A 3:   width: $left-div-width - 4;\A 4:   margin-top: 10px;\A 5:   padding-top: 2px;\A 6:   background-repeat: no-repeat;\A 7:   display: inline-block;\A 8:   direction: rtl;"; }
+  content: "Syntax error: Undefined variable: \"$shadow-color\".\A         on line 9 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/shared.scss\A \A 4:   margin-top: 10px;\A 5:   padding-top: 2px;\A 6:   background-repeat: no-repeat;\A 7:   display: inline-block;\A 8:   direction: rtl;\A 9:   -moz-box-shadow: 5px 5px 2px $shadow-color;\A 10:   -webkit-box-shadow: 5px 5px 2px $shadow-color;\A 11:   box-shadow: 5px 5px 2px $shadow-color;\A 12:   color: white;\A 13:   text-decoration: none;\A 14:   font-weight: bold;"; }

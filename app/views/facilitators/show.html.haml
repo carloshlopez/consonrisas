@@ -1,6 +1,14 @@
 #facilitator-profile
   #left-div-profile-facilitator
-    = render :partial => "shared/create_buttons"  
+    .my-connections
+      .my-connections-faces
+        - @facilitator.facilitators.each_with_index do |fac, i|
+          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
+          - break if i >= 2
+      .my-connections-link
+        = I18n.t('connections')
+        %br
+        %a.see-all{:href=>"#"}ver todas  
     .profile-info
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -27,15 +35,8 @@
               =I18n.t('unfollow')          
           %br
           %a.fac-send-msg{:href=>"#"}#{I18n.t('profile.send_a_msg')}
-    .my-connections
-      .my-connections-faces
-        - @facilitator.facilitators.each_with_index do |fac, i|
-          = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
-          - break if i >= 2
-      .my-connections-link
-        = I18n.t('connections')
-        %br
-        %a.see-all{:href=>"#"}ver todas
+          %br          
+          %a{:href=>"/facilitadores"}Ver todos los facilitadores
   #profile-content-facilitator
     .my-profile-title
       %h1 

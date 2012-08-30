@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
 #    @events = Event.all
     @events = Event.order("date DESC").page(params[:page]).per(8)
+    @num_events = Event.count
   end
 
   # GET /events/1

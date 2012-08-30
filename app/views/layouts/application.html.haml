@@ -31,61 +31,65 @@
   %body
     #alert-msg{:style=>"display:none"}
       %p
-    #left_div_top
-      %form#searchform{:action => "/search/find", :method => "get"}
-        %input#search-text.default{:name => "find", :type => "text"}
-        %a{:href=>"#", :title=>"Buscar"}
-          .search-triangle-button
-    #right_div_top
-      %span.application_messages
-        %span.notice
-          = notice
-        %span.alert
-          = alert
-      .account
-        - if member_signed_in?
-          = member_name(current_member)
-          .edit-my-account-container{:style=>"display:inline-block;"}
-            .edit-place
-              = link_to I18n.t('edit'), "#", :style=>"color:white", :class=>"edit-my-account"
-              #edit-my-account-options{:style=>"display:none"}
-                = "&nbsp".html_safe
-                = "&nbsp".html_safe                
-                %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Mi Perfil
-                %br
-                %br
-                = "&nbsp".html_safe
-                %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Mi Cuenta
-          |        
-          - if session[:fb_token].nil?
-            = link_to I18n.t('account.logout'), destroy_member_session_path
-          - else
-            = link_to I18n.t('account.logout'), facebook_logout_path
-        - else
-          %a{:class=>"login", :href=>"#", :title=>"Conéctate", :direction=>"down"}
-            = I18n.t('account.login')
-          #login-form{:style=>"display:none"}
-            = render :partial => "/devise/sessions/login_form"
-    #header
-      #logo
-        %a{:href => "/"}
-          %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
-      #menu
-        %ul
-          %li
-            %a.facilitators{:href => "/facilitadores", :title=> I18n.t('application.menu_facilitators')}
-          %li
-            %a.providers{:href => "/proveedores", :title=> I18n.t('application.menu_providers')}
-          %li
-            %a.fundations{:href => "/proyectos", :title=> I18n.t('application.menu_fundations')}
-          %li
-            %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
+    - if member_signed_in? 
+      = render "shared/menu"
+      .div-for-menu-space{:style=>"padding-top:60px"}      
+    - else
+      #left_div_top
+        %form#searchform{:action => "/search/find", :method => "get"}
+          %input#search-text.default{:name => "find", :type => "text"}
+          %a{:href=>"#", :title=>"Buscar"}
+            .search-triangle-button
+      #right_div_top
+        %span.application_messages
+          %span.notice
+            = notice
+          %span.alert
+            = alert
+        .account
           - if member_signed_in?
-            %li
-              %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
+            = member_name(current_member)
+            .edit-my-account-container{:style=>"display:inline-block;"}
+              .edit-place
+                = link_to I18n.t('edit'), "#", :style=>"color:white", :class=>"edit-my-account"
+                #edit-my-account-options{:style=>"display:none"}
+                  = "&nbsp".html_safe
+                  = "&nbsp".html_safe                
+                  %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Mi Perfil
+                  %br
+                  %br
+                  = "&nbsp".html_safe
+                  %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Mi Cuenta
+            |        
+            - if session[:fb_token].nil?
+              = link_to I18n.t('account.logout'), destroy_member_session_path
+            - else
+              = link_to I18n.t('account.logout'), facebook_logout_path
           - else
+            %a{:class=>"login", :href=>"#", :title=>"Conéctate", :direction=>"down"}
+              = I18n.t('account.login')
+            #login-form{:style=>"display:none"}
+              = render :partial => "/devise/sessions/login_form"
+      #header
+        #logo
+          %a{:href => "/"}
+            %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
+        #menu
+          %ul
             %li
-              %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
+              %a.facilitators{:href => "/facilitadores", :title=> I18n.t('application.menu_facilitators')}
+            %li
+              %a.providers{:href => "/proveedores", :title=> I18n.t('application.menu_providers')}
+            %li
+              %a.fundations{:href => "/proyectos", :title=> I18n.t('application.menu_fundations')}
+            %li
+              %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
+            - if member_signed_in?
+              %li
+                %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
+            - else
+              %li
+                %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
     = yield
     #footer
       #follow-us
