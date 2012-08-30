@@ -4,13 +4,14 @@
   width: $left-div-width;
   float: left;
   margin-bottom: 10px;
+  min-height: 732px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
   }
   a:hover{
    color: darken($home-link-yellow, 10%);
-   font-weight: bold;
+   text-decoration: underline;
   }
   img.transparent{
     position: absolute;

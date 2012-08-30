@@ -2,18 +2,18 @@
   color: $main-background;
   width: $left-div-width;
   float: left;
-  margin-top: -20px;
+  margin-top: -15px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
   }
   a:hover{
    color: darken($home-link-yellow, 10%);
-   font-weight: bold;
+   text-decoration: underline;
   }
   .profile-info{
     @include fundations-gradient();
-    height: 500px;
+    min-height: 780px;
     margin-top: -5px;
     img.transparent{
       position: absolute;

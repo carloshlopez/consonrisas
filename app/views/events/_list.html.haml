@@ -1,6 +1,6 @@
 .list-title.list-events
   %h1
-    = @event_list_title
+    = @event_list_title << " (#{@num_events})"
     = image_tag '/images/EventoTransparenteMedio.png'
 .list-arrow.list-arrow-events    
 .all-items

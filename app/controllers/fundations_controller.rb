@@ -5,6 +5,7 @@ class FundationsController < ApplicationController
   def index
 #    @fundations = Fundation.all
     @fundations = Fundation.order("name").page(params[:page]).per(8)
+    @num_fundations = Fundation.count
   end
 
   # GET /fundations/1

@@ -4,12 +4,18 @@
     <%= I18n.t('profile.followed_fundations') %>
   </p>
     <% @member.facilitator.fundations.each do |f|  %>
+      <div class="following-item">
+      <%= link_to image_tag(f.pic.url(:thumb),:class=>"going_pic img-fundations"), fundation_path(f), :title=>"Ver perfil"%>
+     <div class="following-item-name">    
       <%= link_to f.name, fundation_path(f) %> 
+      <br/>
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('unfollow'), fundations_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :fundation_id=>f.id) %>
       <% end %>
-      <br/>
+      </div>
+      </div>
     <% end %>
+
 </div>
 <% end %>
 
@@ -19,12 +25,18 @@
       <%= I18n.t('profile.followed_providers') %>  
     </p>
     <% @member.facilitator.providers.each do |p|  %>
+      <div class="following-item">    
+      <%= link_to image_tag(p.pic.url(:thumb),:class=>"going_pic img-providers"), provider_path(p), :title=>"Ver perfil"%>    
+       <div class="following-item-name">      
       <%= link_to p.name, provider_path(p) %> 
+      <br/>
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('unfollow'), providers_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :provider_id=>p.id) %>
       <% end %>
-      <br/>
+      </div>
+      </div>
     <% end %>
+
   </div>
 <% end %>
 
@@ -34,12 +46,25 @@
       <%= I18n.t('profile.followed_facilitators') %>
     </p>
     <% @member.facilitator.facilitators.each do |fac|  %>
-      <%= link_to fac.name, facilitator_path(fac) %> 
+      <div class="following-item">    
+       <%= link_to image_tag(member_thumb(fac),:class=>"going_pic img-facilitators"), member_path(fac.member), :title=>"Ver Perfil"%>
+       <%
+          if fac.name
+           name = fac.name
+          else
+           name = fac.member.email
+          end
+       %>
+     <div class="following-item-name">    
+      <%= link_to name, facilitator_path(fac) %> 
+      <br/>
       <% if is_current_member_this_member(@member.id) %>
         <%= link_to I18n.t('unfollow'), facilitators_remove_follower_path(:facilitator_id=>current_member.facilitator.id, :followed_id=>fac.id) %>
       <% end %>
-      <br/>
+      </div>
+      </div>
     <% end %>
+
   </div>
 <% end %>
 
@@ -51,3 +76,28 @@
 <a class="send-msg" href="#"><%= I18n.t('profile.send_a_msg') %></a>
 <% end %>
 <%end%>
+<div class="explore-community bordered_box">
+  <p>
+  Explora nuestra Comunidad, conectate con los demás para enterarte de lo que están haciendo por hacer sonreír al mundo.
+    </p>
+    <div class="explore-link">
+      <%= link_to image_tag("/images/IconosProyectosSociales.png"), fundations_path%>    
+      <div class="explore-link-text">
+        <a href="/proyectos">Ver todos los proyectos sociales</a>
+      </div>
+    </div>
+    <div class="explore-link">    
+      <%= link_to image_tag("/images/IconosProveedores.png"), providers_path%>        
+      <div class="explore-link-text">
+        <a href="/proveedores">Ver todos los proveedores de sonrisas</a>
+      </div>
+    </div>
+    <div class="explore-link">    
+      <%= link_to image_tag("/images/IconosFacilitadores.png"), facilitators_path%>        
+      <div class="explore-link-text">      
+        <a href="/facilitadores">Ver todos los facilitadores</a>
+      </div>
+    </div>
+
+</div>
+

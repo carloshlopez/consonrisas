@@ -110,36 +110,42 @@ p.comment_paragraph{
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6E6E6', endColorstr='white');
   background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), to(white));
   background: -moz-linear-gradient(top, #E6E6E6, white);
+  background-image: -o-linear-gradient(#E6E6E6,white);  
 }
 
 @mixin facilitators-gradient(){
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
   background: -webkit-gradient(linear, left top, left bottom, from($facilitators-color), to($facilitators-color-dark));
   background: -moz-linear-gradient(top,  $facilitators-color,  $facilitators-color-dark);
+  background-image: -o-linear-gradient($facilitators-color,$facilitators-color-dark);    
 }
 
 @mixin fundations-gradient(){
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BA43AA', endColorstr='#8C3681');
   background: -webkit-gradient(linear, left top, left bottom, from(#BA43AA), to(#8C3681));
   background: -moz-linear-gradient(top,  #BA43AA,  #8C3681);
+  background-image: -o-linear-gradient(#BA43AA,  #8C3681);      
 }
 
 @mixin providers-gradient(){
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD200', endColorstr='#C9AD30');
   background: -webkit-gradient(linear, left top, left bottom, from(#FFD200), to(#C9AD30));
   background: -moz-linear-gradient(top,  #FFD200,  #C9AD30);
+  background-image: -o-linear-gradient(#FFD200,  #C9AD30);        
 }
 
 @mixin events-gradient(){
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C3FF', endColorstr='#008CFF');
   background: -webkit-gradient(linear, left top, left bottom, from(#00C3FF), to(#008CFF));
   background: -moz-linear-gradient(top,  #00C3FF,  #008CFF);
+  background-image: -o-linear-gradient(#00C3FF,  #008CFF);        
 }
 
 @mixin site-gradient(){
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
   background: -webkit-gradient(linear, left top, left bottom, from(#5AB446), to(#458C36));
   background: -moz-linear-gradient(top,  #5AB446,  #458C36);
+  background-image: -o-linear-gradient(#5AB446,#458C36);
 }
 
 .bordered_box

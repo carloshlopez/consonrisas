@@ -152,8 +152,7 @@ input.info-color:focus{
   }
  a:hover{
     color: darken($site-color, 20%);
-    font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 

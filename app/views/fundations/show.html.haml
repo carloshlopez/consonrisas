@@ -1,6 +1,5 @@
 #fundation-profile
   #left-div-profile-fundation
-    = render :partial => "shared/create_buttons"  
     .profile-info
       = image_tag 'FundacionesTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -66,6 +65,8 @@
           - if can_current_member_edit_fundation(@fundation.id)
             %br
             = link_to I18n.t('edit'), edit_fundation_path(@fundation)          
+          %br
+          %a{:href=>"/proyectos"}Ver todos los proyectos sociales
   #profile-content-fundation
     .my-profile-title
       %h1 

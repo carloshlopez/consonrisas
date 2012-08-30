@@ -5,6 +5,7 @@ class FacilitatorsController < ApplicationController
   def index
     #@facilitators = Facilitator.all
     @facilitators = Facilitator.where("name IS NOT NULL AND name != ''").order("name").page(params[:page]).per(8)
+    @num_facilitators = Facilitator.count
   end
   
   def list

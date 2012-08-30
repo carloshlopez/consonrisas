@@ -111,4 +111,27 @@ function description(current){
 
 $jq(document).ready(function($) {    
     $jq("#menu").homeMenu();
+     	var path = window.location.toString();//pathname;
+    	if(path.indexOf('msgs') > 0){
+        $jq(".menu-messages").addClass("container-selected");
+    	}     	
+    	else if(path.indexOf('invites') > 0){
+        $jq(".menu-invitations").addClass("container-selected");
+    	}     	
+    	else if(path.indexOf('member') > 0){
+        $jq(".menu-home").addClass("container-selected");
+    	}
+    	else if(path.indexOf('needs') > 0){
+        $jq(".menu-help").addClass("container-selected");
+    	}
+    	else if(path.indexOf('provider') > 0 || path.indexOf('fundation') > 0){
+        $jq(".menu-register").addClass("container-selected");        	
+    	}
+    	else if(path.indexOf('find') > 0){
+                $jq(".menu-search").addClass("container-selected");        	
+    	}
+    	else if(path.indexOf('event') > 0){
+        $jq(".menu-register-events").addClass("container-selected");
+    	}
+
 });
