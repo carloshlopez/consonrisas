@@ -42,6 +42,8 @@
               = I18n.t('edit')
             #event-edit{:style=>"display:none"}
               = render :partial=>"form"      
+          %br          
+          %a{:href=>"/eventos"}Ver todos los eventos
           .going-all
             - if @event.isClosed
               %b #{I18n.t('events.isClosed')}

@@ -6,7 +6,7 @@ Syntax error: Undefined variable: "$main-background".
 2:   color: $main-background;
 3:   width: $left-div-width;
 4:   float: left;
-5:   margin-top: 20px;
+5:   margin-top: 39px;
 6:   a{
 7:    text-decoration: none;
 
@@ -92,4 +92,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$main-background\".\A         on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss\A \A 1: #left-div-lists{\A 2:   color: $main-background;\A 3:   width: $left-div-width;\A 4:   float: left;\A 5:   margin-top: 20px;\A 6:   a{\A 7:    text-decoration: none;"; }
+  content: "Syntax error: Undefined variable: \"$main-background\".\A         on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss\A \A 1: #left-div-lists{\A 2:   color: $main-background;\A 3:   width: $left-div-width;\A 4:   float: left;\A 5:   margin-top: 39px;\A 6:   a{\A 7:    text-decoration: none;"; }

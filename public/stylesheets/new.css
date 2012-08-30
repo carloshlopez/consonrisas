@@ -638,14 +638,15 @@ div.arrow-down {
   color: white;
   width: 300px;
   float: left;
-  margin-top: 20px; }
+  margin-top: 39px; }
   #left-div-lists a {
     text-decoration: none; }
   #left-div-lists a:hover {
     color: #e6e6e6;
     text-decoration: underline; }
   #left-div-lists .vip {
-    height: 732px; }
+    height: 732px;
+    margin-top: -38px; }
     #left-div-lists .vip img.transparent {
       position: absolute;
       margin-top: 5px;
