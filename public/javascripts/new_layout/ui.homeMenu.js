@@ -124,9 +124,12 @@ $jq(document).ready(function($) {
     	else if(path.indexOf('needs') > 0){
         $jq(".menu-help").addClass("container-selected");
     	}
-    	else if(path.indexOf('provider') > 0 || path.indexOf('fundation') > 0){
-        $jq(".menu-register").addClass("container-selected");        	
+    	else if(path.indexOf('provider') > 0 || path.indexOf('proveedor') > 0){
+        $jq(".menu-register-providers").addClass("container-selected");        	
     	}
+    	else if(path.indexOf('fundation') > 0 || path.indexOf('proyecto') > 0){
+        $jq(".menu-register-fundations").addClass("container-selected");        	
+    	}    	
     	else if(path.indexOf('find') > 0){
                 $jq(".menu-search").addClass("container-selected");        	
     	}
