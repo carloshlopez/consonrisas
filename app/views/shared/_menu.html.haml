@@ -7,31 +7,43 @@
       %li
         %a.container{:href=>"#{member_path(current_member.id)}"}
           %span.menu-home
+          .menu-home-text
+            Inicio
           %span.tooltip.tooltip-inicio
             .menu-logo-triangle
             Inicio        
       %li
         %a.container{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
           %span.menu-messages
+          .menu-messages-text
+            Mensajes    
           %span.tooltip
             .menu-logo-triangle
             Mensajes                
       %li
         %a.container{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
           %span.menu-invitations
+          .menu-invitations-text
+            Invitaciones          
           %span.tooltip.tooltip-grande
             .menu-logo-triangle
             Invitaciones        
       %li
         %a.container{:href=>"/project_needs/all_needs"}
           %span.menu-help
+          .menu-help-text
+            Ayuda        
           %span.tooltip
             .menu-logo-triangle
             Ayuda
       %li
         .container
           %span.menu-register-events
-          .create-button-event
+          .menu-register-events-text
+            Eventos    
+          .create-buttons
+            .create-buttons-text
+              Eventos
             .create-event-div
               %a{:class => "create-event create-button", :href=>"/events/new"}      
                 = image_tag("CrearEventosBoton.png", :class=>"create-event-img")
@@ -46,8 +58,12 @@
                 todos
       %li
         .container
-          %span.menu-register  
+          %span.menu-register-fundations
+          .menu-register-fundations-text
+            Proyectos          
           .create-buttons
+            .create-buttons-text          
+              Proyectos Sociales
             .create-fundation-div
               %a{:class => "create-fundation create-button", :href=>"/fundations/new"}
                 = image_tag("CrearProyectosBoton.png", :class=>"create-fundation-img")
@@ -60,6 +76,14 @@
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
                 todos                
+      %li
+        .container
+          %span.menu-register-providers
+          .menu-register-providers-text
+            Proveedores          
+          .create-buttons      
+            .create-buttons-text          
+              Proveedores de Sonrisas        
             .create-provider-div
               %a{:class => "create-provider create-button", :href=>"/providers/new"}          
                 = image_tag("CrearProveedorBoton.png", :class=>"create-provider-img")
@@ -75,6 +99,8 @@
       %li
         .container.search-container{:style=>"float:right;"}
           %span.menu-search
+          .menu-search-text
+            Buscar          
         .search-div{:style=>"display:inline-block;line-height:3em;padding-right:15px;"}
           %form#searchform_new{:action => "/search/find", :method => "get"}
             %input#search-text-new.search-text.default{:name => "find", :type => "text", :style=>"color:green;display:none"}

@@ -2653,7 +2653,7 @@ span.edit_profilepicture_icon {
     float: left;
     display: block;
     padding-right: 15px;
-    height: 55px; }
+    height: 65px; }
     .menu-bar li .container-selected {
       text-decoration: none;
       background-color: #336728; }
@@ -2661,13 +2661,14 @@ span.edit_profilepicture_icon {
       cursor: pointer;
       display: block;
       overflow: hidden;
-      background-color: #458c36; }
+      background-color: #458c36;
+      text-decoration: none; }
       .menu-bar li .container span {
         background-image: url("/images/menu/IconosMenu_small.png");
         background-repeat: no-repeat;
         background-size: 50px auto;
         display: inline-block;
-        height: 55px;
+        height: 65px;
         vertical-align: middle;
         width: 55px; }
       .menu-bar li .container .tooltip {
@@ -2691,7 +2692,7 @@ span.edit_profilepicture_icon {
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
-        margin-top: 5px;
+        margin-top: 10px;
         display: block;
         text-align: center; }
       .menu-bar li .container:hover .tooltip-grande {
@@ -2699,19 +2700,16 @@ span.edit_profilepicture_icon {
       .menu-bar li .container:hover .create-buttons {
         position: absolute;
         background: #336728;
-        height: 270px;
+        height: 165px;
         width: 220px;
         padding: 5px;
         display: block;
-        text-align: center; }
-      .menu-bar li .container:hover .create-button-event {
-        position: absolute;
-        background: #336728;
-        height: 135px;
-        width: 220px;
-        padding: 5px;
-        display: block;
-        text-align: center; }
+        text-align: center;
+        color: white;
+        font-size: large; }
+        .menu-bar li .container:hover .create-buttons .create-buttons-text {
+          text-align: left;
+          padding-left: 15px; }
     .menu-bar li a.menu-logo-link {
       background-color: transparent;
       cursor: pointer;
@@ -2723,25 +2721,71 @@ span.edit_profilepicture_icon {
     background-color: transparent;
     background-image: url("/images/menu/MenuLogo_small.png");
     background-origin: padding-box;
-    background-position: 15px 4px;
+    background-position: 25px 8px;
     background-repeat: no-repeat;
     background-size: 95px auto;
-    height: 50px;
+    height: 65px;
     width: 126px; }
   .menu-bar .menu-home {
     background-position: 0px 7px; }
+  .menu-bar .menu-home-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 14px;
+    font-size: 11px; }
   .menu-bar .menu-messages {
     background-position: 0px -62px; }
+  .menu-bar .menu-messages-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 5px;
+    font-size: 11px; }
   .menu-bar .menu-invitations {
-    background-position: 0px -135px; }
+    background-position: 0px -130px;
+    margin-left: 4px; }
+  .menu-bar .menu-invitations-text {
+    color: white;
+    margin-top: -17px;
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px; }
   .menu-bar .menu-help {
-    background-position: 0px -194px; }
-  .menu-bar .menu-register {
-    background-position: 0px -257px; }
+    background-position: 0px -190px; }
+  .menu-bar .menu-help-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 12px;
+    font-size: 11px; }
+  .menu-bar .menu-register-fundations {
+    background-position: 0px -430px; }
+  .menu-bar .menu-register-fundations-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 4px;
+    font-size: 11px; }
+  .menu-bar .menu-register-providers {
+    background-position: 0px -248px;
+    margin-left: 8px; }
+  .menu-bar .menu-register-providers-text {
+    color: white;
+    margin-top: -17px;
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px; }
   .menu-bar .menu-register-events {
-    background-position: 0px -325px; }
+    background-position: 0px -318px; }
+  .menu-bar .menu-register-events-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 8px;
+    font-size: 11px; }
   .menu-bar .menu-search {
-    background-position: 2px -385px; }
+    background-position: 2px -373px; }
+  .menu-bar .menu-search-text {
+    color: white;
+    margin-top: -17px;
+    margin-left: 12px;
+    font-size: 11px; }
 
 .menu-logo-triangle {
   position: absolute;
@@ -2774,7 +2818,7 @@ span.edit_profilepicture_icon {
       width: 110px;
       padding: 5px;
       text-align: center;
-      margin-top: 50px;
+      margin-top: 56px;
       margin-left: 10px; }
       .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu {
         color: white;
@@ -2783,8 +2827,8 @@ span.edit_profilepicture_icon {
       .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu:hover {
         text-decoration: underline; }
   .my-account-links .mini-img-profile {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     display: block;
     padding: 7px;
     float: right; }
@@ -2793,7 +2837,7 @@ span.edit_profilepicture_icon {
     float: right;
     font-size: small;
     text-align: right;
-    padding-top: 20px; }
+    padding-top: 24px; }
     .my-account-links .member-info a {
       color: white;
       font-size: small;
