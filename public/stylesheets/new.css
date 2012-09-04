@@ -1002,6 +1002,10 @@ div.arrow-down {
   padding-bottom: 15px;
   padding-top: 10px; }
 
+.create-buttons-shared {
+  height: 105px;
+  margin-top: -28px; }
+
 .create-buttons a span {
   display: none;
   color: white;

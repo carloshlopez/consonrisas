@@ -1,4 +1,5 @@
 #left-div-lists
+  = render :partial => "shared/create_provider_button"
   .vip.vip-providers
     - new = News.where("news_type = ? AND actual = ?", 2, true).order("updated_at DESC").first();
     - if new

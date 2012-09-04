@@ -1,4 +1,5 @@
 #left-div-lists
+  = render :partial => "shared/create_fundation_button"
   .vip.vip-fundations
     - new = News.where("news_type = ? AND actual = ?", 1, true).order("updated_at DESC").first();
     - if new

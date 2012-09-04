@@ -1,0 +1,4 @@
+.create-buttons-shared
+  .create-fundation-div
+    %a{:class => "create-fundation create-button #{'register_wizzard' unless member_signed_in?}", :href=>"/fundations/new", :create=>"fundation", :style=>"width:295px;"}
+      = image_tag("CrearProyectosBoton.png", :class=>"create-fundation-img")
