@@ -136,5 +136,19 @@ $jq(document).ready(function($) {
     	else if(path.indexOf('event') > 0){
         $jq(".menu-register-events").addClass("container-selected");
     	}
+    	
+    	$jq(".menu-register-events").click(function(){
+    	  window.location = window.location.protocol + "//" + window.location.host + "/eventos"
+    	});
+    	$jq(".menu-register-fundations").click(function(){
+    	  window.location = window.location.protocol + "//" + window.location.host + "/proyectos"
+    	});    	
+    	$jq(".menu-register-providers").click(function(){
+    	  window.location = window.location.protocol + "//" + window.location.host + "/proveedores"
+    	});
+    	
+    	$jq(".my-account-links").click(function(){
+    	  window.location = window.location.protocol + "//" + window.location.host + "/members/edit_settings"
+    	});    	    	
 
 });
