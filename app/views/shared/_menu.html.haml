@@ -96,27 +96,24 @@
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe                
                 todos
-      %li
-        .container.search-container{:style=>"float:right;"}
-          %span.menu-search
-          .menu-search-text
-            Buscar          
-        .search-div{:style=>"display:inline-block;line-height:3em;padding-right:15px;"}
+      %li 
+        .search-div{:style=>"display:inline-block;line-height:4em;"}
           %form#searchform_new{:action => "/search/find", :method => "get"}
-            %input#search-text-new.search-text.default{:name => "find", :type => "text", :style=>"color:green;display:none"}
+            %input#search-text-new.search-text.default{:name => "find", :type => "text", :style=>"color:green;"}
             %span.close-search{:style=>"color:white;display:none;font-weight:bold;border:1px white;cursor:pointer"} x 
-    .my-account-links
-      .show-edit-options
-        = image_tag member_thumb(current_member.facilitator), :class=>"mini-img-profile"  
-        %span.edit-my-account-options
-          .edit-me-container{:style=>"border-bottom: 1px dotted white;padding:3px;"}       
-            %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Editar Mi Perfil
-          .edit-me-container{:style=>"border-bottom: 1px dotted white;padding:3px;"}
-            %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Editar Mi Cuenta
-          .edit-me-container{:style=>"padding:3px;"}
-            - if session[:fb_token].nil?
-              = link_to I18n.t('account.logout'), destroy_member_session_path, :class=>"edit-me-menu"
-            - else
-              = link_to I18n.t('account.logout'), facebook_logout_path, :class=>"edit-me-menu"              
-      .member-info
-        = member_name(current_member)
+      %li
+        .my-account-links
+          .member-info
+            = member_name(current_member)        
+          .show-edit-options
+            = image_tag member_thumb(current_member.facilitator), :class=>"mini-img-profile"  
+            %span.edit-my-account-options
+              .edit-me-container{:style=>"border-bottom: 1px dotted white;padding:3px;"}       
+                %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Editar Mi Perfil
+              .edit-me-container{:style=>"border-bottom: 1px dotted white;padding:3px;"}
+                %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Editar Mi Cuenta
+              .edit-me-container{:style=>"padding:3px;"}
+                - if session[:fb_token].nil?
+                  = link_to I18n.t('account.logout'), destroy_member_session_path, :class=>"edit-me-menu"
+                - else
+                  = link_to I18n.t('account.logout'), facebook_logout_path, :class=>"edit-me-menu"

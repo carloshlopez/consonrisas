@@ -7,6 +7,11 @@
   z-index: 101;
   float: left;
   min-height: 1px;
+  .menu-inner-bar{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   ul{
     float: left;
     margin: 0;
@@ -16,11 +21,12 @@
     list-style: none;
     float: left;
     display: block;
-    padding-right: 15px;
-    height: 65px;
+    padding-left: 10px;
+    height: 60px;
     .container-selected{
         text-decoration: none;
         background-color: darken($site-color-dark, 10%);
+        height: 60px;
     }
     .container{
       cursor: pointer;
@@ -28,12 +34,13 @@
       overflow: hidden;
       background-color: $site-color-dark;
       text-decoration: none;
+      height: 60px;
       span{
         background-image: url("/images/menu/IconosMenu_small.png");      
         background-repeat: no-repeat;
-        background-size: 50px auto;
+        background-size: 40px auto;
         display: inline-block;
-        height: 65px;
+        height: 60px;
         vertical-align: middle;
         width: 55px;      
       }   
@@ -98,86 +105,92 @@
     background-clip: border-box;
     background-color: transparent;
     background-image: url("/images/menu/MenuLogo_small.png");
-    background-origin: padding-box;
-    background-position: 25px 8px;
+    background-position: 170px 4px;
     background-repeat: no-repeat;
-    background-size: 95px auto;
-    height: 65px;
-    width: 126px;
+    background-size: 90px auto;
+    height: 60px;
+    width: 105px;
   }  
   .menu-home{
-    background-position: 0px 7px;
+    background-position: 5px 7px;
   }
   .menu-home-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 14px;
     font-size: 11px;
+    padding-bottom: 3px;
   }  
   .menu-messages{
-    background-position: 0px -62px;
+    background-position: 5px -80px;
   }
   .menu-messages-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 5px;
     font-size: 11px;
-  }    
+    padding-bottom: 3px;
+}    
   .menu-invitations{
-    background-position: 0px -130px;
+    background-position: 7px -168px;
     margin-left: 4px;    
   }  
   .menu-invitations-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
+    padding-bottom: 3px;    
   }  
   .menu-help{
-    background-position: 0px -190px;
+    background-position: 5px -238px;
   }  
   .menu-help-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 12px;
     font-size: 11px;
+    padding-bottom: 3px;    
   }  
   .menu-register-fundations{
-    background-position: 0px -430px;
+    background-position: 5px -524px;
   }  
   .menu-register-fundations-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 4px;
     font-size: 11px;
+    padding-bottom: 3px;    
   }  
   .menu-register-providers{
-    background-position: 0px -248px;
+    background-position: 5px -295px;
     margin-left: 8px;
   }  
   .menu-register-providers-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
+    padding-bottom: 3px;    
   }    
   .menu-register-events{
-    background-position: 0px -318px;
+    background-position: 5px -363px;
   }  
   .menu-register-events-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 8px;
     font-size: 11px;
+    padding-bottom: 3px;    
   }  
   .menu-search{
     background-position: 2px -373px;
   }    
   .menu-search-text{
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 12px;
     font-size: 11px;
   }  
@@ -196,11 +209,9 @@
 
 
 .my-account-links{
-  direction: rtl;
-  padding-right: 10px;
-  padding-left: 10px;
     .show-edit-options{
       cursor: pointer;
+      float: left;
       .edit-my-account-options{
         display: none;
         color: darken(white, 10%);
@@ -218,8 +229,8 @@
         width: 110px;
         padding: 5px;
         text-align: center;
-        margin-top: 56px;
-        margin-left: 10px;
+        margin-top: -0px;
+        margin-left: -75px;
         .edit-me-menu{
           color: white;
           padding: 5px;
@@ -231,15 +242,15 @@
       }   
     }
   .mini-img-profile{
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     display: block;
-    padding: 7px;
-    float: right;
+    padding-left: 7px;
+    padding-top: 12px;    
   }  
   .member-info{
     color: white;
-    float: right;
+    float: left;
     font-size: small;
     text-align: right;
     padding-top: 24px;
