@@ -645,7 +645,7 @@ div.arrow-down {
     color: #e6e6e6;
     text-decoration: underline; }
   #left-div-lists .vip {
-    height: 732px;
+    height: 655px;
     margin-top: -38px; }
     #left-div-lists .vip img.transparent {
       position: absolute;
@@ -653,7 +653,8 @@ div.arrow-down {
       margin-left: -30px; }
     #left-div-lists .vip img.news-img {
       margin-top: 15px;
-      margin-left: 30px; }
+      margin-left: 30px;
+      max-width: 250px; }
     #left-div-lists .vip h2 {
       padding-top: 25px;
       padding-left: 35px; }
@@ -2648,6 +2649,10 @@ span.edit_profilepicture_icon {
   z-index: 101;
   float: left;
   min-height: 1px; }
+  .menu-bar .menu-inner-bar {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto; }
   .menu-bar ul {
     float: left;
     margin: 0;
@@ -2656,23 +2661,25 @@ span.edit_profilepicture_icon {
     list-style: none;
     float: left;
     display: block;
-    padding-right: 15px;
-    height: 65px; }
+    padding-left: 10px;
+    height: 60px; }
     .menu-bar li .container-selected {
       text-decoration: none;
-      background-color: #336728; }
+      background-color: #336728;
+      height: 60px; }
     .menu-bar li .container {
       cursor: pointer;
       display: block;
       overflow: hidden;
       background-color: #458c36;
-      text-decoration: none; }
+      text-decoration: none;
+      height: 60px; }
       .menu-bar li .container span {
         background-image: url("/images/menu/IconosMenu_small.png");
         background-repeat: no-repeat;
-        background-size: 50px auto;
+        background-size: 40px auto;
         display: inline-block;
-        height: 65px;
+        height: 60px;
         vertical-align: middle;
         width: 55px; }
       .menu-bar li .container .tooltip {
@@ -2724,70 +2731,76 @@ span.edit_profilepicture_icon {
     background-clip: border-box;
     background-color: transparent;
     background-image: url("/images/menu/MenuLogo_small.png");
-    background-origin: padding-box;
-    background-position: 25px 8px;
+    background-position: 170px 4px;
     background-repeat: no-repeat;
-    background-size: 95px auto;
-    height: 65px;
-    width: 126px; }
+    background-size: 90px auto;
+    height: 60px;
+    width: 105px; }
   .menu-bar .menu-home {
-    background-position: 0px 7px; }
+    background-position: 5px 7px; }
   .menu-bar .menu-home-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 14px;
-    font-size: 11px; }
+    font-size: 11px;
+    padding-bottom: 3px; }
   .menu-bar .menu-messages {
-    background-position: 0px -62px; }
+    background-position: 5px -80px; }
   .menu-bar .menu-messages-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 5px;
-    font-size: 11px; }
+    font-size: 11px;
+    padding-bottom: 3px; }
   .menu-bar .menu-invitations {
-    background-position: 0px -130px;
+    background-position: 7px -168px;
     margin-left: 4px; }
   .menu-bar .menu-invitations-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     font-size: 11px;
     padding-left: 5px;
-    padding-right: 5px; }
+    padding-right: 5px;
+    padding-bottom: 3px; }
   .menu-bar .menu-help {
-    background-position: 0px -190px; }
+    background-position: 5px -238px; }
   .menu-bar .menu-help-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 12px;
-    font-size: 11px; }
+    font-size: 11px;
+    padding-bottom: 3px; }
   .menu-bar .menu-register-fundations {
-    background-position: 0px -430px; }
+    background-position: 5px -524px; }
   .menu-bar .menu-register-fundations-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 4px;
-    font-size: 11px; }
+    font-size: 11px;
+    padding-bottom: 3px; }
   .menu-bar .menu-register-providers {
-    background-position: 0px -248px;
+    background-position: 5px -295px;
     margin-left: 8px; }
   .menu-bar .menu-register-providers-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     font-size: 11px;
     padding-left: 5px;
-    padding-right: 5px; }
+    padding-right: 5px;
+    padding-bottom: 3px; }
   .menu-bar .menu-register-events {
-    background-position: 0px -318px; }
+    background-position: 5px -363px; }
   .menu-bar .menu-register-events-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 8px;
-    font-size: 11px; }
+    font-size: 11px;
+    padding-bottom: 3px; }
   .menu-bar .menu-search {
     background-position: 2px -373px; }
   .menu-bar .menu-search-text {
     color: white;
-    margin-top: -17px;
+    margin-top: -20px;
     margin-left: 12px;
     font-size: 11px; }
 
@@ -2801,50 +2814,47 @@ span.edit_profilepicture_icon {
   margin-top: -10px;
   margin-left: 17px; }
 
-.my-account-links {
-  direction: rtl;
-  padding-right: 10px;
-  padding-left: 10px; }
-  .my-account-links .show-edit-options {
-    cursor: pointer; }
-    .my-account-links .show-edit-options .edit-my-account-options {
-      display: none;
-      color: #e6e6e6;
-      font-size: 12px;
-      font-weight: normal; }
-  .my-account-links .show-edit-options:hover {
-    cursor: pointer; }
-    .my-account-links .show-edit-options:hover .edit-my-account-options {
-      cursor: auto;
-      background: #458c36;
-      display: block;
-      position: absolute;
-      width: 110px;
-      padding: 5px;
-      text-align: center;
-      margin-top: 56px;
-      margin-left: 10px; }
-      .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu {
-        color: white;
-        padding: 5px;
-        text-decoration: none; }
-      .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu:hover {
-        text-decoration: underline; }
-  .my-account-links .mini-img-profile {
-    width: 45px;
-    height: 45px;
+.my-account-links .show-edit-options {
+  cursor: pointer;
+  float: left; }
+  .my-account-links .show-edit-options .edit-my-account-options {
+    display: none;
+    color: #e6e6e6;
+    font-size: 12px;
+    font-weight: normal; }
+.my-account-links .show-edit-options:hover {
+  cursor: pointer; }
+  .my-account-links .show-edit-options:hover .edit-my-account-options {
+    cursor: auto;
+    background: #458c36;
     display: block;
-    padding: 7px;
-    float: right; }
-  .my-account-links .member-info {
-    color: white;
-    float: right;
-    font-size: small;
-    text-align: right;
-    padding-top: 24px; }
-    .my-account-links .member-info a {
+    position: absolute;
+    width: 110px;
+    padding: 5px;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -75px; }
+    .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu {
       color: white;
-      font-size: small;
+      padding: 5px;
       text-decoration: none; }
-    .my-account-links .member-info a:hover {
+    .my-account-links .show-edit-options:hover .edit-my-account-options .edit-me-menu:hover {
       text-decoration: underline; }
+.my-account-links .mini-img-profile {
+  width: 35px;
+  height: 35px;
+  display: block;
+  padding-left: 7px;
+  padding-top: 12px; }
+.my-account-links .member-info {
+  color: white;
+  float: left;
+  font-size: small;
+  text-align: right;
+  padding-top: 24px; }
+  .my-account-links .member-info a {
+    color: white;
+    font-size: small;
+    text-decoration: none; }
+  .my-account-links .member-info a:hover {
+    text-decoration: underline; }

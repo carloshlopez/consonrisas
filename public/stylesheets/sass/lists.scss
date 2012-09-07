@@ -11,7 +11,7 @@
    text-decoration: underline;
   }
   .vip{
-    height: 732px;
+    height: 655px;
     margin-top: -38px;
     img.transparent{
       position: absolute;
@@ -20,7 +20,8 @@
     }
     img.news-img{
       margin-top: 15px;
-      margin-left: 30px;      
+      margin-left: 30px;
+      max-width: 250px;      
     }
     h2{
       padding-top: 25px;
