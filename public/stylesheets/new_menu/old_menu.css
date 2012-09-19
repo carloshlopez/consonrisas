@@ -1,28 +1,20 @@
 /*
-Syntax error: Undefined variable: "$site-color".
-        on line 10 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss
+Syntax error: Undefined mixin 'site-gradient'.
+        on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss, in `site-gradient'
+        from line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss
 
+1: .menu-bar{
+2:   @include site-gradient();
+3:   position: fixed;
+4:   top: 0px;
 5:   left: 0px;
 6:   right: 0px;
 7:   z-index: 101;
-8:   float: left;
-9:   min-height: 1px;
-10:   border-bottom: 1px solid $site-color;
-11:   .menu-inner-bar{
-12:     width: 900px;
-13:     margin-left: auto;
-14:     margin-right: auto;
-15:   }
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss:10
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `_perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss:2:in `site-gradient'
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss:2
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:169:in `visit_mixin'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:18:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -100,4 +92,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 10 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss\A \A 5:   left: 0px;\A 6:   right: 0px;\A 7:   z-index: 101;\A 8:   float: left;\A 9:   min-height: 1px;\A 10:   border-bottom: 1px solid $site-color;\A 11:   .menu-inner-bar{\A 12:     width: 900px;\A 13:     margin-left: auto;\A 14:     margin-right: auto;\A 15:   }"; }
+  content: "Syntax error: Undefined mixin 'site-gradient'.\A         on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss, in `site-gradient'\A         from line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/old_menu.scss\A \A 1: .menu-bar{\A 2:   @include site-gradient();\A 3:   position: fixed;\A 4:   top: 0px;\A 5:   left: 0px;\A 6:   right: 0px;\A 7:   z-index: 101;"; }

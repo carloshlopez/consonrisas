@@ -17,11 +17,11 @@ module MembersHelper
   
   def member_name (member)
     if member.facilitator.name and !member.facilitator.name.empty?
-      member.facilitator.name
+      member.facilitator.name.split[0]
     elsif !member.fundation_admins.empty?
-      member.fundation_admins[0].fundation.name
+      member.fundation_admins[0].fundation.name.split[0]
     elsif !member.provider_admins.empty?
-      member.provider_admins[0].provider.name      
+      member.provider_admins[0].provider.name.split[0]
     else
       member.email
     end

@@ -3,95 +3,95 @@
     %ul
       %li
         %a.menu-logo-link{:href=>"/"}
-          = image_tag "menu/MenuLogo_small_green.png", :class=> "menu-logo"
+          .menu-logo  
       %li
         %a.container{:href=>"#{member_path(current_member.id)}"}
           %span.menu-home
           .menu-home-text
-            inicio
+            Inicio
           %span.tooltip.tooltip-inicio
             .menu-logo-triangle
-            inicio        
+            Inicio        
       %li
         %a.container{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
           %span.menu-messages
           .menu-messages-text
-            mensajes    
+            Mensajes    
           %span.tooltip
             .menu-logo-triangle
-            mensajes                
+            Mensajes                
       %li
         %a.container{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
           %span.menu-invitations
           .menu-invitations-text
-            invitaciones          
+            Invitaciones          
           %span.tooltip.tooltip-grande
             .menu-logo-triangle
-            invitaciones        
+            Invitaciones        
       %li
         %a.container{:href=>"/project_needs/all_needs"}
           %span.menu-help
           .menu-help-text
-            ayuda        
+            Ayuda        
           %span.tooltip
             .menu-logo-triangle
-            ayuda
+            Ayuda
       %li
-        .container.container-box
+        .container
           %span.menu-register-events
           .menu-register-events-text
-            eventos    
+            Eventos    
           .create-buttons
             .create-buttons-text
-              eventos
+              Eventos
             .create-event-div
               %a{:class => "create-event create-button", :href=>"/events/new"}      
-                %br
-                = "&nbsp".html_safe
-                = "&nbsp".html_safe
-                nuevo
+                = image_tag("CrearEventosBoton.png", :class=>"create-event-img")
             .create-event-div
               %a{:class => "create-event create-button", :href=>"/eventos"}
+                = "&nbsp".html_safe
+                = "&nbsp".html_safe              
+                ver
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe                
                 todos
       %li
-        .container.container-box
+        .container
           %span.menu-register-fundations
           .menu-register-fundations-text
-            proyectos          
+            Proyectos          
           .create-buttons
             .create-buttons-text          
-              proyectos sociales
+              Proyectos Sociales
             .create-fundation-div
               %a{:class => "create-fundation create-button", :href=>"/fundations/new"}
-                %br
-                = "&nbsp".html_safe
-                = "&nbsp".html_safe
-                nuevo
+                = image_tag("CrearProyectosBoton.png", :class=>"create-fundation-img")
             .create-fundation-div
               %a{:class => "create-fundation create-button", :href=>"/proyectos"}
+                = "&nbsp".html_safe
+                = "&nbsp".html_safe
+                ver 
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
                 todos                
       %li
-        .container.container-box
+        .container
           %span.menu-register-providers
           .menu-register-providers-text
-            proveedores          
+            Proveedores          
           .create-buttons      
             .create-buttons-text          
-              proveedores de sonrisas        
+              Proveedores de Sonrisas        
             .create-provider-div
               %a{:class => "create-provider create-button", :href=>"/providers/new"}          
-                %br              
-                = "&nbsp".html_safe
-                = "&nbsp".html_safe
-                nuevo
+                = image_tag("CrearProveedorBoton.png", :class=>"create-provider-img")
             .create-provider-div
               %a{:class => "create-provider create-button", :href=>"/proveedores"}          
+                = "&nbsp".html_safe
+                = "&nbsp".html_safe              
+                ver
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe                
@@ -99,7 +99,7 @@
       %li 
         .search-div{:style=>"display:inline-block;line-height:4em;"}
           %form#searchform_new{:action => "/search/find", :method => "get"}
-            %input#search-text-new.search-text.default{:name => "find", :type => "text", :style=>"color:green; width:150px;margin-left:8px;"}
+            %input#search-text-new.search-text.default{:name => "find", :type => "text", :style=>"color:green;"}
             %span.close-search{:style=>"color:white;display:none;font-weight:bold;border:1px white;cursor:pointer"} x 
       %li
         .my-account-links
