@@ -13,10 +13,7 @@
   font-style: normal; }
 
 body {
-  width: 950px;
   background: white;
-  margin-left: auto;
-  margin-right: auto;
   font-family: "consonrisas";
   -webkit-text-size-adjust: 100%;
   /* Stops Mobile Safari from auto-adjusting font-sizes */ }
@@ -96,15 +93,10 @@ p.comment_paragraph {
   #alert-msg p {
     text-align: center; }
 
-.logo {
-  margin-top: 15px;
-  margin-bottom: 15px; }
-
 #left_div_top {
   background: #5ab446;
   color: white;
   height: 25px;
-  width: 300px;
   margin-top: -10px; }
   #left_div_top input.home-color {
     background: #5ab446;
@@ -231,8 +223,7 @@ input.info-color:focus {
 
 #right_div_top {
   color: black;
-  float: right;
-  margin-top: -20px;
+  text-align: right;
   font-size: 13px; }
   #right_div_top a {
     color: #5ab446;
@@ -253,17 +244,20 @@ input.info-color:focus {
   border-bottom-right-radius: 10px;
   -moz-border-radius-bottomleft: 10px;
   border-bottom-left-radius: 10px;
-  margin-left: -290px; }
+  margin-left: 290px;
+  text-align: left; }
+
+#header {
+  margin-top: 15px;
+  margin-bottom: 15px; }
 
 #logo {
-  width: 300px; }
+  text-align: center; }
   #logo a {
     color: white; }
 
 #menu {
-  float: left;
-  margin-left: 320px;
-  margin-top: -115px; }
+  padding-top: 15px; }
   #menu ul {
     margin: 0;
     padding: 0;
@@ -271,7 +265,10 @@ input.info-color:focus {
     line-height: normal; }
   #menu li {
     float: left;
+    margin-right: 30px;
     text-align: center; }
+  #menu li.last {
+    margin-right: 0; }
   #menu a {
     display: inline-block;
     float: left;
@@ -369,21 +366,18 @@ input.info-color:focus {
 #follow-us {
   color: #5ab446;
   height: 35px;
-  float: left; }
+  margin-left: 0; }
   #follow-us img {
     vertical-align: middle; }
 
 #footer {
-  clear: left;
-  text-align: right;
   color: #5ab446;
   margin-top: 10px;
   font-size: 13px;
   background-color: #dcffd5;
   height: 40px;
   line-height: 350%;
-  width: 840px;
-  padding: 0px 20px 0px; }
+  margin-left: 0; }
   #footer a {
     color: #5ab446;
     font-size: 13px;
@@ -398,8 +392,6 @@ input.info-color:focus {
   background: -moz-linear-gradient(top, #5ab446, #458c36);
   background-image: -o-linear-gradient(#5ab446, #458c36);
   color: white;
-  height: 635px;
-  width: 300px;
   clear: left; }
   #left_div ul {
     color: #eaff00;
@@ -453,30 +445,23 @@ input.info-color:focus {
   margin-left: 350px; }
 
 #descs {
-  margin-left: 320px;
-  margin-top: -635px;
   height: 215px;
-  width: 500px;
   color: white;
-  padding: 30px;
   position: absolute;
-  z-index: -1; }
+  top: 0;
+  left: 0;
+  padding: 30px;
+  z-index: 1; }
 
 .desc-text {
   margin-left: 110px;
   margin-top: 25px; }
 
 #pics {
-  margin-left: 300px;
-  margin-top: -665px;
   height: 215px;
-  width: 550px;
-  padding: 30px;
-  position: absolute;
   z-index: -2; }
 
 #event_pics {
-  width: 550px;
   height: 215px;
   overflow: hidden; }
 
@@ -561,18 +546,14 @@ div.scrollableArea {
   background: none repeat scroll 0 0 #DEF1DA;
   color: black;
   height: 335px;
-  margin-left: 320px;
   padding: 8px;
   position: relative;
-  width: 545px;
   overflow: hidden;
   top: -20px; }
 
 .news_title {
   clear: both;
   color: #5ab446;
-  margin-left: 320px;
-  margin-top: -400px;
   padding: 10px;
   position: relative;
   z-index: -3; }
@@ -634,19 +615,18 @@ div.arrow-down {
   font-family: "consonrisas";
   font-size: 15px; }
 
+.list-page {
+  margin-top: 30px; }
+
 #left-div-lists {
-  color: white;
-  width: 300px;
-  float: left;
-  margin-top: 39px; }
+  color: white; }
   #left-div-lists a {
     text-decoration: none; }
   #left-div-lists a:hover {
     color: #e6e6e6;
     text-decoration: underline; }
   #left-div-lists .vip {
-    height: 655px;
-    margin-top: -38px; }
+    height: 655px; }
     #left-div-lists .vip img.transparent {
       position: absolute;
       margin-top: 5px;
@@ -704,10 +684,6 @@ div.arrow-down {
     background: -moz-linear-gradient(top, #00c3ff, #008cff);
     background-image: -o-linear-gradient(#00c3ff, #008cff); }
 
-#list-content {
-  width: 600px;
-  margin-left: 320px; }
-
 /*lists as divs*/
 .list-facilitators {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='red', endColorstr='#B70000');
@@ -740,7 +716,8 @@ div.arrow-down {
   letter-spacing: -2px; }
   .list-title h1 {
     padding-left: 15px;
-    padding-top: 25px; }
+    padding-top: 25px;
+    margin: 0; }
   .list-title img {
     position: absolute;
     margin-left: 150px; }
@@ -939,7 +916,6 @@ div.arrow-down {
 .create-button {
   height: 50px;
   width: 190px;
-  margin-top: 10px;
   padding-top: 2px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -1001,8 +977,7 @@ div.arrow-down {
   padding-top: 10px; }
 
 .create-buttons-shared {
-  height: 105px;
-  margin-top: -28px; }
+  height: 105px; }
 
 .create-buttons a span {
   display: none;
@@ -1026,8 +1001,6 @@ div.arrow-down {
 
 #left-div-profile {
   color: white;
-  width: 300px;
-  float: left;
   margin-top: -15px; }
   #left-div-profile a {
     color: #eaff00;
@@ -1067,7 +1040,6 @@ div.arrow-down {
   background: -moz-linear-gradient(top, #5ab446, #458c36);
   background-image: -o-linear-gradient(#5ab446, #458c36);
   height: 50px;
-  width: 300px;
   margin-top: 15px;
   padding-top: 2px; }
   .my-connections .my-connections-faces {
@@ -1085,8 +1057,6 @@ div.arrow-down {
       font-weight: normal; }
 
 #profile-content {
-  width: 600px;
-  margin-left: 320px;
   min-height: 780px; }
   #profile-content .my-profile-title {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
@@ -1098,7 +1068,8 @@ div.arrow-down {
     height: 100px;
     letter-spacing: -2px; }
     #profile-content .my-profile-title h1 {
-      padding-left: 25px; }
+      padding-left: 25px;
+      margin: 0; }
     #profile-content .my-profile-title img {
       position: absolute;
       margin-left: 320px;
@@ -2638,18 +2609,14 @@ span.edit_profilepicture_icon {
   background-color: white;
   position: fixed;
   top: 0px;
-  left: 0px;
-  right: 0px;
   z-index: 101;
   float: left;
   min-height: 1px;
   border-bottom: 1px solid #5ab446; }
   .menu-bar .menu-inner-bar {
-    width: 840px;
     margin-left: auto;
     margin-right: auto; }
   .menu-bar ul {
-    float: left;
     margin: 0;
     padding: 0; }
   .menu-bar li {
@@ -2662,7 +2629,7 @@ span.edit_profilepicture_icon {
       text-decoration: none;
       background-color: white;
       height: 60px; }
-    .menu-bar li .container {
+    .menu-bar li .cont {
       cursor: pointer;
       display: block;
       overflow: hidden;
@@ -2673,7 +2640,7 @@ span.edit_profilepicture_icon {
       border-right: 1px solid white;
       border-left: 1px solid white;
       border-top: 1px solid white; }
-      .menu-bar li .container span {
+      .menu-bar li .cont span {
         background-image: url("/images/menu/IconosMenu_small_green_gray.png");
         background-repeat: no-repeat;
         background-size: 550px auto;
@@ -2681,23 +2648,23 @@ span.edit_profilepicture_icon {
         height: 60px;
         vertical-align: middle;
         width: 55px; }
-      .menu-bar li .container .tooltip {
+      .menu-bar li .cont .tooltip {
         display: none;
         color: #e6e6e6;
         font-size: 12px;
         font-weight: normal; }
-      .menu-bar li .container .create-buttons {
+      .menu-bar li .cont .create-buttons {
         display: none; }
-      .menu-bar li .container .create-button-event {
+      .menu-bar li .cont .create-button-event {
         display: none; }
     .menu-bar li .container-box:hover {
       border-right: 1px solid #989898;
       border-left: 1px solid #989898;
       border-top: 1px solid #989898; }
-    .menu-bar li .container:hover {
+    .menu-bar li .cont:hover {
       text-decoration: none;
       background-color: white; }
-      .menu-bar li .container:hover .tooltip {
+      .menu-bar li .cont:hover .tooltip {
         position: absolute;
         background: #a6a6a6;
         height: 15px;
@@ -2709,9 +2676,9 @@ span.edit_profilepicture_icon {
         margin-top: 10px;
         display: block;
         text-align: center; }
-      .menu-bar li .container:hover .tooltip-grande {
+      .menu-bar li .cont:hover .tooltip-grande {
         width: 80px; }
-      .menu-bar li .container:hover .create-buttons {
+      .menu-bar li .cont:hover .create-buttons {
         position: absolute;
         background: white;
         border-right: 1px solid #989898;
@@ -2726,7 +2693,7 @@ span.edit_profilepicture_icon {
         text-align: center;
         color: #989898;
         font-size: medium; }
-        .menu-bar li .container:hover .create-buttons .create-buttons-text {
+        .menu-bar li .cont:hover .create-buttons .create-buttons-text {
           text-align: left;
           padding-left: 15px;
           padding-top: 5px; }
