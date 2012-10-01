@@ -1,7 +1,5 @@
 #left-div-profile{
   color: $main-background;
-  width: $left-div-width;
-  float: left;
   margin-top: -15px;
   a{
    color: $home-link-yellow;
@@ -45,7 +43,6 @@
 .my-connections{
   @include site-gradient();
   height: 50px;
-  width: $left-div-width;
   margin-top: 15px;
   padding-top: 2px; 
   .my-connections-faces{
@@ -68,8 +65,6 @@
 }
 
 #profile-content{
-  width: $main-width + 100px;
-	margin-left: 320px;
 	min-height: 780px;
   .my-profile-title{
     @include site-gradient();
@@ -79,6 +74,7 @@
     letter-spacing: -2px;
    h1{
       padding-left: 25px;
+      margin:0;
     }  
     img{
       position: absolute;

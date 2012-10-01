@@ -1,6 +1,6 @@
 = javascript_include_tag "new_layout/completeRegister.js"
-#my-profile
-  #left-div-profile
+#my-profile.row
+  #left-div-profile.span4
     - if @num_steps > 0
       %input#showCompleteRegister{:type=>"hidden", :value=>"yes"}
     - else
@@ -38,7 +38,7 @@
             %a.editt-me{:href=>"/members/edit_settings#my-profile"} #{I18n.t('edit')} #{I18n.t('profile_text')} 
             %br
             = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
-  #profile-content
+  #profile-content.span8
     .my-profile-title
       %h1
         = I18n.t('application.menu_profile')

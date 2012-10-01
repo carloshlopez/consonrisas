@@ -2,19 +2,16 @@
   background-color: white;
   position: fixed;
   top: 0px;
-  left: 0px;
-  right: 0px;
+  
   z-index: 101;
   float: left;
   min-height: 1px;
   border-bottom: 1px solid $site-color;
   .menu-inner-bar{
-    width: 840px;
     margin-left: auto;
     margin-right: auto;
   }
-  ul{
-    float: left;
+  ul {
     margin: 0;
     padding: 0;
   }
@@ -29,7 +26,7 @@
         background-color: white;
         height: 60px;
     }
-    .container{
+    .cont {
       cursor: pointer;
       display: block;
       overflow: hidden;
@@ -67,7 +64,7 @@
         border-left: 1px solid rgb(152, 152, 152);
         border-top: 1px solid rgb(152, 152, 152);            
     }
-    .container:hover{
+    .cont:hover{
         text-decoration: none;
         background-color: white;
       .tooltip{
