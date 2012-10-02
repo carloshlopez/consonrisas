@@ -30,8 +30,26 @@
               %a.event_admin_reject{:href => "#"} Rechazar
           - else
             Solicitud de administración pendiente responder
+  .create-buttons
+    .create-event-div
+      %a{:class => "create-event create-button", :href=>"/events/new"}      
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe
+        crear evento
 - else
-  - unless is_current_member_this_member(@member.id)
-    %p
-      Este facilitador no ha asistigo a ningún evento
-    %a.fac-send-msg{:href=>"#"}Enviar un mensaje   
+  %h2
+    Tú no haz creado ningún evento
+  .create-buttons
+    .create-event-div
+      %a{:class => "create-event create-button", :href=>"/events/new"}      
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe
+        crea uno nuevo
+    .create-event-div
+      %a{:class => "create-event create-button", :href=>"/eventos"}
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe                
+        míralos todos

@@ -101,6 +101,7 @@
         text-align: center;
         color: rgb(152, 152, 152);
         font-size: medium;
+        z-index: 102;
         .create-buttons-text{
           text-align: left;
           padding-left: 15px;
@@ -124,77 +125,135 @@
   .menu-home{
     background-position: 10px -40px;
   }
-  .menu-home-text{
-    color: rgb(152,152,152);
+  .menu-home-selected{
+    background-position: 10px 6px;
+  }
+  .menu-home-txt{
     margin-top: -25px;
     margin-left: 14px;
     font-size: 11px;
-    padding-bottom: 3px;
+    padding-bottom: 3px;  
+  }
+  .menu-home-text-selected{
+    color: $site-color;
+  }  
+  .menu-home-text{
+    color: rgb(152,152,152);
   }  
   .menu-messages{
     background-position: -56px -40px;
   }
-  .menu-messages-text{
-    color: rgb(152,152,152);
+  .menu-messages-selected{
+    background-position: -56px 6px;
+  }  
+  .menu-messages-txt{
     margin-top: -25px;
     margin-left: 5px;
     font-size: 11px;
     padding-bottom: 3px;
-}    
+  }    
+  .menu-messages-text{
+    color: rgb(152,152,152);  
+  }
+  .menu-messages-text-selected{
+    color: $site-color;
+  }  
   .menu-invitations{
     background-position: -124px -40px;
     margin-left: 4px;    
   }  
-  .menu-invitations-text{
-    color: rgb(152,152,152);
+  .menu-invitations-selected{
+    background-position: -124px 6px;
+    margin-left: 4px;    
+  }    
+  .menu-invitations-txt{
     margin-top: -25px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 3px;    
   }  
+  .menu-invitations-text{
+    color: rgb(152,152,152);
+  }  
+  .menu-invitations-text-selected{
+    color: $site-color;
+  }    
   .menu-help{
     background-position: -191px -42px;
+  }
+  .menu-help-selected{
+    background-position: -191px 6px;
   }  
-  .menu-help-text{
-    color: rgb(152,152,152);
+  .menu-help-txt{
     margin-top: -25px;
     margin-left: 12px;
     font-size: 11px;
     padding-bottom: 3px;    
-  }  
+  }
+  .menu-help-text{
+    color: rgb(152,152,152);
+  }
+  .menu-help-text-selected{
+    color: $site-color;
+  }    
   .menu-register-fundations{
     background-position: -331px -40px;
+  }
+  .menu-register-fundations-selected{
+    background-position: -331px 6px;
   }  
-  .menu-register-fundations-text{
-    color: rgb(152,152,152);
+  .menu-register-fundations-txt{
     margin-top: -25px;
     margin-left: 4px;
     font-size: 11px;
     padding-bottom: 3px;    
   }  
+  .menu-register-fundations-text{
+    color: rgb(152,152,152);
+  }  
+  .menu-register-fundations-text-selected{
+    color: $site-color;
+  }
   .menu-register-providers{
     background-position: -269px -40px;
     margin-left: 8px;
+  }
+  .menu-register-providers-selected{
+    background-position: -269px 6px;
+    margin-left: 8px;
   }  
-  .menu-register-providers-text{
-    color: rgb(152,152,152);
+  .menu-register-providers-txt{
     margin-top: -25px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 3px;    
   }    
+  .menu-register-providers-text{
+    color: rgb(152,152,152);
+  }  
+  .menu-register-providers-text-selected{
+    color: $site-color;
+  }  
   .menu-register-events{
     background-position: -388px -40px;
+  }
+  .menu-register-events-selected{
+    background-position: -388px 6px;
   }  
-  .menu-register-events-text{
-    color: rgb(152,152,152);
+  .menu-register-events-txt{
     margin-top: -25px;
     margin-left: 8px;
     font-size: 11px;
     padding-bottom: 3px;    
   }  
+  .menu-register-events-text{
+    color: rgb(152,152,152);
+  } 
+  .menu-register-events-text-selected{
+    color: $site-color;
+  }    
   .menu-search{
     background-position: 2px -373px;
   }    

@@ -7,7 +7,7 @@
       %li
         %a.container{:href=>"#{member_path(current_member.id)}"}
           %span.menu-home
-          .menu-home-text
+          .menu-home-txt.menu-home-text
             inicio
           %span.tooltip.tooltip-inicio
             .menu-logo-triangle
@@ -15,7 +15,7 @@
       %li
         %a.container{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
           %span.menu-messages
-          .menu-messages-text
+          .menu-messages-txt.menu-messages-text
             mensajes    
           %span.tooltip
             .menu-logo-triangle
@@ -23,7 +23,7 @@
       %li
         %a.container{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
           %span.menu-invitations
-          .menu-invitations-text
+          .menu-invitations-txt.menu-invitations-text
             invitaciones          
           %span.tooltip.tooltip-grande
             .menu-logo-triangle
@@ -31,7 +31,7 @@
       %li
         %a.container{:href=>"/project_needs/all_needs"}
           %span.menu-help
-          .menu-help-text
+          .menu-help-txt.menu-help-text
             ayuda        
           %span.tooltip
             .menu-logo-triangle
@@ -39,7 +39,7 @@
       %li
         .container.container-box
           %span.menu-register-events
-          .menu-register-events-text
+          .menu-register-events-txt.menu-register-events-text
             eventos    
           .create-buttons
             .create-buttons-text
@@ -59,7 +59,7 @@
       %li
         .container.container-box
           %span.menu-register-fundations
-          .menu-register-fundations-text
+          .menu-register-fundations-txt.menu-register-fundations-text
             proyectos          
           .create-buttons
             .create-buttons-text          
@@ -79,7 +79,7 @@
       %li
         .container.container-box
           %span.menu-register-providers
-          .menu-register-providers-text
+          .menu-register-providers-txt.menu-register-providers-text
             proveedores          
           .create-buttons      
             .create-buttons-text          

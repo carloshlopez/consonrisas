@@ -4,6 +4,8 @@ $jq.widget("ui.myProfile", {
     	var self= this;
     	var $el= this.element;
     	
+    	$jq(".div-for-menu-space").css("padding-top","90px");;
+    	
     	$el.find('.fundation_admin_accept').click(function(e) {
             e.preventDefault();
             var fun_id = $jq(this).closest("div").attr("fundation_id");
@@ -106,13 +108,14 @@ $jq.widget("ui.myProfile", {
 	          }
         });                                 	
     	
-    	$el.find(".my-profile-menu span a").click(function() {
+    	$el.find(".my-profile-menu span a,.sub_menu_link").click(function() {
     	    var to_show = $jq(this).attr("show");
           self._show(to_show);
         });
         
     }, 
     _show: function(show){
+      $jq(".sub-menu-inner-bar ul li").removeClass("sub_menu_selected");    
       var newMargin = '60px';
       if( show == 'events'){
         newMargin = '160px';
@@ -129,6 +132,7 @@ $jq.widget("ui.myProfile", {
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
+      $jq(".sub_menu_link."+show).parent().addClass("sub_menu_selected");
     },
     _respondFundationAdmin: function(fun_id, mem_id, active){
         var postData = {fundation_id:fun_id, member_id:mem_id, active:active};
@@ -264,6 +268,7 @@ function showEdit(e){
 }
 
 function showMenu(show){
+  $jq(".sub-menu-inner-bar ul li").removeClass("sub_menu_selected");    
   var newMargin = '60px';
   if( show == 'events'){
     newMargin = '160px';
@@ -280,6 +285,7 @@ function showMenu(show){
   $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
   $jq(".mine").hide();
   $jq(".my-"+ show).show(); 
+  $jq(".sub_menu_link."+show).parent().addClass("sub_menu_selected");  
 }
 
 $jq(document).ready(function($) {    

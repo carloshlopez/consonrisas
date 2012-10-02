@@ -26,8 +26,19 @@
               %a.provider_admin_accept{:href => "#"} Aceptar
               |
               %a.provider_admin_reject{:href => "#"} Rechazar
-- else 
-  - unless is_current_member_this_member(@member.id)
-    %p
-      Este facilitador no administra a ningún proveedor
-    %a.fac-send-msg{:href=>"#"}Enviar un mensaje              
+- else
+  %h2
+    Tú no haz creado ningún proveedor de sonrisas
+  .create-buttons      
+    .create-provider-div
+      %a{:class => "create-provider create-button", :href=>"/providers/new"}          
+        %br              
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe
+        crea uno nuevo
+    .create-provider-div
+      %a{:class => "create-provider create-button", :href=>"/proveedores"}          
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe                
+        míralos todos

@@ -1,0 +1,18 @@
+.my-profile-title
+  %h1
+    = I18n.t('application.menu_profile')
+    = image_tag '/images/SonrisaTransparenteMedio.png'
+.my-profile-menu-top
+  %span.my-personal      
+    = I18n.t('personal')
+.my-profile-menu
+  %span.news
+    %a.news_feed{:href=>"#news_feed", :show=>"news_feed"} #{I18n.t('news_feed')}
+  %span.personal
+    %a.events{:href=>"#events", :show=>"events"} #{I18n.t('events_name')}
+    | 
+    %a.fundtions{:href=>"#fundations", :show=>"fundations"} #{I18n.t('fundations')}
+    | 
+    %a.providers{:href=>"#providers", :show=>"providers"} #{I18n.t('providers')}
+.my-profile-arrows
+  .arrow-up-profile.arrow-invites

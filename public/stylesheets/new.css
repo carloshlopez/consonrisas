@@ -2725,7 +2725,8 @@ span.edit_profilepicture_icon {
         display: block;
         text-align: center;
         color: #989898;
-        font-size: medium; }
+        font-size: medium;
+        z-index: 102; }
         .menu-bar li .container:hover .create-buttons .create-buttons-text {
           text-align: left;
           padding-left: 15px;
@@ -2741,64 +2742,101 @@ span.edit_profilepicture_icon {
     margin-top: 3px; }
   .menu-bar .menu-home {
     background-position: 10px -40px; }
-  .menu-bar .menu-home-text {
-    color: #989898;
+  .menu-bar .menu-home-selected {
+    background-position: 10px 6px; }
+  .menu-bar .menu-home-txt {
     margin-top: -25px;
     margin-left: 14px;
     font-size: 11px;
     padding-bottom: 3px; }
+  .menu-bar .menu-home-text-selected {
+    color: #5ab446; }
+  .menu-bar .menu-home-text {
+    color: #989898; }
   .menu-bar .menu-messages {
     background-position: -56px -40px; }
-  .menu-bar .menu-messages-text {
-    color: #989898;
+  .menu-bar .menu-messages-selected {
+    background-position: -56px 6px; }
+  .menu-bar .menu-messages-txt {
     margin-top: -25px;
     margin-left: 5px;
     font-size: 11px;
     padding-bottom: 3px; }
+  .menu-bar .menu-messages-text {
+    color: #989898; }
+  .menu-bar .menu-messages-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-invitations {
     background-position: -124px -40px;
     margin-left: 4px; }
-  .menu-bar .menu-invitations-text {
-    color: #989898;
+  .menu-bar .menu-invitations-selected {
+    background-position: -124px 6px;
+    margin-left: 4px; }
+  .menu-bar .menu-invitations-txt {
     margin-top: -25px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 3px; }
+  .menu-bar .menu-invitations-text {
+    color: #989898; }
+  .menu-bar .menu-invitations-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-help {
     background-position: -191px -42px; }
-  .menu-bar .menu-help-text {
-    color: #989898;
+  .menu-bar .menu-help-selected {
+    background-position: -191px 6px; }
+  .menu-bar .menu-help-txt {
     margin-top: -25px;
     margin-left: 12px;
     font-size: 11px;
     padding-bottom: 3px; }
+  .menu-bar .menu-help-text {
+    color: #989898; }
+  .menu-bar .menu-help-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-register-fundations {
     background-position: -331px -40px; }
-  .menu-bar .menu-register-fundations-text {
-    color: #989898;
+  .menu-bar .menu-register-fundations-selected {
+    background-position: -331px 6px; }
+  .menu-bar .menu-register-fundations-txt {
     margin-top: -25px;
     margin-left: 4px;
     font-size: 11px;
     padding-bottom: 3px; }
+  .menu-bar .menu-register-fundations-text {
+    color: #989898; }
+  .menu-bar .menu-register-fundations-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-register-providers {
     background-position: -269px -40px;
     margin-left: 8px; }
-  .menu-bar .menu-register-providers-text {
-    color: #989898;
+  .menu-bar .menu-register-providers-selected {
+    background-position: -269px 6px;
+    margin-left: 8px; }
+  .menu-bar .menu-register-providers-txt {
     margin-top: -25px;
     font-size: 11px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 3px; }
+  .menu-bar .menu-register-providers-text {
+    color: #989898; }
+  .menu-bar .menu-register-providers-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-register-events {
     background-position: -388px -40px; }
-  .menu-bar .menu-register-events-text {
-    color: #989898;
+  .menu-bar .menu-register-events-selected {
+    background-position: -388px 6px; }
+  .menu-bar .menu-register-events-txt {
     margin-top: -25px;
     margin-left: 8px;
     font-size: 11px;
     padding-bottom: 3px; }
+  .menu-bar .menu-register-events-text {
+    color: #989898; }
+  .menu-bar .menu-register-events-text-selected {
+    color: #5ab446; }
   .menu-bar .menu-search {
     background-position: 2px -373px; }
   .menu-bar .menu-search-text {
@@ -2866,3 +2904,41 @@ span.edit_profilepicture_icon {
     text-decoration: none; }
   .my-account-links .member-info a:hover {
     text-decoration: underline; }
+
+.sub-menu-bar {
+  background-color: #dedede;
+  position: fixed;
+  top: 61px;
+  left: 0px;
+  right: 0px;
+  float: left;
+  min-height: 1px; }
+  .sub-menu-bar .sub-menu-inner-bar {
+    width: 640px;
+    padding-left: 325px;
+    margin-left: auto;
+    margin-right: auto; }
+  .sub-menu-bar ul {
+    float: left;
+    margin: 0;
+    padding: 0; }
+  .sub-menu-bar li {
+    list-style: none;
+    float: left;
+    display: block;
+    padding-left: 2px;
+    height: 40px;
+    border-right: 1px solid #5ab446;
+    padding-left: 9px;
+    padding-right: 10px;
+    line-height: 2.5em; }
+    .sub-menu-bar li a {
+      color: #5ab446;
+      text-decoration: none;
+      font-size: small;
+      padding-top: 10px; }
+    .sub-menu-bar li a:hover {
+      text-decoration: underline; }
+
+.sub_menu_selected {
+  background-color: white; }

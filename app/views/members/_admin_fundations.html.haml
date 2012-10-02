@@ -27,7 +27,18 @@
               |
               %a.fundation_admin_reject{:href => "#"} Rechazar
 - else
-  - unless is_current_member_this_member(@member.id)
-    %p
-      Este facilitador no administra a ningún proyecto
-    %a.fac-send-msg{:href=>"#"}Enviar un mensaje   
+  %h2
+    Tú no haz creado ningún proyecto social
+  .create-buttons
+    .create-fundation-div
+      %a{:class => "create-fundation create-button", :href=>"/fundations/new"}
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe
+        crea uno nuevo
+    .create-fundation-div
+      %a{:class => "create-fundation create-button", :href=>"/proyectos"}
+        %br
+        = "&nbsp".html_safe
+        = "&nbsp".html_safe
+        míralos todos 
