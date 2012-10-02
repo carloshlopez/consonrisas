@@ -1,0 +1,11 @@
+.sub-menu-bar
+  .sub-menu-inner-bar
+    %ul
+      %li.sub_menu_selected
+        %a.sub_menu_link.news_feed{:href=>"#news_feed", :show=>"news_feed"} #{I18n.t('news_feed')}
+      %li
+        %a.sub_menu_link.events{:href=>"#events", :show=>"events"} #{I18n.t('yours')+" "+I18n.t('events_name')}
+      %li
+        %a.sub_menu_link.fundations{:href=>"#fundations", :show=>"fundations"} #{I18n.t('yours')+" "+I18n.t('fundations')}
+      %li
+        %a.sub_menu_link.providers{:href=>"#providers", :show=>"providers"} #{I18n.t('yours')+" "+I18n.t('providers')}
