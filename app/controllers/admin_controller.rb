@@ -136,6 +136,7 @@ class AdminController < ApplicationController
   
   def fundation_admins_to_csv
     @fundations = Fundation.all
+    ar = Array.new
     csv_string = CSV.generate do |csv| 
       # header row 
       csv << ["email", "name"] 
@@ -146,12 +147,17 @@ class AdminController < ApplicationController
         name = fund.name if fund.name
         email = "no"
         email = fund.email if fund.email and fund.email.length > 1       
-        csv << [email, name] unless email == "no"
+#        csv << [email, name] unless email == "no"
+        ar << "#{email}:#{name}" unless email == "no"
         fund.fundation_admins.each do |admin|        
-          csv << [admin.member.email, name] if admin.member and admin.member.email
+#          csv << [admin.member.email, name] if admin.member and admin.member.email
+          ar << "#{admin.member.email}:#{name}" if admin.member and admin.member.email
         end
-        
       end 
+      ar.uniq! {|s| s[/^\w+/]}
+      ar.each do |i|
+        csv << [i.split(":")[0], i.split(":")[1]]
+      end      
     end 
     send_data csv_string, 
               :type => 'text/csv; charset=iso-8859-1; header=present', 
