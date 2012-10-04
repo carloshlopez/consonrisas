@@ -2,7 +2,7 @@ require 'csv'
 require 'heroku-api'
 class AdminController < ApplicationController
   layout "admin"
-  before_filter :authenticate_member!, :except => [:members_to_csv]
+  before_filter :authenticate_member!, :except => [:members_to_csv, :fundation_admins_to_csv]
 
   def index
     flash[:notice] = ""
@@ -133,6 +133,30 @@ class AdminController < ApplicationController
               :type => 'text/csv; charset=iso-8859-1; header=present', 
               :disposition => "attachment; filename=users.csv" 
   end  
+  
+  def fundation_admins_to_csv
+    @fundations = Fundation.all
+    csv_string = CSV.generate do |csv| 
+      # header row 
+      csv << ["email", "name"] 
+   
+      # data rows 
+      @fundations.each do |fund| 
+        name = 'Sin Nombre'
+        name = fund.name if fund.name
+        email = "no"
+        email = fund.email if fund.email and fund.email.length > 1       
+        csv << [email, name] unless email == "no"
+        fund.fundation_admins.each do |admin|        
+          csv << [admin.member.email, name] if admin.member and admin.member.email
+        end
+        
+      end 
+    end 
+    send_data csv_string, 
+              :type => 'text/csv; charset=iso-8859-1; header=present', 
+              :disposition => "attachment; filename=fundation_admins.csv" 
+  end    
   
   def dj_all
     if current_member.try(:admin?)    
