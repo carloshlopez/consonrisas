@@ -26,6 +26,8 @@ Consonrisas::Application.configure do
 #  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.default_url_options = { :host => 'www.conectandosonrisas.org' }
   
+  Rails.application.routes.default_url_options[:host]= 'www.conectandosonrisas.org'
+  
 ActionMailer::Base.smtp_settings = {
 :user_name => "carloshlopez@gmail.com",
 :password => "usuario123",
