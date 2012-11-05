@@ -45,6 +45,9 @@ Consonrisas::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'www.conectandosonrisas.org' }
 #  config.action_mailer.raise_delivery_errors = true
+
+  Rails.application.routes.default_url_options[:host]= 'www.conectandosonrisas.org'
+  
 #  
 #ActionMailer::Base.smtp_settings = {
 #  :enable_starttls_auto => true,
