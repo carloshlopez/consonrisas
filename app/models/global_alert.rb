@@ -1,6 +1,20 @@
 class GlobalAlert < ActiveRecord::Base
-  after_create :send_mails, :add_to_daily_weekly
+  include Rails.application.routes.url_helpers
+
+  after_create :send_mails, :add_to_daily_weekly, :share
   before_destroy :destroy_alert_dependencies
+
+  def share
+    obj = self.model.constantize.find(self.model_id)
+    link = send("#{self.model.downcase}_url", obj)
+    message = self.news + " " + self.name_link
+
+    worker = FbGlobalAlertCreatedWorker.new
+    worker.link = link
+    worker.message = message
+    worker.queue(:priority=>0)
+
+  end
 
   def add_to_daily_weekly
     DailyAlert.create(:global_alert_id => self.id);
