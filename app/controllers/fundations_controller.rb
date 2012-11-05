@@ -12,7 +12,15 @@ class FundationsController < ApplicationController
   # GET /fundations/1.xml
   def show
     @fundation = Fundation.find(params[:id])
-
+    @meta_name = "Proyecto Social"
+    @meta_name = @fundation.name if @fundation.name
+    @meta_desc = @meta_name
+    @meta_desc = @fundation.description[0, 350] if @fundation.description
+    if @fundation.pic(:thumb) and @fundation.pic(:profile).include? "s3"
+      @meta_img = @fundation.pic(:profile)
+    else
+      @meta_img = "http://www.conectandosonrisas.org" << @fundation.pic.url(:profile)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fundation }
