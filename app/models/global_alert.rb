@@ -15,6 +15,7 @@ class GlobalAlert < ActiveRecord::Base
     worker.queue(:priority=>0)
 
   end
+  handle_asynchronously :share  
 
   def add_to_daily_weekly
     DailyAlert.create(:global_alert_id => self.id);

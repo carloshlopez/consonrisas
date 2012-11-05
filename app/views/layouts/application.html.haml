@@ -22,12 +22,12 @@
     %meta{:charset => "utf-8"}/
     %meta{:name=>"description",  :content=>"Comunidad Virtual para llenar de magia y alegria los corazones de los colombianos"}
     %meta{:name=>"keywords", :content=>"Eventos, Fundaciones, Sonrisas, Facilitadores, Proyectos Sociales, Apoyo a Fundaciones, Ayuda a Fundaciones"}
-    - if @meta_event_name 
-      %meta{:property=>"og:title", :content=>@meta_event_name}
-    - if @meta_event_desc
-      %meta{:property=>"og:description", :content=>@meta_event_desc}
-    - if @meta_event_img
-      %meta{:property=>"og:image", :content=>@meta_event_img}
+    - if @meta_name 
+      %meta{:property=>"og:title", :content=>@meta_name}
+    - if @meta_desc
+      %meta{:property=>"og:description", :content=>@meta_desc}
+    - if @meta_img
+      %meta{:property=>"og:image", :content=>@meta_img}
     %link{:href => "", :media => "all", :rel => "stylesheet"}/
     = javascript_include_tag "gooAnalytics"
   %body

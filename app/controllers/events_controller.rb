@@ -12,12 +12,12 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-    @meta_event_name = @event.name if @event.name
-    @meta_event_desc = @event.desc[0, 350] if @event.desc
-    if @event.pic(:thumb) and @event.pic(:thumb).include? "s3"
-      @meta_event_img = @event.pic(:thumb)
+    @meta_name = @event.name if @event.name
+    @meta_desc = @event.desc[0, 350] if @event.desc
+    if @event.pic(:thumb) and @event.pic(:profile).include? "s3"
+      @meta_img = @event.pic(:profile)
     else
-      @meta_event_img = "http://www.consonrisas.co/" << @event.pic.url(:thumb)
+      @meta_img = "http://www.conectandosonrisas.org" << @event.pic.url(:profile)
     end
     respond_to do |format|
       format.html # show.html.erb
