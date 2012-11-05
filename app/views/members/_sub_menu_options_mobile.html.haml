@@ -1,0 +1,11 @@
+.sub_menu_options_mobile.visible-phone
+  %a.sub_menu_link.news_feed.btn.btn-success.btn-small.btn-block{:href=>"/project_needs/all_needs"}
+    %i.icon-star.icon-white 
+    #{I18n.t('help_with_needs')}
+  = link_to member_my_invites_path(current_member), :class=>"btn btn-success btn-small btn-block" do
+    %i.icon-calendar.icon-white
+    = I18n.t('invites')  
+  = link_to member_my_msgs_path(current_member), :class=>"btn btn-success btn-small btn-block" do
+    %i.icon-envelope.icon-white
+    = I18n.t('messages_name')      
+

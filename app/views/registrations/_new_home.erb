@@ -15,24 +15,33 @@
   <%= devise_error_messages! %>
   <% end %>
 
-  <%= f.label :email %>:<br />
+  <%= f.label :email %>:
+  <br/>
   <%= f.text_field :email , :class=>"member_email"%>
   <br/>
   <% if @member.nil? %>
-    <%= f.label I18n.t('account.password') %>:<br />
+    <%= f.label I18n.t('account.password') %>:
+  <br/>
     <%= f.password_field :password, :class=>"member_password" %>
   <br />
-    <%= f.label I18n.t('account.password_confirmation') %>:<br />
+    <%= f.label I18n.t('account.password_confirmation') %>:
+  <br/>
     <%= f.password_field :password_confirmation, :class=>"member_password_confirmation" %>
   <br />
   <% elsif @member.password_required? %>
-    <%= f.label I18n.t('account.password') %>:<br />
+    <%= f.label I18n.t('account.password') %>:
+  <br/>
     <%= f.password_field :password %>
   <br />
-    <%= f.label I18n.t('account.password_confirmation') %>:<br />
+    <%= f.label I18n.t('account.password_confirmation') %>:
+  <br/>
     <%= f.password_field :password_confirmation %>
   <% end %>
   <p><%= f.submit I18n.t('account.sign_up'), :title=> "Cónectate para sacrle sonrisas al país", :class=>"register_wizzard" %></p>
+  
+  <button class="show_login_form login-link">
+    Ya estoy registrado   
+  </button>
   
   <% unless @member and !@member.password_required? %>
   <div class="supported_services">

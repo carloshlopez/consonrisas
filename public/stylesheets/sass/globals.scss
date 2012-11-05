@@ -11,7 +11,6 @@ $site-color: rgb(90,180,70);
 $site-color-dark: #458C36;
 $main-background: white;
 $home-link-yellow: #EAFF00;
-$body-width: 950px;
 $left-div-width: 300px;
 $main-width: 500px;
 $footer-color: #DCFFD5;
@@ -41,10 +40,7 @@ $footer-width: 840px;
 }
 
 body {
-	width: $body-width;
 	background: $main-background;
-	margin-left: auto;
-	margin-right: auto;
   font-family: "consonrisas";  	
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }

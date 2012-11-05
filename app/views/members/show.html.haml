@@ -1,12 +1,12 @@
 = javascript_include_tag "new_layout/completeRegister.js"
-#my-profile
+#my-profile.row
   = render "sub_menu"
-  #left-div-profile
+  #left-div-profile.span4
     - if @num_steps > 0
       %input#showCompleteRegister{:type=>"hidden", :value=>"yes"}
     - else
       %input#showCompleteRegister{:type=>"hidden", :value=>"no"}
-    .my-connections
+    .my-connections.hidden-phone
       .my-connections-faces
         - @member.facilitator.facilitators.each_with_index do |fac, i|
           = link_to image_tag(member_thumb(fac)), fac.member, :title=>"Ver perfil"
@@ -15,7 +15,7 @@
         = I18n.t('connections')
         %br
         %a.see-all{:href=>"#", :title=>"Ver las #{@member.facilitator.facilitators.count + @member.facilitator.fundations.count + @member.facilitator.providers.count} conexiones"}#{I18n.t('see_all')}
-    .profile-info
+    .profile-info.hidden-phone
       = image_tag 'FacilitadorTransparenteChiqui.png', :class=>"transparent"
       %h2
         = member_name(@member)
@@ -39,7 +39,9 @@
             %a.editt-me{:href=>"/members/edit_settings#my-profile"} #{I18n.t('edit')} #{I18n.t('profile_text')} 
             %br
             = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
-  #profile-content
+  #profile-content.span8
+    = render "sub_menu_mobile"
+    = render "sub_menu_options_mobile"    
     .mine.my-complete-register
       =render :partial =>"complete_register"         
     .mine.my-news_feed{:style=>"display:block"}
@@ -57,6 +59,5 @@
     =render :partial =>"facilitators/form"     
   #change_pic{:style=>"display:none"}
     - @model = @fac
-    = render :partial=>"shared/just_pic"  
-
+    = render :partial=>"shared/just_pic"
 = javascript_include_tag "new_layout/ui.myProfile"

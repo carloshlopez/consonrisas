@@ -212,4 +212,14 @@ class MembersController < ApplicationController
     @member = current_member
   end
   
+  def my_invites
+    @member = Member.find(params[:member_id])
+    @invites = current_member.alerts.where("alert_type=1").order("created_at DESC")
+  end
+  
+  def my_msgs
+    @msgs = current_member.alerts.where("alert_type = 2").order("created_at DESC")
+    @member = Member.find(params[:member_id])
+  end
+  
 end

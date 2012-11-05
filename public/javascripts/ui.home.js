@@ -28,4 +28,17 @@ $jq.widget("ui.home", {
 $jq(document).ready(function($) {    
     var fb = $jq("#pics").home();
     $jq('#home_event_comments').load('/home/event_comments', function() {});    
+    
+    $jq(".show_login_form").click(function(e){
+      e.preventDefault();
+      $jq(".register_from_home").hide();
+      $jq(".login_from_home").show();      
+    });
+    
+    $jq(".show_register_form").click(function(e){
+      e.preventDefault();    
+      $jq(".register_from_home").show();
+      $jq(".login_from_home").hide();      
+    });    
+    
 });

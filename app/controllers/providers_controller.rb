@@ -134,7 +134,12 @@ class ProvidersController < ApplicationController
   end
   
   def change_pic
-    @provider = Provider.find(params[:provider_id])
+    if params[:provider_id]
+      @provider = Provider.find(params[:provider_id])
+    else
+      @provider = Provider.find(params[:es_provider_id])      
+    end
+    
     if @provider.update_attributes(params[:provider])    
       render :json => { :pic_path_big => @provider.pic.url(:profile).to_s, :pic_path => @provider.pic.url(:thumb).to_s , :name => @provider.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'    
     else

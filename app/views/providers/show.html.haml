@@ -1,5 +1,5 @@
-#provider-profile
-  #left-div-profile-provider
+#provider-profile.row
+  #left-div-profile-provider.span4
     .profile-info
       = image_tag 'ProveedorTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -35,7 +35,7 @@
             %a.send-msg{:href=>"#"}Enviar un mensaje
           %br
           %a{:href=>"/proveedores"}Ver todos los proveedores de sonrisas
-  #profile-content-provider
+  #profile-content-provider.span8
     .my-profile-title
       %h1 
         proveedor
@@ -45,7 +45,7 @@
       |    
       %a.events{:href=>"#menu", :show=>"events"} eventos
       |
-      %a.contact{:href=>"#menu", :show=>"contact"} información de contacto (#{@provider.contact_informations.count})
+      %a.contact{:href=>"#menu", :show=>"contact"} contactos (#{@provider.contact_informations.count})
       |
       %a.contact{:href=>"#menu", :show=>"shows"} espectáculos (#{@provider.shows.count})    
     .my-profile-arrows

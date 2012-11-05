@@ -1,8 +1,5 @@
 #left-div-profile-fundation{
   color: $main-background;
-  width: $left-div-width;
-  float: left;
-  margin-top: -15px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -13,15 +10,15 @@
   }
   .profile-info{
     @include fundations-gradient();
-    min-height: 780px;
-    margin-top: -5px;
     img.transparent{
       position: absolute;
       margin-top: 5px;
       margin-left: -30px;      
     }
     img.img-profile{ 
-      max-height: 150px; 
+      margin-top: 15px;
+      margin-left: 25px;     
+      width: 80%; 
     }
     h2{
       padding-top: 25px;
@@ -43,9 +40,7 @@
 }
 
 #profile-content-fundation{
-  width: $main-width + 100px;
-	margin-left: 320px;
-	min-height: 780px;
+	min-height: 150px;
   .my-profile-title{
     @include fundations-gradient();
     color: $main-background;
@@ -53,7 +48,8 @@
     height: 100px;
     letter-spacing: -2px;
    h1{
-      padding-left: 25px;
+      padding-left: 30px;
+      padding-top: 10px;      
     }  
     img{
       position: absolute;

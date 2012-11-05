@@ -47,15 +47,15 @@
             ¿Cómo quieres conectar sonrisas?
           </h3>
             <div class="type_divs">
-            <%= image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <%= image_tag "IconosFacilitadores.png", :style=>"vertical-align:middle; height:60px", :class=>"img-rounded" %>
             <input type="checkbox" id="reg_facilitator" value="true" name="isFacilitator" /> <%= I18n.t('facilitator_name') %> - Si tu o tu empresa tienes ganas de ayudar
             </div>
             <div class="type_divs">
-            <%= image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+            <%= image_tag "IconosProyectosSociales.png", :style=>"vertical-align:middle; height:60px;", :class=>"img-rounded" %>
             <input type="checkbox" id="reg_fundation" value="true" name="isFundation" /> <%= I18n.t('fundation_name')%> - Si trabajas para mejorar la calidad de vida de las personas
             </div>
             <div class="type_divs">
-            <%= image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;" %>            
+            <%= image_tag "IconosProveedores.png", :style=>"vertical-align:middle; height:60px;", :class=>"img-rounded" %>            
             <input type="checkbox" id="reg_provider" value="true" name="isProvider" /> <%= I18n.t('provider_name') %> - Si tienes algún producto o servicio que genere sonrisas
             </div>
             </td>
@@ -79,19 +79,19 @@
           <h2 class="StepTitle">Completa estos datos importantes</h2> 
            <!-- step content -->
            <div id="reg_facilitator_info" style="display:none;" class="type_divs">
-           <%= image_tag "IconosFacilitadores.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+           <%= image_tag "IconosFacilitadores.png", :style=>"vertical-align:middle;height:60px;", :class=>"img-rounded" %>
             <%= I18n.t('name') %>:
             <input type="text" id="reg_facilitator_name" name="member[name]" size="25"/> - Tu nombre
           <span id="reg_facilitator_info_warning" class="warning" style="display:none"></span>                    
            </div>
            <div id="reg_fundation_info"  style="display:none;" class="type_divs">
-           <%= image_tag "IconosProyectosSociales.png", :height=>"50px", :style=>"vertical-align:middle;" %>
+           <%= image_tag "IconosProyectosSociales.png", :style=>"vertical-align:middle;height:60px;", :class=>"img-rounded" %>
             <%= I18n.t('name') %>:
             <input type="text" id="reg_fundation_name" name="fundation[name]" size="25"/> - El nombre de fundación o proyecto
           <span id="reg_fundation_info_warning" class="warning" style="display:none"></span>                    
            </div>
            <div id="reg_provider_info" style="display:none;" class="type_divs">
-           <%= image_tag "IconosProveedores.png", :height=>"50px", :style=>"vertical-align:middle;" %>           
+           <%= image_tag "IconosProveedores.png", :style=>"vertical-align:middle;height:60px;", :class=>"img-rounded" %>           
             <%= I18n.t('name') %>:
             <input type="text" id="reg_provider_name" name="provider[name]" size="25"/> - El nombre del generador de sonrisas
             

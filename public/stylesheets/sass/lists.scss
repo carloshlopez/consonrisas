@@ -1,8 +1,9 @@
-#left-div-lists{
+.list-page {
+  margin-top: 30px;
+}
+
+#left-div-lists {
   color: $main-background;
-  width: $left-div-width;
-  float: left;
-  margin-top: 39px;
   a{
    text-decoration: none;
   }
@@ -12,7 +13,6 @@
   }
   .vip{
     height: 655px;
-    margin-top: -38px;
     img.transparent{
       position: absolute;
       margin-top: 5px;
@@ -75,10 +75,6 @@
   }  
 }
 
-#list-content{
-  width: $main-width + 100px;
-	margin-left: 320px;
-}
 
 /*lists as divs*/
 .list-facilitators{
@@ -105,6 +101,7 @@
  h1{
     padding-left: 15px;
     padding-top: 25px;
+    margin: 0;
   }  
   img{
     position: absolute;

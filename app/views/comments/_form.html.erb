@@ -1,7 +1,12 @@
 <%= form_for([@event, @event.comments.build]) do |f| %>
   <input type="hidden" id="has_twitter" value="<%= current_member_has_twitter %>" />
   <div class="field">
-    <%= f.text_area :comment, :class=>"new_comment" %>
+    <div class="phone_commnet visible-phone">
+      <%= f.text_area :comment, :cols=>"30"%>
+    </div>
+    <div class="normal_commnet hidden-phone">
+      <%= f.text_area :comment, :class=>"new_comment" %>
+    </div>    
     <% if member_signed_in? %>
       <input type="hidden" name="comment[member_id]" value="<%= current_member.id %>"/>    
     <% end %>

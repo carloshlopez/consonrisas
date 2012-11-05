@@ -1,0 +1,18 @@
+.sub-menu-mobile.visible-phone
+  %ul.nav.nav-pills.nav-stacked{:style=>"margin-left:-40px;"}
+    %li.active
+      %a.sub_menu_link.news_feed{:href=>"#news_feed", :show=>"news_feed"}
+        %i.icon-globe.icon-white 
+        #{I18n.t('news_feed')}
+    %li
+      %a.sub_menu_link.events{:href=>"#events", :show=>"events"}
+        %i.icon-th-list.icon-white
+        #{I18n.t('yours')+" "+I18n.t('events_name')}      
+    %li
+      %a.sub_menu_link.fundations{:href=>"#fundations", :show=>"fundations"}
+        %i.icon-user.icon-white  
+        #{I18n.t('yours')+" "+I18n.t('fundations')}      
+    %li
+      %a.sub_menu_link.providers{:href=>"#providers", :show=>"providers"}
+        %i.icon-user.icon-white  
+        #{I18n.t('yours')+" "+I18n.t('providers')}

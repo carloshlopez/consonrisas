@@ -1,17 +1,21 @@
 /*
 Syntax error: Undefined variable: "$main-background".
-        on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss
+        on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss
 
-1: #left-div-lists{
-2:   color: $main-background;
-3:   width: $left-div-width;
-4:   float: left;
-5:   margin-top: 39px;
-6:   a{
-7:    text-decoration: none;
+1: .list-page {
+2:   margin-top: 30px;
+3: }
+4: 
+5: #left-div-lists {
+6:   color: $main-background;
+7:   a{
+8:    text-decoration: none;
+9:   }
+10:   a:hover{
+11:    color: darken($main-background, 10%);
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss:2
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss:6
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -92,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$main-background\".\A         on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss\A \A 1: #left-div-lists{\A 2:   color: $main-background;\A 3:   width: $left-div-width;\A 4:   float: left;\A 5:   margin-top: 39px;\A 6:   a{\A 7:    text-decoration: none;"; }
+  content: "Syntax error: Undefined variable: \"$main-background\".\A         on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/lists.scss\A \A 1: .list-page {\A 2:   margin-top: 30px;\A 3: }\A 4: \A 5: #left-div-lists {\A 6:   color: $main-background;\A 7:   a{\A 8:    text-decoration: none;\A 9:   }\A 10:   a:hover{\A 11:    color: darken($main-background, 10%);"; }
