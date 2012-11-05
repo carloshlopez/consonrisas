@@ -3,23 +3,29 @@
 <%= form_for(@model, :url=> request.path + "/change_pic", :html => { :class => "upload2", :multipart=> true}) do |f| %>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-   
-  jQuery('.upload2').fileUploadUI({
-        uploadTable: jQuery('.upload_files2'),
-        buildUploadRow: function (files, index) {
-            var file = files[index];
-            return jQuery('<tr><td>' + file.name + '<\/td>' +
-                    '<td class="file_upload_progress"><div><\/div><\/td>' +
-                    '<td class="file_upload_cancel">' +
-                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
-                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
-                    '<\/button><\/td><\/tr>');
-        },
-        buildDownloadRow: function (file) {
-            return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
-        },
-        onComplete: onCompleteCallback
-    });       
+  $('.upload2').each(function(){
+
+    if (!$(this).hasClass('applied')){
+      $(this).addClass('applied').fileUploadUI({
+            uploadTable: jQuery('.upload_files2'),
+            buildUploadRow: function (files, index) {
+                var file = files[index];
+                return jQuery('<tr><td>' + file.name + '<\/td>' +
+                        '<td class="file_upload_progress"><div><\/div><\/td>' +
+                        '<td class="file_upload_cancel">' +
+                        '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+                        '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                        '<\/button><\/td><\/tr>');
+            },
+            buildDownloadRow: function (file) {
+                return jQuery('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+            },
+            onComplete: onCompleteCallback
+        });       
+    }
+    
+  
+  });
 });
 function onCompleteCallback (event, files, index, xhr, handler) {
     var json = handler.response;

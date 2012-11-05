@@ -1,0 +1,43 @@
+.navbar.navbar-fixed-top.visible-phone
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "/", :style=>"text-decoration:none"} Conectando Sonrisas
+      .nav-collapse
+        %ul.nav{:style=>"margin-left:-40px;"}
+          %li.home-mobile-menu.active
+            = link_to member_path(current_member.id) do
+              %i.icon-home
+              Inicio
+          %li.needs-mobile-menu
+            %a{:href=>"/project_needs/all_needs"}
+              %i.icon-star
+              Ayuda
+          %li.events-mobile-menu
+            %a{:href=>"/eventos"}
+              %i.icon-th-list
+              Eventos
+          %li.providers-mobile-menu
+            %a{:href=>"/proveedores"}
+              %i.icon-user            
+              Proveedores de Sonrisas
+          %li.fundations-mobile-menu
+            %a{:href=>"/proyectos"}
+              %i.icon-user            
+              Proyectos Sociales               
+          %li.edit-mobile-menu
+            %a{:href=>"/members/edit_settings"}
+              %i.icon-edit            
+              Editar mi perfil                 
+          %li
+            - if session[:fb_token].nil?
+              = link_to destroy_member_session_path, :class=>"edit-me-menu" do
+                %i.icon-off
+                = I18n.t('account.logout')
+            - else
+              = link_to facebook_logout_path, :class=>"edit-me-menu" do
+                %i.icon-off
+                = I18n.t('account.logout')

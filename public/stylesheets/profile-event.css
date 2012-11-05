@@ -1,19 +1,21 @@
 /*
 Syntax error: Undefined mixin 'events-gradient'.
-        on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss, in `events-gradient'
-        from line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss
+        on line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss, in `events-gradient'
+        from line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss
 
-1: #left-div-profile-event{
-2:   @include events-gradient();
-3:   color: $main-background;
-4:   width: $left-div-width;
-5:   float: left;
-6:   margin-bottom: 10px;
-7:   min-height: 732px;
+1: .profile-page{
+2: }
+3: #left-div-profile-event{
+4:   @include events-gradient();
+5:   color: $main-background;
+6:   a{
+7:    color: $home-link-yellow;
+8:    text-decoration: none;
+9:   }
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss:2:in `events-gradient'
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss:2
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss:4:in `events-gradient'
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss:4
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:169:in `visit_mixin'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/base.rb:37:in `visit'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:18:in `visit'
@@ -92,4 +94,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'events-gradient'.\A         on line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss, in `events-gradient'\A         from line 2 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss\A \A 1: #left-div-profile-event{\A 2:   @include events-gradient();\A 3:   color: $main-background;\A 4:   width: $left-div-width;\A 5:   float: left;\A 6:   margin-bottom: 10px;\A 7:   min-height: 732px;"; }
+  content: "Syntax error: Undefined mixin 'events-gradient'.\A         on line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss, in `events-gradient'\A         from line 4 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/profile-event.scss\A \A 1: .profile-page{\A 2: }\A 3: #left-div-profile-event{\A 4:   @include events-gradient();\A 5:   color: $main-background;\A 6:   a{\A 7:    color: $home-link-yellow;\A 8:    text-decoration: none;\A 9:   }"; }

@@ -112,36 +112,45 @@ function description(current){
 $jq(document).ready(function($) {    
     $jq("#menu").homeMenu();
      	var path = window.location.toString();//pathname;
+     	$jq(".nav-collapse ul.nav li").removeClass("active");
     	if(path.indexOf('msgs') > 0){
         $jq(".menu-messages").addClass("menu-messages-selected").removeClass("menu-messages");        
         $jq(".menu-messages-text").addClass("menu-messages-text-selected").removeClass("menu-messages-text");
+        $jq(".home-mobile-menu").addClass("active");        
     	}     	
     	else if(path.indexOf('invites') > 0){
         $jq(".menu-invitations").addClass("menu-invitations-selected").removeClass("menu-invitations");
         $jq(".menu-invitations-text").addClass("menu-invitations-text-selected").removeClass("menu-invitations-text");
+        $jq(".home-mobile-menu").addClass("active");        
     	}     	
     	else if(path.indexOf('member') > 0){
         $jq(".menu-home").addClass("menu-home-selected").removeClass("menu-home");        
         $jq(".menu-home-text").addClass("menu-home-text-selected").removeClass("menu-home-text");
+        $jq(".home-mobile-menu").addClass("active");        
     	}
     	else if(path.indexOf('needs') > 0){
         $jq(".menu-help").addClass("menu-help-selected").removeClass("menu-help");        
         $jq(".menu-help-text").addClass("menu-help-text-selected").removeClass("menu-help-text");        
+        $jq(".needs-mobile-menu").addClass("active");
     	}
     	else if(path.indexOf('provider') > 0 || path.indexOf('proveedor') > 0){
         $jq(".menu-register-providers").addClass("menu-register-providers-selected").removeClass("menu-register-providers");        
         $jq(".menu-register-providers-text").addClass("menu-register-providers-text-selected").removeClass("menu-register-providers-text");                
+        $jq(".providers-mobile-menu").addClass("active");        
     	}
     	else if(path.indexOf('fundation') > 0 || path.indexOf('proyecto') > 0){
         $jq(".menu-register-fundations").addClass("menu-register-fundations-selected").removeClass("menu-register-fundations");        
         $jq(".menu-register-fundations-text").addClass("menu-register-fundations-text-selected").removeClass("menu-register-fundations-text");                
+        $jq(".fundations-mobile-menu").addClass("active");        
     	}    	
     	else if(path.indexOf('find') > 0){
-                $jq(".menu-search").addClass("container-selected");        	
+        $jq(".menu-search").addClass("container-selected");        	
+        $jq(".home-mobile-menu").addClass("active");                
     	}
     	else if(path.indexOf('event') > 0){
         $jq(".menu-register-events").addClass("menu-register-events-selected").removeClass("menu-register-events");        
         $jq(".menu-register-events-text").addClass("menu-register-events-text-selected").removeClass("menu-register-events-text");                
+        $jq(".events-mobile-menu").addClass("active");        
     	}
     	
     	$jq(".menu-register-events").click(function(){

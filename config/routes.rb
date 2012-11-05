@@ -112,6 +112,8 @@ Consonrisas::Application.routes.draw do
   resources :members do
     post "update_facebook_id"
     put "change_pic"  
+    get "my_invites"
+    get "my_msgs"
   end
   post "/members_register" => "members#register"
 

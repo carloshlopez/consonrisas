@@ -9,14 +9,16 @@
     = stylesheet_link_tag "smart_wizard"
     = stylesheet_link_tag "smart_wizard_big"    
     = stylesheet_link_tag "jsUpload/jquery.fileupload-ui"
-    = stylesheet_link_tag "themes/default/default.css"
-    = stylesheet_link_tag "themes/pascal/pascal.css"
-    = stylesheet_link_tag "themes/orman/orman.css"
-    = stylesheet_link_tag "nivo-slider.css"
-    %link{:href => "/images/favicon.ico", :rel => "shortcut icon"}/
-    = javascript_include_tag "jquery-1.4.4.min"
-    = javascript_include_tag "jquery-ui-1.8.10.custom.min"        
+    = stylesheet_link_tag "themes/default/default"
+    = stylesheet_link_tag "themes/pascal/pascal"
+    = stylesheet_link_tag "themes/orman/orman"
+    = stylesheet_link_tag "nivo-slider"
+    %link{:href=>"/bootstrap/css/bootstrap.css", :rel=>"stylesheet"}
+    %link{:href => "/images/favicon.ico", :rel => "shortcut icon"}
+    %script{:src=>"//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"}
+    %script{:src=>"//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"}
     = csrf_meta_tag
+    %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}    
     %meta{:charset => "utf-8"}/
     %meta{:name=>"description",  :content=>"Comunidad Virtual para llenar de magia y alegria los corazones de los colombianos"}
     %meta{:name=>"keywords", :content=>"Eventos, Fundaciones, Sonrisas, Facilitadores, Proyectos Sociales, Apoyo a Fundaciones, Ayuda a Fundaciones"}
@@ -29,98 +31,78 @@
     %link{:href => "", :media => "all", :rel => "stylesheet"}/
     = javascript_include_tag "gooAnalytics"
   %body
-    #alert-msg{:style=>"display:none"}
-      %p
-    - if member_signed_in? 
-      = render "shared/menu"
-      .div-for-menu-space{:style=>"padding-top:55px"}      
-    - else
-      #left_div_top
-        %form#searchform{:action => "/search/find", :method => "get"}
-          %input#search-text.default{:name => "find", :type => "text"}
-          %a{:href=>"#", :title=>"Buscar"}
-            .search-triangle-button
-      #right_div_top
-        %span.application_messages
-          %span.notice
-            = notice
-          %span.alert
-            = alert
-        .account
-          - if member_signed_in?
-            = member_name(current_member)
-            .edit-my-account-container{:style=>"display:inline-block;"}
-              .edit-place
-                = link_to I18n.t('edit'), "#", :style=>"color:white", :class=>"edit-my-account"
-                #edit-my-account-options{:style=>"display:none"}
-                  = "&nbsp".html_safe
-                  = "&nbsp".html_safe                
-                  %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Mi Perfil
-                  %br
-                  %br
-                  = "&nbsp".html_safe
-                  %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Mi Cuenta
-            |        
-            - if session[:fb_token].nil?
-              = link_to I18n.t('account.logout'), destroy_member_session_path
-            - else
-              = link_to I18n.t('account.logout'), facebook_logout_path
-          - else
-            %a{:class=>"login", :href=>"#", :title=>"Conéctate", :direction=>"down"}
-              = I18n.t('account.login')
-            #login-form{:style=>"display:none"}
-              = render :partial => "/devise/sessions/login_form"
-      #header
-        #logo
-          %a{:href => "/"}
-            %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
-        #menu
-          %ul
-            %li
-              %a.facilitators{:href => "/facilitadores", :title=> I18n.t('application.menu_facilitators')}
-            %li
-              %a.providers{:href => "/proveedores", :title=> I18n.t('application.menu_providers')}
-            %li
-              %a.fundations{:href => "/proyectos", :title=> I18n.t('application.menu_fundations')}
-            %li
-              %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
-            - if member_signed_in?
+    %div.container
+      #alert-msg{:style=>"display:none"}
+        %p
+      - if member_signed_in? 
+        = render "shared/mobile_nav"
+        = render "shared/menu"
+      - else
+        %div.row
+          #left_div_top.span4
+            %form#searchform{:action => "/search/find", :method => "get"}
+              %input#search-text.default{:name => "find", :type => "text"}
+              %a{:href=>"#", :title=>"Buscar"}
+                .search-triangle-button
+          #right_div_top.span8
+            %span.application_messages
+              %span.notice
+                = notice
+              %span.alert
+                = alert
+            .account
+              - if member_signed_in?
+                = member_name(current_member)
+                .edit-my-account-container{:style=>"display:inline-block;"}
+                  .edit-place
+                    = link_to I18n.t('edit'), "#", :style=>"color:white", :class=>"edit-my-account"
+                    #edit-my-account-options{:style=>"display:none"}
+                      = "&nbsp".html_safe
+                      = "&nbsp".html_safe                
+                      %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-profile"} Mi Perfil
+                      %br
+                      %br
+                      = "&nbsp".html_safe
+                      %a.edit-me-menu{:type=>"button", :href=>"/members/edit_settings#my-account"} Mi Cuenta
+                |        
+                - if session[:fb_token].nil?
+                  = link_to I18n.t('account.logout'), destroy_member_session_path
+                - else
+                  = link_to I18n.t('account.logout'), facebook_logout_path
+              - else
+                %a{:class=>"login", :href=>"#", :title=>"Conéctate", :direction=>"down"}
+                  = I18n.t('account.login')
+                #login-form{:style=>"display:none"}
+                  = render :partial => "/devise/sessions/login_form"
+        #header.row
+          #logo.span4
+            %a{:href => "/"}
+              %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
+          #menu.span8
+            %ul.clearfix.hidden-phone
               %li
-                %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
-            - else
+                %a.facilitators{:href => "/facilitadores", :title=> I18n.t('application.menu_facilitators')}
               %li
-                %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
-    = yield
-    #footer
-      #follow-us
-        %a.follow-text{:href=>"/social", :title=> "Conéctate en nuestras redes sociales"}
-          Síguenos
-        %a{:href=>"http://www.twitter.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-          %img{:src=>"/images/TwitterBtn.png", :alt=>"Follow consonrisas on Twitter", :title=>"Follow consonrisas on Twitter"}  
-        %a{:href=>"http://www.facebook.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-          %img{:src=>"/images/FacebookBtn.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
-        %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-          %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
-      %a{:target=>"_blank" , :href=>"http://www.ligasonrisas.org/equipo-de-trabajo.html"} Equipo
-      #{" - "}                
-      %a{:href=>"/servicios"} Servicios
-      #{" - "}          
-      %a{:href=>"/apoyo"} Apoyo
-      #{" - "}
-      %a{:href=>"/aliados"} Aliados
-      #{" - "}
-      %a{:href=>"/legal"} Términos y Condiciones
-      #{" - "}
-      %a{:href=>"/contacto"}Contáctanos
-  - unless member_signed_in?
-    = render :partial => "/home/register_steps"
-    #register-form{:style=>"display:none"}
-      = render :partial => "/registrations/new"        
-  :javascript
-    var is_ssl = ("https:" == document.location.protocol);
-    var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-    document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-  = javascript_include_tag "usersvoice"  
+                %a.providers{:href => "/proveedores", :title=> I18n.t('application.menu_providers')}
+              %li
+                %a.fundations{:href => "/proyectos", :title=> I18n.t('application.menu_fundations')}
+              %li
+                %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
+              - if member_signed_in?
+                %li
+                  %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
+              - else
+                %li
+                  %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
+      = yield
+      = render "shared/footer"
+  %script{:src=>"/bootstrap/js/bootstrap.js"}          
+  - unless is_mobile?
+    :javascript
+      var is_ssl = ("https:" == document.location.protocol);
+      var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+      document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+    = javascript_include_tag "usersvoice"  
   = javascript_include_tag "new_layout/ui.homeMenu"
   = javascript_include_tag "new_layout/login"  
   = javascript_include_tag "new_layout/search"
@@ -131,3 +113,5 @@
   = javascript_include_tag "ui.cities"
   = javascript_include_tag "ui.profilePics"  
   = javascript_include_tag "ui.needs"    
+  = javascript_include_tag "ui.home"      
+

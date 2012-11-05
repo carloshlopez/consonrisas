@@ -35,10 +35,10 @@ $jq.widget("ui.profileProvider", {
         newMargin = '70px';
       }
       else if (show == 'contact'){
-        newMargin = '195px';
+        newMargin = '140px';
       }
       else if(show == 'shows'){
-        newMargin = '320px';
+        newMargin = '245px';
       }      
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});        
       $jq(".mine").hide();

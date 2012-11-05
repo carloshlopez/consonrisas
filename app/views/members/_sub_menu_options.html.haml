@@ -1,10 +1,10 @@
-#needs-div{:style=>"display:none"}
-  = render "project_needs/show_all_needs"
-#msgs-div{:style=>"display:none"}
-  = render :partial => "msgs"
-#invites-div{:style=>"display:none"}
-  = render :partial => "invites"  
-.sub_menu
+.sub_menu.hidden-phone
+  #needs-div{:style=>"display:none"}
+    = render "project_needs/show_all_needs"
+  #msgs-div{:style=>"display:none"}
+    = render :partial => "msgs"
+  #invites-div{:style=>"display:none"}
+    = render :partial => "invites"  
   %a.needs{:href=>"#needs", :show=>"needs"} #{I18n.t('help_with_needs')} 
   |
   %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
@@ -13,4 +13,4 @@
   | 
   %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
   .num-invites
-    = @msgs.size 
+    = @msgs.size

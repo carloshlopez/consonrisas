@@ -1,5 +1,5 @@
-#fundation-profile
-  #left-div-profile-fundation
+#fundation-profile.row
+  #left-div-profile-fundation.span4
     .profile-info
       = image_tag 'FundacionesTransparenteChiqui.png', :class=>"transparent"
       %h2
@@ -67,7 +67,7 @@
             = link_to I18n.t('edit'), edit_fundation_path(@fundation)          
           %br
           %a{:href=>"/proyectos"}Ver todos los proyectos sociales
-  #profile-content-fundation
+  #profile-content-fundation.span8
     .my-profile-title
       %h1 
         proyecto social      
@@ -129,4 +129,4 @@
   #change_pic{:style=>"display:none"}
     - @model = @fundation
     = render :partial=>"shared/just_pic"  
-  = javascript_include_tag "new_layout/ui.profileFundation"          
+  = javascript_include_tag "new_layout/ui.profileFundation"

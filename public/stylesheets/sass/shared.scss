@@ -1,7 +1,6 @@
 .create-button{
   height: 50px;
   width: 190px;
-  margin-top: 10px;
   padding-top: 2px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -12,6 +11,7 @@
   font-size: medium;
   line-height: 1em;   
   text-align: right;
+  margin-top: 9px;
 }
 
 .create-fundation{
@@ -72,8 +72,7 @@
 }
 
 .create-buttons-shared{
-  height: 105px;
-  margin-top: -28px;
+
 }
 
 .create-buttons a span{

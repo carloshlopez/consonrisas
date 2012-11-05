@@ -30,20 +30,10 @@
     }
 }
 
-.logo
-{
-//height: 125px;
-margin-top: 15px;
-margin-bottom: 15px;
- 
-}
-
 #left_div_top{
   background: $site-color;
   color: $main-background;
   height: 25px;
-  width: $left-div-width;
-  margin-top: -10px;
   input.home-color{
     @include search($site-color);
   }
@@ -143,8 +133,7 @@ input.info-color:focus{
 
 #right_div_top{
   color: black;
-  float:right;
-  margin-top: -20px;
+  text-align:right;
   font-size: 13px;  
  a{
     color: $site-color;
@@ -154,9 +143,6 @@ input.info-color:focus{
     color: darken($site-color, 20%);
     text-decoration: underline;
   }
-}
-
-.account{
 }
 
 #login-form{
@@ -171,20 +157,24 @@ input.info-color:focus{
   border-bottom-right-radius: 10px;
   -moz-border-radius-bottomleft: 10px;
   border-bottom-left-radius: 10px;  
-  margin-left: -290px;
+  right: 30px;
+  text-align: left;
 }
 
-#logo{
-  width: $left-div-width;
+#header {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#logo {
+  text-align: center;
   a{
     color: $main-background;
   }
 }
 
 #menu {
-	float: left;
-	margin-left: 320px;
-	margin-top: -115px;
+  padding-top: 15px;
 	
 	ul {
 	  margin: 0;
@@ -195,7 +185,11 @@ input.info-color:focus{
   
   li {
 	  float: left;
+    margin-right: 30px;
 	  text-align: center;
+  }
+  li.last {
+    margin-right: 0;
   }
   a {
 	  display: inline-block;
@@ -296,7 +290,7 @@ input.info-color:focus{
 #follow-us{
   color: $site-color;
   height: 35px;
-  float: left;
+  margin-left: 0;
   img{
     vertical-align: middle;
   }  
@@ -304,16 +298,13 @@ input.info-color:focus{
 
 
 #footer{
-  clear: left;
-  text-align: right;
   color: $site-color;
   margin-top: 10px;
   font-size: 13px;
   background-color: $footer-color;
   height: 40px;
   line-height: 350%;
-  width: $footer-width;
-  padding: 0px 20px 0px;
+  margin-left: 0;
  a{
     color: $site-color;
     font-size: 13px;

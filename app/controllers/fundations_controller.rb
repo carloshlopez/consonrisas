@@ -130,7 +130,11 @@ class FundationsController < ApplicationController
   
  
   def change_pic
-    @fund = Fundation.find(params[:fundation_id])
+    if params[:fundation_id]
+      @fund = Fundation.find(params[:fundation_id])
+    else
+      @fund = Fundation.find(params[:es_fundation_id])
+    end
     if @fund.update_attributes(params[:fundation])    
       render :json => { :pic_path_big => @fund.pic.url(:profile).to_s, :pic_path => @fund.pic.url(:thumb).to_s , :name => @fund.pic.instance.attributes["pic_file_name"] }, :content_type => 'text/html'    
     else

@@ -1,11 +1,12 @@
-.menu-bar
+.div-for-menu-space.hidden-phone{:style=>"padding-top:70px"}
+.menu-bar.hidden-phone
   .menu-inner-bar
-    %ul
+    %ul.container
       %li
         %a.menu-logo-link{:href=>"/"}
           = image_tag "menu/MenuLogo_small_green.png", :class=> "menu-logo"
       %li
-        %a.container{:href=>"#{member_path(current_member.id)}"}
+        %a.cont{:href=>"#{member_path(current_member.id)}"}
           %span.menu-home
           .menu-home-txt.menu-home-text
             inicio
@@ -13,7 +14,7 @@
             .menu-logo-triangle
             inicio        
       %li
-        %a.container{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
+        %a.cont{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
           %span.menu-messages
           .menu-messages-txt.menu-messages-text
             mensajes    
@@ -21,7 +22,7 @@
             .menu-logo-triangle
             mensajes                
       %li
-        %a.container{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
+        %a.cont{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
           %span.menu-invitations
           .menu-invitations-txt.menu-invitations-text
             invitaciones          
@@ -29,7 +30,7 @@
             .menu-logo-triangle
             invitaciones        
       %li
-        %a.container{:href=>"/project_needs/all_needs"}
+        %a.cont{:href=>"/project_needs/all_needs"}
           %span.menu-help
           .menu-help-txt.menu-help-text
             ayuda        
@@ -37,7 +38,7 @@
             .menu-logo-triangle
             ayuda
       %li
-        .container.container-box
+        .cont.container-box
           %span.menu-register-events
           .menu-register-events-txt.menu-register-events-text
             eventos    
@@ -57,7 +58,7 @@
                 = "&nbsp".html_safe                
                 todos
       %li
-        .container.container-box
+        .cont.container-box
           %span.menu-register-fundations
           .menu-register-fundations-txt.menu-register-fundations-text
             proyectos          
@@ -77,7 +78,7 @@
                 = "&nbsp".html_safe
                 todos                
       %li
-        .container.container-box
+        .cont.container-box
           %span.menu-register-providers
           .menu-register-providers-txt.menu-register-providers-text
             proveedores          

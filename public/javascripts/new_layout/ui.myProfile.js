@@ -4,7 +4,7 @@ $jq.widget("ui.myProfile", {
     	var self= this;
     	var $el= this.element;
     	
-    	$jq(".div-for-menu-space").css("padding-top","90px");;
+    	$jq(".div-for-menu-space").css("padding-top","105px");;
     	
     	$el.find('.fundation_admin_accept').click(function(e) {
             e.preventDefault();
@@ -116,6 +116,7 @@ $jq.widget("ui.myProfile", {
     }, 
     _show: function(show){
       $jq(".sub-menu-inner-bar ul li").removeClass("sub_menu_selected");    
+      $jq(".sub-menu-mobile ul li").removeClass("active");          
       var newMargin = '60px';
       if( show == 'events'){
         newMargin = '160px';
@@ -133,6 +134,7 @@ $jq.widget("ui.myProfile", {
       $jq(".mine").hide();
       $jq(".my-"+ show).show(); 
       $jq(".sub_menu_link."+show).parent().addClass("sub_menu_selected");
+      $jq(".sub_menu_link."+show).parent().addClass("active");      
     },
     _respondFundationAdmin: function(fun_id, mem_id, active){
         var postData = {fundation_id:fun_id, member_id:mem_id, active:active};

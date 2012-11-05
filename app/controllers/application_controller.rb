@@ -44,4 +44,8 @@ class ApplicationController < ActionController::Base
     edit_settings_path
   end
   
+  def is_mobile?
+    request.user_agent =~ /Mobile|webOS/
+  end
+  helper_method :is_mobile?
 end

@@ -1,24 +1,26 @@
-#left-div-lists
-  .vip.vip-facilitators
-    - new = News.where("news_type = ? AND actual = ?", 3, true).order("updated_at DESC").first();
-    - if new
-      = image_tag  '/images/FacilitadorTransparenteChiqui.png', :class=>"transparent"
-      %h2
-        Destacados
-      .type
-        facilitador
-      = image_tag "#{new.pic.url(:profile)}", :class=>"news-img"
-      .text
-        .news-title
-          = new.title
-        .news-fecha
-          = I18n.l(new.date, :format=>:long)
-        %p.news
-          = new.news.size > 400 ? new.news[0 .. 400] + "..." : new.news
-          .news-link
-            %a.news-more{:href=>"#"}ver más
-#list-content
-  - @fac_list_title = I18n.t('facilitator.list')
-  = render :partial => "list"
-  .pagination-facilitators            
-    = paginate @facilitators  
+.list-page.row
+  #left-div-lists.span4
+    .visible-phone{:style=>"margin:10px"}
+    .vip.vip-facilitators.hidden-phone
+      - new = News.where("news_type = ? AND actual = ?", 3, true).order("updated_at DESC").first();
+      - if new
+        = image_tag  '/images/FacilitadorTransparenteChiqui.png', :class=>"transparent"
+        %h2
+          Destacados
+        .type
+          facilitador
+        = image_tag "#{new.pic.url(:profile)}", :class=>"news-img"
+        .text
+          .news-title
+            = new.title
+          .news-fecha
+            = I18n.l(new.date, :format=>:long)
+          %p.news
+            = new.news.size > 400 ? new.news[0 .. 400] + "..." : new.news
+            .news-link
+              %a.news-more{:href=>"#"}ver más
+  #list-content.span8
+    - @fac_list_title = I18n.t('facilitator.list')
+    = render :partial => "list"
+    .pagination-facilitators            
+      = paginate @facilitators  

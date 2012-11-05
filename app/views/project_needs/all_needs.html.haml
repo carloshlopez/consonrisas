@@ -1,1 +1,6 @@
+.visible-phone
+  = link_to(member_path(current_member.id), :class=>"btn btn-success") do
+    %i.icon-home.icon-white
+    Inicio
+  .space{:style=>"margin:10px"}
 = render "show_all_needs"

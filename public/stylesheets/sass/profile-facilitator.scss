@@ -1,8 +1,5 @@
 #left-div-profile-facilitator{
   color: $main-background;
-  width: $left-div-width;
-  float: left;
-  margin-top: -15px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -13,8 +10,6 @@
   }
   .profile-info{
     @include facilitators-gradient();
-    min-height: 710px;
-    margin-top: -5px;
     img.transparent{
       position: absolute;
       margin-top: 5px;
@@ -22,8 +17,8 @@
     }
     img.img-profile{
       margin-top: 15px;
-      margin-left: 30px;     
-      max-height: 150px; 
+      margin-left: 25px;     
+      width: 80%; 
     }
     h2{
       padding-top: 25px;
@@ -45,9 +40,7 @@
 }
 
 #profile-content-facilitator{
-  width: $main-width + 100px;
-	margin-left: 320px;
-	min-height: 780px;
+	min-height: 150px;
   .my-profile-title{
     @include facilitators-gradient();
     color: $main-background;
@@ -56,6 +49,7 @@
     letter-spacing: -2px;
    h1{
       padding-left: 25px;
+      padding-top: 15px;      
     }  
     img{
       position: absolute;

@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$site-color".
-        on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss
+        on line 34 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss
 
-37: margin-bottom: 15px;
-38:  
-39: }
-40: 
-41: #left_div_top{
-42:   background: $site-color;
-43:   color: $main-background;
-44:   height: 25px;
-45:   width: $left-div-width;
-46:   margin-top: -10px;
-47:   input.home-color{
+29:       text-align: center;
+30:     }
+31: }
+32: 
+33: #left_div_top{
+34:   background: $site-color;
+35:   color: $main-background;
+36:   height: 25px;
+37:   input.home-color{
+38:     @include search($site-color);
+39:   }
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss:42
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss:34
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -96,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 42 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss\A \A 37: margin-bottom: 15px;\A 38:  \A 39: }\A 40: \A 41: #left_div_top{\A 42:   background: $site-color;\A 43:   color: $main-background;\A 44:   height: 25px;\A 45:   width: $left-div-width;\A 46:   margin-top: -10px;\A 47:   input.home-color{"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 34 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/layout.scss\A \A 29:       text-align: center;\A 30:     }\A 31: }\A 32: \A 33: #left_div_top{\A 34:   background: $site-color;\A 35:   color: $main-background;\A 36:   height: 25px;\A 37:   input.home-color{\A 38:     @include search($site-color);\A 39:   }"; }

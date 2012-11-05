@@ -7,15 +7,16 @@ class HomeController < ApplicationController
     @num_events = Event.count    
     @comments = []
     @photos = []
-    p_ids = 15.times.map{ rand(Photo.count) }
-    p_ids.each do |p_id|
-      begin
-        p = Photo.find(p_id)
-        @photos << p if p
-      rescue
-        
-      end
-    end      
+    @photos = Photo.find(:all, :order => "id desc", :limit => 15)    
+#    p_ids = 15.times.map{ rand(Photo.count) }
+#    p_ids.each do |p_id|
+#      begin
+#        p = Photo.find(p_id)
+#        @photos << p if p
+#      rescue
+#        
+#      end
+#    end      
   end
   
   def index
@@ -26,28 +27,29 @@ class HomeController < ApplicationController
     
     @photos = []
     @comments = []
-    
-    p_ids = 15.times.map{ rand(Photo.count) }
-    p_ids.each do |p_id|
-      begin
-        p = Photo.find(p_id)
-        @photos << p if p
-      rescue
-        
-      end
-    end      
+    @photos = Photo.find(:all, :order => "id desc", :limit => 15)
+#    p_ids = 15.times.map{ rand(Photo.count) }
+#    p_ids.each do |p_id|
+#      begin
+#        p = Photo.find(p_id)
+#        @photos << p if p
+#      rescue
+#        
+#      end
+#    end      
   end
     
   def event_comments
-    @comments = []
-    c_ids = 10.times.map{ rand(Comment.count) }
-    c_ids.each do |c_id|
-      begin
-        c = Comment.find(c_id)
-        @comments << c if c and c.event
-      rescue
-      end
-    end    
+    @comments = Comment.find(:all, :order => "id desc", :limit => 10)
+#    @comments = []
+#    c_ids = 10.times.map{ rand(Comment.count) }
+#    c_ids.each do |c_id|
+#      begin
+#        c = Comment.find(c_id)
+#        @comments << c if c and c.event
+#      rescue
+#      end
+#    end    
     render :layout => false
   end
 

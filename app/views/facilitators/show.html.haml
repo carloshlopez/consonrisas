@@ -1,5 +1,5 @@
-#facilitator-profile
-  #left-div-profile-facilitator
+#facilitator-profile.row
+  #left-div-profile-facilitator.span4
     .my-connections
       .my-connections-faces
         - @facilitator.facilitators.each_with_index do |fac, i|
@@ -37,7 +37,7 @@
           %a.fac-send-msg{:href=>"#"}#{I18n.t('profile.send_a_msg')}
           %br          
           %a{:href=>"/facilitadores"}Ver todos los facilitadores
-  #profile-content-facilitator
+  #profile-content-facilitator.span8
     .my-profile-title
       %h1 
         facilitador

@@ -1,10 +1,8 @@
+.profile-page{
+}
 #left-div-profile-event{
   @include events-gradient();
   color: $main-background;
-  width: $left-div-width;
-  float: left;
-  margin-bottom: 10px;
-  min-height: 732px;
   a{
    color: $home-link-yellow;
    text-decoration: none;
@@ -21,7 +19,7 @@
   img.img-profile{
     margin-top: 15px;
     margin-left: 25px;     
-    max-width: 250px; 
+    width: 80%; 
   }
   h2{
     padding-top: 25px;
@@ -95,16 +93,18 @@
 }
 
 #profile-content-event{
-  width: $main-width + 100px;
-	margin-left: 320px;
   .my-profile-title{
     @include events-gradient();
     color: $main-background;
     font-family: "contitulos";
     height: 100px;
     letter-spacing: -2px;
-   h1{
-      padding-left: 25px;
+   .title-text{
+      display: inline-block;
+      font-size: xx-large;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-left: 15px;
     }  
     img{
       position: absolute;
@@ -208,7 +208,6 @@
       padding-right: 15px;
     } 
     textarea{
-      width: 400px;
       height: 50px;
     }
     input[type="submit"]{
