@@ -12,15 +12,7 @@ $jq.widget("ui.home", {
         $jq("."+current).closest("li").addClass("current_page_item");
     },
     _moveComments: function(){
-
-        $jq('.last').hide('blind', 'slow');
-        $jq('.show_me').show('blind', 'slow', function(){
-            $jq("#events_comments").prepend($jq(".a_comment:last"));
-            $jq(".a_comment:last").addClass("last");
-            $jq(".a_comment:first").removeClass("last");
-            $jq(".show_me").prev().addClass('show_me');
-            $jq(".show_me:last").removeClass('show_me');
-        });
+        $jq("#events_comments").prepend($jq(".a_comment:last").hide().slideDown());
     }
     
 });
