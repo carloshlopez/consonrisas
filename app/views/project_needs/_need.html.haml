@@ -1,20 +1,21 @@
 - if need.name
-  .a_need{:id=>"need-#{need.id}"}
-    %p.need_name Necesidad: #{need.name}
-    .need_item
+  .row
+    %p.need_name.span8 Necesidad: #{need.name}
+  .a_need.row{:id=>"need-#{need.id}"}
+    .need_item.span2
       %p Categoria:
       - if need.need_category_id
         #{need_category_name(need.need_category)}
       - else
         #{need.category}  
-    .need_item.need_middle
+    .need_item.need_middle.span2
       %p Recurrencia:
       #{need.recurrence}  
-    .need_item
+    .need_item.span2
       %p Estado:
       %span{:id =>"need-state-#{need.id}"} #{need.state}
     - if member_signed_in?
-      .need_actions
+      .need_actions.span1
         -if can_current_member_edit_fundation(need.fundation_id)
           .need_action
             %a.delete_need{:need_id => need.id, :href => "#delete_need",:fundation_id=>"#{need.fundation.id}", :id=>"delete-need-#{need.id}", :title=>"Eliminar"} X
@@ -40,3 +41,5 @@
                   .fac-name
                     = link_to facilitator_name(fac), facilitator_path(fac)
                   = link_to I18n.t('go_to_profile'), facilitator_path(fac)
+  .row
+    .need_divider.span8

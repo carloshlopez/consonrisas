@@ -331,54 +331,39 @@ body {
   background-color: #973b8c; }
 
 /*Need list*/
-.a_need {
-  padding: 5px;
-  min-height: 120px;
+.need_divider {
   border-width: 0 0 1px;
   border-style: dashed;
+  border-color: #973b8c; }
+
+.need_name {
+  color: #973b8c;
+  font-weight: bold; }
+
+.a_need {
+  padding: 5px;
   color: #973b8c; }
-  .a_need .need_name {
-    color: #973b8c; }
   .a_need .need_item {
-    min-width: 110px;
-    height: 40px;
-    overflow: hidden;
     line-height: 0;
-    float: left;
     color: black; }
     .a_need .need_item p {
       font-weight: bold; }
-  .a_need .need_middle {
-    min-width: 100px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 0 15px 0 15px;
-    height: 50px;
-    border-width: 0 1px 0 1px;
-    border-color: lightgray;
-    border-style: solid; }
-    .a_need .need_middle a {
-      color: #973b8c;
-      text-decoration: none; }
-    .a_need .need_middle a:hover {
-      color: #291026; }
-  .a_need .need_actions {
-    text-align: center; }
-    .a_need .need_actions .need_action {
-      margin-top: -15px;
-      float: right;
-      height: 60px;
-      padding-right: 15px;
-      padding-left: 15px; }
-      .a_need .need_actions .need_action .help_need img {
-        height: 40px; }
-      .a_need .need_actions .need_action .delete_need {
-        font-size: 35px;
-        color: #973b8c;
-        text-decoration: none; }
-      .a_need .need_actions .need_action p {
-        margin-top: -5px;
-        color: black; }
+  .a_need .need_middle a {
+    color: #973b8c;
+    text-decoration: none; }
+  .a_need .need_middle a:hover {
+    color: #291026; }
+  .a_need .need_actions .need_action .help_need img {
+    height: 40px;
+    margin-top: 5px; }
+  .a_need .need_actions .need_action .delete_need {
+    font-size: 35px;
+    color: #973b8c;
+    text-decoration: none;
+    line-height: 1.2; }
+  .a_need .need_actions .need_action p {
+    margin-top: -5px;
+    color: black; }
 
 .need_facilitators {
   clear: right;
