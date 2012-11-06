@@ -33,35 +33,26 @@
 }
 
 /*Need list*/
-.a_need{
- padding: 5px;
- min-height: 120px;
+.need_divider{
  border-width: 0 0 1px;
  border-style: dashed;
- color: $fundations-color;
+ border-color: $fundations-color;
+}
  .need_name{
   color: $fundations-color;
+  font-weight: bold;
  }
+.a_need{
+ padding: 5px;
+ color: $fundations-color;
  .need_item{
-  min-width: 110px;  
-  height: 40px;
-  overflow: hidden;
   line-height: 0;
-  float: left;
   color: black;
   p{
     font-weight: bold;
   }
  }
- .need_middle{
-  min-width: 100px;
-  padding-right: 15px;
-  padding-left: 15px;    
-  margin: 0 15px 0 15px;
-  height: 50px;
-  border-width: 0 1px 0 1px;
-  border-color: lightgray;
-  border-style: solid;
+ .need_middle{   
   a{
     color: $fundations-color;
     text-decoration: none;
@@ -72,24 +63,20 @@
   
  }
  .need_actions{
-   text-align: center;
-  .need_action{
-    margin-top: -15px;
-    float: right;
-    height: 60px;
-    padding-right: 15px;
-    padding-left: 15px;  
+  .need_action{  
     .help_need img{
       height: 40px;
+      margin-top: 5px;
     }
     .delete_need{
       font-size: 35px;
       color: $fundations-color;
       text-decoration: none;
+      line-height: 1.2;
     }
     p{
-        margin-top: -5px;
-        color: black;
+      margin-top: -5px;
+      color: black;
     }
   }
  }
