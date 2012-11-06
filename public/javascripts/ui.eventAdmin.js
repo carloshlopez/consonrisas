@@ -119,7 +119,8 @@ $jq.widget("ui.eventAdmin", {
             e.preventDefault();
 
             var targetDiv = $jq(this).attr("target_div");
-            var height = $jq("#"+targetDiv).attr('scrollHeight');            
+            //var height = $jq("#"+targetDiv).attr('scrollHeight');            
+            var height = $jq('#'+targetDiv)[0].scrollHeight;
             $jq("#"+targetDiv).animate({"height":height},"slow");
             
             $jq(this).removeClass('show-more');

@@ -243,7 +243,7 @@ div.arrow-down {
 .a_comment{
   margin: 10px, 10px, 15px;
   font-size: 14px;
-  height: 45px;
+  min-height: 45px;
   a{
     color: $site-color;
     text-decoration: none;

@@ -1,30 +1,13 @@
 #events_comments
   - @comments.each_with_index do |c, i|
-    - if i < 3
-      - if i == 2
-        .a_comment.show_me{:style=>"display:none"}
-      - else
-        .a_comment{:style=>"display:none"}
-          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle" ,:title=>I18n.t('events.show')
-          %p
-            = c.comment[0, 80] << " ... "
-            , comentario de
-            = comment_name(c)
-            , del evento 
-            = link_to c.event.name, event_url(c.event) ,:title=>I18n.t('events.show')
-            - unless member_signed_in?
-              %input.register_wizzard{:type=>"button", :href=>"#", :value=>"¡Tú puedes ayudar!", :title=> "Cónectate para sacrle sonrisas al país"}             
-    - else
-      - if i == @comments.length - 1
-        .a_comment.last
-      - else
-        .a_comment
-          = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle",:title=>I18n.t('events.show')    
-          %p
-            = c.comment[0, 80] << " ... "
-            , comentario de
-            = comment_name(c)
-            , del evento 
-            = link_to c.event.name, event_url(c.event),:title=>I18n.t('events.show')
-            - unless member_signed_in?
-              %input.register_wizzard{:type=>"button", :href=>"#", :value=>"¡Tú puedes ayudar!",:title=> "Cónectate para sacrle sonrisas al país"} 
+    .a_comment
+      = link_to image_tag(member_thumb(c.member.facilitator), :class=>"comment_pic"), event_path(c.event_id), :class=>"nostyle" ,:title=>I18n.t('events.show')
+      %p
+        = c.comment[0, 80] << " ... "
+        , comentario de
+        = comment_name(c)
+        , del evento 
+        = link_to c.event.name, event_url(c.event) ,:title=>I18n.t('events.show')
+        - unless member_signed_in?
+          %input.register_wizzard{:type=>"button", :href=>"#", :value=>"¡Tú puedes ayudar!", :title=> "Cónectate para sacrle sonrisas al país"}             
+
