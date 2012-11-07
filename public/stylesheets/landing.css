@@ -301,7 +301,6 @@ body {
   margin: 0 auto; }
 
 .need_field {
-  float: left;
   height: 40px;
   padding: 10px; }
   .need_field input {
@@ -309,17 +308,14 @@ body {
     max-width: 170px; }
 
 .need_form_actions {
-  width: 60%;
-  margin: 0px auto; }
+  padding: 10px; }
 
 .need_button {
-  margin: 0 auto;
-  clear: left;
   cursor: pointer;
   background-color: #973b8c;
-  width: 350px;
-  height: 35px;
-  border-radius: 10px;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
   border: 0px;
   font-weight: bold;
   font-size: large;

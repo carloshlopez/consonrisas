@@ -289,8 +289,6 @@ input.info-color:focus{
 
 #follow-us{
   color: $site-color;
-  height: 35px;
-  margin-left: 0;
   img{
     vertical-align: middle;
   }  
@@ -302,7 +300,6 @@ input.info-color:focus{
   margin-top: 10px;
   font-size: 13px;
   background-color: $footer-color;
-  height: 40px;
   line-height: 350%;
   margin-left: 0;
  a{
@@ -314,5 +311,16 @@ input.info-color:focus{
     color: darken($site-color, 10%);
     text-decoration: underline;
   } 
-
+  .inner-footer{
+    margin-left:  350px;
+    @media (man-width: 980px) {
+      margin-left:  250px;
+    }    
+    @media (min-width: 768px) and (max-width: 979px) {
+      margin-left:  90px;
+    }
+    @media (max-width: 767px) {
+      margin-left:  8px;
+    }      
+  }
 }

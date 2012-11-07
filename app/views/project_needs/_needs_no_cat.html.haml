@@ -4,10 +4,19 @@
   .a_need.row{:id=>"need-#{need.id}"}
     .need_item.span2
       %p Nombre:
-      #{need.name}  
+      - if need.name.length > 35
+        %abbr{:title=>"#{need.name}"}
+          = need.name[0, 35] + "..."
+      - else
+        = need.name
     .need_item.need_middle.span3
       %p Proyecto Social:
-      = link_to need.fundation.name, fundation_path(need.fundation)
+      = link_to fundation_path(need.fundation) do
+        - if need.fundation.name.length > 35
+          %abbr{:title=>"#{need.fundation.name}"}
+            = need.fundation.name[0, 35] + "..."
+        - else
+          = need.fundation.name        
     .need_item.span2
       %p Recurrencia:
       #{need.recurrence}        
