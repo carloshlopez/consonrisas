@@ -363,9 +363,7 @@ input.info-color:focus {
   background-position: 20px 50px; }
 
 #follow-us {
-  color: #5ab446;
-  height: 35px;
-  margin-left: 0; }
+  color: #5ab446; }
   #follow-us img {
     vertical-align: middle; }
 
@@ -374,7 +372,6 @@ input.info-color:focus {
   margin-top: 10px;
   font-size: 13px;
   background-color: #dcffd5;
-  height: 40px;
   line-height: 350%;
   margin-left: 0; }
   #footer a {
@@ -384,6 +381,17 @@ input.info-color:focus {
   #footer a:hover {
     color: #488f38;
     text-decoration: underline; }
+  #footer .inner-footer {
+    margin-left: 350px; }
+    @media (man-width: 980px) {
+      #footer .inner-footer {
+        margin-left: 250px; } }
+    @media (min-width: 768px) and (max-width: 979px) {
+      #footer .inner-footer {
+        margin-left: 90px; } }
+    @media (max-width: 767px) {
+      #footer .inner-footer {
+        margin-left: 8px; } }
 
 #left_div {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AB446', endColorstr='#458C36');
@@ -1979,7 +1987,6 @@ span.edit_profilepicture_icon {
   text-decoration: none; }
 
 .need_field {
-  float: left;
   height: 40px;
   padding: 10px; }
   .need_field input {
@@ -1987,17 +1994,14 @@ span.edit_profilepicture_icon {
     max-width: 170px; }
 
 .need_form_actions {
-  width: 60%;
-  margin: 0px auto; }
+  padding: 10px; }
 
 .need_button {
-  margin: 0 auto;
-  clear: left;
   cursor: pointer;
   background-color: #973b8c;
-  width: 350px;
-  height: 35px;
-  border-radius: 10px;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
   border: 0px;
   font-weight: bold;
   font-size: large;
@@ -2595,6 +2599,9 @@ span.edit_profilepicture_icon {
     width: 840px;
     margin-left: auto;
     margin-right: auto; }
+    @media (min-width: 768px) and (max-width: 979px) {
+      .menu-bar .menu-inner-bar {
+        width: 768px; } }
   .menu-bar ul {
     margin: 0;
     padding: 0; }

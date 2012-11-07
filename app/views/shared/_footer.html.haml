@@ -1,25 +1,25 @@
-#footer.row
-  #follow-us.span2
-    %a.follow-text{:href=>"/social", :title=> "Conéctate en nuestras redes sociales", :style=>"padding-left: 20px;"}
-      Síguenos
-    %a{:href=>"http://www.twitter.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-      %img{:src=>"/images/TwitterBtn.png", :alt=>"Follow consonrisas on Twitter", :title=>"Follow consonrisas on Twitter"}  
-    %a{:href=>"http://www.facebook.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-      %img{:src=>"/images/FacebookBtn.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
-    %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
-      %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}    
-  %div.span10{:style=>"text-align:right;"}
-    %a{:target=>"_blank" , :href=>"http://www.ligasonrisas.org/equipo-de-trabajo.html"} Equipo
-    #{" - "}                
-    %a{:href=>"/servicios"} Servicios
-    #{" - "}          
-    %a{:href=>"/apoyo"} Apoyo
-    #{" - "}
-    %a{:href=>"/aliados"} Aliados
-    #{" - "}
-    %a{:href=>"/legal"} Términos y Condiciones
-    #{" - "}
-    %a{:href=>"/contacto", :style=>"padding-right: 20px;"}Contáctanos
+#footer
+  .row
+    .span12.inner-footer
+      %a{:target=>"_blank" , :href=>"http://www.ligasonrisas.org/equipo-de-trabajo.html"} Equipo
+      #{" | "}                
+      %a{:href=>"/servicios"} Servicios
+      #{" | "}          
+      %a{:href=>"/apoyo"} Apoyo
+      #{" | "}
+      %a{:href=>"/aliados"} Aliados
+      #{" | "}
+      %a{:href=>"/legal"} Términos y Condiciones
+      #{" | "}
+      %a{:href=>"/contacto"} Contáctanos
+      #{" | "}      
+      %a{:href=>"/social", :title=> "Conéctate en nuestras redes sociales"} Síguenos
+      %a{:href=>"http://www.twitter.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"/images/TwitterBtn.png", :alt=>"Follow consonrisas on Twitter", :title=>"Follow consonrisas on Twitter"}  
+      %a{:href=>"http://www.facebook.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"/images/FacebookBtn.png",:alt=>"Follow Conectando Sonrisas on Facebook",:title=>"Follow Conectando Sonrisas on Facebook"}
+      %a{:href=>"http://vimeo.com/consonrisas", :class=>"footernostyle", :target=>"_blank"}
+        %img{:src=>"/images/VimeoBtn.png", :alt=>"Vimeo", :title=>"Follow Conectando Sonrisas on Vimeo"}      
 - unless member_signed_in?
   = render :partial => "/home/register_steps"
   #register-form{:style=>"display:none"}

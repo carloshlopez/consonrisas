@@ -2,7 +2,10 @@
 .menu-bar.hidden-phone
   .menu-inner-bar
     %ul.container
-      %li
+      %li.visible-tablet
+        %a.menu-logo-link{:href=>"/"}
+          = image_tag "/photos/thumb/missing.png"
+      %li.hidden-tablet
         %a.menu-logo-link{:href=>"/"}
           = image_tag "menu/MenuLogo_small_green.png", :class=> "menu-logo"
       %li
@@ -104,7 +107,7 @@
             %span.close-search{:style=>"color:white;display:none;font-weight:bold;border:1px white;cursor:pointer"} x 
       %li
         .my-account-links
-          .member-info
+          .member-info.hidden-tablet
             = member_name(current_member)        
           .show-edit-options
             = image_tag member_thumb(current_member.facilitator), :class=>"mini-img-profile"  

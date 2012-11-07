@@ -1,21 +1,20 @@
 /*
 Syntax error: Undefined variable: "$fundations-color".
-        on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss
+        on line 5 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss
 
 1: .need_field{
-2:   float: left;
-3:   height: 40px;
-4:   padding: 10px;  
-5:   input{
-6:     border: 1px solid $fundations-color;
-7:     max-width: 170px;
-8:   }
-9: }
-10: 
-11: .need_form_actions{
+2:   height: 40px;
+3:   padding: 10px;  
+4:   input{
+5:     border: 1px solid $fundations-color;
+6:     max-width: 170px;
+7:   }
+8: }
+9: 
+10: .need_form_actions{
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss:6
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss:5
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/list.rb:69:in `block in _perform'
@@ -110,4 +109,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 6 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss\A \A 1: .need_field{\A 2:   float: left;\A 3:   height: 40px;\A 4:   padding: 10px;  \A 5:   input{\A 6:     border: 1px solid $fundations-color;\A 7:     max-width: 170px;\A 8:   }\A 9: }\A 10: \A 11: .need_form_actions{"; }
+  content: "Syntax error: Undefined variable: \"$fundations-color\".\A         on line 5 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/needs.scss\A \A 1: .need_field{\A 2:   height: 40px;\A 3:   padding: 10px;  \A 4:   input{\A 5:     border: 1px solid $fundations-color;\A 6:     max-width: 170px;\A 7:   }\A 8: }\A 9: \A 10: .need_form_actions{"; }

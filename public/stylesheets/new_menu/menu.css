@@ -12,7 +12,7 @@ Syntax error: Undefined variable: "$site-color".
 12:     width: 840px;
 13:     margin-left: auto;
 14:     margin-right: auto;
-15:   }
+15:     @media (min-width: 768px) and (max-width: 979px) {
 
 Backtrace:
 /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss:10
@@ -100,4 +100,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 10 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss\A \A 5:   left: 0px;\A 6:   right: 0px;\A 7:   z-index: 101;\A 8:   float: left;\A 9:   min-height: 1px;\A 10:   border-bottom: 1px solid $site-color;\A 11:   .menu-inner-bar{\A 12:     width: 840px;\A 13:     margin-left: auto;\A 14:     margin-right: auto;\A 15:   }"; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 10 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/new_menu/menu.scss\A \A 5:   left: 0px;\A 6:   right: 0px;\A 7:   z-index: 101;\A 8:   float: left;\A 9:   min-height: 1px;\A 10:   border-bottom: 1px solid $site-color;\A 11:   .menu-inner-bar{\A 12:     width: 840px;\A 13:     margin-left: auto;\A 14:     margin-right: auto;\A 15:     @media (min-width: 768px) and (max-width: 979px) {"; }

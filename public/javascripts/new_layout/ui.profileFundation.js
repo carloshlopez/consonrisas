@@ -41,7 +41,7 @@ $jq.widget("ui.profileFundation", {
         newMargin = '208px';
       }
       else if(show == 'contact'){
-        newMargin = '326px';
+        newMargin = '260px';
       }      
       $jq(".arrow-up-profile").animate({marginLeft: newMargin});    
       $jq(".mine").hide();
