@@ -80,8 +80,10 @@
           - if member_signed_in?
             .fac_block.add_facilitator.span2{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}
               = I18n.t('facilitator_name').capitalize
+            %br.visible-phone
             .prov_block.invite-providers-button.span2
               = I18n.t('provider_name').capitalize        
+            %br.visible-phone
             .fund_block.invite-fundations-button.span2
               = I18n.t('fundation_name').capitalize  
             %br
@@ -184,8 +186,13 @@
           %a.ask_admin{:href => "#", :name => "ask_admin"} 
             Ask To Admin
 - if member_signed_in?
-  #invite-facilitators{:style=>"display:none"}
-    = render :partial=>"invite_facilitators"
+  - if is_mobile?
+    %input{:type=>"hidden", :value=>"1", :id=>"is_mobile"}  
+    #invite-facilitators{:style=>"display:none"}
+      = render :partial=>"invite_facilitators_mobile"
+  - else      
+    #invite-facilitators{:style=>"display:none"}
+      = render :partial=>"invite_facilitators"  
   #invite-fundations{:style=>"display:none"}
     = render :partial=>"invite_fundations"
   #invite-providers{:style=>"display:none"}

@@ -287,11 +287,21 @@ jQuery(document).ready(function($) {
     $jq("#ask_admin_message").hide();
     $jq("#eventAdmin").eventAdmin();
     $jq(".invite-facilitators-button").click(function(){
-      $jq("#invite-facilitators").dialog({modal:true, title:"Invita Facilitadores", width: 550,         closeText:"X", show:"fadeIn",
-      open: function(){
-        $jq(".ui-dialog").addClass("event-dialog");
-      }
-      });    
+      if($jq("#is_mobile").val() == "1"){
+        $jq("#invite-facilitators").dialog({modal:true, width:200, title:"Invita Facilitadores",closeText:"X",
+        open: function(){
+          $jq(".ui-dialog").addClass("event-dialog");
+        }
+        });
+      }    
+      else
+      {
+        $jq("#invite-facilitators").dialog({modal:true, title:"Invita Facilitadores", width: 550,         closeText:"X", show:"fadeIn",
+        open: function(){
+          $jq(".ui-dialog").addClass("event-dialog");
+        }
+        });      
+      }      
     });
     
     $jq(".invite-fundations-button").click(function(){
