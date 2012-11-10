@@ -45,6 +45,7 @@ class ApplicationController < ActionController::Base
   end
   
   def is_mobile?
+    puts "#{request.user_agent}"
     request.user_agent =~ /Mobile|webOS/
   end
   helper_method :is_mobile?

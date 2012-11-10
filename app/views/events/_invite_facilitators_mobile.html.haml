@@ -1,12 +1,11 @@
 - if member_signed_in? and !current_member.facilitator.facilitators.empty?
   .following
     - current_member.facilitator.facilitators.each do |fac|
-      .a_follower
+      .span1
         = check_box_tag fac.id, fac.id, false, :class=> 'check_invite check_invite_fac'
-        = image_tag member_thumb(fac), :class=>"img-facilitators", :title=>member_name_complete(fac.member)
-        .a_follower_name
-          %abbr{:title=>"#{member_name_complete(fac.member)}"}
-            = member_name(fac.member)
+        = image_tag member_thumb(fac), :class=>"img-facilitators", :title=>member_name(fac.member)
+        .a_follower_name_m
+          = member_name(fac.member)
     .invite-button
       %a.invite_send.invite_facilitators_send{:href=>"#invite", :event_id=>@event.id}
         Invitar

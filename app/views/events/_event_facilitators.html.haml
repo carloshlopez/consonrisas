@@ -6,11 +6,9 @@
     .going-div
       - @event.facilitators.each do |facilitator|
         .element-going
-          - if facilitator.name
-            - name = facilitator.name
-          - else
-            - name = facilitator.member.email
           - if facilitator.member
+            %abbr{:title=>"#{member_name_complete(facilitator.member)}"}
+              = member_name(facilitator.member)
             = link_to image_tag(member_thumb(facilitator), :class=>"going_pic img-facilitators"),  member_path(facilitator.member), :title=>"#{facilitator.name}"
   - if member_signed_in? and (!@event.isClosed or can_current_member_edit_event(@event.id) )
     - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
