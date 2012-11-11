@@ -47,11 +47,9 @@ class FundationsController < ApplicationController
   # POST /fundations.xml
   def create
     @fundation = Fundation.new(params[:fundation])
-    @population = Population.find(params[:population_id])
-
     respond_to do |format|
       if @fundation.save
-        @population.fundations.push(@fundation)
+
         FundationAdmin.create(:member_id =>params[:member_id], :fundation_id => @fundation.id, :active=>true)
         format.html { redirect_to(@fundation, :notice => 'Fundation was successfully created.') }
         format.xml  { render :xml => @fundation, :status => :created, :location => @fundation }
@@ -65,6 +63,7 @@ class FundationsController < ApplicationController
   # PUT /fundations/1
   # PUT /fundations/1.xml
   def update
+    params[:fundation][:population_ids] ||= []     
     @fundation = Fundation.find(params[:id])
 
     respond_to do |format|

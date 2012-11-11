@@ -32,8 +32,9 @@
             %a.fund-unfollow{:facilitator_id=>"#{current_member.facilitator.id}",:fundation_id=>"#{fundation.id}", :href=>"#",:id=>"fund-#{i}"}
               =I18n.t('unfollow')          
       .one-item-populations.one-item-fundations
-        - if fundation.population_id
-          = population_name(fundation.population_id)
+        - tot = fundation.populations.count    
+        - fundation.populations.each_with_index do |population, i|
+          = population_name(population.id) + ((tot == (i + 1)) ? "" : ",")
       - if member_signed_in?
         - @num = i
         - @fundation = fundation

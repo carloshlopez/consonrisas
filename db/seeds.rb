@@ -47,3 +47,10 @@ puts "-----------"
 puts "Added Need Categories"
 puts "-----------"
 
+Fundation.find(:all) do |f|
+  f.populations << f.population if f.population_id
+end
+
+puts "-----------"
+puts "Migrated Fundation Population id to fundations_populations"
+puts "-----------"

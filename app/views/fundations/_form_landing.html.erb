@@ -24,10 +24,14 @@
     <%= f.text_field :city, :class=>"input-landing cities" %>
   </div>
   
-  <div class="field">
-    <%= f.label I18n.t('fundation.population') %><br />
-    <%=  select_tag "population_id", options_from_collection_for_select(Population.all, "id", "name_#{I18n.locale}") %>
+  <%= f.label I18n.t('fundation.population') %><br /> 
+  <% for population in Population.find(:all) %>
+  <div>
+    <%= check_box_tag "fundation[population_ids][]", population.id,  @fundation.populations.include?(population) %>
+    <%= population_name(population.id) %>
   </div>
+  <% end %>   
+  
   <input type="hidden" id="reg_fundation" value="true" name="isFundation" /> 
   <div class="next-steps-links">
     <a href="#step3" class="next-step-landing" step_number="2"> Siguiente paso >> </a>

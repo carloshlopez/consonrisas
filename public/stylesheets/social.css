@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$site-color".
-        on line 26 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss
+        on line 23 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss
 
-21: .allies{
-22:   padding-top: 15px;
-23:   text-align: center;
-24:   border-width: 0 0 1px;
-25:   border-style: dotted;
-26:   border-color: $site-color;
-27: }
-28: 
-29: .donations{
-30:   margin:0 auto 0 auto; 
-31:   width:400px; 
+18: .allies{
+19:   padding-top: 15px;
+20:   text-align: center;
+21:   border-width: 0 0 1px;
+22:   border-style: dotted;
+23:   border-color: $site-color;
+24: }
+25: 
+26: .donations{
+27:   margin:0 auto 0 auto; 
+28:   width:400px; 
 
 Backtrace:
-/home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss:26
+/home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss:23
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/variable.rb:50:in `_perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/script/node.rb:40:in `perform'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.1.7/lib/sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -96,4 +96,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 26 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss\A \A 21: .allies{\A 22:   padding-top: 15px;\A 23:   text-align: center;\A 24:   border-width: 0 0 1px;\A 25:   border-style: dotted;\A 26:   border-color: $site-color;\A 27: }\A 28: \A 29: .donations{\A 30:   margin:0 auto 0 auto; \A 31:   width:400px; "; }
+  content: "Syntax error: Undefined variable: \"$site-color\".\A         on line 23 of /home/carlos/Projects/consonrisas/public/stylesheets/sass/social.scss\A \A 18: .allies{\A 19:   padding-top: 15px;\A 20:   text-align: center;\A 21:   border-width: 0 0 1px;\A 22:   border-style: dotted;\A 23:   border-color: $site-color;\A 24: }\A 25: \A 26: .donations{\A 27:   margin:0 auto 0 auto; \A 28:   width:400px; "; }
