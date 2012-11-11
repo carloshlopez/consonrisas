@@ -54,12 +54,15 @@
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
                 nuevo
+                = "&nbsp".html_safe                                
+            %br
             .create-event-div
               %a{:class => "create-event create-button", :href=>"/eventos"}
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe                
                 todos
+                = "&nbsp".html_safe                                
       %li
         .cont.container-box
           %span.menu-register-fundations
@@ -74,12 +77,15 @@
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
                 nuevo
+                = "&nbsp".html_safe                                
+            %br                
             .create-fundation-div
               %a{:class => "create-fundation create-button", :href=>"/proyectos"}
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
-                todos                
+                todos    
+                = "&nbsp".html_safe                                            
       %li
         .cont.container-box
           %span.menu-register-providers
@@ -94,12 +100,15 @@
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe
                 nuevo
+                = "&nbsp".html_safe                                
+            %br                
             .create-provider-div
               %a{:class => "create-provider create-button", :href=>"/proveedores"}          
                 %br
                 = "&nbsp".html_safe
                 = "&nbsp".html_safe                
                 todos
+                = "&nbsp".html_safe                                
       %li 
         .search-div{:style=>"display:inline-block;line-height:4em;"}
           %form#searchform_new{:action => "/search/find", :method => "get"}

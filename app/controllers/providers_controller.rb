@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ProvidersController < ApplicationController
 
   before_filter :authenticate_member!, :except => [:index]
@@ -5,6 +6,8 @@ class ProvidersController < ApplicationController
   # GET /providers.xml
   def index
 #    @providers = Provider.all
+    @meta_name = "Proveedores de Sonrisas, son expertos en alguna expresión artística y están dispuestos a llevar su talento a proyectos sociales colombianos, latinoamericanos y del mundo."
+    @meta_desc = "Estos son los Proveedores de sonrisas conectados, tienen un perfil de espectáculos que pueden proveer, los ofrecen de varias maneras para distintos públicos. Si tienes algún talento, y te dedicas al entretenimiento, registra tu perfil de proveedor de sonrisas en Conectando Sonrisas."   
       @providers = Provider.order("name").page(params[:page]).per(8)
       @num_providers = Provider.count      
   end

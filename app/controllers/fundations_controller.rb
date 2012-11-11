@@ -1,9 +1,12 @@
+#encoding: utf-8
 class FundationsController < ApplicationController
   before_filter :authenticate_member!, :except => [:index]
   # GET /fundations
   # GET /fundations.xml
   def index
 #    @fundations = Fundation.all
+    @meta_name = "Estos son los Proyectos Sociales Colombianos como fundaciones que trabajan por mejorar la calidad de vidad de las personas y poblaciones con las que trabajan."
+    @meta_desc = "Estos Proyectos Sociales tienen necesidades con las cuales piden ayuda a través de esta plataforma, para que personas que puedan ayudar, vean las necesidades y decidan con cual les podrían ayudar. También son los beneficiarios del objeto de la fundaciíon La Liga de las Sonrisas que es llevar entretenimiento por medio de actividades artísticas a otros proyectos sociales y fundaciones del país. Esto se hace a través de los eventos creados en esta plataforma. Si tienes, trabajas o eres voluntario de un proyecto sociale, registrlo en Conectando Sonrisas." 
     @fundations = Fundation.order("name").page(params[:page]).per(8)
     @num_fundations = Fundation.count
   end

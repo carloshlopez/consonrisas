@@ -1,9 +1,12 @@
+#encoding: utf-8
 class FacilitatorsController < ApplicationController
   before_filter :authenticate_member!, :except => [:index]
   # GET /facilitators
   # GET /facilitators.xml
   def index
     #@facilitators = Facilitator.all
+    @meta_name = "Facilitadores y voluntarios de eventos y proyectos sociales en Colombia"
+    @meta_desc = "Estos son los facilitadores dispuestos a ayudar con la misión de llenar de magia y alegría los corazones de los colombianos. Ellos apoyan eventos y proyectos sociales en Colombia, latinoamérica y pronto en todo el mundo. Ellos apoyan de la manera que puedan, con recursos, tiempo, transporte etc. Si no estás registrado puedes registrarte para averiguar como puedes ayudar."    
     @facilitators = Facilitator.where("name IS NOT NULL AND name != ''").order("name").page(params[:page]).per(8)
     @num_facilitators = Facilitator.count
   end
