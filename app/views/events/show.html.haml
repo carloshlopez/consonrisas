@@ -32,9 +32,9 @@
           %br
           Evento creado por 
           - if @event.event_admins.owners.empty?
-            = link_to member_name(@event.event_admins[0].member), facilitator_path(@event.event_admins.member.facilitator)
+            = link_to member_name(@event.event_admins[0].member), facilitator_path(@event.event_admins.member.facilitator), :title=>"#{member_name_complete(@event.event_admins[0].member)}"
           - else
-            = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator)            
+            = link_to member_name(@event.event_admins.owners[0].member), facilitator_path(@event.event_admins.owners[0].member.facilitator),:title=>"#{member_name_complete(@event.event_admins.owners[0].member)}"
         - if member_signed_in? and can_edit
           %br
           %a.edit-me{:href=>"#"}
