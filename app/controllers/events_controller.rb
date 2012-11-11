@@ -1,9 +1,12 @@
+#encoding: utf-8 
 class EventsController < ApplicationController
   before_filter :authenticate_member!, :except => [:index, :show, :gallery, :all_events]
   # GET /events
   # GET /events.xml
   def index
 #    @events = Event.all
+    @meta_name = "Eventos sociales en Colombia que necesitan de tu ayuda"
+    @meta_desc = "Estos son distintos eventos sociales que se llevan a cabo en Colombia, latinoamérica y en el futuro en cualquier parte del mundo, en estos eventos existen necesidades puntuales con las cuales tu puedes ayudar, para esto solo debes ver el perfil de cualquier evento y ver como puedes ayudar."
     @events = Event.order("date DESC").page(params[:page]).per(8)
     @num_events = Event.count
   end
