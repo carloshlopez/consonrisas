@@ -825,10 +825,9 @@ div.arrow-down {
   font-size: 13px;
   border-style: solid;
   border-width: 0 0 5px;
-  display: inline;
-  left: 86%;
-  position: relative;
-  padding-bottom: 8px; }
+  display: block;
+  position: absolute;
+  right: 45px; }
 
 .one-item-facilitators {
   border-color: red; }
@@ -886,10 +885,7 @@ div.arrow-down {
   text-align: center; }
 
 .social-p {
-  text-align: center;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto; }
+  text-align: center; }
 
 .social-containter {
   margin: 0 auto 0 auto;

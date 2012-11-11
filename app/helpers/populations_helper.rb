@@ -6,4 +6,5 @@ module PopulationsHelper
     name = p.name_en if "#{I18n.locale}" == "en"
     name
   end
+  
 end

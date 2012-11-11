@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
     super
-    puts "*******!!!! Llegamos a registrarnos!!"
+#    puts "*******!!!! Llegamos a registrarnos!!"
     session[:omniauth] = nil unless @member.new_record?
 
     if params[:isFacilitator] and params[:isFacilitator] == "true"
@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
         @member.facilitator.update_attributes(params[:facilitator])
         @member.facilitator.populations.clear
         @member.facilitator.populations << Population.find(params[:population_ids]) if params[:population_ids]
-        puts "************** Se modifico al Facilitador #{params[:facilitator]}"
+#        puts "************** Se modifico al Facilitador #{params[:facilitator]}"
       end
     end
 

@@ -17,10 +17,13 @@
           - if @fundation.website and !@fundation.website.empty?
             = link_to @fundation.website, convert_url_for_href(@fundation.website), :target=>"_blank"
           %br
-          - if @fundation.population_id
+          - tot = @fundation.populations.count
+          - if tot > 0
             %b
               Población que atienden:
-            = population_name(@fundation.population_id)
+
+            - @fundation.populations.each_with_index do |population, i|
+              = population_name(population.id) + ((tot == (i + 1)) ? "" : ",")
           %br
           - if @fundation.email
             %b
