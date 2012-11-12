@@ -1,18 +1,30 @@
 class GlobalAlert < ActiveRecord::Base
   include Rails.application.routes.url_helpers
+  include ActionView::Helpers::TextHelper
 
   after_create :send_mails, :add_to_daily_weekly, :share
   before_destroy :destroy_alert_dependencies
 
   def share
+
     obj = self.model.constantize.find(self.model_id)
     link = send("#{self.model.downcase}_url", obj)
     message = self.news + " " + self.name_link
 
-    worker = FbGlobalAlertCreatedWorker.new
-    worker.link = link
-    worker.message = message
-    worker.queue(:priority=>0)
+    # facebook
+    begin
+      page = FbGraph::Page.new('161001857373976')
+      page.feed!(:access_token => 'AAACS5JoBfWYBAHA56RhnFVn5iZChyqDoiu9so4yV4s0gs54o2ZBPwlmXxsxYouy4fvXEJgeJO8f1PCdHZAkFSGfZBikSf14XtZA5tnaESqkJZCXmuEedMg', :link => link, :message => message)
+    rescue => e
+      puts "Error posting global_alert to facebook: #{e.inspect}"
+    end
+
+    # twitter
+    begin
+      Twitter.update(truncate(message, :length => 92) + " " + link + " @consonrisas");
+    rescue => e
+      puts "Error posting global_alert to twitter: #{e.inspect}"
+    end
 
   end
   handle_asynchronously :share  
