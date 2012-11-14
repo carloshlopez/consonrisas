@@ -47,5 +47,14 @@ ActionMailer::Base.smtp_settings = {
 #  config.load_paths += %W( #{RAILS_ROOT}/app/workers )
 
   config.autoload_paths += %W( #{::Rails.root.to_s}/app/workers )
+
+  config.fb.page_id = ENV['FB_PAGE_ID'] || '530935246927411'
+  config.fb.auth_token = ENV['FB_AUTH_TOKEN'] || 'AAACS5JoBfWYBAFOXRqCMQEJ5bpYwHwZBZCrlfLopffZCtgAuYJANI1vJyHkmum0jNmlZCZC2TsZCRrC2nLL4ZAWZAPpMQeYZCkx4p42jiRfpFdu0XwC25ZBURo'
+
+  config.twitter.consumer_key = ENV['TWITTER_CONSUMER_KEY'] || 'bO99GGfXFk2El5vBijNDQ'
+  config.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET'] || 'JjWmNG4UvoyA1ahNyuTXiuNWzCGmdHvdPM5SCfuiWI'
+  config.twitter.oauth_token = ENV['TWITTER_OAUTH_TOKEN'] || '178876518-vlczga9RaNBuwACrSLzCduh2wZbT5LYadKt3qiQ2'
+  config.twitter.oauth_secret = ENV['TWITTER_OAUTH_SECRET'] || 'POvjVYCStZShkbigRKHwlLZ3lhoOo6LxXWQ4F2yNK0'
+
 end
 
