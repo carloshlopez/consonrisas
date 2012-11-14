@@ -13,8 +13,8 @@ class GlobalAlert < ActiveRecord::Base
 
     # facebook
     begin
-      page = FbGraph::Page.new('161001857373976')
-      page.feed!(:access_token => 'AAACS5JoBfWYBAHA56RhnFVn5iZChyqDoiu9so4yV4s0gs54o2ZBPwlmXxsxYouy4fvXEJgeJO8f1PCdHZAkFSGfZBikSf14XtZA5tnaESqkJZCXmuEedMg', :link => link, :message => message)
+      page = FbGraph::Page.new(Consonrisas::Application.config.fb.page_id)
+      page.feed!(:access_token => Consonrisas::Application.config.fb.auth_token, :link => link, :message => message)
     rescue => e
       puts "Error posting global_alert to facebook: #{e.inspect}"
     end

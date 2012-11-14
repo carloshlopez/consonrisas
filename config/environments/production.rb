@@ -69,4 +69,13 @@ Consonrisas::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.fb.page_id = ENV['FB_PAGE_ID'] || '207633962587548'
+  config.fb.auth_token = ENV['FB_AUTH_TOKEN'] || 'AAACTCRhuePUBAGW0okACn6o5nQjueWh3Ibwd3QeglNFM97iMeiQrOC4S7wJ7s7yA8JnwehH3jaBZAI0f08YkngMOjTkGzGrsZC8LZC5fn16niobwMkd'
+
+  config.twitter.consumer_key = ENV['TWITTER_CONSUMER_KEY'] || 'qfol8pqa9RUjJ6tR9p8fw'
+  config.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET'] || '70cxEdyf6FwhAHL3XUoyUXPd6dKsFxCUghWkpiiM'
+  config.twitter.oauth_token = ENV['TWITTER_OAUTH_TOKEN'] || '48552466-3LPQJ4poPvDSswEXXPAcQoiVOhkGmvJ5rLc6Kd8EE'
+  config.twitter.oauth_secret = ENV['TWITTER_OAUTH_SECRET'] || 'XXsbLpRwYtZZdstb7TyxnaarXxKacPCeGuY1NTO8ew'
+
 end
