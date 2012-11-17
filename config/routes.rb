@@ -16,7 +16,7 @@ Consonrisas::Application.routes.draw do
 
   match '/auth/facebook/logout' => 'application#facebook_logout', :as => :facebook_logout
   match '/auth/:provider/callback' => 'authentications#create'
-  match '/auth/failure' => 'users/authentications#failure'
+  match '/auth/failure' => 'authentications#failure'
   
   resources :authentications
 

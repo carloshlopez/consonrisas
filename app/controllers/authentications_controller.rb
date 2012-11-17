@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class AuthenticationsController < ApplicationController
   def index
     @authentications = current_member.authentications if current_member
@@ -48,6 +50,7 @@ class AuthenticationsController < ApplicationController
   end
   
    def failure
-    render :text => "Login Failure!"
+    flash[:notice] = "Falló la autenticacion"
+    redirect_to root_path
   end
 end
