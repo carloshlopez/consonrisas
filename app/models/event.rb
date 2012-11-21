@@ -1,5 +1,6 @@
 # coding: utf-8
 class Event < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   has_many :comments
   has_and_belongs_to_many :facilitators, :join_table => :events_facilitators, :uniq => true
   has_and_belongs_to_many :fundations, :join_table => :events_fundations, :uniq => true
@@ -14,7 +15,7 @@ class Event < ActiveRecord::Base
   
   has_many :videos
   accepts_nested_attributes_for :videos, :allow_destroy=> true
-  has_attached_file :pic, :styles => {:profile => "150x150>", :thumb => "50x50#"},
+  has_attached_file :pic, :styles => {:profile_big => "300x300>", :profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,
                     :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
                     :path => "events/:attachment/:id/:style/:filename"
@@ -93,7 +94,7 @@ class Event < ActiveRecord::Base
   def create_fb_event
     begin
       page = FbGraph::Page.new(Consonrisas::Application.config.fb.page_id)
-      event = page.event!(:access_token => Consonrisas::Application.config.fb.auth_token, :name => self.name, :start_time => self.date, :location => self.city + " - " + self.place)
+      event = page.event!(:access_token => Consonrisas::Application.config.fb.auth_token, :name => self.name, :start_time => self.date.strftime("%Y-%m-%dT%H:%M:%S%:z"), :location => self.city + " - " + self.place, :description => self.desc + "\r\nMás info en: " + event_url(self))
     rescue => e
       puts "Error posting event to facebook: #{e.inspect}"
     end
