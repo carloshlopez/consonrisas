@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
   #validate :at_least_one_fundation  
   #validates :fundations, :uniqueness => {:scope => :event_id}
   
-  after_create :generate_alerts
+  after_create :generate_alerts, :create_fb_event
       
   def ask_admin member_id
     EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
@@ -89,5 +89,15 @@ class Event < ActiveRecord::Base
   def generate_alerts
     GlobalAlert.create(:news=>"Se creó el evento: ", :model=>"Event", :model_id=>id, :name_link=>name)
   end
+
+  def create_fb_event
+    begin
+      page = FbGraph::Page.new(Consonrisas::Application.config.fb.page_id)
+      event = page.event!(:access_token => Consonrisas::Application.config.fb.auth_token, :name => self.name, :start_time => self.date, :location => self.city + " - " + self.place)
+    rescue => e
+      puts "Error posting event to facebook: #{e.inspect}"
+    end
+  end
+  handle_asynchronously :create_fb_event
   
 end

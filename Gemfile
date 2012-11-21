@@ -30,7 +30,7 @@ gem 'multi_json'
 
 gem 'twitter'
 
-gem 'fb_graph'
+gem 'fb_graph', '2.5.8'
 
 gem 'iron_worker'
 
