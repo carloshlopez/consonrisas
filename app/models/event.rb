@@ -94,7 +94,7 @@ class Event < ActiveRecord::Base
   def create_fb_event
     begin
       page = FbGraph::Page.new(Consonrisas::Application.config.fb.page_id)
-      event = page.event!(:access_token => Consonrisas::Application.config.fb.auth_token, :name => self.name, :start_time => self.date.strftime("%Y-%m-%dT%H:%M:%S%:z"), :location => self.city + " - " + self.place, :description => self.desc + "\r\nMás info en: " + event_url(self))
+      event = page.event!(:access_token => Consonrisas::Application.config.fb.auth_token, :name => self.name, :start_time => self.date + 5, :location => self.city + " - " + self.place, :description => self.desc + "\r\nMás info en: " + event_url(self))
     rescue => e
       puts "Error posting event to facebook: #{e.inspect}"
     end
