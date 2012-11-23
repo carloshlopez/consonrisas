@@ -20,11 +20,11 @@ class GlobalAlert < ActiveRecord::Base
     end
 
     # twitter
-#    begin
-#      Twitter.update(truncate(message, :length => 92) + " " + link + " @consonrisas");
-#    rescue => e
-#      puts "Error posting global_alert to twitter: #{e.inspect}"
-#    end
+    begin
+      Twitter.update(truncate(message, :length => 92) + " " + link + " @consonrisas");
+    rescue => e
+      puts "Error posting global_alert to twitter: #{e.inspect}"
+    end
 
   end
   handle_asynchronously :share  
