@@ -1,4 +1,5 @@
 class Provider < ActiveRecord::Base
+  has_many :invitations, :foreign_key => "provider_id", :class_name => "EventProvider", :dependent => :destroy
   has_many :shows, :dependent => :destroy  
   has_and_belongs_to_many :events, :join_table => :events_providers, :uniq => true
   has_many :contact_informations, :dependent => :destroy  

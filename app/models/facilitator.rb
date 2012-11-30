@@ -1,5 +1,5 @@
 class Facilitator < ActiveRecord::Base
-  has_and_belongs_to_many :events, :join_table => :events_facilitators, :uniq => true
+  has_many :invitations, :foreign_key => "facilitator_id", :class_name => "EventFacilitator", :dependent =>:destroy
   belongs_to :member
   has_and_belongs_to_many :populations, :join_table => :facilitator_populations, :uniq => true
   has_and_belongs_to_many :fundations, :join_table => :fundations_facilitators, :uniq => true

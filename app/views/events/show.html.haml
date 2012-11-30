@@ -88,11 +88,11 @@
               = I18n.t('fundation_name').capitalize  
             %br
             .event-invitations-options
-              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
+              - if current_member.facilitator.invitations.select{|i| i.event_id == @event.id}.empty?
                 %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')       
               - else
                 %label.im-going.span2 Asistiras
-                %a.remove_facilitator.span1{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
+                %a.remove_facilitator.span1{:event_facilitator_id => current_member.facilitator.invitations.select{|i| i.event_id == @event.id}.first.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
                 %input#going_already{:type=>"hidden", :value=>"going"}
               %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar Amigos  
           - else
