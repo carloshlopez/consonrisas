@@ -2,6 +2,9 @@
 class Event < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   has_many :comments
+  has_many :event_facilitators, :dependent =>:destroy
+  has_many :event_fundations, :dependent =>:destroy
+  has_many :event_providers, :dependent =>:destroy
   has_and_belongs_to_many :facilitators, :join_table => :events_facilitators, :uniq => true
   has_and_belongs_to_many :fundations, :join_table => :events_fundations, :uniq => true
   has_and_belongs_to_many :providers, :join_table => :events_providers, :uniq => true  
