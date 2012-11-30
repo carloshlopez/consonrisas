@@ -142,7 +142,12 @@ class EventsController < ApplicationController
       end
     end
     
-    @event.facilitators.push(@facilitator)
+    pending_invitation = true
+    if current_member.id == @facilitator.member.id
+      pending_invitation = false 
+    end
+    is_going = true if current_member.id == @facilitator.member.id
+    @event.event_facilitators.create(:facilitator => @facilitator, :pending_invitation => pending_invitation, :is_going => is_going)
     respond_to do |format|
       format.js {head:ok}
       format.html {redirect_to event_path(@event)}
@@ -167,7 +172,7 @@ class EventsController < ApplicationController
   def add_fundation
     @event = Event.find(params[:event_id])
     @fundation = Fundation.find(params[:fundation_id])
-    @event.fundations.push(@fundation)
+    @event.event_fundations.create(:fundation => @fundation, :pending_invitation => true)
     redirect_to event_path(@event)
   end  
   
@@ -187,28 +192,24 @@ class EventsController < ApplicationController
   end  
   
   def remove_provider 
-    @event = Event.find(params[:event_id])
-    @provider = Provider.find(params[:provider_id])
-    @event.providers.delete(@provider)
+    @event_provider = EventProvider.find(params[:event_provider_id])
+    @event_provider.destroy
     redirect_to event_path(@event)
   end
   
   def remove_facilitator
-    @event = Event.find(params[:event_id])
-    @facilitator = Facilitator.find(params[:facilitator_id])
-    @event.facilitators.delete(@facilitator)
+    @event_facilitator = EventFacilitator.find(params[:event_facilitator_id])
+    @event_facilitator.destroy
     respond_to do |format|
       format.js {head:ok}
     end
   end
   
   def remove_fundation
-    @event = Event.find(params[:event_id])
-    @fundation = Fundation.find(params[:fundation_id])
-    @event.fundations.delete(@fundation)
+    @event_fundation = EventFundation.find(params[:event_fundation_id])
+    @event_fundation.destroy
     redirect_to event_path(@event)
-  end    
-  
+  end
   
   def add_show
     @event = Event.find(params[:event_id])
