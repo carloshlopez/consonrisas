@@ -1,8 +1,8 @@
-- unless @fundation.events.empty?
+- unless @fundation.events.attended_or_is_going.empty?
   .all-items
     %h3
       = I18n.t('profile.events_calendar')
-    - @fundation.events.order("date DESC").each do |event|
+    - @fundation.events.attended_or_is_going.order("events.date DESC").each do |event|
       .one-item
         = link_to image_tag(event.pic.url(:thumb), :class=>"img-events"), event_path(event.id),:title=>I18n.t('events.show')
         %span

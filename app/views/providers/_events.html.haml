@@ -1,8 +1,8 @@
-- unless @provider.events.empty?
+- unless @provider.events.attended_or_is_going.empty?
   %h3
     =I18n.t('profile.events_calendar')
   .all-items
-    - @provider.events.each do |event|  
+    - @provider.events.attended_or_is_going.each do |event|  
       .one-item
         = link_to image_tag(event.pic.url(:thumb),:class=>"img-events"), event_path(event), :title=>"Click para ver el evento"        
         %span

@@ -46,8 +46,8 @@ class Event < ActiveRecord::Base
 
   def add_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
-      unless event_facilitators.select{|i| i.facilitator_id == fac_id}.empty?
-        event_facilitators.create(:facilitator => Facilitator.find(fac_id), :pending_invitation => true)
+      if event_facilitators.select{|i| i.facilitator_id == fac_id}.empty?
+        event_facilitators.create(:facilitator => Facilitator.find(fac_id), :pending_invitation => false, :is_going => true)
       end
     end
     alert_facilitators facilitators_ids
@@ -55,16 +55,16 @@ class Event < ActiveRecord::Base
   
   def add_fundations fundations_ids
     fundations_ids.each do |fund_id|
-      unless event_fundations.select{|i| i.fundation_id == fund_id}.empty?
-        event_fundations.create(:fundation => Fundation.find(fund_id), :pending_invitation => true)
+      if event_fundations.select{|i| i.fundation_id == fund_id}.empty?
+        event_fundations.create(:fundation => Fundation.find(fund_id), :pending_invitation => false, :is_going => true)
       end
     end
   end  
   
   def add_providers providers_ids
     providers_ids.each do |prov_id|
-      unless event_providers.select{|i| i.provider_id == prov_id}.empty?
-        event_providers.create(:provider => Provider.find(prov_id), :pending_invitation => true)
+      if event_providers.select{|i| i.provider_id == prov_id}.empty?
+        event_providers.create(:provider => Provider.find(prov_id), :pending_invitation => false, :is_going => true)
       end
     end
   end    

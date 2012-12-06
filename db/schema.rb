@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20121130003016) do
 
   create_table "event_fundations", :force => true do |t|
     t.integer  "event_id"
-    t.integer  "facilitator_id"
+    t.integer  "fundation_id"
     t.boolean  "pending_invitation"
     t.boolean  "is_going"
     t.datetime "created_at"

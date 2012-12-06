@@ -213,7 +213,7 @@ $jq.widget("ui.eventAdmin", {
             else{
                 $jq("#alert-msg p").html("Este Proyecto Social ya no hace parte de los asistentes a este evento");
                 $jq("#alert-msg").slideDown().delay(2500).slideUp();                  
-                $jq("#fundation-going-"+fund_id).remove();
+                $jq("#fundation-going-" + event_fundation_id).remove();
             }
         });
     },
@@ -226,7 +226,7 @@ $jq.widget("ui.eventAdmin", {
             else{
                 $jq("#alert-msg p").html("Este Proveedor de Sonrisas ya no hará parte de este evento");
                 $jq("#alert-msg").slideDown().delay(2500).slideUp();  
-                $jq("#provider-going-"+prov_id).remove();
+                $jq("#provider-going-" + event_provider_id).remove();
             }
         });
     },

@@ -2,7 +2,7 @@ class CreateEventFundations < ActiveRecord::Migration
   def self.up
     create_table :event_fundations do |t|
       t.references :event
-      t.references :facilitator
+      t.references :fundation
       t.boolean :pending_invitation
       t.boolean :is_going
 

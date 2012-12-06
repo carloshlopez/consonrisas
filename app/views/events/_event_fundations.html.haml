@@ -5,7 +5,7 @@
   - if @event.event_fundations.count > 0
     .going-div
       - @event.event_fundations.each do |i|
-        .element-going{:id=>"fundation-going-#{i.fundation.id}"}
+        .element-going{:id=>"fundation-going-#{i.id}"}
           = link_to image_tag(i.fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(i.fundation), :title=>"#{i.fundation.name}"
           - if member_signed_in?          
             - unless current_member.fundations.select{|f| f.id == i.fundation.id}.empty?
