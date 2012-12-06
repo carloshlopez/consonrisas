@@ -1,7 +1,19 @@
 class Provider < ActiveRecord::Base
-  has_many :invitations, :foreign_key => "provider_id", :class_name => "EventProvider", :dependent => :destroy
+  has_many :events_invitations, :foreign_key => "provider_id", :class_name => "EventProvider", :dependent => :destroy
+  has_many :events, :through => :events_invitations do
+    def attended
+      where("is_going = ? and events.date < ?", true, Time.current)
+    end
+
+    def is_going
+      where("is_going = ? and events.date >= ?", true, Time.current)
+    end
+
+    def attended_or_is_going
+      where("is_going = ?", true)
+    end
+  end
   has_many :shows, :dependent => :destroy  
-  has_and_belongs_to_many :events, :join_table => :events_providers, :uniq => true
   has_many :contact_informations, :dependent => :destroy  
   has_and_belongs_to_many :facilitators, :join_table => :providers_facilitators
   

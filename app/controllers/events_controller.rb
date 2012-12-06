@@ -142,11 +142,12 @@ class EventsController < ApplicationController
       end
     end
     
-    pending_invitation = true
-    if current_member.id == @facilitator.member.id
-      pending_invitation = false 
-    end
-    is_going = true if current_member.id == @facilitator.member.id
+    #pending_invitation = true
+    #if current_member.id == @facilitator.member.id
+    #  pending_invitation = false 
+    #end
+    pending_invitation = false
+    is_going = true #if current_member.id == @facilitator.member.id
     @event.event_facilitators.create(:facilitator => @facilitator, :pending_invitation => pending_invitation, :is_going => is_going)
     respond_to do |format|
       format.js {head:ok}
@@ -194,7 +195,9 @@ class EventsController < ApplicationController
   def remove_provider 
     @event_provider = EventProvider.find(params[:event_provider_id])
     @event_provider.destroy
-    redirect_to event_path(@event)
+    respond_to do |format|
+      format.js {head:ok}
+    end
   end
   
   def remove_facilitator
@@ -208,7 +211,9 @@ class EventsController < ApplicationController
   def remove_fundation
     @event_fundation = EventFundation.find(params[:event_fundation_id])
     @event_fundation.destroy
-    redirect_to event_path(@event)
+    respond_to do |format|
+      format.js {head:ok}
+    end
   end
   
   def add_show
