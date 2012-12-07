@@ -271,4 +271,4 @@ DEPENDENCIES
   sass
   spork
   sqlite3-ruby
-  twitter (= 1.6.0)
+  twitter
