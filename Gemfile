@@ -28,7 +28,7 @@ gem 'omniauth'
 
 gem 'multi_json'
 
-gem 'twitter', '1.6.0'
+gem 'twitter'
 
 gem 'fb_graph', '2.5.8'
 
