@@ -93,7 +93,7 @@
                   %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
               - else
                 %li
-                  %a.info.register_wizzard{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
+                  %a.info.register_wizzard.visible-desktop{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
       = yield
       = render "shared/footer"
   %script{:src=>"/bootstrap/js/bootstrap.js"}          
