@@ -140,9 +140,11 @@ es:
   events:
     isClosed: "Este evento es cerrado, por lo tanto solo el administrador de este evento podrá hacer invitaciones"  
     isRaiser: "Este evento es para recaudar dinero para los proyectos sociales que atenderán"
+    add_me_event: "Asistir a este evento"
     add_me_facilitator: "Asistir como facilitador"
     add_me_fundation: "Asistir como proyecto social"
     add_me_provider: "Asistir como proveedor"
+    how_to_add_me: "¿Con qué rol asistirás?"
     add_facilitator: "Sugerirle a un facilitador que asista"
     add_fundation: "Sugerirle a un proyecto social que asista"
     add_provider: "Sugerirle a un proveedor que asista"      
