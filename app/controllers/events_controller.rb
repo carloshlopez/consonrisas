@@ -110,7 +110,7 @@ class EventsController < ApplicationController
   def add_provider 
     @event = Event.find(params[:event_id])
     @provider = Provider.find(params[:provider_id])
-    @event.providers.push(@provider)
+    @event.event_providers.create(:provider => @provider, :pending_invitation => false, :is_going => true)
     redirect_to event_path(@event)
   end
   
@@ -173,7 +173,7 @@ class EventsController < ApplicationController
   def add_fundation
     @event = Event.find(params[:event_id])
     @fundation = Fundation.find(params[:fundation_id])
-    @event.event_fundations.create(:fundation => @fundation, :pending_invitation => true)
+    @event.event_fundations.create(:fundation => @fundation, :pending_invitation => false, :is_going => true)
     redirect_to event_path(@event)
   end  
   
@@ -193,24 +193,42 @@ class EventsController < ApplicationController
   end  
   
   def remove_provider 
-    @event_provider = EventProvider.find(params[:event_provider_id])
-    @event_provider.destroy
+    if params[:event_provider_id].nil?
+      @event_provider = EventProvider.find_by_event_id_and_provider_id(params[:event_id], params[:provider_id])
+    else
+      @event_provider = EventProvider.find(params[:event_provider_id])
+    end
+
+    @event_provider.destroy unless @event_provider.nil?
+
     respond_to do |format|
       format.js {head:ok}
     end
   end
   
   def remove_facilitator
-    @event_facilitator = EventFacilitator.find(params[:event_facilitator_id])
-    @event_facilitator.destroy
+    if params[:event_facilitator_id].nil?
+      @event_facilitator = EventFacilitator.find_by_event_id_and_facilitator_id(params[:event_id], params[:facilitator_id])
+    else
+      @event_facilitator = EventFacilitator.find(params[:event_facilitator_id])
+    end
+
+    @event_facilitator.destroy unless @event_facilitator.nil?
+
     respond_to do |format|
       format.js {head:ok}
     end
   end
   
   def remove_fundation
-    @event_fundation = EventFundation.find(params[:event_fundation_id])
-    @event_fundation.destroy
+    if params[:event_fundation_id].nil?
+      @event_fundation = EventFundation.find_by_event_id_and_fundation_id(params[:event_id], params[:fundation_id])
+    else
+      @event_fundation = EventFundation.find(params[:event_fundation_id])
+    end
+
+    @event_fundation.destroy unless @event_fundation.nil?
+
     respond_to do |format|
       format.js {head:ok}
     end
