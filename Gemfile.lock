@@ -119,7 +119,7 @@ GEM
     multi_xml (0.2.2)
     multipart-post (1.1.3)
     net-ldap (0.2.2)
-    newrelic_rpm (3.5.3.25)
+    newrelic_rpm (3.3.3)
     nokogiri (1.4.7)
     oa-basic (0.2.6)
       oa-core (= 0.2.6)
@@ -271,4 +271,4 @@ DEPENDENCIES
   sass
   spork
   sqlite3-ruby
-  twitter (~> 1.6.0)
+  twitter
