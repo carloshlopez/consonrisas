@@ -298,6 +298,11 @@ $jq(document).ready(function($) {
     $jq("#following").dialog({modal:true, title:"Conexiones", width: 680, closeText:"X", show:"slide"});
   });
   
+  $jq(".show-results-2012").click(function(e){
+    e.preventDefault();
+    $jq("#results_2012").dialog({modal:true, title:"Resultados del 2012", width: 600, closeText:"X", show:"slide"});
+  });  
+  
   $jq(".edit-me").click(showEdit); 
   
   if($jq("#show_edit").val() == "show"){
