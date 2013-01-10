@@ -1,5 +1,18 @@
 class Facilitator < ActiveRecord::Base
-  has_and_belongs_to_many :events, :join_table => :events_facilitators, :uniq => true
+  has_many :events_invitations, :foreign_key => "facilitator_id", :class_name => "EventFacilitator", :dependent =>:destroy 
+  has_many :events, :through => :events_invitations do
+    def attended
+      where("is_going = ? and events.date < ?", true, Time.current)
+    end
+
+    def is_going
+      where("is_going = ? and events.date >= ?", true, Time.current)
+    end
+
+    def attended_or_is_going
+      where("is_going = ?", true)
+    end
+  end
   belongs_to :member
   has_and_belongs_to_many :populations, :join_table => :facilitator_populations, :uniq => true
   has_and_belongs_to_many :fundations, :join_table => :fundations_facilitators, :uniq => true

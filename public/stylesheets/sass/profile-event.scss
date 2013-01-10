@@ -124,13 +124,14 @@
       color: white;
     }
     .iwanna-go,
-    .invite-friends{
+    .invite-friends {
+      float:right;
       background-color: $events-color;
       border-radius: 5px;
       padding: 2px 10px 2px 10px;
       color: white;
-      text-decoration: none;
-      margin-left: 60px;
+      text-decoration: none; 
+
     }
     .iwanna-go:hover,
     .invite-friends:hover{
@@ -258,6 +259,12 @@
   a:hover{
     text-decoration: underline;
   }  
+  a.remove_facilitator {
+    float:right;
+  }
+  a.change_rsvp {
+    float:right;
+  }
 }
     
 

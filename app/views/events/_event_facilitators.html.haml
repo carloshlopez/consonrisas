@@ -1,17 +1,17 @@
 = I18n.t('facilitators').capitalize
-= "(#{(@event.facilitators.count)})"
+= "(#{(@event.event_facilitators.count)})"
 .facilitators-invited-title-bar
 .facilitators-invited
-  - if @event.facilitators.count > 0
+  - if @event.event_facilitators.count > 0
     .going-div
-      - @event.facilitators.each do |facilitator|
+      - @event.event_facilitators.each do |i|
         .element-going
-          - if facilitator.member
-            = link_to image_tag(member_thumb(facilitator), :class=>"going_pic img-facilitators"),  member_path(facilitator.member), :title=>"#{member_name_complete(facilitator.member)}"
+          - if i.facilitator.member
+            = link_to image_tag(member_thumb(i.facilitator), :class=>"going_pic img-facilitators"),  member_path(i.facilitator.member), :title=>"#{member_name_complete(i.facilitator.member)}"
   - if member_signed_in? and (!@event.isClosed or can_current_member_edit_event(@event.id) )
-    - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
+    - if current_member.facilitator.events.attended_or_is_going.select{|e| e.id == @event.id}.empty?
       %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')
     - else
       = I18n.t('events.attending_as_facilitator')
       |
-      %a.remove_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
+      %a.remove_facilitator{:event_facilitator_id => current_member.facilitator.events_invitations.select{|i| i.event_id == @event.id}.first.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X

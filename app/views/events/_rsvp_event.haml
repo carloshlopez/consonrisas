@@ -1,0 +1,22 @@
+= check_box_tag current_member.facilitator.id, current_member.facilitator.id, !current_member.facilitator.events_invitations.select{|i| i.event_id == @event.id}.empty?, { :class=> 'check_invite check_add_facil', :facilitator_id => current_member.facilitator.id, :event_id => @event.id }
+&nbsp;Asistir como facilitador
+
+%h2 Proyectos
+.following
+  - current_member.fundations.each do |fund|
+    .a_follower
+      = check_box_tag fund.id, fund.id, !fund.events_invitations.select{|i| i.event_id == @event.id}.empty?, { :class=> 'check_invite check_add_fund', :fundation_id => fund.id, :event_id => @event.id}
+      = image_tag fund.pic(:thumb), :class=>"img-fundations", :title=>fund.name
+      .a_follower_name
+        = fund.name
+
+%br
+%br
+%h2 Proveedores
+.following
+  - current_member.providers.each do |prov|
+    .a_follower
+      = check_box_tag prov.id, prov.id, !prov.events_invitations.select{|i| i.event_id == @event.id}.empty?, { :class=> 'check_invite check_add_prov', :provider_id => prov.id, :event_id => @event.id}
+      = image_tag prov.pic(:thumb), :class=>"img-providers", :title=>prov.name
+      .a_follower_name
+        = prov.name

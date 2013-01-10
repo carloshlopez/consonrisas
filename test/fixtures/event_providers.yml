@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event: 
+  provider: 
+  pending_invitation: false
+  is_going: false
+
+two:
+  event: 
+  provider: 
+  pending_invitation: false
+  is_going: false

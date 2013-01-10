@@ -1,12 +1,12 @@
 = I18n.t('providers').capitalize
-= "(#{(@event.providers.count)})"
+= "(#{(@event.event_providers.count)})"
 .providers-invited-title-bar
 .providers_invited
-  - if @event.providers.count > 0
+  - if @event.event_providers.count > 0
     .going-div
-      - @event.providers.each do |provider|
-        .element-going{:id=>"provider-going-#{provider.id}", :style=>"display:inline"}
-          = link_to image_tag(provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(provider), :title=>"#{provider.name}"
+      - @event.event_providers.each do |i|
+        .element-going{:id=>"provider-going-#{i.id}", :style=>"display:inline"}
+          = link_to image_tag(i.provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(i.provider), :title=>"#{i.provider.name}"
           - if member_signed_in?
-            - unless current_member.providers.select{|p| p.id == provider.id}.empty?
-              %a{:href=>"#", :class=>"remove_provider", :event_id=>"#{@event.id}", :provider_id=>"#{provider.id}"}X
+            - unless current_member.providers.select{|p| p.id == i.provider.id}.empty?
+              %a{:href=>"#", :class=>"remove_provider", :event_provider_id=>"#{i.id}"}X

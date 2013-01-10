@@ -110,7 +110,7 @@ class EventsController < ApplicationController
   def add_provider 
     @event = Event.find(params[:event_id])
     @provider = Provider.find(params[:provider_id])
-    @event.providers.push(@provider)
+    @event.event_providers.create(:provider => @provider, :pending_invitation => false, :is_going => true)
     redirect_to event_path(@event)
   end
   
@@ -142,7 +142,13 @@ class EventsController < ApplicationController
       end
     end
     
-    @event.facilitators.push(@facilitator)
+    #pending_invitation = true
+    #if current_member.id == @facilitator.member.id
+    #  pending_invitation = false 
+    #end
+    pending_invitation = false
+    is_going = true #if current_member.id == @facilitator.member.id
+    @event.event_facilitators.create(:facilitator => @facilitator, :pending_invitation => pending_invitation, :is_going => is_going)
     respond_to do |format|
       format.js {head:ok}
       format.html {redirect_to event_path(@event)}
@@ -167,7 +173,7 @@ class EventsController < ApplicationController
   def add_fundation
     @event = Event.find(params[:event_id])
     @fundation = Fundation.find(params[:fundation_id])
-    @event.fundations.push(@fundation)
+    @event.event_fundations.create(:fundation => @fundation, :pending_invitation => false, :is_going => true)
     redirect_to event_path(@event)
   end  
   
@@ -187,28 +193,46 @@ class EventsController < ApplicationController
   end  
   
   def remove_provider 
-    @event = Event.find(params[:event_id])
-    @provider = Provider.find(params[:provider_id])
-    @event.providers.delete(@provider)
-    redirect_to event_path(@event)
+    if params[:event_provider_id].nil?
+      @event_provider = EventProvider.find_by_event_id_and_provider_id(params[:event_id], params[:provider_id])
+    else
+      @event_provider = EventProvider.find(params[:event_provider_id])
+    end
+
+    @event_provider.destroy unless @event_provider.nil?
+
+    respond_to do |format|
+      format.js {head:ok}
+    end
   end
   
   def remove_facilitator
-    @event = Event.find(params[:event_id])
-    @facilitator = Facilitator.find(params[:facilitator_id])
-    @event.facilitators.delete(@facilitator)
+    if params[:event_facilitator_id].nil?
+      @event_facilitator = EventFacilitator.find_by_event_id_and_facilitator_id(params[:event_id], params[:facilitator_id])
+    else
+      @event_facilitator = EventFacilitator.find(params[:event_facilitator_id])
+    end
+
+    @event_facilitator.destroy unless @event_facilitator.nil?
+
     respond_to do |format|
       format.js {head:ok}
     end
   end
   
   def remove_fundation
-    @event = Event.find(params[:event_id])
-    @fundation = Fundation.find(params[:fundation_id])
-    @event.fundations.delete(@fundation)
-    redirect_to event_path(@event)
-  end    
-  
+    if params[:event_fundation_id].nil?
+      @event_fundation = EventFundation.find_by_event_id_and_fundation_id(params[:event_id], params[:fundation_id])
+    else
+      @event_fundation = EventFundation.find(params[:event_fundation_id])
+    end
+
+    @event_fundation.destroy unless @event_fundation.nil?
+
+    respond_to do |format|
+      format.js {head:ok}
+    end
+  end
   
   def add_show
     @event = Event.find(params[:event_id])

@@ -35,9 +35,8 @@ $jq.widget("ui.eventAdmin", {
         
         $el.find('.remove_facilitator').click(function(e){
             e.preventDefault();
-            var event_id = $jq(this).attr("event_id");
-            var fac_id = $jq(this).attr("facilitator_id");
-            self._removeFacilitator(event_id, fac_id);
+            var event_facilitator_id = $jq(this).attr("event_facilitator_id");
+            self._removeFacilitator(event_facilitator_id);
         });
         
         $el.find('.add_facilitator').click(function(e){
@@ -54,19 +53,25 @@ $jq.widget("ui.eventAdmin", {
               self._addFacilitator(event_id, fac_id);
             }
         });
+
+        $el.find('.rsvp_event').click(function(e) {
+            e.preventDefault();
+
+            var event_id = $jq(this).attr("event_id");
+            var fac_id = $jq(this).attr("facilitator_id");
+            self._rsvpEvent(event_id, fac_id);
+        });
         
         $el.find('.remove_fundation').click(function(e){
             e.preventDefault();
-            var event_id = $jq(this).attr("event_id");
-            var fund_id = $jq(this).attr("fundation_id");
-            self._removeFundation(event_id, fund_id);
-        });        
+            var event_fundation_id = $jq(this).attr("event_fundation_id");
+            self._removeFundation(event_fundation_id);
+        });       
         
         $el.find('.remove_provider').click(function(e){
             e.preventDefault();
-            var event_id = $jq(this).attr("event_id");
-            var prov_id = $jq(this).attr("provider_id");
-            self._removeProvider(event_id, prov_id);
+            var event_provider_id = $jq(this).attr("event_provider_id");
+            self._removeProvider(event_provider_id);
         });               
         
         $el.find(".edit-me").click(function(e){
@@ -195,8 +200,18 @@ $jq.widget("ui.eventAdmin", {
             }
         });
     },
-    _removeFacilitator: function(event_id, fac_id){
-        var postData = {event_id:event_id, facilitator_id:fac_id};
+    _rsvpEvent: function() {
+      $jq("#rsvp-event").dialog({modal:true, title:"Selecciona los roles con los que asistirás", width: 550, closeText:"X", show:"fadeIn",
+        open: function(){
+          $jq(".ui-dialog").addClass("event-dialog");
+        },
+        close: function() {
+          window.location.reload();
+        }
+      });   
+    },
+    _removeFacilitator: function(event_facilitator_id){
+        var postData = {event_facilitator_id:event_facilitator_id};
         $jq.post("/events/remove_facilitator", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
@@ -207,8 +222,8 @@ $jq.widget("ui.eventAdmin", {
             }
         });
     },
-    _removeFundation: function(event_id, fund_id){
-        var postData = {event_id:event_id, fundation_id:fund_id};
+    _removeFundation: function(event_fundation_id){
+        var postData = {event_fundation_id:event_fundation_id};
         $jq.post("/events/remove_fundation", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
@@ -216,12 +231,12 @@ $jq.widget("ui.eventAdmin", {
             else{
                 $jq("#alert-msg p").html("Este Proyecto Social ya no hace parte de los asistentes a este evento");
                 $jq("#alert-msg").slideDown().delay(2500).slideUp();                  
-                $jq("#fundation-going-"+fund_id).remove();
+                $jq("#fundation-going-" + event_fundation_id).remove();
             }
         });
     },
-    _removeProvider: function(event_id, prov_id){
-        var postData = {event_id:event_id, provider_id:prov_id};
+    _removeProvider: function(event_provider_id){
+        var postData = {event_provider_id:event_provider_id};
         $jq.post("/events/remove_provider", postData , function(data){
             if(data.error){
                 alert("Ocurrió un error, intentar más tarde");
@@ -229,7 +244,7 @@ $jq.widget("ui.eventAdmin", {
             else{
                 $jq("#alert-msg p").html("Este Proveedor de Sonrisas ya no hará parte de este evento");
                 $jq("#alert-msg").slideDown().delay(2500).slideUp();  
-                $jq("#provider-going-"+prov_id).remove();
+                $jq("#provider-going-" + event_provider_id).remove();
             }
         });
     },
@@ -280,8 +295,6 @@ $jq.widget("ui.eventAdmin", {
         }, "text" );
     }
 });
-
-
 
 jQuery(document).ready(function($) {
     $jq("#ask_admin_message").hide();
@@ -340,6 +353,67 @@ jQuery(document).ready(function($) {
           }
       });      
       
+    });
+
+    $jq('.check_add_facil').click(function(e) {
+      
+      var event_id = $jq(this).attr("event_id");
+      var fac_id = $jq(this).attr("facilitator_id");
+      var postData = {event_id:event_id, facilitator_id:fac_id};
+
+      if ( $(e.currentTarget).is(':checked') ) {
+        $jq.post("/events/add_facilitator", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      } else {
+        $jq.post("/events/remove_facilitator", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      }
+    }); 
+
+    $jq('.check_add_fund').click(function(e) {
+      var event_id = $jq(this).attr("event_id");
+      var fund_id = $jq(this).attr("fundation_id");
+      var postData = {event_id:event_id, fundation_id:fund_id};
+
+      if ( $(e.currentTarget).is(':checked') ) {
+        $jq.post("/events/add_fundation", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      } else {
+        $jq.post("/events/remove_fundation", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      }
+    });
+
+    $jq('.check_add_prov').click(function(e) {
+      var event_id = $jq(this).attr("event_id");
+      var prov_id = $jq(this).attr("provider_id");
+      var postData = {event_id:event_id, provider_id:prov_id};
+
+      if ( $(e.currentTarget).is(':checked') ) {
+        $jq.post("/events/add_provider", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      } else {
+        $jq.post("/events/remove_provider", postData , function(data){
+            if(data.error){
+                alert("Ocurrió un error, intentar más tarde");
+            }
+        });
+      }
     });
     
     $jq(".invite_fundations_send").click(function(e){
