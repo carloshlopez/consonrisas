@@ -2,9 +2,9 @@
 class Event < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   has_many :comments
-  has_and_belongs_to_many :facilitators, :join_table => :events_facilitators, :uniq => true
-  has_and_belongs_to_many :fundations, :join_table => :events_fundations, :uniq => true
-  has_and_belongs_to_many :providers, :join_table => :events_providers, :uniq => true  
+  has_many :event_facilitators, :dependent => :destroy
+  has_many :event_fundations, :dependent => :destroy
+  has_many :event_providers, :dependent => :destroy
   has_and_belongs_to_many :shows, :join_table => :events_shows, :uniq => true  
   has_many :event_admins, :dependent =>:destroy
   has_many :members, :through => :event_admins, :dependent => :destroy  
@@ -46,8 +46,8 @@ class Event < ActiveRecord::Base
 
   def add_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
-      unless facilitators.exists?(fac_id)
-        facilitators.push(Facilitator.find(fac_id))
+      if event_facilitators.select{|i| i.facilitator_id == fac_id}.empty?
+        event_facilitators.create(:facilitator => Facilitator.find(fac_id), :pending_invitation => false, :is_going => true)
       end
     end
     alert_facilitators facilitators_ids
@@ -55,16 +55,16 @@ class Event < ActiveRecord::Base
   
   def add_fundations fundations_ids
     fundations_ids.each do |fund_id|
-      unless fundations.exists?(fund_id)
-        fundations.push(Fundation.find(fund_id))
+      if event_fundations.select{|i| i.fundation_id == fund_id}.empty?
+        event_fundations.create(:fundation => Fundation.find(fund_id), :pending_invitation => false, :is_going => true)
       end
     end
   end  
   
   def add_providers providers_ids
     providers_ids.each do |prov_id|
-      unless providers.exists?(prov_id)
-        providers.push(Provider.find(prov_id))
+      if event_providers.select{|i| i.provider_id == prov_id}.empty?
+        event_providers.create(:provider => Provider.find(prov_id), :pending_invitation => false, :is_going => true)
       end
     end
   end    

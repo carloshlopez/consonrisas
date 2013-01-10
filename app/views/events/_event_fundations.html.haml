@@ -1,12 +1,12 @@
 = I18n.t('fundations').capitalize
-= "(#{(@event.fundations.count)})"
+= "(#{(@event.event_fundations.count)})"
 .fundations-invited-title-bar
 .fundations-invited
-  - if @event.fundations.count > 0
+  - if @event.event_fundations.count > 0
     .going-div
-      - @event.fundations.each do |fundation|
-        .element-going{:id=>"fundation-going-#{fundation.id}"}
-          = link_to image_tag(fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(fundation), :title=>"#{fundation.name}"
+      - @event.event_fundations.each do |i|
+        .element-going{:id=>"fundation-going-#{i.id}"}
+          = link_to image_tag(i.fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(i.fundation), :title=>"#{i.fundation.name}"
           - if member_signed_in?          
-            - unless current_member.fundations.select{|f| f.id == fundation.id}.empty?
-              %a{:href=>"#", :class=>"remove_fundation", :event_id=>"#{@event.id}", :fundation_id=>"#{fundation.id}"}X
+            - unless current_member.fundations.select{|f| f.id == i.fundation.id}.empty?
+              %a{:href=>"#", :class=>"remove_fundation", :event_fundation_id=>"#{i.id}"}X

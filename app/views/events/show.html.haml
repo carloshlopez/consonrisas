@@ -75,26 +75,19 @@
         = render :partial => "share_fb"
       .event-send-invitations
         - unless @event.isClosed  
-          .span8{:style=>"color:#00BCFA;"} Asistir al evento como un:
-          %br 
           - if member_signed_in?
-            .fac_block.add_facilitator.span2{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}
-              = I18n.t('facilitator_name').capitalize
-            %br.visible-phone
-            .prov_block.invite-providers-button.span2
-              = I18n.t('provider_name').capitalize        
-            %br.visible-phone
-            .fund_block.invite-fundations-button.span2
-              = I18n.t('fundation_name').capitalize  
-            %br
-            .event-invitations-options
-              - if current_member.facilitator.events.select{|e| e.id == @event.id}.empty?
-                %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')       
+            .event-invitations-options{:class=>"clearfix"}
+              - if !is_attending(current_member, @event)
+                - if has_multiple_profiles(current_member)
+                  %a.iwanna-go.rsvp_event{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.how_to_add_me')}= I18n.t('events.add_me_event')      
+                - else
+                  %a.iwanna-go.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_event')}= I18n.t('events.add_me_event') 
               - else
-                %label.im-going.span2 Asistiras
-                %a.remove_facilitator.span1{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} X
+                - if has_multiple_profiles(current_member)
+                  %a.rsvp_event.change_rsvp{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.how_to_add_me')} Cambiar mi asistencia
+                - else 
+                  %a.remove_facilitator{:event_facilitator_id => current_member.facilitator.events_invitations.select{|i| i.event_id == @event.id}.first.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} No voy a asistir
                 %input#going_already{:type=>"hidden", :value=>"going"}
-              %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar Amigos  
           - else
             = check_box_tag "facilitator", "facilitator", false, :class=>"register_wizzard"
             %span.fac_block.register_wizzard{:title => I18n.t('events.add_me_facilitator')}
@@ -197,4 +190,6 @@
     = render :partial=>"invite_fundations"
   #invite-providers{:style=>"display:none"}
     = render :partial=>"invite_providers"        
+  #rsvp-event{:style=>"display:none"}
+    = render :partial=>"rsvp_event"
 = javascript_include_tag "ui.eventAdmin"
