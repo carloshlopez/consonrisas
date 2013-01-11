@@ -88,6 +88,7 @@
                 - else 
                   %a.remove_facilitator{:event_facilitator_id => current_member.facilitator.events_invitations.select{|i| i.event_id == @event.id}.first.id, :href => "#", :title => "Eliminarme de este evento, no voy a ir"} No voy a asistir
                 %input#going_already{:type=>"hidden", :value=>"going"}
+              %a.invite-friends.invite-facilitators-button{:href=>"#invite"} Invitar  
           - else
             = check_box_tag "facilitator", "facilitator", false, :class=>"register_wizzard"
             %span.fac_block.register_wizzard{:title => I18n.t('events.add_me_facilitator')}
