@@ -1713,7 +1713,8 @@ span.edit_profilepicture_icon {
     border-radius: 5px;
     padding: 2px 10px 2px 10px;
     color: white;
-    text-decoration: none; }
+    text-decoration: none;
+    margin-right: 10px; }
   #profile-content-event .event-send-invitations .iwanna-go:hover,
   #profile-content-event .event-send-invitations .invite-friends:hover {
     text-decoration: underline; }
@@ -1861,10 +1862,11 @@ span.edit_profilepicture_icon {
     word-wrap: break-word;
     width: 95px;
     vertical-align: top; }
-.following .invite-button {
+
+.invite-button {
   padding-top: 20px;
   clear: both; }
-  .following .invite-button .invite_send {
+  .invite-button .invite_send {
     margin: 0 auto;
     clear: left;
     display: block;
@@ -1875,7 +1877,7 @@ span.edit_profilepicture_icon {
     padding: 5px;
     text-align: center;
     text-decoration: none; }
-  .following .invite-button .invite_send:hover {
+  .invite-button .invite_send:hover {
     text-decoration: underline; }
 
 .event-dialog .ui-dialog-titlebar {

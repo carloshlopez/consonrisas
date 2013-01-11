@@ -332,6 +332,11 @@ jQuery(document).ready(function($) {
       }
       });    
     });        
+
+    $jq(".close-rsvp").click(function(e){
+      e.preventDefault();
+      $jq("#rsvp-event").dialog("close");
+    });
     
     $jq(".invite_facilitators_send").click(function(e){
       e.preventDefault();

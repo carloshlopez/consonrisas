@@ -131,7 +131,7 @@
       padding: 2px 10px 2px 10px;
       color: white;
       text-decoration: none; 
-
+      margin-right: 10px;
     }
     .iwanna-go:hover,
     .invite-friends:hover{
@@ -330,27 +330,27 @@
       vertical-align: top;
     }
   }
-  .invite-button{
-    padding-top: 20px;
-    clear: both;
-    .invite_send{
-      margin: 0 auto;
-      clear: left;
-      display: block;
-      background-color: $events-color;
-      color: white;
-      width: 150px;
-      border-radius: 5px;
-      padding: 5px;
-      text-align: center;
-      text-decoration: none;
-    }
-    .invite_send:hover{
-      text-decoration: underline;
-    }
-  }
 }
 
+.invite-button{
+  padding-top: 20px;
+  clear: both;
+  .invite_send{
+    margin: 0 auto;
+    clear: left;
+    display: block;
+    background-color: $events-color;
+    color: white;
+    width: 150px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .invite_send:hover{
+    text-decoration: underline;
+  }
+}
 .event-dialog{
   .ui-dialog-titlebar{
     background-color: white;
