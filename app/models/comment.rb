@@ -6,8 +6,8 @@ class Comment < ActiveRecord::Base
     
   def email_comment
     already_created = []
-    self.event.event_facilitators.each do |facilitator|
-      if(facilitator.member.emailNotifications) then
+    self.event.event_facilitators.each do |evnt_fac|
+      if(evnt_fac.facilitator.member.emailNotifications) then
       
         worker = MailCommentWorker.new
         worker.subject = I18n.t('events.mail_comment_made_subject')
@@ -16,14 +16,14 @@ class Comment < ActiveRecord::Base
         worker.comment = comment
         worker.event_name = event.name
         worker.event_url = "http://consonrisas.co/events/#{event.id}"
-        worker.to = facilitator.member.email
+        worker.to = evnt_fac.facilitator.member.email
         worker.queue(:priority=>0)
       end
       #puts("Mensaje enviado a: #{facilitator.member.id}")
-      already_created << facilitator.member.id
+      already_created << evnt_fac.facilitator.member.id
     end
-    self.event.event_fundations.each do |fundation|
-      fundation.fundation_admins.each do |admin|
+    self.event.event_fundations.each do |evnt_fund|
+      evnt_fund.fundation.fundation_admins.each do |admin|
         unless already_created.include?(admin.member.id)
           if(admin.active and admin.member.emailNotifications) then
           
@@ -43,8 +43,8 @@ class Comment < ActiveRecord::Base
       end
 
     end    
-    self.event.event_providers.each do |provider|
-      provider.provider_admins.each do |admin|
+    self.event.event_providers.each do |evnt_prov|
+      evnt_prov.provider.provider_admins.each do |admin|
         unless already_created.include?(admin.member.id)
           if(admin.active and admin.member.emailNotifications) then
           

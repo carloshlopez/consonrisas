@@ -78,9 +78,9 @@ class Event < ActiveRecord::Base
         facilitator = Facilitator.find(fac_id)
         Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id) 
         EventInvitation.invite_facilitator(facilitator.member, self).deliver 
-        facilitators.push(facilitator)
       end
     end
+    self.add_facilitators facilitators_ids
   end
   handle_asynchronously :alert_facilitators  
   
