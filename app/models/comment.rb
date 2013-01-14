@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
     
   def email_comment
     already_created = []
-    self.event.facilitators.each do |facilitator|
+    self.event.event_facilitators.each do |facilitator|
       if(facilitator.member.emailNotifications) then
       
         worker = MailCommentWorker.new
@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
       #puts("Mensaje enviado a: #{facilitator.member.id}")
       already_created << facilitator.member.id
     end
-    self.event.fundations.each do |fundation|
+    self.event.event_fundations.each do |fundation|
       fundation.fundation_admins.each do |admin|
         unless already_created.include?(admin.member.id)
           if(admin.active and admin.member.emailNotifications) then
@@ -43,7 +43,7 @@ class Comment < ActiveRecord::Base
       end
 
     end    
-    self.event.providers.each do |provider|
+    self.event.event_providers.each do |provider|
       provider.provider_admins.each do |admin|
         unless already_created.include?(admin.member.id)
           if(admin.active and admin.member.emailNotifications) then
