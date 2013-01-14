@@ -301,7 +301,7 @@ jQuery(document).ready(function($) {
     $jq("#eventAdmin").eventAdmin();
     $jq(".invite-facilitators-button").click(function(){
       if($jq("#is_mobile").val() == "1"){
-        $jq("#invite-facilitators").dialog({modal:true, width:200, title:"Invita Facilitadores",closeText:"X",
+        $jq("#invite-facilitators").dialog({modal:true, width:200, title:"Invita a tus Conexiones",closeText:"X",
         open: function(){
           $jq(".ui-dialog").addClass("event-dialog");
         }
@@ -309,7 +309,7 @@ jQuery(document).ready(function($) {
       }    
       else
       {
-        $jq("#invite-facilitators").dialog({modal:true, title:"Invita Facilitadores", width: 550,         closeText:"X", show:"fadeIn",
+        $jq("#invite-facilitators").dialog({modal:true, title:"Invita a tus Conexiones", width: 550,         closeText:"X", show:"fadeIn",
         open: function(){
           $jq(".ui-dialog").addClass("event-dialog");
         }

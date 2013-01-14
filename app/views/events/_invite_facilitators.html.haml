@@ -1,4 +1,5 @@
 - if member_signed_in? and !current_member.facilitator.facilitators.empty?
+  %h2 Facilitadores
   .following
     - current_member.facilitator.facilitators.each do |fac|
       .a_follower
@@ -7,6 +8,25 @@
         .a_follower_name
           %abbr{:title=>"#{member_name_complete(fac.member)}"}
             = member_name(fac.member)
+  %h2{:style=>"clear:left; padding-top:10px;"} Proyectos Sociales
+  .following
+    - current_member.facilitator.fundations.each do |fund|
+      .a_follower
+        = check_box_tag fund.id, fund.id, false, :class=> 'check_invite check_invite_fund'
+        = image_tag fund.pic.url(:thumb), :class=>"img-fundations", :title=>fund.name
+        .a_follower_name
+          %abbr{:title=>"#{fund.name}"}
+            = fund.name.split[0]
+  %h2{:style=>"clear:left; padding-top:10px;"} Proveedores de Sonrisas
+  .following
+    - current_member.facilitator.providers.each do |prov|
+      .a_follower
+        = check_box_tag prov.id, prov.id, false, :class=> 'check_invite check_invite_prov'
+        = image_tag prov.pic.url(:thumb), :class=>"img-providers", :title=>prov.name
+        .a_follower_name
+          %abbr{:title=>"#{prov.name}"}
+            = prov.name.split[0]
+
     .invite-button
       %a.invite_send.invite_facilitators_send{:href=>"#invite", :event_id=>@event.id}
         Invitar

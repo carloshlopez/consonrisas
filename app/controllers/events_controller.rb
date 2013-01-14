@@ -54,13 +54,12 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-    if params[:fundation_id] and params[:fundation_id] != ""
-      fundation = Fundation.find(params[:fundation_id]) 
-      @event.fundations.push(fundation)
-    end
     respond_to do |format|
       if @event.save
         EventAdmin.create(:member_id =>params[:member_id], :event_id => @event.id, :active=>true, :is_owner=>true)
+      if params[:fundation_id] and params[:fundation_id] != ""
+        @event.add_fundations([params[:fundation_id]])
+      end        
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
