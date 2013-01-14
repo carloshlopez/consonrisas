@@ -1,7 +1,7 @@
 = check_box_tag current_member.facilitator.id, current_member.facilitator.id, !current_member.facilitator.events_invitations.select{|i| i.event_id == @event.id}.empty?, { :class=> 'check_invite check_add_facil', :facilitator_id => current_member.facilitator.id, :event_id => @event.id }
 &nbsp;Asistir como facilitador
 
-%h2 Proyectos
+%h2 Asistir como Proyecto Social
 .following
   - current_member.fundations.each do |fund|
     .a_follower
@@ -11,9 +11,7 @@
         %abbr{:title=>"#{fund.name}"}
           = fund.name.split[0]
 
-%br
-%br
-%h2 Proveedores
+%h2{:style=>"clear:left; padding-top:10px;"} Asistir como Proveedor de Sonrisas
 .following
   - current_member.providers.each do |prov|
     .a_follower
