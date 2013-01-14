@@ -74,7 +74,7 @@ class Event < ActiveRecord::Base
   
   def alert_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
-      unless facilitators.exists?(fac_id)
+      unless event_facilitators.exists?(fac_id)
         facilitator = Facilitator.find(fac_id)
         Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id) 
         EventInvitation.invite_facilitator(facilitator.member, self).deliver 
