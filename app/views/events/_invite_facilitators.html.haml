@@ -1,4 +1,5 @@
 - if member_signed_in? and !current_member.facilitator.facilitators.empty?
+  = csrf_meta_tag
   %h2 Facilitadores
   .following
     - current_member.facilitator.facilitators.each do |fac|

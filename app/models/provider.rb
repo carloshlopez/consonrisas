@@ -41,6 +41,14 @@ class Provider < ActiveRecord::Base
     ProviderAdmin.create(:e_mail =>mail, :provider_id => self.id, :active=>false)
     # TODO send mail with invitation if email not registered
   end
+
+  def admin_member_ids
+    member_ids = Array.new
+    provider_admins.each do |admin|
+      member_ids.push admin.member.id if admin.active
+    end     
+    member_ids
+  end
   
   def send_msg_to_admins(member_from, message)
     provider_admins.each do |admin|

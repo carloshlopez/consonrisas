@@ -156,11 +156,13 @@ class EventsController < ApplicationController
   
   def add_facilitators
     resp = {"resp" => "ok"}
-    if params[:facilitators_ids].empty?
+    if params[:facilitators_ids].empty? or params[:fundations_ids].empty? or params[:providers_ids].empty?
       resp = {"resp" => "error", "message" => "Debes escoger al menos un facilitador a invitar"}
     else
       @event = Event.find(params[:event_id])
-      @event.add_facilitators params[:facilitators_ids]
+      @event.add_facilitators params[:facilitators_ids] unless params[:facilitators_ids].empty?
+      @event.add_fundations params[:fundations_ids] unless params[:fundations_ids].empty?      
+      @event.add_providers params[:providers_ids] unless params[:providers_ids].empty?
     end
     respond_to do |format|
       format.js {head:ok}

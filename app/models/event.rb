@@ -55,32 +55,43 @@ class Event < ActiveRecord::Base
   end
   
   def add_fundations fundations_ids
+    facilitators_ids = Array.new
     fundations_ids.each do |fund_id|
       if event_fundations.select{|i| i.fundation_id == fund_id}.empty?
-        event_fundations.create(:fundation => Fundation.find(fund_id), :pending_invitation => false, :is_going => true)
+        fundation = Fundation.find(fund_id)
+        event_fundations.create(:fundation => fundation, :pending_invitation => false, :is_going => true)
+        facilitators_ids.push(*fundation.admin_member_ids)
       end
     end
+    alert_facilitators facilitators_ids
   end  
   
   def add_providers providers_ids
+    facilitators_ids = Array.new
     providers_ids.each do |prov_id|
       if event_providers.select{|i| i.provider_id == prov_id}.empty?
-        event_providers.create(:provider => Provider.find(prov_id), :pending_invitation => false, :is_going => true)
+        prov = Provider.find(prov_id)
+        event_providers.create(:provider => prov , :pending_invitation => false, :is_going => true)
+        facilitators_ids.push(*prov.admin_member_ids)
       end
     end
+    alert_facilitators facilitators_ids
   end    
     
   private 
   
   def alert_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
-      unless event_facilitators.exists?(fac_id)
-        facilitator = Facilitator.find(fac_id)
-        Alert.create(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id) 
-        EventInvitation.invite_facilitator(facilitator.member, self).deliver 
+      facilitator = Facilitator.find(fac_id)
+      unless Alert.where(:member_id => facilitator.member.id, :alert_type=> 1, :link=> id).exists? then
+        begin 
+          Alert.create!(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id, :alert_type=> 1) 
+          EventInvitation.invite_facilitator(facilitator.member, self).deliver 
+        rescue Exception => e  
+          puts e.message
+        end
       end
     end
-    self.add_facilitators facilitators_ids
   end
   handle_asynchronously :alert_facilitators  
   
