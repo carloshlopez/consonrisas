@@ -48,6 +48,14 @@ class Fundation < ActiveRecord::Base
     send_msg_to_admins_t(member_from, message)
   end
   
+  def admin_member_ids
+    member_ids = Array.new
+    fundation_admins.each do |admin|
+      member_ids.push admin.member.id if admin.active
+    end     
+    member_ids
+  end
+  
   private
   
   def destroy_fundation_dependencies

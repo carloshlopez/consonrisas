@@ -340,14 +340,26 @@ jQuery(document).ready(function($) {
     
     $jq(".invite_facilitators_send").click(function(e){
       e.preventDefault();
-      var ids = new Array();
+      var ids_fac = new Array();
+      var ids_fund = new Array();
+      var ids_prov = new Array();      
       $jq(".check_invite_fac:checked").each(function(){
-        ids.push($jq(this).val());
+        ids_fac.push($jq(this).val());
       });
-      var postData = {event_id:$jq(this).attr("event_id"), facilitators_ids:ids};
-      $jq.post("/events/add_facilitators.json", postData , function(data){
+      $jq(".check_invite_fund:checked").each(function(){
+        ids_fund.push($jq(this).val());
+      });
+      $jq(".check_invite_prov:checked").each(function(){
+        ids_prov.push($jq(this).val());
+      });
+      var postData = {event_id:$jq(this).attr("event_id"), facilitators_ids:ids_fac, fundations_ids:ids_fund, providers_ids:ids_prov};
+      $jq.ajax({ url: "/events/add_facilitators.json",
+        type: 'POST',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: postData,
+        success: function(data) {
           if(data.resp == "ok"){
-            $jq("#alert-msg p").html("Los facilitadores serán invitados");
+            $jq("#alert-msg p").html("Tus conexiones serán invitadas");
             $jq("#alert-msg").slideDown().delay(2500).slideUp(function(){
               window.location.reload();
             });
@@ -356,8 +368,8 @@ jQuery(document).ready(function($) {
             $jq("#alert-msg p").html(data.message);
             $jq("#alert-msg").slideDown().delay(2500).slideUp();          
           }
-      });      
-      
+        }
+      });  
     });
 
     $jq('.check_add_facil').click(function(e) {
