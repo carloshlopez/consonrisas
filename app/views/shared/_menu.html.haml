@@ -18,6 +18,9 @@
             inicio        
       %li
         %a.cont{:class => "#{'msgs' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#msgs" : member_path(current_member.id) << "#msgs"}
+          - if current_member.num_new_msgs > 0
+            #num_new_msgs.num_new
+              = current_member.num_new_msgs
           %span.menu-messages
           .menu-messages-txt.menu-messages-text
             mensajes    
@@ -26,6 +29,9 @@
             mensajes                
       %li
         %a.cont{:class => "#{'invites' if request.fullpath.include? 'member'}", :href => request.fullpath.include?("member") ? "#invites" : member_path(current_member.id) << "#invites"}
+          - if current_member.num_new_invites > 0 
+            #num_new_invites.num_new
+              = current_member.num_new_invites
           %span.menu-invitations
           .menu-invitations-txt.menu-invitations-text
             invitaciones          

@@ -1,4 +1,7 @@
 var $jq = jQuery.noConflict();
+  $jq.ajaxSetup({
+   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $jq('meta[name="csrf-token"]').attr('content'))}
+  }); 
 $jq.widget("ui.homeMenu", {
     _init: function() {
     	var self= this;
@@ -109,7 +112,7 @@ function description(current){
   
 }
 
-$jq(document).ready(function($) {    
+$jq(document).ready(function($) {     
     $jq("#menu").homeMenu();
      	var path = window.location.toString();//pathname;
      	$jq(".nav-collapse ul.nav li").removeClass("active");

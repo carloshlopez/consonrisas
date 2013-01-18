@@ -2,7 +2,7 @@
 %html{:xmlns=>"http://www.w3.org/1999/xhtml"}
   %title Admin
   %head
-
+    = csrf_meta_tag  
     :javascript
       var all_data= #{@models.to_json}
       var cols;

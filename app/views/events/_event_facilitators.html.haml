@@ -1,13 +1,30 @@
 = I18n.t('facilitators').capitalize
-= "(#{(@event.event_facilitators.count)})"
 .facilitators-invited-title-bar
 .facilitators-invited
-  - if @event.event_facilitators.count > 0
+  - if @event.event_facilitators.going.count > 0
     .going-div
-      - @event.event_facilitators.each do |i|
+      = "Confirmados (#{@event.event_facilitators.going.count})"
+      %br
+      - @event.event_facilitators.going.each do |i|
         .element-going
           - if i.facilitator.member
             = link_to image_tag(member_thumb(i.facilitator), :class=>"going_pic img-facilitators"),  member_path(i.facilitator.member), :title=>"#{member_name_complete(i.facilitator.member)}"
+  - if @event.event_facilitators.invited.count > 0
+    .going-div
+      = "Invitados (#{@event.event_facilitators.invited.count})"
+      %br
+      - @event.event_facilitators.invited.each do |i|
+        .element-going
+          - if i.facilitator.member
+            = link_to image_tag(member_thumb(i.facilitator), :class=>"going_pic img-facilitators"),  member_path(i.facilitator.member), :title=>"#{member_name_complete(i.facilitator.member)}"
+  - if @event.event_facilitators.not_going.count > 0
+    .going-div
+      = "Cancelados (#{@event.event_facilitators.not_going.count})"    
+      %br
+      - @event.event_facilitators.not_going.each do |i|
+        .element-going
+          - if i.facilitator.member
+            = link_to image_tag(member_thumb(i.facilitator), :class=>"going_pic img-facilitators"),  member_path(i.facilitator.member), :title=>"#{member_name_complete(i.facilitator.member)}"            
   - if member_signed_in? and (!@event.isClosed or can_current_member_edit_event(@event.id) )
     - if current_member.facilitator.events.attended_or_is_going.select{|e| e.id == @event.id}.empty?
       %a.add_facilitator{:event_id => @event.id, :facilitator_id => current_member.facilitator.id, :href => "#", :title => I18n.t('events.add_me_facilitator')}= I18n.t('events.add_me_facilitator')

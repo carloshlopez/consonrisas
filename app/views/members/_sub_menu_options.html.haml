@@ -6,11 +6,11 @@
   #invites-div{:style=>"display:none"}
     = render :partial => "invites"  
   %a.needs{:href=>"#needs", :show=>"needs"} #{I18n.t('help_with_needs')} 
-  |
-  %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
-  .num-invites
-    = @invites.size
   | 
   %a.msgs{:href=>"#msgs", :show=>"msgs"} #{I18n.t('messages_name')}
-  .num-invites
-    = @msgs.size
+  #num_new_msgs_sub.num-invites
+    = @num_new_msgs
+  |
+  %a.invites{:href=>"#invites", :show=>"invites"} #{I18n.t('invites')}
+  #num_new_invites_sub.num-invites
+    = @num_new_invites

@@ -1656,7 +1656,8 @@ span.edit_profilepicture_icon {
     margin-top: 6px;
     padding-top: 10px; }
   #left-div-profile-event .going-div {
-    padding-top: 4px; }
+    padding-top: 4px;
+    font-size: small; }
     #left-div-profile-event .going-div .remove_fundation {
       font-size: larger;
       font-weight: bold; }
@@ -2688,6 +2689,17 @@ span.edit_profilepicture_icon {
       display: block;
       overflow: hidden;
       margin-right: 5px; }
+  .menu-bar .num_new {
+    position: absolute;
+    z-index: 110;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    padding: 0 5px;
+    font-weight: bold;
+    margin: 2px 5px;
+    font-size: x-small;
+    height: 18px; }
   .menu-bar .menu-logo {
     width: 110px;
     margin-top: 3px; }

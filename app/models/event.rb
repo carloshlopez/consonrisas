@@ -48,34 +48,30 @@ class Event < ActiveRecord::Base
   def add_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
       if event_facilitators.select{|i| i.facilitator_id == fac_id}.empty?
-        event_facilitators.create(:facilitator => Facilitator.find(fac_id), :pending_invitation => false, :is_going => true)
+        event_facilitators.create(:facilitator => Facilitator.find(fac_id), :pending_invitation => true, :is_going => false)
       end
     end
     alert_facilitators facilitators_ids
   end
   
   def add_fundations fundations_ids
-    facilitators_ids = Array.new
     fundations_ids.each do |fund_id|
       if event_fundations.select{|i| i.fundation_id == fund_id}.empty?
         fundation = Fundation.find(fund_id)
-        event_fundations.create(:fundation => fundation, :pending_invitation => false, :is_going => true)
-        facilitators_ids.push(*fundation.admin_member_ids)
+        event_fundations.create(:fundation => fundation, :pending_invitation => true, :is_going => false)
       end
     end
-    alert_facilitators facilitators_ids
+    alert_fundations fundations_ids
   end  
   
   def add_providers providers_ids
-    facilitators_ids = Array.new
     providers_ids.each do |prov_id|
       if event_providers.select{|i| i.provider_id == prov_id}.empty?
         prov = Provider.find(prov_id)
-        event_providers.create(:provider => prov , :pending_invitation => false, :is_going => true)
-        facilitators_ids.push(*prov.admin_member_ids)
+        event_providers.create(:provider => prov , :pending_invitation => true, :is_going => false)
       end
     end
-    alert_facilitators facilitators_ids
+    alert_providers providers_ids
   end    
     
   private 
@@ -83,18 +79,31 @@ class Event < ActiveRecord::Base
   def alert_facilitators facilitators_ids
     facilitators_ids.each do |fac_id|
       facilitator = Facilitator.find(fac_id)
-      unless Alert.where(:member_id => facilitator.member.id, :alert_type=> 1, :link=> id).exists? then
-        begin 
-          Alert.create!(:member_id=> facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>id, :alert_type=> 1) 
-          EventInvitation.invite_facilitator(facilitator.member, self).deliver 
-        rescue Exception => e  
-          puts e.message
-        end
-      end
+      Alert.create_unique facilitator.member.id, 1, id, fac_id, I18n.t('events.facilitator_invite')
     end
   end
   handle_asynchronously :alert_facilitators  
   
+  def alert_fundations fundations_ids
+    fundations_ids.each do |fund_id|
+      fundation = Fundation.find(fund_id)
+      fundation.admin_member_ids.each do |member_id|
+        Alert.create_unique member_id, 1, id, fund_id, I18n.t('events.fundation_invite') + fundation.name
+      end
+    end
+  end
+  handle_asynchronously :alert_fundations
+
+  def alert_providers providers_ids
+    providers_ids.each do |prov_id|
+      provider = Provider.find(prov_id)
+      provider.admin_member_ids.each do |member_id|
+        Alert.create_unique member_id, 1, id, prov_id, I18n.t('events.provider_invite') + provider.name
+      end
+    end
+  end
+  handle_asynchronously :alert_providers
+
   def at_least_one_fundation
     errors.add_to_base I18n.t('events.one_fundation_error') if self.fundations.blank?
   end

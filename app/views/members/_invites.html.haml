@@ -3,17 +3,22 @@
     - i = 0
     - @invites.each do |alert|
       .one-item{:id=>"alert-item-#{i}"}
-        = link_to image_tag(Event.find(alert.link).pic.url(:thumb)), event_path(alert.link), :title=>"Click para ver el evento"
+        - event = Event.find(alert.link)
+        = link_to image_tag(event.pic.url(:thumb)), event_path(alert.link), :title=>"Mira el evento #{event.name}"
         %span
           .one-item-name.invite-news{:style=>"margin-left: 60px"}
             = simple_format(auto_link(alert.news), :style=>"comment_paragraph")
-          #{link_to I18n.t('events.show'), event_path(alert.link), :title=>"Click para ir al evento"} 
+          #{link_to I18n.t('events.show'), event_path(alert.link), :title=>"Click para ir al evento #{event.name}"} 
           - if is_current_member_this_member @member.id 
+            |
+            %a.accept_invite{:alert_id => alert.id, :role_id=> (alert.role_id.nil? ? alert.member_id : alert.role_id), :href => "#", :event_id=> alert.link, :title=>"Aceptar invitación",:id=>"accept-invite-#{i}"} Aceptar
+            |
+            %a.reject_invite{:alert_id => alert.id, :role_id=> (alert.role_id.nil? ? alert.member_id : alert.role_id), :href => "#", :event_id=> alert.link, :title=>"Rechazar invitación",:id=>"reject-invite-#{i}"} Rechazar
             |
             .loading{:style=>"display:none", :id=>"alert-img-#{i}"}
               = image_tag "mini-loader.gif"                      
-            %a.delete_alert{:alert_id => alert.id, :href => "#", :title=>"Eliminar esta noticia",:id=>"delete-alert-#{i}"} Eliminar
-            &nbsp;                 
+            %a.delete_alert{:alert_id => alert.id, :href => "#", :title=>"Eliminar esta noticia",:id=>"delete-alert-#{i}"} X
+            &nbsp;
             #{"-"}
             &nbsp;            
             .msg-date

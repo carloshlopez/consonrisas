@@ -81,6 +81,21 @@ class Member < ActiveRecord::Base
     is_it
   end
   
+  def my_msgs
+    alerts.where("alert_type = 2").order("created_at DESC")
+  end
+
+  def my_invites
+    alerts.where("alert_type=1").order("created_at DESC")
+  end
+
+  def num_new_invites
+    alerts.where("alert_type=1 and seen=?", false).count
+  end
+
+  def num_new_msgs
+    alerts.where("alert_type=2 and seen=?", false).count
+  end
 
   def password_required?
     (authentications.empty? || !password.blank?) && super

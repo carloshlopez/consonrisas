@@ -10,8 +10,10 @@ class MembersController < ApplicationController
     @news_feed = GlobalAlert.all(:order=>"id DESC", :limit => 15)
     @member = Member.find(params[:id])
     @fac = @member.facilitator
-    @invites = current_member.alerts.where("alert_type=1").order("created_at DESC")
-    @msgs = current_member.alerts.where("alert_type = 2").order("created_at DESC")
+    @invites = @member.my_invites
+    @msgs = @member.my_msgs
+    @num_new_invites = @member.num_new_invites
+    @num_new_msgs = @member.num_new_msgs
     @show_welcome = false
     @show_facilitator = false
     @show_fundation = false
@@ -220,6 +222,89 @@ class MembersController < ApplicationController
   def my_msgs
     @msgs = current_member.alerts.where("alert_type = 2").order("created_at DESC")
     @member = Member.find(params[:member_id])
+  end
+
+  def accept_invite
+    event = Event.find(params[:event_id])
+    role_id = params[:role_id].to_i
+    resp = {:resp=>"error", :msg=>"no se encontro el rol #{role_id} dentro de los asistentes del evento #{event.id}"}
+    provider_event = event.event_providers.detect{|i| i.provider_id == role_id}
+    unless provider_event.nil?
+      provider_event.pending_invitation = false
+      provider_event.is_going = true
+      provider_event.save
+      resp = {:resp=>"accepted", :role=>"provider"}
+    end
+    
+    fundation_event = event.event_fundations.detect{|i| i.fundation_id == role_id}
+    unless fundation_event.nil?
+      fundation_event.pending_invitation = false
+      fundation_event.is_going = true
+      fundation_event.save
+      resp = {:resp=>"accepted", :role=>"fundation"}
+    end
+    
+    facilitator_event = event.event_facilitators.detect{|i| i.facilitator_id == role_id}
+    unless facilitator_event.nil?
+      facilitator_event.pending_invitation = false
+      facilitator_event.is_going = true
+      facilitator_event.save
+      resp = {:resp=>"accepted", :role=>"facilitator"}
+    end    
+
+    respond_to do |format|
+      format.json  { render :json=> resp }
+    end   
+  end  
+
+  def reject_invite
+    event = Event.find(params[:event_id])
+    role_id = params[:role_id].to_i
+    resp = {:resp=>"error", :msg=>"no se encontro el rol #{role_id} dentro de los asistentes del evento #{event.id}"}
+    
+    provider_event = event.event_providers.detect{|i| i.provider_id == role_id}
+    unless provider_event.nil?
+      provider_event.pending_invitation = false
+      provider_event.is_going = false
+      provider_event.save
+      resp = {:resp=>"accepted", :role=>"provider"}
+    end
+    
+    fundation_event = event.event_fundations.detect{|i| i.fundation_id == role_id}
+    unless fundation_event.nil?
+      fundation_event.pending_invitation = false
+      fundation_event.is_going = false
+      fundation_event.save
+      resp = {:resp=>"accepted", :role=>"fundation"}
+    end
+
+    facilitator_event = event.event_facilitators.detect{|i| i.facilitator_id == role_id}
+    unless facilitator_event.nil?
+      facilitator_event.pending_invitation = false
+      facilitator_event.is_going = false
+      facilitator_event.save
+      resp = {:resp=>"accepted", :role=>"facilitator"}
+    end    
+
+    respond_to do |format|
+      format.json  { render :json=> resp }
+    end   
+  end
+
+  def seen_invites
+    Alert.update_all( {:seen => true}, {:member_id => params[:member_id], :alert_type=> 1} )
+    resp = {:resp=>"ok"}
+    respond_to do |format|
+      format.json  { render :json=> resp }
+    end       
+  end
+
+  def seen_msgs
+    Alert.update_all( {:seen => true}, {:member_id => params[:member_id], :alert_type=> 2} )
+    resp = {:resp=>"ok"}    
+    respond_to do |format|
+      format.json  { render :json=> resp }
+    end       
   end
   
 end

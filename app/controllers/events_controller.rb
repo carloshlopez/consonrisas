@@ -132,22 +132,18 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @facilitator = Facilitator.find(params[:facilitator_id])
 
-    unless current_member.id == @facilitator.member.id
-      Alert.create(:member_id=> @facilitator.member.id, :news=> I18n.t('events.facilitator_invite'), :link=>@event.id) 
-      begin
-        EventInvitation.invite_facilitator(@facilitator.member, @event).deliver unless @event.facilitators.exists?(@facilitator.id)
-      rescue
-        Feedback.create(:message=>"Error sending mail #{$!}")
-      end
-    end
+    ev_fac = @event.event_facilitators.detect{|i| i.facilitator_id == @facilitator.id}
     
-    #pending_invitation = true
-    #if current_member.id == @facilitator.member.id
-    #  pending_invitation = false 
-    #end
+
     pending_invitation = false
-    is_going = true #if current_member.id == @facilitator.member.id
-    @event.event_facilitators.create(:facilitator => @facilitator, :pending_invitation => pending_invitation, :is_going => is_going)
+    is_going = true
+    unless ev_fac then
+      @event.event_facilitators.create(:facilitator => @facilitator, :pending_invitation => pending_invitation, :is_going => is_going) 
+    else
+        ev_fac.pending_invitation = false
+        ev_fac.is_going = true;
+        ev_fac.save
+    end
     respond_to do |format|
       format.js {head:ok}
       format.html {redirect_to event_path(@event)}
@@ -156,13 +152,13 @@ class EventsController < ApplicationController
   
   def add_facilitators
     resp = {"resp" => "ok"}
-    if params[:facilitators_ids].empty? or params[:fundations_ids].empty? or params[:providers_ids].empty?
+    if params[:facilitators_ids].nil? and params[:fundations_ids].nil? and params[:providers_ids].nil?
       resp = {"resp" => "error", "message" => "Debes escoger al menos un facilitador a invitar"}
     else
       @event = Event.find(params[:event_id])
-      @event.add_facilitators params[:facilitators_ids] unless params[:facilitators_ids].empty?
-      @event.add_fundations params[:fundations_ids] unless params[:fundations_ids].empty?      
-      @event.add_providers params[:providers_ids] unless params[:providers_ids].empty?
+      @event.add_facilitators params[:facilitators_ids] unless params[:facilitators_ids].nil?
+      @event.add_fundations params[:fundations_ids] unless params[:fundations_ids].nil?      
+      @event.add_providers params[:providers_ids] unless params[:providers_ids].nil?
     end
     respond_to do |format|
       format.js {head:ok}

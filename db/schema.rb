@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130003016) do
+ActiveRecord::Schema.define(:version => 20130117044151) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -20,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20121130003016) do
     t.datetime "updated_at"
     t.integer  "alert_type",  :default => 1
     t.integer  "member_from"
+    t.integer  "role_id"
+    t.boolean  "seen",        :default => false
   end
 
   create_table "authentications", :force => true do |t|

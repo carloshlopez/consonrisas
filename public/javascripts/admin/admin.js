@@ -1,10 +1,16 @@
 YAHOO.util.Event.addListener(window, "load", function() {
 
     YAHOO.util.Event.on(YAHOO.util.Dom.get('deleteRow'),'click',function(){
-        console.log("Table to delete: " + tName);
+        //console.log("Table to delete: " + tName);
         var id = YAHOO.util.Dom.get('deleteRowId').value;
-        console.log("ID to delete: " + id);
-        YAHOO.util.Connect.asyncRequest('POST', '/admin/db/delete/' + tName + '/' + id,createTable(tName), "_method=DELETE");
+        //console.log("ID to delete: " + id);
+        var name = document.getElementsByTagName('meta')[0];
+        auth_token_name = name.content;
+        var element = document.getElementsByTagName('meta')[1];
+        auth_token = element.content;
+        //console.log(auth_token);
+        YAHOO.util.Connect.initHeader('X-CSRF-Token', auth_token, true);
+        YAHOO.util.Connect.asyncRequest('POST', '/admin/db/delete/' + tName + '/' + id,createTable(tName) + '?' +auth_token_name+'='+auth_token, "_method=DELETE");
         
     });
 
@@ -21,6 +27,9 @@ YAHOO.util.Event.addListener(window, "load", function() {
             }
         }
         vals = vals.substring(0,vals.length-1);
+        var element = document.getElementsByTagName('meta')[1];
+        auth_token = element.content;
+        YAHOO.util.Connect.initHeader('X-CSRF-Token', auth_token, true);
         YAHOO.util.Connect.asyncRequest('POST', '/admin/db/' + tName, '',vals);
         YAHOO.util.Dom.setStyle('newRow', 'display', 'none');
         YAHOO.util.Dom.setStyle('addRow', 'display', 'none');
@@ -72,6 +81,9 @@ function myAsyncSubmitter(fnCallback, oNewValue)
     var col = tmp_col.split(".")[1];
     var id = this.getRecord().getData(tbl + '.id');
     var success = true;
+    var element = document.getElementsByTagName('meta')[1];
+    auth_token = element.content;       
+    YAHOO.util.Connect.initHeader('X-CSRF-Token', auth_token, true);
     YAHOO.util.Connect.asyncRequest('POST', '/admin/db/' + tbl + '/' + id,'', "_method=PUT&column_name="+col+"&value=" +oNewValue);
     
     fnCallback(success, oNewValue);
@@ -103,6 +115,9 @@ label: 'delete'
         f['key'] = tableized + "." + colName;
     }
            
+    var element = document.getElementsByTagName('meta')[1];
+    auth_token = element.content;       
+    YAHOO.util.Connect.initHeader('X-CSRF-Token', auth_token, true);
     myDataSource = new YAHOO.util.DataSource("/admin/db/" + tName + ".json");
     myDataSource.responseType = YAHOO.util.DataSource.TYPE_JSON;
     myDataSource.connXhrMode = "queueRequests";
@@ -150,5 +165,3 @@ function deleteARow(){
 
     
 }
-
-

@@ -58,7 +58,28 @@ $jq.widget("ui.myProfile", {
               $jq(this).hide();
               self._deleteAlert(alert_id, elId);
 	          }
-        });     
+        }); 
+      $el.find('.accept_invite').click(function(e) {
+        e.preventDefault();
+        var alert_id = $jq(this).attr("alert_id");
+        var event_id = $jq(this).attr("event_id");
+        var role_id = $jq(this).attr("role_id");
+        var elId = $jq(this).attr("id").split("-")[2];
+        $jq("#alert-img-"+elId).css('display', 'inline');
+        $jq(this).hide();
+        self._acceptInvite(event_id, role_id, elId);
+      });
+
+      $el.find('.reject_invite').click(function(e) {
+        e.preventDefault();
+        var alert_id = $jq(this).attr("alert_id");
+        var event_id = $jq(this).attr("event_id");
+        var role_id = $jq(this).attr("role_id");
+        var elId = $jq(this).attr("id").split("-")[2];
+        $jq("#alert-img-"+elId).css('display', 'inline');
+        $jq(this).hide();
+        self._rejectInvite(event_id, role_id, elId);
+      });         
         
     	$el.find('.delete_msg').click(function(e) {
             e.preventDefault();
@@ -187,6 +208,18 @@ $jq.widget("ui.myProfile", {
               }
         }, "text" );
     },
+    _acceptInvite: function(event_id, role_id, elId){
+        $jq.post( "/accept_invite/"+event_id+"/"+role_id, { },
+            function(data, textStatus, XMLHttpRequest){
+              $jq("#alert-img-"+elId).css('display', 'none');
+        }, "text" );
+    },
+    _rejectInvite: function(event_id, role_id, elId){
+        $jq.post( "/reject_invite/"+event_id+"/"+role_id, { },
+            function(data, textStatus, XMLHttpRequest){
+              $jq("#alert-img-"+elId).css('display', 'none');
+        }, "text" );
+    },
     _deleteMsg: function(alert_id, elId){
         $jq.post( "/members/delete_alert", { alert_id: alert_id },
             function(data, textStatus, XMLHttpRequest){
@@ -251,11 +284,29 @@ $jq.widget("ui.myProfile", {
 
 
 function showInvites(){
-  $jq("#invites-div").dialog({modal:true, title:"Invitaciones a eventos de tu interés", width: 600, height: 500, closeText:"x", show:"slide"});
+  $jq("#invites-div").dialog({modal:true, title:"Invitaciones a eventos de tu interés", width: 600, height: 500, closeText:"x", show:"slide"
+    , open: function(){
+      var member_id = $jq('input[name="facilitator[member_id]"]').val();
+      $jq.post('/members/' + member_id + '/seen_invites.json', function(data){
+        if(data.resp == 'ok'){
+          $jq("#num_new_invites").hide();
+          $jq("#num_new_invites_sub").html('0');
+        }
+      })
+  }});
 }
 
 function showMsgs(){
-  $jq("#msgs-div").dialog({modal:true, title:"Mensajes enviados a ti", width: 600, height: 500, closeText:"X", show:"slide"});
+  $jq("#msgs-div").dialog({modal:true, title:"Mensajes enviados a ti", width: 600, height: 500, closeText:"X", show:"slide"
+    , open: function(){
+      var member_id = $jq('input[name="facilitator[member_id]"]').val();
+      $jq.post('/members/' + member_id + '/seen_msgs.json', function(data){
+        if(data.resp == 'ok'){
+          $jq("#num_new_msgs").hide();
+          $jq("#num_new_msgs_sub").html('0');
+        }        
+      })
+  }});
 }
 
 function showNeeds(){
