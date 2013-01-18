@@ -114,8 +114,13 @@ Consonrisas::Application.routes.draw do
     put "change_pic"  
     get "my_invites"
     get "my_msgs"
+    post "seen_msgs"
+    post "seen_invites"
   end
   post "/members_register" => "members#register"
+  post "/accept_invite/:event_id/:role_id" => "members#accept_invite"
+  post "/reject_invite/:event_id/:role_id" => "members#reject_invite"  
+
 
   resources :populations
 

@@ -1,10 +1,25 @@
 = I18n.t('providers').capitalize
-= "(#{(@event.event_providers.count)})"
 .providers-invited-title-bar
 .providers_invited
-  - if @event.event_providers.count > 0
+  - if @event.event_providers.going.count > 0
     .going-div
-      - @event.event_providers.each do |i|
+      = "Confirmados (#{@event.event_providers.going.count})"
+      %br
+      - @event.event_providers.going.each do |i|
+        .element-going{:id=>"provider-going-#{i.id}", :style=>"display:inline"}
+          = link_to image_tag(i.provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(i.provider), :title=>"#{i.provider.name}"
+  - if @event.event_providers.invited.count > 0
+    .going-div
+      = "Invitados (#{@event.event_providers.invited.count})"
+      %br    
+      - @event.event_providers.invited.each do |i|
+        .element-going{:id=>"provider-going-#{i.id}", :style=>"display:inline"}
+          = link_to image_tag(i.provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(i.provider), :title=>"#{i.provider.name}"          
+  - if @event.event_providers.not_going.count > 0
+    .going-div
+      = "Cancelados (#{@event.event_providers.not_going.count})"
+      %br    
+      - @event.event_providers.not_going.each do |i|
         .element-going{:id=>"provider-going-#{i.id}", :style=>"display:inline"}
           = link_to image_tag(i.provider.pic.url(:thumb), :class=>"going_pic img-providers"),  provider_path(i.provider), :title=>"#{i.provider.name}"
           - if member_signed_in?

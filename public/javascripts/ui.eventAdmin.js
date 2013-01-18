@@ -355,7 +355,6 @@ jQuery(document).ready(function($) {
       var postData = {event_id:$jq(this).attr("event_id"), facilitators_ids:ids_fac, fundations_ids:ids_fund, providers_ids:ids_prov};
       $jq.ajax({ url: "/events/add_facilitators.json",
         type: 'POST',
-        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: postData,
         success: function(data) {
           if(data.resp == "ok"){

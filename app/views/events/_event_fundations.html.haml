@@ -1,10 +1,25 @@
 = I18n.t('fundations').capitalize
-= "(#{(@event.event_fundations.count)})"
 .fundations-invited-title-bar
 .fundations-invited
-  - if @event.event_fundations.count > 0
+  - if @event.event_fundations.going.count > 0
     .going-div
-      - @event.event_fundations.each do |i|
+      = "Confirmados (#{@event.event_fundations.going.count})"
+      %br
+      - @event.event_fundations.going.each do |i|
+        .element-going{:id=>"fundation-going-#{i.id}"}
+          = link_to image_tag(i.fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(i.fundation), :title=>"#{i.fundation.name}"
+  - if @event.event_fundations.invited.count > 0
+    .going-div
+      = "Invitados (#{@event.event_fundations.invited.count})"
+      %br    
+      - @event.event_fundations.invited.each do |i|
+        .element-going{:id=>"fundation-going-#{i.id}"}
+          = link_to image_tag(i.fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(i.fundation), :title=>"#{i.fundation.name}"          
+  - if @event.event_fundations.not_going.count > 0
+    .going-div
+      = "Cancelados (#{@event.event_fundations.not_going.count})"
+      %br    
+      - @event.event_fundations.not_going.each do |i|
         .element-going{:id=>"fundation-going-#{i.id}"}
           = link_to image_tag(i.fundation.pic.url(:thumb), :class=>"going_pic img-fundations"),  fundation_path(i.fundation), :title=>"#{i.fundation.name}"
           - if member_signed_in?          

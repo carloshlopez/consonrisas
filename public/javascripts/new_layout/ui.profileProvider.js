@@ -68,7 +68,8 @@ $jq.widget("ui.profileProvider", {
     }    
 });
 
-$jq(document).ready(function($) {    
+$jq(document).ready(function($) {
+
   $jq("#provider-profile").profileProvider();
     
    
