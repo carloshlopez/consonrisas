@@ -6,8 +6,7 @@ gem 'rails', '3.0.19'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'pg'
 
 gem 'devise'
 
@@ -43,7 +42,7 @@ gem 'i18n_routing'
 gem 'heroku-api', '~> 0.1.2'
 
 group :test, :development do
-  gem 'cucumber-rails'
+  # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
