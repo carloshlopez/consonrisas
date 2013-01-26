@@ -187,6 +187,10 @@ input.info-color:focus{
 	  float: left;
     margin-right: 30px;
 	  text-align: center;
+
+    @media (max-width: 980px) {
+      margin-right: 19px;
+    }
   }
   li.last {
     margin-right: 0;
