@@ -266,6 +266,9 @@ input.info-color:focus {
     float: left;
     margin-right: 30px;
     text-align: center; }
+    @media (max-width: 980px) {
+      #menu li {
+        margin-right: 19px; } }
   #menu li.last {
     margin-right: 0; }
   #menu a {
