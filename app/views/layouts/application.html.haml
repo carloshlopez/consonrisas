@@ -89,10 +89,10 @@
               %li
                 %a.events{:href => "/eventos", :title=> I18n.t('application.menu_events')}
               - if member_signed_in?
-                %li
+                %li.last
                   %a.info{:href=>"#{member_path(current_member.id)}", :title=>"#{I18n.t('application.menu_profile')}"}
               - else
-                %li
+                %li.last
                   %a.info.register_wizzard.visible-desktop{:href => "#", :title=>"Cuando ingreses este será el link a tu perfil"}
       = yield
       = render "shared/footer"
