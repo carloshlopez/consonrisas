@@ -4,8 +4,8 @@
     #{I18n.t('help_with_needs')}
   = link_to member_my_invites_path(current_member), :class=>"btn btn-success btn-small btn-block" do
     %i.icon-calendar.icon-white
-    = I18n.t('invites')  
+    = I18n.t('invites') + " (#{@num_new_invites})"
   = link_to member_my_msgs_path(current_member), :class=>"btn btn-success btn-small btn-block" do
     %i.icon-envelope.icon-white
-    = I18n.t('messages_name')      
+    = I18n.t('messages_name') + " (#{@num_new_msgs})"
 
