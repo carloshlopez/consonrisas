@@ -74,6 +74,10 @@ class Event < ActiveRecord::Base
     alert_providers providers_ids
   end    
     
+  def is_past
+    return date < Time.current
+  end
+
   private 
   
   def alert_facilitators facilitators_ids
