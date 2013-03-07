@@ -74,7 +74,7 @@
       .share_fb
         = render :partial => "share_fb"
       .event-send-invitations
-        - unless @event.isClosed  
+        - unless @event.isClosed or @event.is_past
           - if member_signed_in?
             .event-invitations-options{:class=>"clearfix"}
               - if !is_attending(current_member, @event)
