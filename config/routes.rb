@@ -136,6 +136,7 @@ Consonrisas::Application.routes.draw do
     get "/contact" => "home#contact", :as => :contact
     get "/touch" =>"home#touch", :as => :touch
     get "/donate" =>"home#donate", :as => :donate
+    get "/dona" =>"home#donate", :as => :donate
     get "/allies" =>"home#allies",  :as => :allies
     get "/services" => "home#services", :as => :services
     
