@@ -2908,3 +2908,14 @@ span.edit_profilepicture_icon {
 
 .sub_menu_selected {
   background-color: white; }
+
+.on-media {
+  background-color: #D3D3D3; }
+  .on-media img {
+    max-height: 80px;
+    padding: 10px; }
+  .on-media .media-text {
+    font-size: large;
+    color: grey;
+    padding: 10px;
+    font-weight: bold; }
