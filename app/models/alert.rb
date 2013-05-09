@@ -5,7 +5,7 @@ class Alert < ActiveRecord::Base
 	unless Alert.where("link = ':link'", :member_id => member_id, :alert_type=> alert_type, :link=> link, :role_id=> role_id).exists? then
         begin 
           Alert.create!(:member_id=> member_id, :news=> news, :link=> link, :alert_type=> alert_type, :role_id=> role_id) 
-          #EventInvitation.invite_facilitator(Member.find(member_id), self).deliver 
+          # EventInvitation.invite_facilitator(Member.find(member_id), self).deliver 
         rescue Exception => e  
           puts e.message
         end

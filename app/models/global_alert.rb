@@ -37,7 +37,7 @@ class GlobalAlert < ActiveRecord::Base
   def send_mails
     begin
     
-#TODO find a better way to send email to all users
+#TODO find a better way to send email to all users in a single method maybe
 #      array_of_user_emails = Member.select(:email).where('emailNotifications = ?', true).map(&:email)
 
 #      array_of_user_emails.each do |mail|
