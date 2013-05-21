@@ -136,3 +136,7 @@
                   = link_to I18n.t('account.logout'), destroy_member_session_path, :class=>"edit-me-menu"
                 - else
                   = link_to I18n.t('account.logout'), facebook_logout_path, :class=>"edit-me-menu"
+              - if current_member.try(:admin?)
+                .edit-me-container{:style=>"border-bottom: 1px dotted white;padding:3px;"}
+                .edit-me-container{:style=>"padding:3px;"}
+                  = link_to 'admin' , '/admin', :class=>"edit-me-menu"
