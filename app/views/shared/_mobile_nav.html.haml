@@ -41,3 +41,8 @@
               = link_to facebook_logout_path, :class=>"edit-me-menu" do
                 %i.icon-off
                 = I18n.t('account.logout')
+          - if current_member.try(:admin?)
+            %li
+              %a{:href=>"/admin"}
+                %i.icon-edit
+                Admin

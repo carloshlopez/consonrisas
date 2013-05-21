@@ -1,4 +1,11 @@
 - if current_member.try(:admin?)
+  .csv_lists
+    %p User email lists
+    %a{:href=>"/admin/members_to_csv"}
+      All Members to csv
+    %br
+    %a{:href=>"/admin/fundation_admins_to_csv"}
+      All Social Proyect admins to csv  
   .admin-jobs
     %p Admin Delayed Jobs  
     %a{:href=>"/admin/dj_all"}
