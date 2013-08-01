@@ -32,6 +32,9 @@
     = javascript_include_tag "gooAnalytics"
   %body
     %div.container
+      .row
+        .span12
+          = render "shared/messages"
       #alert-msg{:style=>"display:none"}
         %p
       - if member_signed_in? 
@@ -45,11 +48,6 @@
               %a{:href=>"#", :title=>"Buscar"}
                 .search-triangle-button
           #right_div_top.span8
-            %span.application_messages
-              %span.notice
-                = notice
-              %span.alert
-                = alert
             .account
               - if member_signed_in?
                 = member_name(current_member)
