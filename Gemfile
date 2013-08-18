@@ -1,6 +1,6 @@
  source 'http://rubygems.org'
 
-gem 'rails', '3.0.19'
+gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,6 +11,8 @@ gem 'pg'
 gem 'devise'
 
 gem 'aws-s3'
+
+gem 'aws-sdk'
 
 gem 'paperclip'
 
@@ -25,9 +27,13 @@ gem 'kaminari'
 
 gem 'omniauth'
 
+gem 'omniauth-twitter'
+
+gem 'omniauth-facebook'
+
 gem 'multi_json'
 
-gem 'twitter', :git => 'https://github.com/sferik/twitter.git', :tag => 'v1.6.0'
+gem 'twitter'
 
 gem 'fb_graph', '2.5.8'
 
@@ -41,12 +47,13 @@ gem 'i18n_routing'
 
 gem 'heroku-api', '~> 0.1.2'
 
+gem 'typhoeus'
+
 group :test, :development do
   # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
-  gem "activesupport", '~> 3.0.1'
 end
 
 

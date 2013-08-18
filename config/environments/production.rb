@@ -4,6 +4,7 @@ IronWorker.configure do |config|
   config.token = 'tSNJz33ZkkKdBWvUhvYBNIEmhbQ'
   config.project_id = '4ed7ace3b786c80144000060'
 end
+
 Consonrisas::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -44,20 +45,18 @@ Consonrisas::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'www.conectandosonrisas.org' }
-#  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = true
 
   Rails.application.routes.default_url_options[:host]= 'www.conectandosonrisas.org'
-  
-#  
-#ActionMailer::Base.smtp_settings = {
-#  :enable_starttls_auto => true,
-#  :address => "smtp.gmail.com",
-#  :port => 587,
-#  :domain => "www.conectandosonrisas.org",
-#  :authentication => :plain,
-#  :user_name => "noreply@conectandosonrisas.org",
-#  :password => "1qaz2wsx"
-#}
+  # ActionMailer::Base.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => "www.conectandosonrisas.org",
+  #   :authentication => :plain,
+  #   :user_name => "noreply@conectandosonrisas.org",
+  #   :password => "1qaz2wsx"
+  # }
 
 
   # Enable threaded mode
@@ -77,5 +76,4 @@ Consonrisas::Application.configure do
   config.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET'] || '70cxEdyf6FwhAHL3XUoyUXPd6dKsFxCUghWkpiiM'
   config.twitter.oauth_token = ENV['TWITTER_OAUTH_TOKEN'] || '48552466-3LPQJ4poPvDSswEXXPAcQoiVOhkGmvJ5rLc6Kd8EE'
   config.twitter.oauth_secret = ENV['TWITTER_OAUTH_SECRET'] || 'XXsbLpRwYtZZdstb7TyxnaarXxKacPCeGuY1NTO8ew'
-
 end
