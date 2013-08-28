@@ -39,7 +39,8 @@ gem 'fb_graph', '2.5.8'
 
 gem 'iron_worker'
 
-gem 'delayed_job'
+# gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'delayed_paperclip'
 
 gem 'newrelic_rpm'
@@ -49,11 +50,14 @@ gem 'heroku-api', '~> 0.1.2'
 
 gem 'typhoeus'
 
+gem "rails_autolink", "~> 1.1.0"
+
 group :test, :development do
   # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
+  gem 'thin'
 end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117044151) do
+ActiveRecord::Schema.define(:version => 20130828214700) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130117044151) do
     t.string   "locked_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "queue"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -236,12 +237,13 @@ ActiveRecord::Schema.define(:version => 20130117044151) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "email"
+    t.string   "encrypted_password",   :limit => 128
+    t.string   "password_salt"
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -258,9 +260,6 @@ ActiveRecord::Schema.define(:version => 20130117044151) do
     t.boolean  "emailWeekly",                         :default => false
     t.boolean  "emailInstantly",                      :default => false
   end
-
-  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
-  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "need_categories", :force => true do |t|
     t.string   "name_es"
