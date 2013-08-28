@@ -1,4 +1,4 @@
-# Bienvenidos al proyecto Conectando Sonrisas
+# Conectando Sonrisas
 
 Una red social para crear y apoyar eventos sociales que generan sonrisas
 
