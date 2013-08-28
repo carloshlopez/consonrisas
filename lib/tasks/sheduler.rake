@@ -1,15 +1,17 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :send_daily_alerts => :environment do
   num = DailyAlert.count
-  if num > 0
-    puts "Number of Feeds to send today: #{num}"
-    Member.daily_mails.each do |member|
-      SendMsg.daily_alerts(member).deliver if member.emailNotifications? and member.emailDaily?
+  if Time.now.tuesday? or Time.now.friday?
+    if num > 0
+      puts "Number of Feeds to send today: #{num}"
+      Member.daily_mails.each do |member|
+        SendMsg.daily_alerts(member).deliver if member.emailNotifications? and member.emailDaily?
+      end
+      DailyAlert.delete_all
+      puts "All daily alerts should have been sent. Total alerts now shold be 0: #{DailyAlert.count}"
+    else
+      puts "No DailyAlerts to process"
     end
-    DailyAlert.delete_all
-    puts "All daily alerts should have been sent. Total alerts now shold be 0: #{DailyAlert.count}"
-  else
-    puts "No DailyAlerts to process"
   end
 end
 
