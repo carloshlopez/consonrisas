@@ -14,24 +14,24 @@ development:
   encoding: unicode
   database: consonrisas
   pool: 5
-  username: carlos
-  password: 
+  username: consonrisas
+  password: consonrisas
 
 test:
   adapter: postgresql
   encoding: unicode
   database: consonrisas_test
   pool: 5
-  username: carlos
-  password: 
+  username: consonrisas
+  password: consonrisas
   
 production:
   adapter: postgresql
   encoding: unicode
   database: consonrisas_production
   pool: 5
-  username: carlos
-  password:   
+  username: consonrisas
+  password: consonrisas
 
 # cucumber:
 #   <<: *test

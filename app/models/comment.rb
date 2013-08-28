@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :event
   belongs_to :member
   
-  after_create :email_comment
+#  after_create :email_comment 
     
   def email_comment
     already_created = []
