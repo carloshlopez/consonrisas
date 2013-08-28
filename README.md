@@ -1,17 +1,19 @@
-== Bienvenidos al proyecto Conectando Sonrisas
+# Bienvenidos al proyecto Conectando Sonrisas
 
-Este proyecto utiliza Rails 3.0.1 y varios gems 
+Una red social para crear y apoyar eventos sociales que generan sonrisas
 
-== Para empezar
+Este proyecto utiliza Rails ~~3.0.1.~~ 3.2.14 y varios gems 
 
-1. Tener instalado ruby 1.9.2 y rails 3.0.1
+## Para empezar
+<ol>
+<li>Tener instalado ruby 1.9.2 y rails 3.2.14</li>
 
-2. Hacerle clone al proyecto de github
+<li>Hacerle clone al proyecto de github<\li>
 
-3. Correr el comando bundle install
+<li> Correr el comando bundle install<\li>
+</ol>
 
-
-== Lo que utilizamos
+## Lo que utilizamos
 
 Para renderizar el html utilizamos haml, pero puedes usar erb si prefieres
 
