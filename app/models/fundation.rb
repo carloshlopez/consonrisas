@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # coding: utf-8
 class Fundation < ActiveRecord::Base
   belongs_to :population
@@ -59,7 +61,7 @@ class Fundation < ActiveRecord::Base
   private
   
   def destroy_fundation_dependencies
-    GlobalAlert.destroy_all "model_id = #{self.id} AND model = 'Fundation'"
+    GlobalAlert.destroy_all "model_id = '#{self.id}' AND model = 'Fundation'"
   end
   
   def generate_alerts

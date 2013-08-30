@@ -14,6 +14,7 @@ es:
       invalid_token: 'Token de autenticación invalido.'
       timeout: 'Tu tiempo de sessión a terminado, por favor ingresa de nuevo.'
       inactive: 'Tu cuenta no ha sido activada.'
+      already_authenticated: 'Ya habías ingresado'
       member:
         not_found_in_database: 'Usuario no encontrado'
     sessions:
