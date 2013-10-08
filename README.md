@@ -22,4 +22,11 @@ Para css utilizamos sass, todo lo importamos a un solo .css y ese es el que se s
 El proyecto está utilizando el hosting heroku, por lo tanto para utilizar background jobs, se utiliza DelayedJob (DJ) o SimpleWorker, el que prefieran. Pronto se agregará la utilización de hirefire para levantar y bajar los workers de heroku automáticamente.
 
 Ventajas de DJ: Tienes acceso a todo el ambiente de la app, a todos los modelos, etc
-con simpleworker, toca importar el ambiente al servidor de ellos, y desde allá no se tiene acceso a las bases de datos del proyecto, ya que está en hosting en heroku y no hay acceso desde a fuera para las dbs. Por ahora utilizamos SimpleWorker para envío de correos y DelayedJob para operaciones sobre los datos de la app.
+con simpleworker, toca importar el ambiente al servidor de ellos, y desde allá no se tiene acceso a las bases de datos del proyecto, ya que está en hosting en heroku y no hay acceso desde a fuera para las dbs. Por ahora utilizamos SimpleWorker para envío de correos y DelayedJob para operaciones sobre los datos de la app.GEMS
+
+
+##GEMS
+Paperclip
+Devise
+
+
