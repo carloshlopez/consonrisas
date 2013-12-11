@@ -75,7 +75,10 @@
         #header.row
           #logo.span4
             %a{:href => "/"}
-              %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
+              - if Date.today.mon == 12
+                %img{:src => "/images/LogoNavidad.png", :title => I18n.t('application.menu_home'), :class=>"logo", :style=>"height:113px"}/
+              - else
+                %img{:src => "/images/conectando_sonrisas.png", :title => I18n.t('application.menu_home'), :class=>"logo"}/
           #menu.span8
             %ul.clearfix.hidden-phone
               %li
