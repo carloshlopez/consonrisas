@@ -7,7 +7,10 @@
           = image_tag "/photos/thumb/missing.png"
       %li.hidden-tablet
         %a.menu-logo-link{:href=>"/"}
-          = image_tag "menu/MenuLogo_small_green.png", :class=> "menu-logo"
+          - if Date.today.mon == 12
+            = image_tag "/images/LogoNavidad.png", :class=> "menu-logo", :style=>"width:90px"
+          - else
+            = image_tag "menu/MenuLogo_small_green.png", :class=> "menu-logo"
       %li
         %a.cont{:href=>"#{member_path(current_member.id)}"}
           %span.menu-home
