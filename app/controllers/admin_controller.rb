@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'csv'
 require 'heroku-api'
 class AdminController < ApplicationController
@@ -114,6 +116,22 @@ class AdminController < ApplicationController
     respond_to do |format|
       format.js {head:ok}
     end
+  end
+
+  def events_to_csv 
+    @events = Event.find(:all) 
+    csv_string = CSV.generate do |csv| 
+      # header row 
+      csv << ["nombre", "año", "mes", "día", "hora", "fecha", "asistentes"] 
+   
+      # data rows 
+      @events.each do |event| 
+        csv << [event.name, event.date.year,event.date.month, event.date.day, event.date.time, event.date, event.attendees] 
+      end 
+    end 
+    send_data csv_string, 
+              :type => 'text/csv; charset=iso-8859-1; header=present', 
+              :disposition => "attachment; filename=events.csv" 
   end
   
   def members_to_csv 

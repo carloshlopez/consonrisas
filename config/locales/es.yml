@@ -1,5 +1,6 @@
 # coding: utf-8
 es:
+  attendees: "asistentes"
   yours:  "tus"
   show_more: "Ver más"
   show_less: "Ver menos"
