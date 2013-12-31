@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828214700) do
+ActiveRecord::Schema.define(:version => 20131224220122) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20130828214700) do
     t.boolean  "isClosed",         :default => false
     t.boolean  "pic_processing"
     t.text     "desc"
+    t.integer  "attendees"
   end
 
   create_table "events_facilitators", :id => false, :force => true do |t|
