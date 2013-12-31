@@ -122,11 +122,11 @@ class AdminController < ApplicationController
     @events = Event.find(:all) 
     csv_string = CSV.generate do |csv| 
       # header row 
-      csv << ["nombre", "año", "mes", "día", "hora", "fecha", "asistentes"] 
+      csv << ["nombre", "ciudad","año", "mes", "día", "hora", "fecha", "asistentes"] 
    
       # data rows 
       @events.each do |event| 
-        csv << [event.name, event.date.year,event.date.month, event.date.day, event.date.time, event.date, event.attendees] 
+        csv << [event.name, event.city, event.date.year,event.date.month, event.date.day, event.date.time, event.date, event.attendees] 
       end 
     end 
     send_data csv_string, 
