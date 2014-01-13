@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224220122) do
+ActiveRecord::Schema.define(:version => 20140113162632) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -239,7 +239,7 @@ ActiveRecord::Schema.define(:version => 20131224220122) do
 
   create_table "members", :force => true do |t|
     t.string   "email"
-    t.string   "encrypted_password",   :limit => 128
+    t.string   "encrypted_password",     :limit => 128
     t.string   "password_salt"
     t.string   "reset_password_token"
     t.string   "remember_token"
@@ -253,13 +253,14 @@ ActiveRecord::Schema.define(:version => 20131224220122) do
     t.datetime "updated_at"
     t.integer  "role_id"
     t.string   "facebook_id"
-    t.boolean  "use_facebook_pic",                    :default => false
-    t.boolean  "admin",                               :default => false
-    t.boolean  "emailNotifications",                  :default => true
+    t.boolean  "use_facebook_pic",                      :default => false
+    t.boolean  "admin",                                 :default => false
+    t.boolean  "emailNotifications",                    :default => true
     t.string   "name"
-    t.boolean  "emailDaily",                          :default => true
-    t.boolean  "emailWeekly",                         :default => false
-    t.boolean  "emailInstantly",                      :default => false
+    t.boolean  "emailDaily",                            :default => true
+    t.boolean  "emailWeekly",                           :default => false
+    t.boolean  "emailInstantly",                        :default => false
+    t.datetime "reset_password_sent_at"
   end
 
   create_table "need_categories", :force => true do |t|
