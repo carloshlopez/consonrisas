@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113162632) do
+ActiveRecord::Schema.define(:version => 20140113170148) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -260,7 +260,7 @@ ActiveRecord::Schema.define(:version => 20140113162632) do
     t.boolean  "emailDaily",                            :default => true
     t.boolean  "emailWeekly",                           :default => false
     t.boolean  "emailInstantly",                        :default => false
-    t.datetime "reset_password_sent_at"
+    t.time     "reset_password_sent_at"
   end
 
   create_table "need_categories", :force => true do |t|
