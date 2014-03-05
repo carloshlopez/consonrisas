@@ -11,12 +11,13 @@ class AuthenticationsController < ApplicationController
 #    flash[:notice] = "Authentication successful."
 #    redirect_to authentications_url
    omniauth = request.env["omniauth.auth"]
+   puts "omniauth info: #{omniauth.inspect}"
    session[:fb_token] = omniauth["credentials"]["token"] if omniauth['provider'] == 'facebook'
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:member, authentication.member)
-  elsif current_member
+    elsif current_member
       current_member.authentications.create!(:provider => omniauth['provider'], 
           :uid => omniauth['uid'], 
           :token => (omniauth['credentials']['token'] rescue nil),
