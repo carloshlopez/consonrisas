@@ -5,7 +5,10 @@
       All Members to csv
     %br
     %a{:href=>"/admin/fundation_admins_to_csv"}
-      All Social Proyect admins to csv  
+      All Social Project admins to csv  
+    %br
+    %a{:href=>"/admin/fundations_to_csv"}
+      All Social Projects to csv            
     %br
     %a{:href=>"/admin/events_to_csv"}
       Events to csv      
@@ -13,16 +16,17 @@
     %p Admin Delayed Jobs  
     %a{:href=>"/admin/dj_all"}
       All Delayed Jobs      
-  .admin-table-list
-    %p Admin DB tables (rails models)
-    %ul
-      - @models.each do |model|
-        %li
-          %a{:href=>"##{model[0]}", :title=> "Click to see table data"} #{model[0]}
-    %br
-    %a{:id=>"CreateNewRowLink", :href=>"#New_Row", :title=> "Crete new row", :style=>"display:none"} Create new row
-    #newRow{:style=>"display:none"}
-    %input#addRow{:type=>"button", :title=>"add a row", :value=>"Add", :style=>"display:none"}
+  - if current_member.email == 'carloshlopez@gmail.com'
+    .admin-table-list
+      %p Admin DB tables (rails models)
+      %ul
+        - @models.each do |model|
+          %li
+            %a{:href=>"##{model[0]}", :title=> "Click to see table data"} #{model[0]}
+      %br
+      %a{:id=>"CreateNewRowLink", :href=>"#New_Row", :title=> "Crete new row", :style=>"display:none"} Create new row
+      #newRow{:style=>"display:none"}
+      %input#addRow{:type=>"button", :title=>"add a row", :value=>"Add", :style=>"display:none"}
 
   #forGrid{:class=>"yui-skin-sam"}
     #gridYui

@@ -151,6 +151,27 @@ class AdminController < ApplicationController
               :type => 'text/csv; charset=iso-8859-1; header=present', 
               :disposition => "attachment; filename=users.csv" 
   end  
+
+  def fundations_to_csv
+    @fundations = Fundation.all
+    ar = Array.new
+    csv_string = CSV.generate do |csv| 
+      # header row 
+      csv << ["email", "name", "address", "city", "description", "phone", "website"] 
+   
+      # data rows 
+      @fundations.each do |fund| 
+        name = 'Sin Nombre'
+        name = fund.name if fund.name
+        email = "no"
+        email = fund.email if fund.email and fund.email.length > 1       
+        csv << [email, name, fund.address, fund.city, fund.description, fund.phone, fund.website]
+      end      
+    end 
+    send_data csv_string, 
+              :type => 'text/csv; charset=iso-8859-1; header=present', 
+              :disposition => "attachment; filename=fundations.csv" 
+  end    
   
   def fundation_admins_to_csv
     @fundations = Fundation.all

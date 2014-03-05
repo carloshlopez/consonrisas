@@ -33,6 +33,8 @@ Consonrisas::Application.routes.draw do
   get "admin/members_to_csv" =>"admin#members_to_csv"
   get "admin/fundation_admins_to_csv" =>"admin#fundation_admins_to_csv"  
   get "admin/events_to_csv" =>"admin#events_to_csv"  
+  get "admin/fundations_to_csv" =>"admin#fundations_to_csv"  
+
   
   get "admin/dj_all", :as => :dj_all
 
