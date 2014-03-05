@@ -12,11 +12,11 @@
     %br
     %a{:href=>"/admin/events_to_csv"}
       Events to csv      
-  .admin-jobs
-    %p Admin Delayed Jobs  
-    %a{:href=>"/admin/dj_all"}
-      All Delayed Jobs      
-  - if current_member.email == 'carloshlopez@gmail.com'
+  - if current_member.email == 'carloshlopez@gmail.com'    
+    .admin-jobs
+      %p Admin Delayed Jobs  
+      %a{:href=>"/admin/dj_all"}
+        All Delayed Jobs      
     .admin-table-list
       %p Admin DB tables (rails models)
       %ul
