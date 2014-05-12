@@ -1,6 +1,6 @@
 #encoding: utf-8
 class FacilitatorsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:index]
+  before_filter :authenticate_member!, :except => [:index, :show]
   # GET /facilitators
   # GET /facilitators.xml
   def index

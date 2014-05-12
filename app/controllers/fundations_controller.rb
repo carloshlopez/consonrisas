@@ -1,6 +1,6 @@
 #encoding: utf-8
 class FundationsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:index]
+  before_filter :authenticate_member!, :except => [:index, :show]
   # GET /fundations
   # GET /fundations.xml
   def index

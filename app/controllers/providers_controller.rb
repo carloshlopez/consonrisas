@@ -1,7 +1,7 @@
 #encoding: utf-8
 class ProvidersController < ApplicationController
 
-  before_filter :authenticate_member!, :except => [:index]
+  before_filter :authenticate_member!, :except => [:index, :show]
   # GET /providers
   # GET /providers.xml
   def index
