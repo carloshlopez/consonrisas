@@ -5,3 +5,4 @@ log/*.log
 tmp/**/*
 public/system/pics/
 *~
+config/s3.yml
