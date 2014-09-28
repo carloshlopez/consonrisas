@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :videos, :allow_destroy=> true
   has_attached_file :pic, :styles => {:profile_big => "400x400>", :profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,
-                    :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
+                    :s3_credentials => S3_CREDENTIALS,
                     :path => "events/:attachment/:id/:style/:filename"
 #  process_in_background :pic
 #  validates_attachment_presence :pic

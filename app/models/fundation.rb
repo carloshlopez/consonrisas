@@ -26,7 +26,7 @@ class Fundation < ActiveRecord::Base
   has_many :project_needs, :dependent => :destroy
   has_attached_file :pic, :styles => {:profile => "150x150>", :thumb => "50x50#"},
                     :storage => :s3,
-                    :s3_credentials => "#{::Rails.root.to_s}/config/s3.yml",
+                    :s3_credentials => S3_CREDENTIALS,
                     :path => "fundations/:attachment/:id/:style/:filename"
   
   validates_attachment_size :pic, :less_than => 5.megabytes
