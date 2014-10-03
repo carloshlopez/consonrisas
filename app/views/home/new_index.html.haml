@@ -95,15 +95,23 @@
     #descs{:style=>"display:none"}
       Facilitadores ... Proveedores ... Proyectos Sociales ... Eventos ...      
     .visible-phone{:style=>"margin:10px"}
+    %b{:style=>"color:rgb(90,180,70); font-size:large"}
+      Nuestro Proyecto en TEDxLasAguas
+    .cl
+      =link_to "Carlos López", "http://www.carloslopez.co", :target=> "_blank"
+      tuvo la oportunidad de contar nuestra historia en 
+      =link_to "TEDxLasAguas", "http://www.carloslopez.co/tedxlasaguas.html", :target=> "_blank"
+    .youtube
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "400", :src => "//www.youtube.com/embed/ICvnXJYRVZo", :width => "100%"}      
     #pics
       #event_pics
         = render :partial=>"events_photos"
-    %h2.news_title
-      Sonrisas Recientes
-    .arrow-down.news-arrow
-    #news
-      #home_event_comments
-        = render :partial=>"events_comments"
+    / %h2.news_title
+    /   Sonrisas Recientes
+    / .arrow-down.news-arrow
+    / #news
+    /   #home_event_comments
+    /     = render :partial=>"events_comments"
   = javascript_include_tag "ui.home" 
   = javascript_include_tag "jquery.smoothDivScroll-1.1-min"
 #show_promotions{:style=>"display:none"}
