@@ -37,6 +37,7 @@ class Event < ActiveRecord::Base
   #validates :fundations, :uniqueness => {:scope => :event_id}
   
   after_create :generate_alerts, :create_fb_event
+  before_destroy :delete_alerts
       
   def ask_admin member_id
     EventAdmin.create(:member_id =>member_id, :event_id => self.id, :active=>false)
@@ -128,5 +129,14 @@ class Event < ActiveRecord::Base
     end
   end
   handle_asynchronously :create_fb_event
-  
+
+  def delete_alerts
+    alerts = GlobalAlert.where(:model_id => "#{self.id}", :model=> "Event")
+    alerts.each do |alert|
+      alert.destroy
+    end
+  end
+
+
+
 end

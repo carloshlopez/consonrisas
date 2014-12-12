@@ -152,3 +152,17 @@ p.comment_paragraph{
     border-radius: 5px;
     -moz-border-radius: 5px;
 }
+
+.button_link
+{
+  background:none!important;
+  border:none;
+  padding:0!important;
+    /*border is optional*/
+  border-bottom:1px solid #444; 
+  cursor: pointer; 
+  color: #3e7d31;
+}
+ .button_link:hover {
+    text-decoration: underline;
+}
