@@ -2,7 +2,7 @@
   %h1
     = @event_list_title << " (#{@num_events})"
     = image_tag '/images/EventoTransparenteMedio.png'
-.list-arrow.list-arrow-events    
+.list-arrow.list-arrow-events
 .all-items
   - @events.each do |event|
     .one-item.one-item-events
@@ -19,7 +19,7 @@
             = I18n.l(event.date, :format=>:long)
         = link_to I18n.t('events.show'), event
         - if  member_signed_in? and can_current_member_edit_event(event.id)
-          | 
+          |
           = link_to I18n.t('edit'), edit_event_path(event)
           |
-          = link_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete
+          = button_to I18n.t('destroy'), event, :confirm => I18n.t('messages.delete_confirmation'), :method => :delete, :class=> "button_link"
