@@ -38,7 +38,8 @@
         3  
       %p.step-title-providers-wide
         Explora los eventos en los cuales puedes generar sonrisas
-      #step3-form 
+      #step3-form
+        - @event_list_title = I18n.t('events.list')
         = render "events/list"
       .done-container-providers{:style=>"display:none"}  
         %a{:href=>"/soyproveedor", :class=>"done-button-providers", :title=>"Ir a tu perfil en Conectando Sonrisas"} LISTO
