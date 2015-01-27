@@ -23,17 +23,23 @@ class RegistrationsController < Devise::RegistrationsController
       session[:isFundation] = true
       session[:fundation] = fund.id
       puts "*************** Datos metidos en la session por registrations #{session[:isFundation]} o #{session[:fundation]}"
-    end    
-  
+    end
+
     if params[:isProvider] and params[:isProvider] == "true"
-      prov = Provider.new(params[:provider])
-      if prov.save
-        ProviderAdmin.create(:member_id =>@member.id, :provider_id => prov.id, :active=>true)
+      begin
+        prov = Provider.new(params[:provider])
+        if prov.save
+          ProviderAdmin.create(:member_id =>@member.id, :provider_id => prov.id, :active=>true)
+          puts "************** Creando el Provider #{params[:provider]}"
+        else
+          puts "#{prov.errors.messages}"
+        end
+        session[:isProvider] = true
+        session[:provider] = prov.id
+      rescue Exception => e
+        puts "Exception {e.inspect}"
       end
-      puts "************** Creando el Provider #{params[:provider]}"      
-      session[:isProvider] = true
-      session[:provider] = prov.id
-    end    
+    end
   
   end
   

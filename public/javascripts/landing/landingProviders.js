@@ -90,8 +90,13 @@ $jq(document).ready(function(){
 });
 
 function doRegistration(){
+  console.log("We are doing registration");
   $jq.post("/members.json", $jq("#new_provider").serialize(), function(resp){
-    console.log(resp);
+    console.log("THIS IS THE RESP" + resp);
+    if(resp.status == 406)
+    {
+      console.log("Error 406");
+    }
     if(resp.member.id == undefined){
       alert("Corrige estos errores antes de continuar:/n"+JSON.stringify(resp));
       return;
