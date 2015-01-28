@@ -2,6 +2,7 @@ class Need < ActiveRecord::Base
   belongs_to :event
   after_create :generate_alerts
   has_and_belongs_to_many :facilitators, :join_table => :need_facilitators, :uniq => true  
+  validates :name, :presence => {:message => 'Debes ingresar un nombre a la necesidad'}
   
   def help member_id
     fac = Member.find(member_id).facilitator
