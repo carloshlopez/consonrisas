@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  foundation_name: MyString
+  num_tickets: 1
+  story: MyText
+  video: MyString
+  transport: MyString
+  foundation_id: 1
+
+two:
+  foundation_name: MyString
+  num_tickets: 1
+  story: MyText
+  video: MyString
+  transport: MyString
+  foundation_id: 1

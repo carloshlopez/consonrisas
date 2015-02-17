@@ -1,0 +1,24 @@
+- if notice
+  Hemos recibido tu participación en el concurso, estaremos anunciando los ganadores el 15 de Marzo por nuestras redes y en el correo que ingresaste, muy pendientes! Y la mejor de las suertes! Recuerda que si quieres contactarnos, porfavor hacerlo a:
+  = mail_to "info@consonrisas.org", "info@consonrisas.org"
+%p
+  %b Fundación:
+  = Fundation.find(@contest.fundation_id).name
+%p
+  %b Número de entradas:
+  = @contest.num_tickets
+%p
+  %b Email:
+  = @contest.email
+- unless @contest.pic.url(:profile).include? "missing"
+  %p
+    = image_tag @contest.pic.url(:profile)
+- unless @contest.video.empty?
+  %p
+    %b Video:
+    = @contest.video
+- unless @contest.story.empty?
+  %p
+    %b Historia:
+    = @contest.story
+= link_to 'Si necesitas, puedes editar tu respuesta', edit_contest_path(@contest)

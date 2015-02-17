@@ -1,0 +1,7 @@
+<h1>Editing contest</h1>
+
+<%= render 'form' %>
+<% if member_signed_in? and current_member.try(:admin?) %>
+<%= link_to 'Show', @contest %> |
+<%= link_to 'Back', contests_path %>
+<% end %>

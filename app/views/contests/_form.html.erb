@@ -1,0 +1,51 @@
+<%= form_for(@contest) do |f| %>
+  <% if @contest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contest.errors.count, "error") %> prohibited this contest from being saved:</h2>
+
+      <ul>
+      <% @contest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Escoge tu fundación: (Recuerda que debe estar registrada)
+    <%= f.select :fundation_id, Fundation.all.collect {|x| [x.name, x.id]}, {}%>
+    <br/>
+    Si no la encuentras, registrala
+    <%= link_to "aquí", "/soyproyecto"%>
+  </div>
+  <div class="field">
+    ¿Cuántas entradas podrías utilizar?, recuerda que el máximo es 15 incluyendo a los acompañantes y/o adultos responsables.
+    <br/>
+    <%= f.number_field :num_tickets %>
+  </div>
+  <div class="field">
+    Cuentanos en cuales eventos de nosotros has participado, cuando fue, y qué aprendieron.
+    <br/>
+    <%= f.text_area :story %>
+  </div>
+  <div class="field">
+    Si tu fundación creó un video, súbelo a youtube.com o a vimeo.com y pega aquí la dirección del video para que nosotros lo podamos ver.<br />
+    <%= f.text_field :video %>
+  </div>
+  <div class="field">
+    Si tu fundación creó una pieza gráfica, súbela aquí:
+    <br/>
+    <%= f.file_field :pic %>
+  </div>
+  <div class="field">
+    Sabemos que conseguir el transporte a veces es complicado, escribe aquí cuanto te costaría el transporte para que nosotros evaluemos si te podemos apoyar.<br />
+    <%= f.text_field :transport %>
+  </div>
+  <div class="field">
+    Ingresa un correo en el cual te podamos contactar.<br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Participar en este concurso" %>
+  </div>
+<% end %>

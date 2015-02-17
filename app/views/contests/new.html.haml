@@ -1,0 +1,65 @@
+.row
+  .span12
+    - if @contest.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@contest.errors.count, "error")
+          prohibited this contest from being saved:
+        %ul
+          - @contest.errors.full_messages.each do |msg|
+            %li= msg
+.row
+  .span12
+    %h2  Concurso para ir a ver a Corteo del Circo del sol!
+.row
+  .span6
+    %p
+      Tenemos boletas para que tu fundación vaya a ver al Circo del Sol el Miércoles 18 de Marzo del 2015 a las 7:30 p.m.
+    %p
+      Son 30 boletas para 2 fundaciones ganadoras del concurso (15 para cada una).
+    %h3 Concurso:
+    %p
+      Corteo es un espectáculo del Circo del Sol. Su título significa "cortejo fúnebre". Es una divertida procesión, una cabalgata festiva imaginada por un payaso. El espectáculo une la pasión del actor con la elegancia y el poder del acróbata para zambullir al público asistente en un mundo teatral y misterioso que, situado en algún mágico lugar entre el cielo y la tierra, mezcla diversión, alegría y espontaneidad.
+    %p
+      Basados en la mezcla de diversión alegría y espontaneidad, queremos invitarte a participar de este concurso.
+  .span6
+    %p
+      =image_tag "corteo.jpg"
+.row
+  .span12
+    %h3 ¿En qué actividades de La liga de las Sonrisas han participado y que han aprendido en estas?
+
+    %p Invitamos a tus beneficiarios (niños, niñas, jóvenes etc) a hacer una pieza gráfica o audiovisual que nos muestre en que actividad de nosotros han participado (puede ser cualquiera de nuestros programas: Conectando Sonrisas, Magos Sin Fronteras, Laboratorio con Sonrisas) las dos respuestas más originales y creativas serán las ganadoras de 15 boletas cada una. Recuerda que puedes acompañar tus respuestas de un texto explicativo también, pero lo más importante son las imágenes, fotos, o video.
+.row
+  .span12
+    %p
+      Para concursar ingresa tu respuesta aquí ó envíala a info@consonrisas.org.
+      %b Contemplaremos las respuestas enviadas hasta el 13 de Marzo.
+    %p
+      %b Requisitos, Recomendaciones y Reglas:
+.row
+  .span6
+    %ul
+      %li
+        Para poder acceder a este concurso tu fundación debe haber participado de algun evento nuestro, ej: show en tu fundación, en un teatro, concursos anteriores u otra actividad y debe estar registrada como proyecto social en: www.consonrisas.org/proyectos
+
+      %li Tu fundación debe atender a niños, niñas o jóvenes, recomendamos que los niños que vayan al evento sean mayores de 10 años, por la duración del show.
+      %li Deben informar si pueden llenar los 15 cupos (o cuantos podrían llenar), ten en cuenta que estos cupos incluyen a los los acompañantes o adultos responsables.
+      %li La fundación se debe encargar de la cotización del transporte y comunicarla como parte de la respuesta del concurso para estudiar la posibilidad de apoyo financiero para este (máximo se apoyará con el 50% puede no existir apoyo para el transporte).
+  .span6
+    %ul
+      %li El show dura 2 horas y media, por lo que deberán planear la salida hacia las 10:00 p.m.
+
+      %li La fundación debe llegar al sitio del espectáculo a las 6:50 p.m. ya que la las puertas se abren a las 7:00 p.m. Si llegan tarde no podrán tener acceso al espectáculo.
+      %li Este concurso es para fundaciones, no para individuos.
+      %li
+        Dirección del espectáculo:
+        %b Parqueadero de Salitre Mágico Calle 63 con Av. carrera 68.
+
+      %li
+        Ya que la jornada será larga tener presente un refrigerio para los niños antes o después del espectáculo, este correrá por cuenta de la fundación.
+%h1 Participa
+= render 'form'
+
+- if member_signed_in? and current_member.try(:admin?)
+  = link_to 'Back', contests_path

@@ -4,7 +4,7 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 
 # Requests with more than 30 sec will be killed
-timeout 30
+timeout 360
 
 
 # Preload entire app for fast forking.
