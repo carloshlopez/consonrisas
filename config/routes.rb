@@ -1,5 +1,8 @@
 Consonrisas::Application.routes.draw do
   
+  resources :contests
+
+
   resources :need_categories
 
   get "need/create"

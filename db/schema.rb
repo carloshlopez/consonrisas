@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113170148) do
+ActiveRecord::Schema.define(:version => 20150217190332) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(:version => 20140113170148) do
     t.integer  "member_id"
     t.integer  "fundation_id"
     t.integer  "provider_id"
+  end
+
+  create_table "contests", :force => true do |t|
+    t.string   "fundation_name"
+    t.integer  "num_tickets"
+    t.text     "story"
+    t.string   "video"
+    t.string   "transport"
+    t.integer  "fundation_id"
+    t.string   "email"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
   end
 
   create_table "daily_alerts", :force => true do |t|
