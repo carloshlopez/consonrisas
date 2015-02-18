@@ -1,9 +1,9 @@
 .dump
 .bundle
-config/s3.yml
 db/*.sqlite3
 log/*.log
 tmp/**/*
 public/system/pics/
 *~.env
 .env
+config/s3.yml
