@@ -19,9 +19,9 @@
           %p.news
             = new.news.size > 400 ? new.news[0 .. 400] + "..." : new.news
             .news-link
-              %a.news-more{:href=>"#"}ver más     
+              %a.news-more{:href=>"#"}ver más
   #list-content.span8
     - @event_list_title = I18n.t('events.list')
     = render :partial => "list"
     .pagination-events
-      = paginate @events  
+      = paginate @events
