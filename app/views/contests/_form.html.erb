@@ -13,10 +13,11 @@
 
   <div class="field">
     Escoge tu fundación: (Recuerda que debe estar registrada)
-    <%= f.select :fundation_id, Fundation.all.collect {|x| [x.name, x.id]}, {}%>
+    <%= f.select :fundation_id, Fundation.all.collect {|x| [x.name, x.id]}, {:prompt=> "Selecciona Tu Fundación" }%>
     <br/>
     Si no la encuentras, registrala
     <%= link_to "aquí", "/soyproyecto"%>
+    para poder participar en concursos de este y otros tipos.
   </div>
   <div class="field">
     ¿Cuántas entradas podrías utilizar?, recuerda que el máximo es 15 incluyendo a los acompañantes y/o adultos responsables.

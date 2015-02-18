@@ -2,6 +2,8 @@ Consonrisas::Application.routes.draw do
   
   resources :contests
 
+  get "/corteo" => "contests#new", :as => :corteo
+
 
   resources :need_categories
 

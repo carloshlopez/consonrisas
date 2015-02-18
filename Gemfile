@@ -55,6 +55,8 @@ gem 'heroku-api', '~> 0.1.2'
 
 gem 'typhoeus'
 
+gem "auto_html"
+
 gem "rails_autolink", "~> 1.1.0"
 
 group :test, :development do
