@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150217190332) do
+ActiveRecord::Schema.define(:version => 20150218154619) do
 
   create_table "alerts", :force => true do |t|
     t.text     "news"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20150217190332) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "video_html"
   end
 
   create_table "daily_alerts", :force => true do |t|
