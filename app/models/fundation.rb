@@ -53,8 +53,12 @@ class Fundation < ActiveRecord::Base
   def admin_member_ids
     member_ids = Array.new
     fundation_admins.each do |admin|
-      member_ids.push admin.member.id if admin.active
-    end     
+      begin
+        member_ids.push admin.member.id if admin.member and admin.member.id and admin.active
+      rescue Exception
+        puts "Error no admin de #{admin}"
+      end
+    end
     member_ids
   end
   
