@@ -1,6 +1,8 @@
 #encoding: utf-8
 class FundationsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:index]
+  before_filter :authenticate_member!, :except => [:index, :check_name]
+  skip_before_filter  :verify_authenticity_token, :only => :check_name
+
   # GET /fundations
   # GET /fundations.xml
   def index
@@ -52,7 +54,6 @@ class FundationsController < ApplicationController
     @fundation = Fundation.new(params[:fundation])
     respond_to do |format|
       if @fundation.save
-
         FundationAdmin.create(:member_id =>params[:member_id], :fundation_id => @fundation.id, :active=>true)
         format.html { redirect_to(@fundation, :notice => 'Fundation was successfully created.') }
         format.xml  { render :xml => @fundation, :status => :created, :location => @fundation }
@@ -159,6 +160,13 @@ class FundationsController < ApplicationController
       format.json {render :json=>@fundation}
     end
   end
-  
-  
+
+  def check_name
+    @fund = Fundation.find_by_name(params[:name])
+    respond_to do |format|
+      format.json {render :json=>@fund}
+      format.js {render :json=>@fund}
+    end
+  end
+
 end

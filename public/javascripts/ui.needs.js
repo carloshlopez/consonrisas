@@ -81,8 +81,8 @@ $jq.widget("ui.needs", {
         }, "text" );
     }
     ,_addNeed: function(fundation_id){
-      $jq.post("/proyectos/"+fundation_id+"/project_needs.json",$jq("#new_project_need").serialize(), function(data){
-          $jq.get("/proyectos/"+fundation_id+"/project_needs/"+data.project_need.id, function(resp){
+      $jq.post("/fundations/"+fundation_id+"/project_needs.json",$jq("#new_project_need").serialize(), function(data){
+          $jq.get("/fundations/"+fundation_id+"/project_needs/"+data.project_need.id, function(resp){
               $jq("#the-needs").append(resp);
               $jq(".help_need").closest(".need_action").hide();
               $jq('html, body').animate({ scrollTop: $jq('#need-'+data.project_need.id).offset().top }, '1500');

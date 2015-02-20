@@ -1,7 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
+  skip_before_filter  :verify_authenticity_token
+  respond_to :json
+
   def create
     super
-#    puts "*******!!!! Llegamos a registrarnos!!"
+    puts "*******!!!! Llegamos a registrarnos!!"
     session[:omniauth] = nil unless @member.new_record?
 
     if params[:isFacilitator] and params[:isFacilitator] == "true"
@@ -40,7 +43,6 @@ class RegistrationsController < Devise::RegistrationsController
         puts "Exception {e.inspect}"
       end
     end
-  
   end
   
   private

@@ -90,7 +90,8 @@ Consonrisas::Application.routes.draw do
   match "members/edit_settings"  => "members#edit_settings", :as => :edit_settings
   post "members/delete_alert"      
   get "members/:id/get_fundations" => "members#get_fundations" 
-  post "members/check_email" => "members#check_email"   
+  post "members/check_email" => "members#check_email"
+  post "fundations/check_name" => "fundations#check_name"
 
   root :to => "home#new_index"
   #root :to => "home#index"

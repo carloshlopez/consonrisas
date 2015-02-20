@@ -10,6 +10,7 @@ class AuthenticationsController < ApplicationController
 #    current_member.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
 #    flash[:notice] = "Authentication successful."
 #    redirect_to authentications_url
+   puts "!!!!!!Aqui tamos!!!!!"
    omniauth = request.env["omniauth.auth"]
    puts "omniauth info: #{omniauth.inspect}"
    session[:fb_token] = omniauth["credentials"]["token"] if omniauth['provider'] == 'facebook'

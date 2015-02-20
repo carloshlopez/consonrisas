@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
   before_filter :authenticate_member!, :except => :check_email
+  skip_before_filter  :verify_authenticity_token, :only => :check_email
+
 
   # GET /members/1
   # GET /members/1.xml
@@ -36,31 +38,30 @@ class MembersController < ApplicationController
       @show_welcome = true
       @show_fundation = true
       @fundation_step = @facilitator_step + 1
-      @num_steps = @num_steps + 1      
+      @num_steps = @num_steps + 1
     end
-    
-    if session[:isProvider] 
+    if session[:isProvider]
       @provider = Provider.find(session[:provider])
 #      session[:provider] = nil
 #      session[:isProvider] = nil
-      @show_welcome = true  
-      @show_provider = true          
+      @show_welcome = true
+      @show_provider = true
       @provider_step = @fundation_step + 1
-      @num_steps = @num_steps + 1      
+      @num_steps = @num_steps + 1
     end
     if member_signed_in? and current_member.id == @member.id
       @contact_informations = @member.contact_informations
     else
       respond_to do |format|
-        format.json do 
+        format.json do
           if @fundation
-            render :json=>{:member=>@member, :fundation=>@fundation}          
+            render :json=>{:member=>@member, :fundation=>@fundation}
           else
-            render :json=>{:member=>@member}          
+            render :json=>{:member=>@member}
           end
         end
         format.html {redirect_to facilitator_path(@member.facilitator)}
-      end      
+      end
     end
   end
 
@@ -68,11 +69,11 @@ class MembersController < ApplicationController
       session[:provider] = nil
       session[:isProvider] = nil
       session[:fundation] = nil
-      session[:isFundation] = nil      
+      session[:isFundation] = nil
       session[:isFacilitator] = nil
     respond_to do |format|
       format.json { render :json => {:resp => "ok"} }
-    end      
+    end
   end
 
   # GET /members/new
@@ -94,11 +95,13 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.xml
   def create
+    puts "Is it here!?!?!"
     @member = Member.new(params[:member])
     respond_to do |format|
       if @member.save 
         format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
         format.xml  { render :xml => @member, :status => :created, :location => @member }
+        format.json {render :json => @member, :status => :created, :location => @member }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @member.errors, :status => :unprocessable_entity }
