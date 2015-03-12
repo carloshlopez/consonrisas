@@ -10,8 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <h2> Este concurso ha terminado, gracias a todos los que participaron, pronto anunciaremos a los ganadores </h2>
+  <h1> Pendientes para el próximo concruso!</h1>
 
-  <div class="field">
+  <!-- <div class="field">
     Escoge tu fundación: (Recuerda que debe estar registrada)
     <%= f.select :fundation_id, Fundation.all.collect {|x| [x.name, x.id]}, {:prompt=> "Selecciona Tu Fundación" }%>
     <br/>
@@ -48,5 +50,5 @@
   </div>
   <div class="actions">
     <%= f.submit "Participar en este concurso" %>
-  </div>
+  </div> -->
 <% end %>
