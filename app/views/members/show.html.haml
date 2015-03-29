@@ -41,28 +41,31 @@
             = link_to I18n.t('see_public_profile'), facilitator_path(@facilitator)
   #profile-content.span8
     = render "sub_menu_mobile"
-    = render "sub_menu_options_mobile"    
+    = render "sub_menu_options_mobile"
     .mine.my-complete-register
-      =render :partial =>"complete_register"         
+      =render :partial =>"complete_register"
     .mine.my-news_feed{:style=>"display:block"}
       =render :partial =>"sub_menu_options"
-      .show-results-2013div
-        %a.show-results-2013{:href=>"#resultados-2013", :title=>"Ver los resultados del 2013", :style=>"font-size:16px;"}
-          VER RESULTADOS 2013
+      .show-results-2014-div
+        %a.show-results-2014{:href=>"#resultados-2014", :title=>"Ver los resultados del 2014", :style=>"font-size:16px;"}
+          RESULTADOS 2014
       .show-results-2012-div
+        %a.show-results-2013{:href=>"#resultados-2013", :title=>"Ver los resultados del 2013", :style=>"font-size:12px;"}
+          resultados 2013
+        |
         %a.show-results-2012{:href=>"#resultados-2012", :title=>"Ver los resultados del 2012", :style=>"font-size:12px;"}
           resultados 2012
-      = render :partial => "news_feed"      
+      = render :partial => "news_feed"
     .mine.my-events{:style=>"display:none"}
-      = render :partial => "admin_events"  
+      = render :partial => "admin_events"
     .mine.my-fundations{:style=>"display:none"}
-      = render :partial => "admin_fundations"  
+      = render :partial => "admin_fundations"
     .mine.my-providers{:style=>"display:none"}
-      = render :partial => "admin_providers"  
+      = render :partial => "admin_providers"
   #following{:style=>"display:none"}
-    =render :partial =>"following" 
+    =render :partial =>"following"
   #edit-facilitator{:style=>"display:none"}
-    =render :partial =>"facilitators/form"     
+    =render :partial =>"facilitators/form"
   #change_pic{:style=>"display:none"}
     - @model = @fac
     = render :partial=>"shared/just_pic"
@@ -70,4 +73,6 @@
     = render :partial=>"results/results2012"
   #results_2013{:style=>"display:none"}
     = render :partial=>"results/results2013"
+  #results_2014{:style=>"display:none"}
+    = render :partial=>"results/results2014"
 = javascript_include_tag "new_layout/ui.myProfile"
