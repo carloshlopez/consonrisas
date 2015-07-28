@@ -27,16 +27,6 @@ Consonrisas::Application.configure do
 
   Rails.application.routes.default_url_options[:host] = 'www.conectandosonrisas.org'
 
-  config.action_mailer.smtp_settings = {
-    :user_name => "carloshlopez@gmail.com",
-    :password => "usuario123",
-    :domain => "www.conectandosonrisas.org",
-    :address => "smtp.sendgrid.net",
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -47,11 +37,11 @@ Consonrisas::Application.configure do
 
   config.autoload_paths += %W( #{::Rails.root.to_s}/app/workers )
 
-  config.fb.page_id = ENV['FB_PAGE_ID'] || '530935246927411'
-  config.fb.auth_token = ENV['FB_AUTH_TOKEN'] || 'AAACTCRhuePUBAECO7LiGoPu1qXiIasQjHcZCpAWdQBT1mZCOU2SZCcV4OBbGSbLLbAZCilZBIonnUZCnh5EpAhHORToNCCcyTurD2WZAaFitZCqWZCwIRXjeO'
+  config.fb.page_id = ENV['FB_PAGE_ID'] 
+  config.fb.auth_token = ENV['FB_AUTH_TOKEN'] 
 
-  config.twitter.consumer_key = ENV['TWITTER_CONSUMER_KEY'] || 'bO99GGfXFk2El5vBijNDQ'
-  config.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET'] || 'JjWmNG4UvoyA1ahNyuTXiuNWzCGmdHvdPM5SCfuiWI'
-  config.twitter.oauth_token = ENV['TWITTER_OAUTH_TOKEN'] || '178876518-vlczga9RaNBuwACrSLzCduh2wZbT5LYadKt3qiQ2'
-  config.twitter.oauth_secret = ENV['TWITTER_OAUTH_SECRET'] || 'POvjVYCStZShkbigRKHwlLZ3lhoOo6LxXWQ4F2yNK0'
+  config.twitter.consumer_key = ENV['TWITTER_CONSUMER_KEY'] 
+  config.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET'] 
+  config.twitter.oauth_token = ENV['TWITTER_OAUTH_TOKEN'] 
+  config.twitter.oauth_secret = ENV['TWITTER_OAUTH_SECRET'] 
 end

@@ -14,8 +14,8 @@ development:
   encoding: unicode
   database: consonrisas
   pool: 5
-  username: trust
-  password: trust
+  username: postgres
+  password: postgres
   host: localhost
 
 test:
@@ -23,8 +23,8 @@ test:
   encoding: unicode
   database: consonrisas_test
   pool: 5
-  username: trust
-  password: trust
+  username: postgres
+  password: postgres
   host: localhost
 
 production:
@@ -32,8 +32,8 @@ production:
   encoding: unicode
   database: consonrisas_production
   pool: 5
-  username: trust
-  password: trust
+  username: postgres
+  password: postgres
   host: localhost
 
 # cucumber:

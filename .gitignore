@@ -7,5 +7,5 @@ public/system/pics/
 *~.env
 .env
 config/s3.yml
-config/s3.yml
 s3.yml
+newEnv
