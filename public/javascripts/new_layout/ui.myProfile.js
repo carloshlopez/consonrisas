@@ -357,7 +357,12 @@ $jq(document).ready(function($) {
   $jq(".show-results-2013").click(function(e){
     e.preventDefault();
     $jq("#results_2013").dialog({modal:true, title:"Resultados del 2013", width: 600, closeText:"X", show:"slide"});
-  });  
+  });
+
+  $jq(".show-results-2014").click(function(e){
+    e.preventDefault();
+    $jq("#results_2014").dialog({modal:true, title:"Resultados del 2014", width: 600, closeText:"X", show:"slide"});
+  });
   
   $jq(".edit-me").click(showEdit); 
   
