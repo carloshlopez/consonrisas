@@ -14,9 +14,17 @@ development:
   encoding: unicode
   database: consonrisas
   pool: 5
-  username: postgres
-  password: postgres
+  username: dbuser
+  password: dbuser
   host: localhost
+  
+#  adapter: mysql2
+#  encoding: utf8
+#  database: c9
+#  username: carloshlopez
+#  password: 
+#  host: 127.0.0.1
+#  port: 3306
 
 test:
   adapter: postgresql
@@ -24,7 +32,7 @@ test:
   database: consonrisas_test
   pool: 5
   username: postgres
-  password: postgres
+  password: 
   host: localhost
 
 production:
@@ -33,7 +41,7 @@ production:
   database: consonrisas_production
   pool: 5
   username: postgres
-  password: postgres
+  password: 
   host: localhost
 
 # cucumber:

@@ -46,10 +46,13 @@
       =render :partial =>"complete_register"
     .mine.my-news_feed{:style=>"display:block"}
       =render :partial =>"sub_menu_options"
-      .show-results-2014-div
-        %a.show-results-2014{:href=>"#resultados-2014", :title=>"Ver los resultados del 2014", :style=>"font-size:16px;"}
-          RESULTADOS 2014
+      .show-results-2015-div
+        %a.show-results-2015{:href=>"#resultados-2015", :title=>"Ver los resultados del 2015", :style=>"font-size:16px;"}
+          RESULTADOS 2015
       .show-results-2012-div
+        %a.show-results-2014{:href=>"#resultados-2014", :title=>"Ver los resultados del 2014", :style=>"font-size:12px;"}
+          resultados 2014
+        |      
         %a.show-results-2013{:href=>"#resultados-2013", :title=>"Ver los resultados del 2013", :style=>"font-size:12px;"}
           resultados 2013
         |
@@ -75,4 +78,6 @@
     = render :partial=>"results/results2013"
   #results_2014{:style=>"display:none"}
     = render :partial=>"results/results2014"
+  #results_2015{:style=>"display:none"}
+    = render :partial=>"results/results2015"    
 = javascript_include_tag "new_layout/ui.myProfile"

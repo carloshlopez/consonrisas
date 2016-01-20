@@ -364,6 +364,11 @@ $jq(document).ready(function($) {
     $jq("#results_2014").dialog({modal:true, title:"Resultados del 2014", width: 600, closeText:"X", show:"slide"});
   });
   
+  $jq(".show-results-2015").click(function(e){
+    e.preventDefault();
+    $jq("#results_2015").dialog({modal:true, title:"Resultados del 2015", width: 600, closeText:"X", show:"slide"});
+  });  
+  
   $jq(".edit-me").click(showEdit); 
   
   if($jq("#show_edit").val() == "show"){

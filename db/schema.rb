@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.text     "news"
     t.string   "link"
     t.integer  "member_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "alert_type",  :default => 1
     t.integer  "member_from"
     t.integer  "role_id"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "member_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "secret"
     t.string   "token"
   end
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
   create_table "comments", :force => true do |t|
     t.text     "comment"
     t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "member_id"
   end
 
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.string   "cellphone"
     t.string   "phone"
     t.string   "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "member_id"
     t.integer  "fundation_id"
     t.integer  "provider_id"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
 
   create_table "daily_alerts", :force => true do |t|
     t.integer  "global_alert_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.string   "locked_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "queue"
   end
 
@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "member_id"
     t.integer  "event_id"
     t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "email"
     t.boolean  "is_owner",   :default => false
   end
@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "facilitator_id"
     t.boolean  "pending_invitation"
     t.boolean  "is_going"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "event_fundations", :force => true do |t|
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "fundation_id"
     t.boolean  "pending_invitation"
     t.boolean  "is_going"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "event_providers", :force => true do |t|
@@ -128,16 +128,16 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "provider_id"
     t.boolean  "pending_invitation"
     t.boolean  "is_going"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "events", :force => true do |t|
     t.datetime "date"
     t.string   "name"
     t.integer  "fundation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
@@ -178,8 +178,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
 
   create_table "facilitators", :force => true do |t|
     t.text     "contribution"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "member_id"
     t.string   "name"
     t.string   "pic_file_name"
@@ -201,16 +201,16 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
 
   create_table "feedbacks", :force => true do |t|
     t.text     "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fundation_admins", :force => true do |t|
     t.integer  "member_id"
     t.integer  "fundation_id"
     t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "e_mail"
   end
 
@@ -227,8 +227,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.text     "description"
     t.string   "phone"
     t.string   "website"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "name"
     t.integer  "population_id"
     t.integer  "member_id"
@@ -250,41 +250,42 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.string   "model"
     t.string   "model_id"
     t.string   "name_link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "members", :force => true do |t|
-    t.string   "email"
-    t.string   "encrypted_password",     :limit => 128
-    t.string   "password_salt"
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
-    t.string   "remember_token"
+    t.time     "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count"
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "role_id"
     t.string   "facebook_id"
-    t.boolean  "use_facebook_pic",                      :default => false
-    t.boolean  "admin",                                 :default => false
-    t.boolean  "emailNotifications",                    :default => true
+    t.boolean  "use_facebook_pic",       :default => false
+    t.boolean  "admin",                  :default => false
+    t.boolean  "emailNotifications",     :default => true
     t.string   "name"
-    t.boolean  "emailDaily",                            :default => true
-    t.boolean  "emailWeekly",                           :default => false
-    t.boolean  "emailInstantly",                        :default => false
-    t.time     "reset_password_sent_at"
+    t.boolean  "emailDaily",             :default => true
+    t.boolean  "emailWeekly",            :default => false
+    t.boolean  "emailInstantly",         :default => false
   end
+
+  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "need_categories", :force => true do |t|
     t.string   "name_es"
     t.string   "name_en"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "need_facilitators", :id => false, :force => true do |t|
@@ -295,8 +296,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
   create_table "needs", :force => true do |t|
     t.string   "name"
     t.boolean  "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "event_id"
   end
 
@@ -310,16 +311,16 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.boolean  "actual"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "photos", :force => true do |t|
     t.string   "path"
     t.string   "thumb"
     t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -332,8 +333,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.text     "description_es"
     t.integer  "age_min"
     t.integer  "age_max"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "name_en"
     t.string   "description_en"
   end
@@ -349,8 +350,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.string   "category"
     t.string   "state"
     t.integer  "fundation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "need_category_id"
   end
 
@@ -358,15 +359,15 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.integer  "member_id"
     t.integer  "provider_id"
     t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "email"
   end
 
   create_table "providers", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "member_id"
     t.string   "pic_file_name"
     t.string   "pic_content_type"
@@ -385,8 +386,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "shows", :force => true do |t|
@@ -396,8 +397,8 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
     t.string   "offering"
     t.string   "requirements"
     t.integer  "provider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "name"
     t.integer  "population_id"
   end
@@ -405,14 +406,14 @@ ActiveRecord::Schema.define(:version => 20150218154619) do
   create_table "videos", :force => true do |t|
     t.string   "url"
     t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "weekly_alerts", :force => true do |t|
     t.integer  "global_alert_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end
