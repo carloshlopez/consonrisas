@@ -78,7 +78,7 @@ GEM
     ffi (1.9.0)
     haml (4.0.3)
       tilt
-    hashie (2.0.5)
+    hashie (3.6.0)
     heroku-api (0.1.8)
       excon (~> 0.13.3)
     hike (1.2.3)
@@ -119,9 +119,9 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
-    omniauth (1.1.4)
-      hashie (>= 1.2, < 3)
-      rack
+    omniauth (1.4.2)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
     omniauth-oauth (1.0.1)
@@ -141,7 +141,7 @@ GEM
       mime-types
     pg (0.16.0)
     polyglot (0.3.3)
-    rack (1.4.5)
+    rack (1.4.7)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-oauth2 (1.0.5)
