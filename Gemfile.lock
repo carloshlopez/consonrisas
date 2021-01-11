@@ -175,7 +175,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    redcarpet (3.2.2)
+    redcarpet (3.5.1)
     rest (2.6.3)
       net-http-persistent
       rest-client (>= 0.3.0)
